@@ -1,0 +1,6 @@
+#include "lngc.inc" 
+#include "cconst.inc" 
+#include "fconst.inc" 
+                        
+#include "russian.rc"   
+#include "rus_frm.rc"

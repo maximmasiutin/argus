@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialling Restriction Schemes</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Scheme name">
+	<PARAM NAME="Keyword" VALUE="Required">
+	<PARAM NAME="Keyword" VALUE="Forbidden">
+	<PARAM NAME="Keyword" VALUE="Restriction scheme">
+	<PARAM NAME="Keyword" VALUE="Condition">
+	<PARAM NAME="Keyword" VALUE="Dialling Restriction Schemes">
+</OBJECT>
+
+<H1><A NAME="idh_cfgrest"></A>Dialling Restriction Schemes</H1>
+
+<P>Dialling restrictions schemes are designed to determine whether a poll is currently valid (i.e. it initiates 'phone call) for a particular dial-up line or not. Each dial-up line has its own restriction scheme; however, several lines could use one restriction scheme.</P>
+
+<P>Before polling from a particular dial-up line, Argus checks whether the poll is valid according to the line›s Required and Forbidden groups; the call is initiated only if the poll is valid according to both condition groups for that line.</P>
+
+<P><U>Scheme name</U> - name of restriction scheme (as it appears in a line Restriction scheme combo box)</P>
+
+<P><U>Required</U> - necessary conditions for a poll to be valid.</P>
+
+<P><U>Forbidden</U> - conditions making a poll invalid. </P>
+
+<P>Three condition types are implemented in the current version of Argus: <A HREF="addrmasks.html">address mask</A> (possibly with <A HREF="regexp.html">Regular Expressions</A>), Nodelist flags and the beginning of a 'phone number (usually 10 or 11 digits). </P>
+
+<P>Conditions in each group are divided with a space character.</P>
+
+<P>Items within a row are combined with logical AND operation, rows within a grid are combined with logical OR operation.</P>
+
+<P>For example:</P>
+
+<TABLE cols=3 width=650>
+
+<TR VALIGN="top">
+<TD width=14%><B>Required</B></TD>
+<TD width=45%><CODE>+7-095- CM 2:50*/* HST</CODE></TD>
+<TD width=41%>Call a node only if its 'phone number starts with <CODE>+7-095-</CODE> <B>and</B> it has <CODE>CM</CODE> <B>and</B> <CODE>HST</CODE> Nodelist flags <B>and</B> the node is in Region 50 of Zone 2</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%><B>Forbidden</B></TD>
+<TD width=45%><CODE>2:5020/666.* +7-095-212- ISDN</CODE></TD>
+<TD width=41%>Don›t call a node if it <B>and</B> its boss has a node number <CODE>2:5020/666</CODE> <B>and</B> its 'phone number starts with <CODE>+7-095-212-</CODE> <B>and</B> it has <CODE>PEP</CODE> <B>and</B> <CODE>ISDN</CODE> Nodelist flags</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

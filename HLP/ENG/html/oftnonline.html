@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Working Time Nodelist Flag (FSC-0062)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="TXY">
+	<PARAM NAME="Keyword" VALUE="FSC-0062">
+	<PARAM NAME="Keyword" VALUE="UTC">
+	<PARAM NAME="Keyword" VALUE="GMT">
+	<PARAM NAME="Keyword" VALUE="CM">
+	<PARAM NAME="Keyword" VALUE="ZMH">
+</OBJECT>
+
+<H1><A NAME="idh_oftnonline"></A>Working Time Nodelist Flag (FSC-0062) </H1>
+
+<P><CODE>CM</CODE> (Continuous/Crash Mail) flag indicates that the node is available at any time of day and night. This means that working time of the node is 00:00-24:00.</P>
+
+<P>Availability flag for non-CM nodes indicating the hours during which the node is available in addition to ZMH (see chapter <A HREF="cfgrefol.html">Calling a Node only within its Working Time</A> for ZMH definitions). This must be in accordance with the recommendations in FSC-0062 and the reference table reproduced below. This flag appears in the Nodelist entry as Txy, where x is a symbol for the opening time and y is a symbol for the closing time. All Txy flags must be specified after <B>U</B>, which is an attribute of extended Nodelist flag.</P>
+
+<P>ATTENTION : All times must be UTC (Universal Time Coordinated)!</P>
+
+<TABLE cols=14 width=451>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>A</CODE></PRE>
+</TD>
+<TD width=9%>0:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>F</CODE></PRE>
+</TD>
+<TD width=9%>5:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>K</CODE></PRE>
+</TD>
+<TD width=11%>10:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>P</CODE></PRE>
+</TD>
+<TD width=11%>15:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>U</CODE></PRE>
+</TD>
+<TD width=11%>20:00</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>a</CODE></PRE>
+</TD>
+<TD width=9%>0:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>f</CODE></PRE>
+</TD>
+<TD width=9%>5:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>k</CODE></PRE>
+</TD>
+<TD width=11%>10:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>p</CODE></PRE>
+</TD>
+<TD width=11%>15:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>u</CODE></PRE>
+</TD>
+<TD width=11%>20:30</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>B</CODE></PRE>
+</TD>
+<TD width=9%>1:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>G</CODE></PRE>
+</TD>
+<TD width=9%>6:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>L</CODE></PRE>
+</TD>
+<TD width=11%>11:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>Q</CODE></PRE>
+</TD>
+<TD width=11%>16:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>V</CODE></PRE>
+</TD>
+<TD width=11%>21:00</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>b</CODE></PRE>
+</TD>
+<TD width=9%>1:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>g</CODE></PRE>
+</TD>
+<TD width=9%>6:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>l</CODE></PRE>
+</TD>
+<TD width=11%>11:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>q</CODE></PRE>
+</TD>
+<TD width=11%>16:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>v</CODE></PRE>
+</TD>
+<TD width=11%>21:30</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>C</CODE></PRE>
+</TD>
+<TD width=9%>2:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD width=9%>7:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>M</CODE></PRE>
+</TD>
+<TD width=11%>12:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>R</CODE></PRE>
+</TD>
+<TD width=11%>17:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>W</CODE></PRE>
+</TD>
+<TD width=11%>22:00</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>c</CODE></PRE>
+</TD>
+<TD width=9%>2:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>h</CODE></PRE>
+</TD>
+<TD width=9%>7:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>m</CODE></PRE>
+</TD>
+<TD width=11%>12:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>r</CODE></PRE>
+</TD>
+<TD width=11%>17:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>w</CODE></PRE>
+</TD>
+<TD width=11%>22:30</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>D</CODE></PRE>
+</TD>
+<TD width=9%>3:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>I</CODE></PRE>
+</TD>
+<TD width=9%>8:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>N</CODE></PRE>
+</TD>
+<TD width=11%>13:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>S</CODE></PRE>
+</TD>
+<TD width=11%>18:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>X</CODE></PRE>
+</TD>
+<TD width=11%>23:00</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>d</CODE></PRE>
+</TD>
+<TD width=9%>3:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>i</CODE></PRE>
+</TD>
+<TD width=9%>8:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>n</CODE></PRE>
+</TD>
+<TD width=11%>13:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>s</CODE></PRE>
+</TD>
+<TD width=11%>18:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>x</CODE></PRE>
+</TD>
+<TD width=11%>23:30</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>E</CODE></PRE>
+</TD>
+<TD width=9%>4:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>J</CODE></PRE>
+</TD>
+<TD width=9%>9:00</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>O</CODE></PRE>
+</TD>
+<TD width=11%>14:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>T</CODE></PRE>
+</TD>
+<TD width=11%>19:00</TD>
+<TD width=5%> </TD>
+<TD width=6%>&nbsp;</TD>
+<TD width=11%>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=5%>
+<PRE><CODE>e</CODE></PRE>
+</TD>
+<TD width=9%>4:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>j</CODE></PRE>
+</TD>
+<TD width=9%>9:30</TD>
+<TD width=6%> </TD>
+<TD width=5%>
+<PRE><CODE>o</CODE></PRE>
+</TD>
+<TD width=11%>14:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>
+<PRE><CODE>t</CODE></PRE>
+</TD>
+<TD width=11%>19:30</TD>
+<TD width=5%> </TD>
+<TD width=6%>&nbsp;</TD>
+<TD width=11%>&nbsp;</TD>
+</TR>
+</TABLE><BR>
+
+<P>Argus is using this flag for <A HREF="cfgrefol.html">polling a node in its working time</A>.</P>
+
+<P>Argus allows the combing of working time intervals by using several <CODE>Txy</CODE> flags. For example, <CODE>TCh, TSW</CODE> means that node is available 2:00-6:30 and 18:00-22:00 UTC.</P>
+
+<P>Argus also supports <CODE>TxyL</CODE> extension - it is the same as <CODE>Txy</CODE>, but indicating that the time is local, not UTC. For example, <CODE>TCSL</CODE> means 2:00-18:00 local time.</P>
+
+<P><CODE>CM</CODE> flag is equivalent to <CODE>U,TAA</CODE>.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Startup Parameters Configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Start-up Configuration">
+	<PARAM NAME="Keyword" VALUE="Auto-Open Lines">
+	<PARAM NAME="Keyword" VALUE="Manual-Open Lines">
+	<PARAM NAME="Keyword" VALUE="Fast Logging">
+	<PARAM NAME="Keyword" VALUE="Log">
+	<PARAM NAME="Keyword" VALUE="WZ Pending/Incomplete">
+	<PARAM NAME="Keyword" VALUE="Pending">
+	<PARAM NAME="Keyword" VALUE="Incomplete">
+	<PARAM NAME="Keyword" VALUE="ODBC Logging">
+</OBJECT>
+
+<H1><A NAME="idh_cfgstartup"></A>Start-up Configuration</H1>
+
+<P>Argus start-up parameters are configured in Start-up Configuration dialogue.</P>
+
+<P><B>Configuring the automatic opening of Dial-up lines </B></P>
+
+<P>By default, Argus is configured so that there are no lines opened at start-up. It is possible to determine which lines are to be opened at start-up - this just saves you having to open them manually. Note that all the lines to be opened must be pre-configured.</P>
+
+<P>The lines to be opened at start-up are listed in Dial-up Lines / Auto-open list box. All other lines (which could be open manually using <A HREF="mnusystem.html">System</A> / Open Dial-up Line command) are listed in Dial-up Lines / Manual-open list box.</P>
+
+<P>To make lines open automatically at start-up, select the desired lines in the Manual-open list-box and press the <B>'&gt;'</B> button - the lines will be moved into Auto-open list. To remove an auto-opening line from the Auto-open list, select it in the Auto-open list box and press the <B>'&lt;'</B> button.</P>
+
+<P><B>Configuring TCP/IP Daemon start-up</B></P>
+
+<P>If you want <A HREF="introdaemon.html">TCP/IP Daemon</A> to start automatically each time Argus starts, tick the Auto-run TCP/IP Daemon checkbox.</P>
+
+<P><B>Fast logging</B></P>
+
+<P>By default, Argus keeps log files closed and opens them only when it is necessary to append new data. It makes possible to move or erase these files without restarting of Argus. Option <B>Fast logging</B> tells Argus to keep log files always opened to avoid permanent opening and closing these files whenever it is needed to append a new log record. It saves system resources and execution time, but can prevent from moving / erasing / truncating log files during Argus execution. </P>
+
+<P>Please note that improper use of <B>Fast logging</B> in OFF mode may be dangerous. If Argus fails to open a log file for writing, it will never try to open it again while running. So do not open log files in a mode that will prevent Argus from writing. Better way would be to rename the file to a  temporary name, analyse it, and then, possibly, move somewhere to archive directory.</P>
+
+<P>See also: <A HREF="logs.html">Extended logging</A>.</P>
+
+<H2>Log WZ pending/incomplete</H2>
+
+<P>This options turns on/off logging number of files in <A HREF="sdti.html">temporary inbound</A>. There may be two reasons when incoming files are stored in temporary inbound after a session terminates. First reason is when Argus was unable to move received files from temporary inbound (e.g. due to file with same name already exists in destination directory). Such files in temporary inbound are called pending files. Second reason is when a session was aborted during a file transfer was in progress, so the file wasn't completely received. Such files are called incomplete files. </P>
+
+<H2>ODBC logging</H2>
+
+<P>This option turns on ODBC logging, as described in <A HREF="odbclog.html">ODBC logging chapter</A>.</P>
+
+</BODY>
+</HTML>

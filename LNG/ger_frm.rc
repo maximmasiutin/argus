@@ -1,0 +1,506 @@
+STRINGTABLE
+LANGUAGE LANG_GERMAN,0
+{
+
+ LngBaseGerman+rsImportForm "ImportForm\n"\
+	"rbBinkD|BinkD © Dima Maloff\n"\
+	"rbBinkPlus|Bink/+ © serge terekhov\n"\
+	"rbTMail|T-Mail © Andy Elkin\n"\
+	"rbXenia|Xenia © Arjen G. Lentz\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"rbFrontDoor|FrontDoor 2.12 © Joaquim Homrighausen (Nur Paßworte)\n"\
+	"rbMainDoor|MainDoor 1.10 © Francisco Sedano Crippa (Nur Paßworte)\n"
+
+ LngBaseGerman+rsAtomEditorForm "Event-Atom bearbeiten\n"\
+	"llTyp|&Typ\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsMailerLineCfgForm "Mailer Line Konfiguration\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"PageControl|Allgemein|Events\n"\
+	"llStation|&Systemname\n"\
+	"llName|&Name der Line\n"\
+	"llPort|&Port\n"\
+	"llModem|&Modem\n"\
+	"llRestr|&Richtlinie\n"\
+	"llLog|&Logdatei\n"\
+	"llFaxIn|&Fax-Eingang\n"\
+	"labelAvl|&Verfügbar\n"\
+	"labelLinked|&Aktiviert\n"
+
+ LngBaseGerman+rsFreqCfgForm "File-Request Konfiguration\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"PageControl|Allgemein|Magics\n"\
+	"llSRIF|Standard Request Information File - Externer File-Requestprozessor\n"\
+	"cbSRIF|Benutze SRIF\n"\
+	"llGrid|Requestverzeichnisse\n"\
+	"cbDisable|&Keine Requests\n"\
+	"cbRecursive|&Unterverz. einschließen\n"\
+	"cbMasks|Wildcards erl&auben\n"\
+	"llAls|Magics einrichten\n"
+
+ LngBaseGerman+rsDeviceConfig "COM-Port Konfiguration\n"\
+	"lComPort|COM &Port\n"\
+	"lRate|&BPS-Rate\n"\
+	"llBits|Bits:\n"\
+	"lBits|8N1\n"\
+	"gFlow|&Flow control\n"\
+	"cbCTS_RTS|CTS/&RTS\n"\
+	"cbXon_Xoff|XOn/&XOff\n"\
+	"bBits|&Ändern...\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsFidoAddressInput "Adresse eingeben\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"AddressBox|Adresse\n"\
+	"bBrowse|Blättern\n"
+
+ LngBaseGerman+rsNodelistCompiler "Nodeliste wird kompiliert\n"\
+	"llStatus|Status:\n"\
+	"llNodes|Kompilierte Nodes:\n"\
+	"llNets|Kompilierte Netze:\n"\
+	"llCurFile|Aktuelle Datei:\n"\
+	"bStop|Stop\n"
+
+ LngBaseGerman+rsLineBitsEditor "Einstellung für die Line bits\n"\
+	"cData|Datenbits|&8|&7|&6|&5\n"\
+	"cParity|Parity|&None|&Odd|&Even|&Mark|&Space\n"\
+	"cStop|Stopbits|&1|1.5|&2\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsModemEditor "Modem Konfiguration\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"pg|Allgemein|Modemantworten|Flags|Fax\n"\
+	"llName|&Name\n"\
+	"llCmds|&Kommandos\n"\
+	"gbIntFax|Einstellungen für &internen Faxempfang\n"\
+	"cbDTE|Setze DTE auf 19.2 Kbps\n"\
+	"gbExt|Einstellungen für externen Faxempfang\n"\
+	"lExtR|&Kommandozeile\n"\
+	"rgExt|Faxempfang|Extern|Intern\n"
+
+ LngBaseGerman+rsSelectDirDialog "Verzeichnisse durchsuchen\n"\
+	"llDrive|&Laufwerk:\n"\
+	"llDirs|&Verzeichnis\n"\
+	"llSelect|&Aktuelle Einstellung:\n"\
+	"bOK|&OK\n"\
+	"bCancel|Abbrechen\n"
+
+ LngBaseGerman+rsPathNamesForm "Pfade\n"\
+	"llSpecial|&Systemverzeichnisse\n"\
+	"llDefZone|Standard Outbound Zone\n"\
+	"gbHomeDir|&Programmverzeichnis\n"\
+	"bChangeHomeDir|&Ändern...\n"\
+	"bBrowse|&Blättern...\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsNodeListCfgForm "Nodelisten Konfiguration\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"pg|Nodelisten|Wahlanweisungen\n"
+
+ LngBaseGerman+rsPwdForm "Paßwörter für Up- und Downlinks\n"\
+	"lAuxPwds|Zusätzliche Paßwortdatei\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"bImportPwd|Im&portieren...\n"\
+	"bSort|&Sortieren\n"
+
+ LngBaseGerman+rsRestrictCfgForm "Richtlinien zur Wahlbewertung\n"\
+	"llName|Bezeichnung\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"p|Erforderlich|Verboten\n"\
+	"bExplain|Erklären...\n"
+
+ LngBaseGerman+rsMailerForm "MailerForm\n"\
+	"lRXD|RXD\n"\
+	"lTXD|TXD\n"\
+	"lCTS|CTS\n"\
+	"lDSR|DSR\n"\
+	"lDCD|DCD\n"\
+	"DaemonPI| Eingabe\n"\
+	"DaemonPIH| bisherige Eingaben\n"\
+	"DaemonPO| Ausgabe\n"\
+	"DaemonPOH| bisherige Ausgaben\n"\
+	"SndBox|Sende\n"\
+	"llSndCPS|CPS\n"\
+	"llSndSize|Größe:\n"\
+	"RcvBox|Empfange\n"\
+	"llRcvCPS|CPS\n"\
+	"llRcvSize|Größe:\n"\
+	"PollsListView|Node|Adressen|Quelle|Status|Besetzt|Keine Verb.|Fehler|Typ\n"\
+	"StatusBox| Status \n"\
+	"OutMgrHeader|Outbound|Größe|Typ|Nach dem Senden|Alter\n"\
+	"mSystem|&System\n"\
+	"msOpenDialup|&Modem/ISDN-Line starten\n"\
+	"mfRunIPDaemon|&TCP/IP-Dämon starten/stoppen\n"\
+	"msInterfaceLanguage|&Spracheinstellungen\n"\
+	"ilRomanian|Ru&mänisch\n"\
+	"ilRussian|&Russisch\n"\
+	"ilMitky|R&ussisch (Mitky)\n"\
+	"ilEnglishUK|&Englisch (UK)\n"\
+	"ilGerman|&Deutsch\n"\
+	"ilDutch|&Holländisch\n"\
+	"ilSpanish|&Spanisch\n"\
+	"mwCreateMirror|&Neues Fenster \n"\
+	"mwClose|Fenster s&chließen\n"\
+	"mfExit|&Beenden\n"\
+	"mLine|&Line\n"\
+	"mlAbortOperation|Zu&rücksetzen\n"\
+	"mlAnswer|&Anruf annehmen\n"\
+	"mlSendMdmCmds|Sende &Modem AT-Befehle\n"\
+	"mlResetTimeout|&Zähler löschen\n"\
+	"mlIncTimeout|Zähler er&höhen\n"\
+	"mlSkip|Datei überspringen (später &empfangen)\n"\
+	"mlRefuse|&Datei ablehnen\n"\
+	"mlClose|S&chließen\n"\
+	"mPoll|&Poll\n"\
+	"mpCreate|&Neu\n"\
+	"mpDelete|&Löschen\n"\
+	"mpReset|Zu&rücksetzen\n"\
+	"mpTrace|&Info\n"\
+	"mpDeleteAll|&Alle löschen\n"\
+	"mTool|&Tool\n"\
+	"mtCompileNodelist|Nodeliste &kompilieren\n"\
+	"mtCompileNodelistInv|Nodeliste &kompilieren\n"\
+	"mtBrowseNodelist|Nodeliste &durchsuchen\n"\
+	"mtBrowseNodelistAt|Adresse in Nodeliste &suchen...\n"\
+	"mtEditFileRequest|Bearbeite &File-Request...\n"\
+	"mtAttachFiles|Dateien an&hängen...\n"\
+	"mtCreateFlag|Flag &anlegen...\n"\
+	"mtOutSmartMenu|Outbound SmartMenu (TM)\n"\
+	"mConfig|&Konfiguration\n"\
+	"mcMasterPassword|&Master Paßwort\n"\
+	"mcMasterPwdCreate|&Einrichten...\n"\
+	"mcMasterPwdChange|Ä&ndern...\n"\
+	"mcMasterPwdRemove|&Löschen...\n"\
+	"mcStartup|Auto-&Start\n"\
+	"mcPathnames|&Pfade\n"\
+	"mcNodelist|&Nodelisten\n"\
+	"mcPasswords|Paß&wörter\n"\
+	"mcDialup|Wählverbin&dungen\n"\
+	"mcDaemon|&TCP/IP-Dämon\n"\
+	"mcFileBoxes|Dateiablageverzeichnisse (File-&Boxes)\n"\
+	"mcPolls|P&olls\n"\
+	"maFileRequests|&File-Requests\n"\
+	"maExternals|E&xterne Programme\n"\
+	"maEvents|E&vents\n"\
+	"maEncryptedLinks|&Encrypted Links\n"\
+	"maNodes|Node &Inspector\n"\
+	"mHelp|&Hilfe\n"\
+	"mhContents|Hilfe &Themen\n"\
+	"mhLanguage|Hilfe &Sprachversion\n"\
+	"hlRomainian|Ru&mänisch\n"\
+	"hlRussian|&Russisch\n"\
+	"hlMitky|R&ussisch (Mitky)\n"\
+	"hlEnglish|&English (UK)\n"\
+	"hlGerman|&Deutsch\n"\
+	"hlDutch|&Holländisch\n"\
+	"hlSpanish|&Spanisch\n"\
+	"mhHelp|Hilfe zur &Hilfe\n"\
+	"mhWebSite|Argus &Web Site (Internet)\n"\
+	"mhLicence|&Lizenzvereinbarung\n"\
+	"mhAbout|&Über Argus\n"\
+	"mhHowReg|Wie registriere ich &Argus ? (Internet)\n"\
+	"mRegistration|&Registrierung eingeben...\n"\
+	"ppCreatePoll|&Neu\n"\
+	"ppTracePoll|&Info\n"\
+	"ppResetPoll|Zu&rücksetzen\n"\
+	"ppDeletePoll|&Löschen\n"\
+	"ppDeleteAllPolls|&Alle löschen\n"\
+	"ompRescan|Outbound neu einlesen\n"\
+	"ompCfCrash|Crash\n"\
+	"ompCfDirect|Direct\n"\
+	"ompCfNormal|Normal\n"\
+	"ompCfHold|Hold\n"\
+	"opmReaddress|Adresse ändern\n"\
+	"opmFinalize|Löschen\n"\
+	"opmCrash|Ändern in Crash\n"\
+	"opmDirect|Ändern in Direct\n"\
+	"opmNormal|Ändern in Normal\n"\
+	"opmHold|Ändern in Hold\n"\
+	"opmUnlink|Unlink\n"\
+	"opmPurge|Ungültige Links entfernen\n"\
+	"tpRestore|&Wiederherstellen\n"\
+	"tpCreatePoll|Neuen &Poll erzeugen\n"\
+	"tpEditFileRequest|&File(s) requesten\n"\
+	"tpBrowseNodelist|&Nodeliste durchsuchen\n"\
+	"tpExit|B&eenden\n"\
+	"tpCancel|&Abbrechen\n"
+
+ LngBaseGerman+rsAttachStatusForm "Attach Status\n"\
+	"bAttach|Attach status|&Hold|&Normal|&Direct|&Crash|Crash && &Poll\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"bOnSent|Nach dem Senden|Nichts|Löschen|Abschneiden\n"
+
+ LngBaseGerman+rsMainConfigForm "Konfiguration der Wahlverbindungen\n"\
+	"pg|Lines|System|Ports|Modems|Richtlinien|Nodes\n"\
+	"lLines|Line name|Systemschablone|Port|Modem\n"\
+	"lStation|Schablonenname|Systemname|Adressen\n"\
+	"lPorts|Com port|BPS|Flow control|Line bits\n"\
+	"lModems|Modem Name\n"\
+	"lRestrictions|Richtlinien Name|Erforderlich|Verboten\n"\
+	"lAuxNodes|Zusätzliche Node-Datei\n"\
+	"bNew|&Neu\n"\
+	"bEdit|B&earbeiten\n"\
+	"bCopy|&Kopieren\n"\
+	"bDelete|&Löschen\n"\
+	"bUndelete|&Undelete\n"\
+	"bDefault|&Default\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"bImport|&Importieren...\n"\
+	"bSort|&Sortieren\n"\
+	"bEditNode|B&earbeiten\n"\
+	"ppNew|&Neu\n"\
+	"ppEdit|B&earbeiten\n"\
+	"ppCopy|&Kopieren\n"\
+	"ppDelete|&Löschen\n"\
+	"ppUndelete|&Undelete\n"\
+	"ppDefault|&Default\n"
+
+ LngBaseGerman+rsStartupConfigForm "Autostart Konfiguration\n"\
+	"gbLines|Wahlverbin&dungen\n"\
+	"llManual|&Manueller Start\n"\
+	"llAuto|&Automatischer Start\n"\
+	"cbDaemon|&TCP/IP Dämon automatisch starten\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"cbFastLog|&Fast logging\n"\
+	"cbLogWZ|Log &WZ pending/incomplete\n"
+
+ LngBaseGerman+rsRegInputForm "Programm Registrierung\n"\
+	"llKey|Argus Schlüssel\n"\
+	"llPwd|Paßwort\n"\
+	"llSum|Prüfsumme\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"
+
+ LngBaseGerman+rsExternalsForm "Externe Programme\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"bImportPwd|Importieren...\n"\
+	"PageControl|Nachverarbeitung|Doors|Cron\n"
+
+
+ LngBaseGerman+rsEventsForm "Event-Konfiguration\n"\
+	"lv|Name|Cron|Dauer|Atoms\n"\
+	"bNew|&Neu\n"\
+	"bEdit|B&earbeiten\n"\
+	"bCopy|&Kopieren\n"\
+	"bDelete|&Löschen\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"ppNew|&Neu\n"\
+	"ppEdit|B&earbeiten\n"\
+	"ppCopy|&Kopieren\n"\
+	"ppDelete|&Löschen\n"
+
+ LngBaseGerman+rsEvtEditForm "Event bearbeiten\n"\
+	"llName|&Name\n"\
+	"llCron|&Croneintrag (Min Std Tag Monat TagDerWoche)\n"\
+	"llAtoms|A&toms\n"\
+	"llL|Dauer\n"\
+	"llD|&Tage\n"\
+	"llH|&Stunden\n"\
+	"llM|&Minuten\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"bAddAtom|&Hinzufügen\n"\
+	"bDelete|&Löschen\n"\
+	"bEdit|B&earbeiten\n"\
+	"lb|Typ|Parameter\n"\
+	"cbPermanent|&Permanent\n"
+
+ LngBaseGerman+rsNodelistBrowser "Nodeliste durchsuchen\n"\
+	"llAddr|Adresse:\n"\
+	"llStat|System:\n"\
+	"llSysop|SysOp:\n"\
+	"llSite|Ort:\n"\
+	"llPhn|Telefon:\n"\
+	"llSpd|Geschwindigkeit:\n"\
+	"llFlags|Flags:\n"\
+	"llWrkTime|Online-Zeiten:\n"\
+	"llAddrSearch|&Adressuche:\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsDisplayInfoForm "DisplayInfoForm\n"\
+	"bOK|OK\n"
+
+ LngBaseGerman+rsEncryptedLinksForm "Encrypted Links\n"\
+	"bAdd|Hinzufügen\n"\
+	"bRemove|Entfernen\n"\
+	"bChange|Ändern\n"\
+	"bClose|Schließen\n"\
+	"bHelp|Hilfe\n"\
+	"bSort|Sortieren\n"
+
+ LngBaseGerman+rsFidoTemplateEditor "Systemschablone bearbeiten\n"\
+	"lTplName|Schablonenname\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"PageControl|EMSI|Banner|AKA\n"
+
+ LngBaseGerman+rsFileBoxesForm "Konfiguration für Dateiablagen (File-Boxes)\n"\
+	"PageControl|Nodes|Optionen\n"\
+	"lRoot|Startverzeichnis\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsFReqDlg "File-Request erzeugen/bearbeiten\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsModemCmdForm "AT-Befehle an das Modem senden\n"\
+	"lModemCommand|AT-Befehl\n"\
+	"bSend|&Senden\n"\
+	"bClose|Schließen\n"
+
+ LngBaseGerman+rsNewPwdInputForm "NewPwdInputForm\n"\
+	"lNew|Neues Paßwort\n"\
+	"lCfm|Neues Paßwort wiederholen\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsNodeWizzardForm "Node Inspector\n"\
+	"lPsw|Paßwort\n"\
+	"lPostProc|Nachlauf\n"\
+	"gbNodelist|Nodelisten Informationen\n"\
+	"llStat|System:\n"\
+	"llSysop|SysOp:\n"\
+	"llSite|Ort:\n"\
+	"llPhn|Telefon:\n"\
+	"llSpd|Geschw.:\n"\
+	"llFlags|Flags:\n"\
+	"llWrkTime|Online-Zeiten:\n"\
+	"gbNodeOvr|Änderungen für diesen Node\n"\
+	"lDupOvr|Wählen\n"\
+	"lIpOvr|TCP/IP\n"\
+	"bEditDupOvr|Ändern\n"\
+	"bEditIpOvr|Ändern\n"\
+	"gbRest|Present in restrictions\n"\
+	"lIpRest|TCP/IP\n"\
+	"lDialRest|Wählen\n"\
+	"bEditDialRest|Ändern\n"\
+	"bEditIpRest|Ändern\n"\
+	"gbEncLink|Encrypted\n"\
+	"bElSet|Setzen\n"\
+	"bElChange|Ändern\n"\
+	"bElRemove|Entfernen\n"\
+	"gbAkas|Present in AKAs\n"\
+	"lIpAKA|TCP/IP\n"\
+	"lDialAKA|Wählen\n"\
+	"bEditDialAKA|Ändern\n"\
+	"bEditIpAka|Ändern\n"\
+	"gbFbox|Dateiablage\n"\
+	"lFboxIn|Eing.\n"\
+	"lFboxOut|Ausg.\n"\
+	"gbPoll|Poll\n"\
+	"lPollPer|Fortlaufend\n"\
+	"lPollExt|Extern\n"\
+	"gbCurNode|Aktueller Node\n"\
+	"bNewNode|Neu\n"\
+	"bDeleteNode|Löschen\n"\
+	"gbAtoms|Present in Atoms\n"\
+	"lAtoms|Events\n"\
+	"bEditEvents|Ändern\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsOvrExplainForm "OvrExplainForm\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsPollSetupForm "Polls konfigurieren\n"\
+	"PageControl|Regelmäßige|Optionen|Programme\n"\
+	"gbTry|Versuche\n"\
+	"lBysy|Besetzt\n"\
+	"lNoC|Keine Verb.\n"\
+	"lFail|Fehler\n"\
+	"gbTO|Time-outs\n"\
+	"lRetry|Pause (sec) vor Wiederholung\n"\
+	"lStandOff|Zeitraum (min) bis Neuversuch\n"\
+	"cbTransmitHold|Hold-Paket(e) bei ausgehendem Anruf senden\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"
+
+ LngBaseGerman+rsSinglePasswordForm "Argus Paßworteingabe\n"\
+	"bLogon|Login\n"\
+	"bCancel|Beenden\n"
+
+ LngBaseGerman+rsStartWizzardForm "StartWizzardForm\n"\
+	"Pages|Verbindungsart|Wahleigenschaften\n"\
+	"gbConn|Welche Verbindungen sollen benutzt werden\n"\
+	"cbDUP|Modem/ISDN Wahlverbindungen nach FTS/FSC\n"\
+	"cbIP|TCP/IP Verbindungen\n"\
+	"gbDialProps|Wahleigenschaften\n"\
+	"lAreaCode|Ortsnetzkennzahl\n"\
+	"lLocalPrefix|Amtsholung (bei Nebenstellenanlagen)\n"\
+	"lLongDistPrefix|Amtsholung für Ferngespräche (in Deutschland nicht benötigt)\n"\
+	"lComPort|COM &Port\n"\
+	"rgTonePulse|Wählverfahren|Tonwahl|Impulswahl\n"\
+	"cbSetRestrict|Richtlinie zur Verhinderung zufälliger Ferngespräche einrichten\n"\
+	"bPrev|<<  &Zurück\n"\
+	"bNext|&Weiter  >>\n"\
+	"bCancel|Abbrechen\n"
+
+ LngBaseGerman+rsIPcfgForm "TCP/IP-Dämon Konfiguration\n"\
+	"bOK|OK\n"\
+	"bCancel|Abbrechen\n"\
+	"bHelp|Hilfe\n"\
+	"tb|Allgemein|Station|AKA|Banner|Richtlinien|Events|DNS|Nodes\n"\
+	"llInPorts|Eingehende Ports\n"\
+	"llAssumeSpeed|Angenommene Geschwindigkeit\n"\
+	"llSocksAddr|&IP-Adresse\n"\
+	"llSocksPort|&Port\n"\
+	"llLimit|Max. Verbindungen\n"\
+	"llCin|&Eing.\n"\
+	"llCout|&Ausg.\n"\
+	"cbSOCKS|&SOCKS4 Proxy für ausgehende Verbindungen benutzen\n"\
+	"p|Erfoderlich|Verboten\n"\
+	"labelAvl|&Verfügbar\n"\
+	"labelLinked|&Aktiviert\n"\
+	"lAuxNodes|Zusätzliche Node Datei\n"\
+	"bImport|&Importieren...\n"\
+	"bSort|&Sortieren\n"\
+	"bEditNode|&Bearbeiten\n"\
+	"bExplain|Er&klären...\n"
+
+}

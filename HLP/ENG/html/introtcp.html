@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Extended TCP/IP Support</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="TCP/IP">
+	<PARAM NAME="Keyword" VALUE="WinSock">
+	<PARAM NAME="Keyword" VALUE="Daemon">
+</OBJECT>
+
+<H1><A NAME="idh_introtcp"></A>Extended TCP/IP Support</H1>
+
+<P>Argus supports protocol-independent transport interface of WinSocket 2.0 (which was introduced in Windows NT version 4.0). Using WinSocket 2.0 allows you work seamlessly with a number of transport protocols such as TCP/IP, X.25 etc., use protocol-independent symbolic host name resolution  (for example, SAP, X.500 etc., not only DNS), Win32-overlapped input/output modes, shared sockets, conditional acceptance etc.</P>
+
+<P>The current version of Argus supports the most widely used WAN protocol - TCP/IP. In future versions we are planning to implement support for other protocols.</P>
+
+<P>In regard of WinSocket 2.0 and Win32 use and the multi-threaded program architecture, host name resolution, connection and disconnection›s, input/output operations with TCP/IP are functioning as parallel processes; such way of operation provides optimal resource usage and minimum system load. </P>
+
+<P><A HREF="introdaemon.html">TCP/IP Daemon</A> is the centre of control for all TCP/IP operations.</P>
+
+</BODY>
+</HTML>

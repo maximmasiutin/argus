@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_cfgrest"></A>Схемы ограничений прозвонок</H1>
+
+<P>Ограничения на прозвонку:</P>
+
+<UL>
+	<LI><U>Required</U> -условия, необходимые для того, чтобы производить прозвонку.<BR><BR></LI>
+
+	<LI><U>Forbidden</U> - условия достаточные для того, чтобы прозвонку не производить. В текущей версии реализованы условия трех типов - <A HREF="addrmasks.html">маска адресов</A>, флаги узла и начало полного (обычно 10 или 11 цифр) номера телефона.</LI>
+</UL>
+
+<P>Допускается объединение адресов в группу, с использованием <A HREF="addrmasks.html">масок</A> и <A HREF="regexp.html">регулярных выражений</A>.</P>
+
+<P>Условия перечисляются через пробел.</P>
+
+<P>Элементы в строке комбинируются логической операцией И, строки в таблице - логической ИЛИ.</P>
+
+<P>Пример</P>
+
+<TABLE cols=2 width=615>
+
+<TR VALIGN="top">
+<TD width=16%>Required</TD>
+<TD width=84%>
+<PRE><CODE>+7-095- CM 2:50*/* HST</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<TABLE cols=1 width=615>
+
+<TR VALIGN="top">
+<TD width=100%>Звонить на узел только если его телефон начинается на <CODE>+7-095-</CODE>, у него прописаны флажки <CODE>СM</CODE> и <CODE>HST</CODE> и он находится в 50-ом регионе второй зоны.</TD>
+</TR>
+</TABLE><BR>
+
+<TABLE cols=2 width=615>
+
+<TR VALIGN="top">
+<TD width=16%>Forbidden</TD>
+<TD width=84%>
+<PRE><CODE>2:5020/666.* +7-095-212- ISDN</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<TABLE cols=1 width=615>
+
+<TR VALIGN="top">
+<TD width=100%>Не звонить если адрес узла <CODE>2:5020/66*</CODE>, и номер телефона узла начинается на <CODE>+7-095-212-</CODE>, и у узла прописан флажок <CODE>ISDN</CODE>.</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

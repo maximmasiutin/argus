@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Multi-line Mailing System</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Line">
+	<PARAM NAME="Keyword" VALUE="Daemon">
+	<PARAM NAME="Keyword" VALUE="multi-line">
+</OBJECT>
+
+<H1><A NAME="idh_intromulti"></A>Multi-Line Mailing System</H1>
+
+<P>Because Argus is a true multi-line mailing system, configuration and co-ordination of all lines is truly quick and easy. There are no special limitations to number of concurrent connections - it just depends on a users' possibilities and requirements. The data transfer with a node can be established either via Dial-up or TCP/IP transport - this is determined by transport availability.</P>
+
+<P>Dial-up lines can be started automatically at Argus start-up or manually by a user's request with System / Open Dial-up Line menu command. Each dial-up line requires a communication port, so the number of ports limits the number of lines being active simultaneously in a system.</P>
+
+<P>TCP/IP lines are created and disposed as a result of <A HREF="introdaemon.html">TCP/IP Daemon</A> functioning. As soon as Argus detects an incoming TCP/IP connection or a new poll via TCP/IP in the <A HREF="pollmgr.html">Poll Manager</A>, Daemon creates a new mailing system line and starts a file transfer protocol. When a TCP/IP session finishes, Daemon closes the line and ends the connection. </P>
+
+</BODY>
+</HTML>

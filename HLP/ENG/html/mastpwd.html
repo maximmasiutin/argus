@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Master Password</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Master Password">
+	<PARAM NAME="Keyword" VALUE="DES">
+	<PARAM NAME="Keyword" VALUE="MD5">
+	<PARAM NAME="Keyword" VALUE="Config">
+	<PARAM NAME="Keyword" VALUE="encrypt">
+	<PARAM NAME="Keyword" VALUE="protect">
+</OBJECT>
+
+<H1><A NAME="idh_mastpwd"></A>Master Password</H1>
+
+<P>Master Password is purposed to encrypt <CODE>config.bin</CODE> file using DES/CBC-56bit and MD5 algorithms to prevent your Argus configuration data (especially encrypted links' keys) from being stolen. Once set, Master Password would be asked each time Argus starts up, and before changing encrypted links' keys. If you would forget your Master password, there would be no easy practical way to retrieve the configuration data. Please use it very carefully. We also recommend backing up the original <CODE>config.bin</CODE> to a safe place.</P>
+
+<P>DES cryptographic algorithms, used by Argus, are written by Eric Young (eay@mincom.oz.au). MD5 stands for RSA Data Security, Inc. MD5 Message-Digest Algorithm.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>File-Flags</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="nodelist.ok">
+	<PARAM NAME="Keyword" VALUE="exit.now">
+	<PARAM NAME="Keyword" VALUE="password.ok">
+	<PARAM NAME="Keyword" VALUE="ipovr.ok">
+	<PARAM NAME="Keyword" VALUE="dupovr.ok">
+	<PARAM NAME="Keyword" VALUE="close.line">
+	<PARAM NAME="Keyword" VALUE="open.line">
+</OBJECT>
+
+<H1><A NAME="idh_fileflags"></A>File-Flags</H1>
+
+<P>File-flags are the temporary files in Argus <A HREF="hd.html">Home Directory</A>. By means of file-flags, external programs or system operator can force Argus to do something. Argus periodically scans Home Directory for file-flags, and, after detection deletes the file-flag.</P>
+
+<TABLE cols=2 width=632>
+
+<TR VALIGN="top">
+<TD width=17%>nodelist.ok</TD>
+<TD width=83%>Compile the nodelist. Identical to Compile Nodelist item of Tool menu (Shift-F6).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>exit.now</TD>
+<TD width=83%>Exit Argus. Identical to Exit item of System menu (Alt+X).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>password.ok</TD>
+<TD width=83%>Import auxiliary password file.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>dupovr.ok</TD>
+<TD width=83%>Import auxiliary dial-up node overrides file.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>ipovr.ok</TD>
+<TD width=83%>Import auxiliary TCP/IP node overrides file.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>close.linename</TD>
+<TD width=83%>Close a line. E.g. if the line is named "Line4", the flag should be named "close.Line4"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>open.linename</TD>
+<TD width=83%>Opens a line.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>close.ip</TD>
+<TD width=83%>Close TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>open.ip</TD>
+<TD width=83%>Open TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>active.linename</TD>
+<TD width=83%>Indicates that a line is currently active i.e. opened.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>active.ip </TD>
+<TD width=83%>Indicates that TCP/IP daemon is currently active i.e. opened.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>current.ip</TD>
+<TD width=83%>Indicates that at least one TCP/IP connection is currently opened.</TD>
+</TR>
+</TABLE><BR>
+
+<P>Please note that "close.linename" &amp; "open.linename" flags are deleted only in case of successful open / close operation. E.g. open.line1 flag will not be deleted until the line actually opens with a valid serial port.</P>
+
+</BODY>
+</HTML>

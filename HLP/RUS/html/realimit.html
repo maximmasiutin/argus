@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_realimit"></A>Limitiations</H1>
+
+<P>There are some size limitations in PCRE but it is hoped that they will never in practice be relevant. The maximum length of a compiled pattern is 65539 (sic) bytes. All values in repeating quantifiers must be less than 65536. The maximum number of capturing subpatterns is 99. The maximum number of all parenthesized subpatterns, including capturing subpatterns, assertions, and other types of subpattern, is 200.</P>
+
+<P>The maximum length of a subject string is the largest positive number that an integer variable can hold. However, PCRE uses recursion to handle subpatterns and indefinite repetition. This means that the available stack space may limit the size of a subject string that can be processed by certain patterns.</P>
+
+</BODY>
+</HTML>

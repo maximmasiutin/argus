@@ -1,0 +1,6 @@
+#include "lngc.inc" 
+#include "cconst.inc" 
+#include "fconst.inc" 
+                        
+#include "german.rc"   
+#include "ger_frm.rc"

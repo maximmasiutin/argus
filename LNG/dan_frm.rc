@@ -1,0 +1,505 @@
+STRINGTABLE
+LANGUAGE LANG_DANISH,0
+{
+
+ LngBaseDanish+rsImportForm "ImportForm\n"\
+	"rbBinkD|BinkD © Dima Maloff\n"\
+	"rbBinkPlus|Bink/+ © serge terekhov\n"\
+	"rbTMail|T-Mail © Andy Elkin\n"\
+	"rbXenia|Xenia © Arjen G. Lentz\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"rbFrontDoor|FrontDoor 2.12 © Joaquim Homrighausen (passwords only)\n"\
+	"rbMainDoor|MainDoor 1.10 © Francisco Sedano Crippa (passwords only)\n"
+
+ LngBaseDanish+rsAtomEditorForm "Edit Event Atom\n"\
+	"llTyp|&Type\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsMailerLineCfgForm "Mailer line configuration\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"PageControl|General|Events\n"\
+	"llStation|&Station\n"\
+	"llName|Line &name\n"\
+	"llPort|&Port\n"\
+	"llModem|&Modem\n"\
+	"llRestr|&Restrictions\n"\
+	"llLog|&Log file\n"\
+	"llFaxIn|&Fax inbound\n"\
+	"labelAvl|&Available\n"\
+	"labelLinked|&Linked\n"
+
+ LngBaseDanish+rsFreqCfgForm "File Request Configuration\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"PageControl|General|Aliases\n"\
+	"llSRIF|Standard Request Information File - External Processor\n"\
+	"llGrid|Requested directories\n"\
+	"cbRecursive|&Recursive paths\n"\
+	"cbMasks|&Allow masks\n"\
+	"cbDisable|&Disable all requests\n"\
+	"cbSRIF|Use SRIF\n"\
+	"llAls|Aliases\n"
+
+ LngBaseDanish+rsDeviceConfig "Port Configuration\n"\
+	"lComPort|COM &Port\n"\
+	"lRate|&BPS rate\n"\
+	"llBits|Bits:\n"\
+	"lBits|8N1\n"\
+	"gFlow|&Flow control\n"\
+	"cbCTS_RTS|CTS/&RTS\n"\
+	"cbXon_Xoff|XOn/&XOff\n"\
+	"bBits|&Change...\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsFidoAddressInput "Input the address\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"AddressBox|Address\n"\
+	"bBrowse|Browse\n"
+
+ LngBaseDanish+rsNodelistCompiler "Compiling The Nodelist\n"\
+	"llStatus|Status:\n"\
+	"llNodes|Nodes compiled:\n"\
+	"llNets|Nets compiled:\n"\
+	"llCurFile|Current file:\n"\
+	"bStop|Stop\n"
+
+ LngBaseDanish+rsLineBitsEditor "Line bits settings\n"\
+	"cData|Data bits|&8|&7|&6|&5\n"\
+	"cParity|Parity|&None|&Odd|&Even|&Mark|&Space\n"\
+	"cStop|Stop bits|&1|1.5|&2\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsModemEditor "Modem configuration\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"pg|General|Responses|Flags|Fax\n"\
+	"llName|&Name\n"\
+	"llCmds|&Commands\n"\
+	"gbIntFax|&Internal receiver settings\n"\
+	"cbDTE|Switch DTE to 19.2 Kbps\n"\
+	"gbExt|External Receiver settings\n"\
+	"lExtR|&Command line\n"\
+	"rgExt|Fax receiver|External|Internal\n"
+
+ LngBaseDanish+rsSelectDirDialog "Browse directories\n"\
+	"llDrive|Dri&ve:\n"\
+	"llDirs|&Directories\n"\
+	"llSelect|&Select:\n"\
+	"bOK|&OK\n"\
+	"bCancel|Cancel\n"
+
+ LngBaseDanish+rsPathNamesForm "Path Names\n"\
+	"llSpecial|&Special directories\n"\
+	"llDefZone|Outbound default zone\n"\
+	"gbHomeDir|&Home directory\n"\
+	"bChangeHomeDir|&Change...\n"\
+	"bBrowse|&Browse...\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsNodeListCfgForm "Nodelist Configuration\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"pg|Files|'Phones\n"
+
+ LngBaseDanish+rsPwdForm "Node Passwords\n"\
+	"lAuxPwds|Auxiliary passwords file\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"bImportPwd|Im&port...\n"\
+	"bSort|&Sort\n"
+
+ LngBaseDanish+rsRestrictCfgForm "Dialling Restrictions Scheme\n"\
+	"llName|Scheme name\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"p|Required|Forbidden\n"\
+	"bExplain|Explain...\n"
+
+ LngBaseDanish+rsMailerForm "MailerForm\n"\
+	"lRXD|RXD\n"\
+	"lTXD|TXD\n"\
+	"lCTS|CTS\n"\
+	"lDSR|DSR\n"\
+	"lDCD|DCD\n"\
+	"DaemonPI| Input\n"\
+	"DaemonPIH| Input History\n"\
+	"DaemonPO| Output\n"\
+	"DaemonPOH| Output History\n"\
+	"SndBox|Sending\n"\
+	"llSndCPS|CPS\n"\
+	"llSndSize|Size:\n"\
+	"RcvBox|Receiving\n"\
+	"llRcvCPS|CPS\n"\
+	"llRcvSize|Size:\n"\
+	"PollsListView|Node|Numbers|Owner|State|Busy|No c.|Fail|Type\n"\
+	"StatusBox| Status \n"\
+	"OutMgrHeader|Outbound|Size|Type|On sent|Age\n"\
+	"mSystem|&System\n"\
+	"msOpenDialup|Open Dial-up Line\n"\
+	"mfRunIPDaemon|TCP/IP Daemon\n"\
+	"msInterfaceLanguage|Interface &Language\n"\
+	"ilRomanian|Ro&manian\n"\
+	"ilRussian|&Russian\n"\
+	"ilMitky|Russian (Mitky)\n"\
+	"ilEnglishUK|&English (UK)\n"\
+	"ilGerman|&German\n"\
+	"ilDutch|&Dutch\n"\
+	"ilSpanish|&Spanish\n"\
+	"mwCreateMirror|&Mirror \n"\
+	"mwClose|&Close Window\n"\
+	"mfExit|E&xit\n"\
+	"mLine|&Line\n"\
+	"mlAbortOperation|&Reset\n"\
+	"mlAnswer|&Answer Call\n"\
+	"mlSendMdmCmds|Send &Modem Commands\n"\
+	"mlResetTimeout|&Flush Timeout\n"\
+	"mlIncTimeout|Add to &Timeout\n"\
+	"mlSkip|Skip File (receive &later)\n"\
+	"mlRefuse|&Reject File\n"\
+	"mlClose|&Close\n"\
+	"mPoll|&Poll\n"\
+	"mpCreate|&Create\n"\
+	"mpDelete|&Delete\n"\
+	"mpReset|&Reset\n"\
+	"mpTrace|&Info\n"\
+	"mpDeleteAll|Delete &All\n"\
+	"mTool|&Tool\n"\
+	"mtCompileNodelist|&Compile Nodelist\n"\
+	"mtCompileNodelistInv|&Compile Nodelist\n"\
+	"mtBrowseNodelist|&Browse Nodelist\n"\
+	"mtBrowseNodelistAt|Browse Nodelist at...\n"\
+	"mtEditFileRequest|Edit File &Request...\n"\
+	"mtAttachFiles|Attach Files...\n"\
+	"mtCreateFlag|Create a Flag...\n"\
+	"mtOutSmartMenu|Outbound SmartMenu™\n"\
+	"mConfig|&Config\n"\
+	"mcMasterPassword|&Master Password\n"\
+	"mcMasterPwdCreate|Set Up...\n"\
+	"mcMasterPwdChange|Change...\n"\
+	"mcMasterPwdRemove|Remove...\n"\
+	"mcStartup|&Start-up\n"\
+	"mcPathnames|&Paths\n"\
+	"mcNodelist|&Nodelist\n"\
+	"mcPasswords|Pass&words\n"\
+	"mcDialup|&Dial-up\n"\
+	"mcDaemon|&TCP/IP Daemon\n"\
+	"mcFileBoxes|File-&boxes\n"\
+	"mcPolls|P&olls\n"\
+	"maFileRequests|&File Requests\n"\
+	"maExternals|E&xternals\n"\
+	"maEvents|E&vents\n"\
+	"maEncryptedLinks|&Encrypted Links\n"\
+	"maNodes|Node &Inspector\n"\
+	"mHelp|&Help\n"\
+	"mhContents|Help &Topics\n"\
+	"mhLanguage|Help &Language\n"\
+	"hlRomainian|Ro&manian\n"\
+	"hlRussian|&Russian\n"\
+	"hlMitky|Russian (&Mitky)\n"\
+	"hlEnglish|&English (UK)\n"\
+	"hlGerman|&German\n"\
+	"hlDutch|&Dutch\n"\
+	"hlSpanish|&Spanish\n"\
+	"mhHelp|Help on &Help\n"\
+	"mhWebSite|Argus &Web Site\n"\
+	"mhLicence|&Licence\n"\
+	"mhAbout|&About\n"\
+	"mhHowReg|How to Register\n"\
+	"mRegistration|Enter &Registration code...\n"\
+	"ppCreatePoll|&Create\n"\
+	"ppTracePoll|&Info\n"\
+	"ppResetPoll|&Reset\n"\
+	"ppDeletePoll|&Delete\n"\
+	"ppDeleteAllPolls|Delete &All\n"\
+	"ompRescan|Rescan Outbound\n"\
+	"ompCfCrash|Crash\n"\
+	"ompCfDirect|Direct\n"\
+	"ompCfNormal|Normal\n"\
+	"ompCfHold|Hold\n"\
+	"opmReaddress|Readdress\n"\
+	"opmFinalize|Finalise\n"\
+	"opmCrash|Change to Crash\n"\
+	"opmDirect|Change to Direct\n"\
+	"opmNormal|Change to Normal\n"\
+	"opmHold|Change to Hold\n"\
+	"opmUnlink|Unlink\n"\
+	"opmPurge|Remove Broken Links\n"\
+	"tpRestore|&Restore\n"\
+	"tpCreatePoll|Create &Poll\n"\
+	"tpEditFileRequest|Edit File Request\n"\
+	"tpBrowseNodelist|&Browse Nodelist\n"\
+	"tpExit|E&xit\n"\
+	"tpCancel|Cancel\n"
+
+ LngBaseDanish+rsAttachStatusForm "Attach Status\n"\
+	"bAttach|Attach status|&Hold|&Normal|&Direct|&Crash|Crash && &Poll\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"bOnSent|On sent|Nothing|Kill|Truncate\n"
+
+ LngBaseDanish+rsMainConfigForm "Dial-up Configuration\n"\
+	"pg|Lines|Station|Ports|Modems|Restrictions|Nodes\n"\
+	"lLines|Line name|Station template|Port|Modem\n"\
+	"lStation|Template name|Station name|Address list\n"\
+	"lPorts|Com port|BPS|Flow control|Line bits\n"\
+	"lModems|Modem name\n"\
+	"lRestrictions|Scheme name|Required|Forbidden\n"\
+	"lAuxNodes|Auxiliary nodes file\n"\
+	"bNew|&New\n"\
+	"bEdit|&Edit\n"\
+	"bCopy|&Copy\n"\
+	"bDelete|Dele&te\n"\
+	"bUndelete|&Undelete\n"\
+	"bDefault|&Default\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"bImport|&Import...\n"\
+	"bSort|&Sort\n"\
+	"bEditNode|&Edit\n"\
+	"ppNew|&New\n"\
+	"ppEdit|&Edit\n"\
+	"ppCopy|&Copy\n"\
+	"ppDelete|Dele&te\n"\
+	"ppUndelete|&Undelete\n"\
+	"ppDefault|&Default\n"
+
+ LngBaseDanish+rsStartupConfigForm "Start-up Configuration\n"\
+	"gbLines|&Dial-up Lines\n"\
+	"llManual|&Manual-open\n"\
+	"llAuto|&Auto-open\n"\
+	"cbDaemon|Auto-run &TCP/IP Daemon\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"cbFastLog|&Fast logging\n"\
+	"cbLogWZ|Log &WZ pending/incomplete\n"
+
+ LngBaseDanish+rsRegInputForm "Program Registration\n"\
+	"llKey|Argus Key\n"\
+	"llPwd|Key Password\n"\
+	"llSum|Key Checksum\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"
+
+ LngBaseDanish+rsExternalsForm "Externals\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"bImportPwd|Import...\n"\
+	"PageControl|Postprocessors|Doors|Cron\n"
+
+ LngBaseDanish+rsEventsForm "Events Configuration\n"\
+	"lv|Name|Cron|Duration|Atoms\n"\
+	"bNew|&New\n"\
+	"bEdit|&Edit\n"\
+	"bCopy|&Copy\n"\
+	"bDelete|Dele&te\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"ppNew|&New\n"\
+	"ppEdit|&Edit\n"\
+	"ppCopy|&Copy\n"\
+	"ppDelete|Dele&te\n"
+
+ LngBaseDanish+rsEvtEditForm "Edit Event\n"\
+	"llName|&Name\n"\
+	"llCron|&Cron\n"\
+	"llAtoms|A&toms\n"\
+	"llL|Duration\n"\
+	"llD|&Days\n"\
+	"llH|&Hours\n"\
+	"llM|&Minutes\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"bAddAtom|&Add\n"\
+	"bDelete|De&lete\n"\
+	"bEdit|&Edit\n"\
+	"lb|Type|Parameters\n"\
+	"cbPermanent|&Permanent\n"
+
+ LngBaseDanish+rsNodelistBrowser "Browse The Nodelist\n"\
+	"llAddr|Address:\n"\
+	"llStat|Station:\n"\
+	"llSysop|SysOp:\n"\
+	"llSite|Location:\n"\
+	"llPhn|'Phone:\n"\
+	"llSpd|Speed:\n"\
+	"llFlags|Flags:\n"\
+	"llWrkTime|Working time:\n"\
+	"llAddrSearch|&Address search:\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsDisplayInfoForm "DisplayInfoForm\n"\
+	"bOK|OK\n"
+
+ LngBaseDanish+rsEncryptedLinksForm "Encrypted Links\n"\
+	"bAdd|Add\n"\
+	"bRemove|Remove\n"\
+	"bChange|Change\n"\
+	"bClose|Close\n"\
+	"bHelp|Help\n"\
+	"bSort|Sort\n"
+
+ LngBaseDanish+rsFidoTemplateEditor "Edit station template\n"\
+	"lTplName|Template name\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"PageControl|EMSI|Banner|AKA\n"
+
+ LngBaseDanish+rsFileBoxesForm "File-boxes Configuration\n"\
+	"PageControl|Nodes|Options\n"\
+	"lRoot|Root directory\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsFReqDlg "Make/Edit File Request\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsModemCmdForm "Send Modem Commands\n"\
+	"lModemCommand|Modem Command\n"\
+	"bSend|&Send\n"\
+	"bClose|Close\n"
+
+ LngBaseDanish+rsNewPwdInputForm "NewPwdInputForm\n"\
+	"lNew|New Password\n"\
+	"lCfm|Confirm new password\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsNodeWizzardForm "Node Inspector\n"\
+	"lPsw|Password\n"\
+	"lPostProc|Post-proc.\n"\
+	"gbNodelist|Nodelist Information\n"\
+	"llStat|Station:\n"\
+	"llSysop|SysOp:\n"\
+	"llSite|Location:\n"\
+	"llPhn|'Phone:\n"\
+	"llSpd|Speed:\n"\
+	"llFlags|Flags:\n"\
+	"llWrkTime|Working time:\n"\
+	"gbNodeOvr|Node Overrides\n"\
+	"lDupOvr|Dial-up\n"\
+	"lIpOvr|TCP/IP\n"\
+	"bEditDupOvr|Edit\n"\
+	"bEditIpOvr|Edit\n"\
+	"gbRest|Present in restrictions\n"\
+	"lIpRest|TCP/IP\n"\
+	"lDialRest|Dial-up\n"\
+	"bEditDialRest|Edit\n"\
+	"bEditIpRest|Edit\n"\
+	"gbEncLink|Encrypted\n"\
+	"bElSet|Set\n"\
+	"bElChange|Change\n"\
+	"bElRemove|Remove\n"\
+	"gbAkas|Present in AKAs\n"\
+	"lIpAKA|TCP/IP\n"\
+	"lDialAKA|Dial-up\n"\
+	"bEditDialAKA|Edit\n"\
+	"bEditIpAka|Edit\n"\
+	"gbFbox|File-box\n"\
+	"lFboxIn|In\n"\
+	"lFboxOut|Out\n"\
+	"gbPoll|Poll\n"\
+	"lPollPer|Periodical\n"\
+	"lPollExt|External\n"\
+	"gbCurNode|Current Node\n"\
+	"bNewNode|New\n"\
+	"bDeleteNode|Delete\n"\
+	"gbAtoms|Present in Atoms\n"\
+	"lAtoms|Events\n"\
+	"bEditEvents|Edit\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsOvrExplainForm "OvrExplainForm\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsPollSetupForm "Polls Set-up\n"\
+	"PageControl|Periodical|Options|External\n"\
+	"gbTry|Try counters\n"\
+	"lBysy|Busy\n"\
+	"lNoC|No c.\n"\
+	"lFail|Fail\n"\
+	"gbTO|Time-outs\n"\
+	"lRetry|Retry seconds\n"\
+	"lStandOff|Stand-off minutes\n"\
+	"cbTransmitHold|Transmit hold on outgoing\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"
+
+ LngBaseDanish+rsSinglePasswordForm "Enter Argus Password\n"\
+	"bLogon|Log in\n"\
+	"bCancel|Exit\n"
+
+ LngBaseDanish+rsStartWizzardForm "StartWizzardForm\n"\
+	"Pages|Transport Type|Dialling Properties\n"\
+	"gbConn|What connection do you use\n"\
+	"cbDUP|Modem for direct dial-up FTS/FSC connections with destination nodes\n"\
+	"cbIP|TCP/IP connections with destination nodes\n"\
+	"gbDialProps|Dialling properties\n"\
+	"lAreaCode|Area code\n"\
+	"lLocalPrefix|To access an outside line, for local calls dial\n"\
+	"lLongDistPrefix|To access an outside line, for long-distance calls dial\n"\
+	"lComPort|COM &Port\n"\
+	"rgTonePulse|Dial Using|Tone dial|Pulse dial\n"\
+	"cbSetRestrict|Set restriction scheme to prevent from occasional long-distance call\n"\
+	"bPrev|<<  &Previous\n"\
+	"bNext|&Next  >>\n"\
+	"bCancel|Cancel\n"
+
+ LngBaseDanish+rsIPcfgForm "TCP/IP Daemon  Configuration\n"\
+	"bOK|OK\n"\
+	"bCancel|Cancel\n"\
+	"bHelp|Help\n"\
+	"tb|General|Station|AKA|Banner|Restrictions|Events|DNS|Nodes\n"\
+	"llInPorts|Incoming ports\n"\
+	"llAssumeSpeed|Assume speed\n"\
+	"llSocksAddr|&Address\n"\
+	"llSocksPort|&Port\n"\
+	"llLimit|Max connections\n"\
+	"llCin|&In\n"\
+	"llCout|&Out\n"\
+	"cbSOCKS|Use &SOCKS4 proxy for outgoing connections\n"\
+	"p|Required|Forbidden\n"\
+	"labelAvl|&Available\n"\
+	"labelLinked|&Linked\n"\
+	"lAuxNodes|Auxiliary nodes file\n"\
+	"bImport|&Import...\n"\
+	"bSort|&Sort\n"\
+	"bEditNode|Edit\n"\
+	"bExplain|Explain...\n"
+
+}

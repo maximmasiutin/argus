@@ -1,0 +1,10 @@
+DIGITS                 BITMAP  DISCARDABLE     "..\IMG\digits.bmp"
+GAUGE_A                BITMAP  DISCARDABLE     "..\IMG\gauge_a.bmp"
+GAUGE_B                BITMAP  DISCARDABLE     "..\IMG\gauge_b.bmp"
+MARK_DEFAULT           BITMAP  DISCARDABLE     "..\IMG\mark_def.bmp"
+MODEM_LAMPS            BITMAP  DISCARDABLE     "..\IMG\modeml.bmp"
+TERMINAL_BLACK_A       BITMAP  DISCARDABLE     "..\IMG\tblacka.bmp"
+TERMINAL_BLACK_B       BITMAP  DISCARDABLE     "..\IMG\tblackb.bmp"
+TERMINAL_BLUE_A        BITMAP  DISCARDABLE     "..\IMG\tbluea.bmp"
+TERMINAL_BLUE_B        BITMAP  DISCARDABLE     "..\IMG\tblueb.bmp"
+

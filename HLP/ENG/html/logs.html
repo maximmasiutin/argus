@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Extended logging</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Extended logging">
+	<PARAM NAME="Keyword" VALUE="access_log">
+	<PARAM NAME="Keyword" VALUE="agent_log">
+	<PARAM NAME="Keyword" VALUE="NCSA">
+	<PARAM NAME="Keyword" VALUE="binary_log">
+	<PARAM NAME="Keyword" VALUE="Log">
+</OBJECT>
+
+<H1><A NAME="idh_logs"></A>Extended Logging</H1>
+
+<P>Instead of simple log files, intended to be viewed by system operator, Argus also logs additional files:</P>
+
+<TABLE cols=2 width=594>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>access_log</CODE></PRE>
+</TD>
+<TD width=82%>Common chronology of transferred files in NCSA format</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>agent_log</CODE></PRE>
+</TD>
+<TD width=82%>Common chronology of remote mailer types in NCSA format</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>binary_log</CODE></PRE>
+</TD>
+<TD width=82%>Common chronology of sessions and transferred files and bytes in binary format</TD>
+</TR>
+</TABLE><BR>
+
+<P>NCSA logs <CODE>access_log</CODE> and <CODE>agent_log</CODE> are possible to analyse by any NCSA-compliant log analiser. The example of such analysis is available at <CODE>http://www.ritlabs.com/stat/argus.html</CODE> - the most recent statistics of RIT Zeppelin Fido Server (2:469/38), produced by <I>analog2.11/Win32 © Stephen R. E. Turner</I>.</P>
+
+<P>The structure format of binary log file <CODE>binary_log</CODE> is compatible with the same in <I>T-Mail © Andy Elkin</I> and <I>BinkD © Dima Maloff</I>. Use <I>T-Hist © Michael Markowsky (2:5020/378@fidonet)</I> for processing <CODE>binary_log</CODE>.</P>
+
+<P>It is possible to use custom values for access_log, agent_log and binary_log files names to avoid troubles on 8.3 file systems. To change them, create a registry key</P>
+
+<PRE><CODE>HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini</CODE></PRE>
+
+<P>Names of String Values:</P>
+
+<PRE><CODE>access_log
+agent_log
+binary_log</CODE></PRE>
+
+</BODY>
+</HTML>

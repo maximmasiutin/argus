@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>File Requests Configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="FREQ">
+	<PARAM NAME="Keyword" VALUE="File Request Configuration">
+	<PARAM NAME="Keyword" VALUE="General">
+	<PARAM NAME="Keyword" VALUE="PathNames">
+	<PARAM NAME="Keyword" VALUE="Disable all requests">
+	<PARAM NAME="Keyword" VALUE="Recursive paths">
+	<PARAM NAME="Keyword" VALUE="Allow Masks">
+	<PARAM NAME="Keyword" VALUE="Real-time search">
+	<PARAM NAME="Keyword" VALUE="Aliases">
+	<PARAM NAME="Keyword" VALUE="Exler">
+	<PARAM NAME="Keyword" VALUE="SRIF">
+	<PARAM NAME="Keyword" VALUE="ALLFIX">
+	<PARAM NAME="Keyword" VALUE="External">
+</OBJECT>
+
+<H1><A NAME="idh_cfgfilerequests"></A>File Request Configuration</H1>
+
+<H2>General</H2>
+
+<P>Main settings of File Requests service.</P>
+
+<P>This <A HREF="guigrid.html">string grid</A> is designed to specify directories with files that may be requested within file transfer sessions (file base). It is possible to protect files of a particular directory with a password so a requesting system must send the same password whenever it requests a file from that directory. Please note that passwords are passing to remote in non-secure manner as a cleartext. Password comparing is case-sensitive. </P>
+
+<UL>
+<LI><B><U>Disable all requests</U></B> - all file requests are denied if the box is ticked. <CODE>NRQ</CODE> flag will be sent by Argus in EMSI packet to advise a calling system not to send <CODE>REQ</CODE> files.
+<LI><B><U>Recursive paths</U></B> - search for files recursively in all sub-directories of directories specified in the ‹Requested directories› grid. The depth of recursion is not limited.
+<LI><B><U>Allow masks</U></B> - allow file requests with Wildcards and <A HREF="regexp.html">Regular Expressions</A>. For example, a user may request <CODE>*.jpg</CODE> to receive all JPEG files from directories, specified in the ‹Requested directories› grid. Complex masks (e.g. <CODE>DOOM*2_%.*</CODE>) are also supported. Besides ‹<CODE>*</CODE>› and ‹<CODE>?</CODE>›, there is a support of ‹<CODE>%</CODE>› mask character, that allows any digit on its position.</TD>
+<LI><B><U>Real-time search</U></B> - search for files during file transfer session. If it is off, Argus builds and index file for requestable files and gets the information from there - it is faster for large file bases, but it requires re-compilation of the index file each time the file base is updated. 
+</UL>
+
+<H2>Aliases</H2>
+
+<P>Argus allows callers to request files using Aliases (also called <I>magic names</I>), a caller does not need to know the real name of files requested. For example, FidoNet Nodelist is requestable from most FidoNet nodes as <CODE>NODELIST</CODE> while the real name of the Nodelist file is changing every week. Another example is the file list of a system, which is often requested using the Alias <CODE>FILES</CODE>.</P>
+
+<P>Aliases are defined in Aliases string grid; Path column contains full path names of files to be sent for a particular Alias request, divided with a comma, space or semicolon; The Password column contains an optional password for each Alias entry. Password comparing is case-sensitive.</P>
+
+<P>Wildcards and <A HREF="regexp.html">Regular Expressions</A> are also allowed in Aliases <A HREF="guigrid.html">string grid</A>. The rules of using wildcards are the same as for Allow Masks checkbox of General tab (see above). When using wildcards, you may also specify ‹<CODE>&gt;</CODE>› prefix before the file name. It will select the only newest (by modification date) file from the masked list. Wildcards and Regular Expressions in Path column are only allowed in name section, not in path section. E.g. <CODE>c:\games\*.*</CODE> is valid in but <CODE>c:\games\*\readme.txt</CODE> is invalid.</P>
+
+<P>Example of Aliases string grid with NODEDIFF alias for the latest nodediff.</P>
+
+<TABLE cols=2 width=442>
+
+<TR VALIGN="top">
+<TD width=27%>Alias</TD>
+<TD width=73%>Path</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=27%>
+<PRE><CODE>NODEDIFF</CODE></PRE>
+</TD>
+<TD width=73%>
+<PRE><CODE>&gt;R:\AF\NODELIST\NODEDIFF.Z%%</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<H2>External Request Processing (SRIF)</H2>
+
+<P>Argus has an external file request processing support using SRIF (Standard Request Information File), developed by <I>Gordian Schuermann &amp; Mirko Mucko</I>.</P>
+
+<P>External request processing is enabled or disabled using option <B>Use SRIF</B>. When this option is set, all other options above mentioned in this chapter are disabled, and all file requests are processed by the External Request Processor (ERP), not by Argus. The objective of SRIF method is to pass as a command line argument to ERP the name of temporary SRIF-file (which is created and erased after it is used, by Argus), containing all necessary information about files being requested.</P>
+
+<P>The ERP file name and command line parameters are configured in <B>Standard Request Information File - External Processor</B> field. Special keyword <CODE>%SRIF%</CODE>, used only in this field, is being replaced to the name of temporary SRIF-file </P>
+
+<P>This is an example of using <I>AllFix © Harms Software Eng.</I> as an ERP:</P>
+
+<P><CODE>c:\fido\allfix\allfix.exe Rp -SRIF %SRIF%</CODE></P>
+
+<P>Question Mark character (“<CODE>?</CODE>”) before file name instructs to execute the process in hidden mode. Exclamation Mark character (“<CODE>!</CODE>”) instructs to execute the process in normal window mode. Detached mode can be used only for launching Win32 console applications. Double Question Mark (“<CODE>??</CODE>”) instructs to execute the process in DETACHED mode (without using console window) . An attempt to execute DETACHED Win3.1 or DOS application causes an error.</P>
+
+<P>Processes can be launched with the following priority levels:</P>
+
+<TABLE cols=2 width=423>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>&lt;</CODE></PRE>
+</TD>
+<TD width=90%>Low (<CODE>IDLE_PRIORITY_CLASS</CODE>)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>+</CODE></PRE>
+</TD>
+<TD width=90%>High (<CODE>HIGH_PRIORITY_CLASS</CODE>)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=90%>Real-time (<CODE>REALTIME_PRIORITY_CLASS</CODE>)</TD>
+</TR>
+</TABLE><BR>
+
+<P>Processes are executing with normal priority (<CODE>NORMAL_PRIORITY_CLASS</CODE>) in minimised window by default.</P>
+
+<H2>Service Requests</H2>
+<P>The Service Request concept is is very similar to the SRIF ERP (described above). In both cases, an external application is used to serve file requests. Unlike SRIF, when one application is launched to serve a whole batch of requested file, Service Requests allow to run a particular application for each requested item. Service Requests cannot coexist with SRIF. To user Service Requests turn "Use SRIF" checkbox off. Service Requests are typically used to invoke programs that update databases, or sends specific files only after checking a database for specific information (product updates for example).</P>
+<P>Service Requests are defined in the file request alias list (Aliases string grid) by placing an equal sign ('<CODE>=</CODE>') as a first character in "Path" column . E.g.</P>
+<TABLE>
+<TR><TD>Alias</TD><TD WIDTH=20></TD><TD>Path</TD></TR>
+<TR><TD><CODE>PRODUCTUPDATE</CODE></TD><TD WIDTH=20></TD><TD><CODE>=C:\SR\PRODUPD.EXE ^&lt;symbol&gt;&ltfilemask&gt;</CODE></TD></TR>
+</TABLE>
+<P>where <CODE>C:\SR\PRODUPD.EXE</CODE> is the program to execute, <CODE>^&lt;symbol&gt;</CODE> defines what Argus should do with the files matching <CODE>&lt;filemask&gt;</CODE> after the session has been completed. Wildcards and Regular Expressions in <CODE>&lt;filemask&gt;</CODE> are only allowed in name section, not in path section. E.g. <CODE>c:\games\*.*</CODE> is valid in but <CODE>c:\games\*\readme.txt</CODE> is invalid.</P>
+<P><CODE>^</CODE> character and <CODE>&ltfilemask&gt;</CODE> are mandatory, <CODE>&lt;symbol&gt;</CODE> is optional. If no <CODE>&lt;symbol&gt;</CODE> is specified, the Mailer assumes that all files matching <CODE>&lt;filemask&gt;</CODE> should be removed after the session has been completed regardless of the transmission status of each file.
+<P>Priority modifiers for Low, High and Real-Time priority classes as well as window mode (normal/detached/hidden) can be specified same way as for SRIF.
+
+<P>Executable path/file name, parameters and filemask may contain special handshake switches (also called macros, same as Handshake Switches for <A HREF="cfgextsvc.html">Doors</A> and <A HREF="cfgppolls.html">External Polls</A>) that are translated into appropriate string values before the application is started. Each command switch starts with the percent symbol followed by a command character. All handshake command line switches are case sensitive, for example <CODE>%c</CODE> may not be used instead of <CODE>%C</CODE>.</P>
+
+<P>For each possible handshake switch an Environment variable is also created, which could be used by launched application. Even if no hadshake switches are specified in executable path/file name and parameters, all Environment variables are created.</P>
+
+<P>The following switches return caller's information.</P>
+<TABLE cols=3>
+
+<TR><TD></TD><TD width=120><U>Environment</U></TD><TD><U>Description</U></TD></TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%w</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_NODE</CODE></PRE>
+</TD>
+<TD>Primary node address, eg "2:469/38"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%x</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_STATION</CODE></PRE>
+</TD>
+<TD>Station name.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%v</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_LOCATION</CODE></PRE>
+</TD>
+<TD>Site location.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%X</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_SYSOP</CODE></PRE>
+</TD>
+<TD>Sysop's name.</TD>
+</TR>
+
+</TABLE>
+
+<P>The following switches return line and connection information and vary for dial-up and TCP/IP connection.</P>
+
+<TABLE cols=5>
+
+<TR VALIGN="top">
+<TD width=30>&nbsp;</TD>
+<TD width=120><U>Environment</U></TD>
+<TD><U>Description</U></TD>
+<TD><U>Dial-up value</U></TD>
+<TD><U>TCP/IP value</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%B</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_DCE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Connect speed</TD>
+<TD>DCE (modem to modem)</TD>
+<TD>as assumed in TCP/IP Daemon configuration dialogue box</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%b</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_DTE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Port speed</TD>
+<TD>DTE (computer to modem)</TD>
+<TD>same as <CODE>%B</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%e</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_CONNECT</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Connect string (spaces replaced to underlines)</TD>
+<TD>as returned after modem CONNECT word, e.g.: 
+<P>"<CODE>16800/ARQ/HST</CODE>”</P>
+</TD>
+<TD>as returned after Argus TCP/IP CONNECT word, e.g.:
+<P>"<CODE>To 194.213.233.33 #24554</CODE>”]</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%E</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_CONTROL</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Translated error control code</TD>
+<TD>"<CODE>MNP</CODE>" if any of MNP, ARQ or REL string is present in the connect string.  Otherwise null.</TD>
+<TD>Always "<CODE>TCP/IP</CODE>"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%L</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_NAME</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Mailer line name (spaces replaced to underlines)</TD>
+<TD>as in dial-up/lines/line name</TD>
+<TD>"TCP/IP" plus number of TCP/IP connections, e.g.: "<CODE>TCP/IP 3</CODE>"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%n</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_LINE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Mailer line number</TD>
+<TD>Number of entry in dial-up/lines list, e.g. "<CODE>1</CODE>" for the first line listed.</TD>
+<TD>Number of active TCP/IP connection, e.g. "<CODE>2</CODE>" for "TCP/IP 2" line</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%h</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_HANDLE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Communication resource handle</TD>
+<TD>COM port Win32 handle</TD>
+<TD>WinSock2 overlapped socket handle</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%C</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_NUMBER</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Port number</TD>
+<TD>COM port number, e.g.: "<CODE>1</CODE>" for COM1 or "<CODE>4</CODE>" for COM4</TD>
+<TD>TCP/IP port number, e.g.: <CODE>24554</CODE> for BinkD</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%p</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_INDEX</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Port index</TD>
+<TD>zero-based COM port number, e.g.: "<CODE>0</CODE>" for COM1 or "<CODE>3</CODE>" for COM4</TD>
+<TD>same as <CODE>%C</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Special <CODE><B>%Z</B></CODE> switch is also allowed here and works same way as in <A HREF="cfgextsvc.html#ZSWITCH">Doors</A>.
+
+
+</BODY>
+</HTML>

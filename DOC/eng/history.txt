@@ -1,0 +1,1976 @@
+
+    Argus - History
+
+
+3.210 (26-Mar-2001)
+-------------------
+
+[+] Atom "Script" allows sending particular strings (commands)
+    to remote interactively (e.g Login/Password to a router) before
+    session starts.
+
+    Works on outgoing sessions only, if a node number which is being 
+    polled matches the specified list. The list allows masks.
+
+    This scripts is a list of lines which are being sequentially sent
+    to the remote. Before sending the string from the next line, Argus 
+    waits for a  particular response came from the remote (or timeout).
+
+    Each line is split on four strings:
+
+    Modem Cmd, RegExp, T-out Sec, T-out Cmd.
+
+    The Script is being activated immediately on Carrier Detect, each line
+    will be handled according to the following scheme:
+
+    -----------------------------------------------------------------
+    START OF LINE: The command "Modem Cmd" is being sent to the modem. 
+    Please note that "!", "|", "~" and other special characters are 
+    handled. After sending the "Modem Cmd", the script goes to "SCAN".
+
+    SCAN: Argus scans the input stream coming from the modem whether it 
+    matches the regular expression "RegExp" and simultaneously checks for 
+    the time-out "T-out Sec" to expire. 
+
+    If the "RegExp" matches, the script continues with the next line of
+    the script ("T-out Cmd" will not be sent), i.e. it goes to "START OF 
+    LINE".
+
+    If the time-out "T-out Sec" expires, the "T-out Cmd" command is being 
+    sent to the modem, and the script remains on the same line, continuing
+    with "SCAN". If the "T-out Cmd" is empty (not specified), the script 
+    goes to the previous line (or remains on the same, if it was on the 
+    first line), see "START OF LINE".
+    -----------------------------------------------------------------
+
+    There is however a global handshake timeout, which limits the maximum
+    allowed handshake time. Upon the expiration of this time-out, Argus
+    hangs up the modem. This global timeout also applies to the script.
+
+
+[*] Version 3.3 of the PCRE library is used (Perl-Compatible Regular 
+    Expressions). Regular expression support is provided by the PCRE 
+    library package, which is open source software, written by Philip 
+    Hazel, and copyright by the University of Cambridge, England.
+
+[+] It is possible to avoid re-starts of Argus on fatal WinSock errors
+    (shutdown/closesocket errors). The use of this feature isn't 
+    recommended because of normal work after a fatal error is almost
+    impossible.
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "DisableWinsockTraps"=dword:00000001
+
+[+] It is possible to choose which WinSocket version to use:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+
+    "WinSockVersion"=dword:00000001
+    for WinSocket v1
+
+    "WinSockVersion"=dword:00000002
+    for WinSocket v2
+
+    "WinSockVersion"=dword:00000000 (and other values grater than 2)
+    to automatically choose WinSocket version (by default).
+
+3.208 (7-Apr-2000)
+-------------------
+
+[*] You may use Alt+F10 or Shift+F10 key combination to invoke Argus-specific 
+    pop-up menu where it can invoked by right mouse click.
+
+[+] Possibility to define events in UTC (Dmitry Toporkov).
+
+[+] Working time of a node is also displayed as UTC in a Nodelist Browser and
+    node inspector.
+
+[-] "Input WatchDog Reset" atom could cause troubles (Pawel Matytsin).
+
+[-] Linking/Unlinking an event didn't take effect until restarting.
+
+
+3.207 (19-Mar-2000)
+-------------------
+
+[*] %ARCMAIL%, %FRIPMAIL% and file-box macros are case-insensitive.
+
+[-] 3.206 didn't run under Windows 95.
+
+[-] T-Mail file-box directories without explicit status weren't visible
+    by Argus when using %STMAIL macro (Dmitry Sukhov).
+
+[-] Zone 3 mail hour moved back one hour (Malcolm Miles).
+
+
+
+3.206 (17-Mar-2000)
+-------------------
+
+[!] Has a single executable for NT/9x/Dial-Up/IP.
+
+[*] Linked with PCRE (Perl-Compatible Regular Expressions) library v3.1.
+    "Study" module no longer used. New PCRE adds experimental recursion 
+    feature (?R) to handle one common case that Perl 5.6 will be able to 
+    do with (?p{...}); it also adds support for POSIX character classes 
+    like [:alpha:], which Perl is adopting.
+
+[*] Some changes for better connection with USR T.C. (Konstantin Mohorea).
+
+[*] Additional EMSI_NAK sequences came within one second are ignored.
+
+[-] TCP/IP lines weren't closed during a file request processing 
+    (Alexey Gerasimov).
+
+
+3.205 (02-Mar-2000)
+-------------------
+
+[+] Config/Polls/Options/Prevent 'Direct' from initiating a poll 
+    (Peter Hampf).
+
+[-] Erroneus address was not excluded from address list. It caused
+    session failure with "Remote presented no valid addresses -
+    disconnecting" error message. The actual address list wasn't
+    logged (Peter Hampf).
+
+[-] Busy/No.c./Fail counter could be automaticlly reset and never
+    rich maximal (stand-off) value (Yuri Kosivtsov).
+
+[+] An ability to invoke old-style WinHelp instead of HTMLHelp 
+    (Oleg Vasenyoff).
+
+    To turn this option on, add the following registry value:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "DisableHtmlHelp"=dword:00000001
+
+
+
+3.203 (19-Feb-2000)
+-------------------
+
+[*] Space characters around of an incoming file name are stripped and
+    a warning message is logged (Peter Hampf).
+
+[-] Finally (I hope) fixed false "All AKAs are busy - disconnecting"
+    (Peter Hampf).
+ 
+
+3.202 (18-Feb-2000)
+-------------------
+
+[-] "CRAM-MD5 auth" was logged as "plain auth" on incoming connections.
+
+[-] Fixed false "All AKAs are busy - disconnecting". No actual disconnecting 
+    was done after logging this message (Peter Hampf).
+
+[-] Finally fixed Service Request Processors (Peter Hampf). 
+
+[-] Password failures on CRAM-MD5 were not logged. There was just 
+    "Disconnect reason is fatal error" message (Michael Karpov).
+
+[-] Modem Error Ext.App. atom didn't work (Sergey Golubev).
+
+
+3.201 (3-Feb-2000)
+-------------------
+
+[-] Priority and Show Mode prefixes in Door, Fax and Service Request Processor
+    external application were parsed improperly and caused "The directory 
+    name is invalid" Win32 error (Peter Hampf).
+
+[*] Added support for unlisted nodes in Service Request processing (Peter 
+    Hampf).
+
+[-] Macroses didn't work in mask part of Service Request string (Peter Hampf).
+
+
+3.199 (1-Feb-2000)
+-------------------
+
+[!] HTML help in, CHM-files (Joerg Doering).
+
+[-] It was possible to enter duplicate aliases and paths in File Request
+    Configuration dialogue.
+
+[-] Service Request Processors, configured in Config/File Requests dialogue
+    box (Peter Hampf).
+
+
+3.198 (27-Dec-1999)
+-------------------
+
+[-] Fixed a bug that caused a node/point with unpublished phone to be
+    "unlisted" for SRIF and Accept Listed Only atom.
+
+[+] current.ip file-flag indicates that at least one TCP/IP connection 
+    is currently opened.
+
+[+] An ability to save partially received fax pages (Oleg Vasenyoff).
+
+    To turn this option on, add the following registry value:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "ForceFaxPage"=dword:00000001
+
+[+] An ability to auto-increment arcmail file extension's last character
+    if file with same name already exists in inbound. 
+
+    To turn this option on, add the following registry value:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "IncrementArcmail"=dword:00000001
+
+[+] An ability to display thread times (user/kernel) and InvokedCount in 
+    threads.txt file in Argus log directory. This works only with 
+    NT-version of Argus. 
+
+    To turn this option on, add the following registry value:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "LogThreadTimes"=dword:00000001
+
+
+
+3.197 (16-Dec-1999)
+-------------------
+
+[+] An ability to send custom characters as EMSI sequence 
+    terminator (Konstantin Mohorea).
+
+    E.g. use CR LF as EMSI sequence terminator:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "EMSI_CR"="%0D%0A"
+
+[-] Temporary outbound directories were not deleted (Jærg Doering).
+
+[+] Smarter work with badwazoo.lst (Oleg Vasenyoff). 
+
+[+] An ability to keep badwazoo.lst closed (Oleg Vasenyoff). Please do 
+    not modify this file while Argus is running, your changes may be 
+    overwritten.
+
+    To turn this option on, add the following registry value:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "CloseBWZFile"=dword:00000001
+
+
+
+3.196 (6-Dec-1999)
+------------------
+
+[-] Fixed bug that prevented German characters from displaying correctly.
+
+[-] Fixed bug with [OK] counter in a nag window (for unregistered version 
+    only).
+
+[-] Minor bugfixes.
+
+
+
+
+3.195 (30-Nov-1999)
+-------------------
+
+[-] Special flag !ALL and !-prefixed flags were not allowed in Node 
+    Overrides Editor.
+
+[+] active.linename & active.ip file-flags in home directory indicate that
+    a line / Daemon is currently active i.e. opened.
+
+[-] IP flags in nodelist could prevent from dialling a node listed 
+    in overrides.
+
+[-] Fixed regular-expression parser in modem responses.
+
+[*] Hangup string is being sent to a modem only when DCD is high.
+
+[*] Session statistics was requested from a modem before hangup.
+
+
+
+3.194 (06-Nov-1999)
+-------------------
+
+[+] Accept Nodes Required/Forbidden atoms now accept address masks (Michael 
+    Sorokin).
+
+[-] Outbound Manager scanner could ignore .bsy-files when opening .?lo-files
+    (Dmitry Toporkov).
+
+[-] Fixed trap when polling a node from line that just restored a serial port
+    during "Accept No Incoming" atom (Oleg Redut).
+
+
+
+3.193 (03-Oct-1999)
+-------------------
+
+[+] Argus now handles Pvt/Hold/Down flags of nodelist.
+
+[-] Fixed bug (of 3.192) in pop-up menus of string grids.
+
+[+] An ability to ignore Log-Off signals (WM_ENDSESSION and 
+    WM_QUERYENDSESSION). his may be useful when running as NT service.
+
+    To turn this option on, add the following registry value:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "IgnoreEndSession"=dword:00000001
+
+[*] Updated help file.
+
+
+
+3.192 (11-Sep-1999)
+-------------------
+
+[-] Passing socket handles to External Applications under Win95/98
+    could not work (Notanee Bourassa). Now, to run eleBBS in telnet
+    mode, use the following data in Config/External/Doors/
+    Door and parameters: c:\ele\elebbs.exe -XC -XT -B%B -H%h -N%n
+
+[-] Stand-off timer could not work properly.
+
+[-] Some fixes with Russian translation.
+
+[-] Fixed ArcMail presentation in OutBound Manager (Alexander Balabchenkov).
+
+
+3.191 (16-Jul-1999)
+-------------------
+
+[+] German interface language and help file, thanks to Jærg Doering.
+
+[-] Fixed log lines order of Response Log Format atom (Ed Vedernikoff).
+
+[-] Fixed %Z handling when running a DOS Session (Mike Ehlert).
+
+[-] Fixed "xBaseDone while ThreadCount=..." message.
+
+[+] ODBC logging. To turn it on, create in "ODBC Data Source Administrator"
+    a data source named "ArgusLog". In the database, create a table named
+    LogStrings with the following mandatory columns: three text columns
+    called "Logger", "RecTag", and "RecMsg" and a timestamp column "RecTime".
+    You may also add additional 'row number' fields, but make sure they
+    are automatically updated, Argus would never there. Argus doesn't currently
+    log other information to ODBC. To add log records, Argus executes the
+    following SQL statement: 
+
+  INSERT INTO LogStrings (Logger, RecTag, RecTime, RecMsg) VALUES (?, ?, ?, ?)
+
+    You may issue the following SQL statement to create LogStrings table
+    under Microsoft Access:
+
+       create table LogStrings (
+    	 RecId   counter NOT NULL CONSTRAINT RecIdIndex PRIMARY KEY,
+  	 Logger  char(20) NOT NULL,
+  	 RecTag  char(1) NOT NULL,
+  	 RecTime date NOT NULL,
+  	 RecMsg  char(250) NOT NULL);
+  
+    Then go to Config/Start-up, turn ODBC logging on and restart Argus.
+    ODBC errors are looged to "odbcerr.log" file in Argus logs directory.
+    
+
+3.188 (3-Jul-1999)
+------------------
+
+[*] %ARCMAIL% now works in atoms (Alex Berez).
+
+[-] On outgoing session, if remote indicates to receive file(s)
+    later, a poll goes to stand-by mode (unless is manual).
+    In previous versions of Argus the node was polled again
+     without a delay.
+
+[-] When resuming broken file transfers, secondary addresses
+    of remote are also used to locate a file in temporary
+    inbound (Dmitry Rahalov).
+
+[-] Multiple instances of "file not sent - reason is ..." are fixed.
+
+[-] If there was a post-processor external application for a defined
+    node, it wasn't launched after a session with this node if no
+    files has been received (Alexey V Bugrov).
+
+[*] Support of FSC-0056 link options (HAT, etc...)
+
+[-] Idle time after modem initialisation increased from 2 to 5 secs.
+
+[-] Changes in Node Inspector didn't take effect until reloading Argus.
+
+[-] Fax inbound directory hasn't been created automatically 
+    (Vladimir Januszkiewicz).
+
+[-] Change status reversed order of attached files (Alexander Savich).
+
+[-] Event linking/unlinking to a line or TCP/IP Daemon didn't take effect 
+    until reload a line or TCP/IP Daemon.
+
+[+] Info command (see Modem General Commands string grid) is sent
+    to the modem after a session termination. The result of this command
+    is logged. You may use Response Log Format atom to format data came 
+    from a modem.
+
+[+] New WatchDog atoms:
+       Input WatchDog Reset
+         Resets the line.
+       Input WatchDog ExtApp
+         Executes specified External Application.
+       Accept Nodes Only Listed
+         Accept calls Only from addresses Listed in nodelist or
+         Argus passwords or overrides.
+
+[+] New formatting atoms:
+       Input Log Format
+       Response Log Format
+
+    Input Log Format atom scans data came from modem, and if it
+    matches regular expression, formats the data and logs.
+
+    Response Log Format atom works the same way as Input Log Format atom
+    except it does only scan data came from modem after Answer or Info 
+    commands.
+   
+    Examples for ZyXEL U1496 E+ 
+    (taken from Bink/+ Config File by Vsevolod Fedotov)
+
+    Modem|General/Commands|Info:
+
+        ATI2|
+
+    Response Log Format Atom, Regular Expression:
+
+	ZyXEL U-MODEM LINK STATUS REPORT\s*
+	Chars Sent *(\w+) *Chars Received *(\w+)\s*
+	Octets Sent *(\w+) *Octets Received *(\w+)\s*
+	Blocks Sent *(\w+) *Blocks Received *(\w+)\s*
+	Blocks Resent *(\w+) *Max Outstanding *(\w+)\s*
+	Max Block Size *(\w+) *Retrains Requested *(\w+)\s*
+	Link Duration *(\w+) *Retrains Granted *(\w+)\s*
+	T401 Timeouts *(\w+) *T402 Timeouts *(\w+)\s*
+	FCS Errors *(\w+) *Round Trip Delay *(\w+)\s*
+	Xmitter Underrun *(\w+) *Receiver overrun *(\w+)\s*
+	Last Speed/Protocol *(.+)\b\s*
+	Disconnect Reason *(.+)\b\s*
+
+
+    Response Log Format Atom, Format Specifier:
+
+	Was $19 during $11 min, RTT=$16 T
+	Tx/Rx: $1/$2 chrs, $3/$4 octs, $5+$7/$6 blks
+	Retrains $10/$12, Timeouts $13/$14, FCS Errors $15, Overruns $17/$18
+	Disconnect reason: $20
+
+[+] Other atoms:
+       Accept Nodes Only Listed
+         Accept calls Only from addresses Listed in nodelist or
+         Argus passwords or overrides.
+       Accept BPS Efficiency Min
+       Transmit BPS Efficiency Min
+
+[*] Fixed "Times (run/user/kernel) = 11/0/0 sec." log message. As you've
+    noticed, it always returned 0/0 as a user/kernel time, even if the amount
+    of spent times was more than a second. Now the time is logged in 
+    milliseconds.
+
+[*] "close.linename" & "open.linename" flags are deleted only in case of
+    successful open / close operation. E.g. open.line1 flag will not be
+    deleted until the line actually opens with a valid serial port.
+
+[+] Perl-Compatible Regular Expressions, thanks to Philip Hazel.
+    Regular Expressions may be used in file masks, address masks,
+    Modem Responses and File-Box configuration, i.e. anywhere where
+    generic masks are allowed (though Modem Responses do not allow
+    generic masks :-))
+
+    Some info on Regular Expression syntax can be found at
+
+    http://www.activestate.com/ActivePerl/docs/lib/pod/perlre.html#Regular_Expressions
+
+    To insert a Regular Expression, use '~' character as a marker. 
+    Next character (following '~' marker) will be used as a delimiter 
+    to define the end of Regular Expression. Any text after
+    '~' between delimiting characters will be treated as a 
+    Regular Expression.
+
+    syntax is
+
+    before~#regularexpression#after
+
+    where "before" and "after" is optional text that will be matched
+    as a generic mask (a character matches itself, '?' matches any 
+    character, '*' matches a sequence of characters).
+    
+    "regularexpression" is a text of a Regular Expression.
+    
+    '#' - delimiter character.
+
+    E.g. a file mask
+
+    ~#cat(aract|erpillar|)\..*#
+
+    will match a file named "cat", "cataract", or "caterpillar", with any 
+    extension.
+
+    the above example is equivalent to 
+
+    ~#cat(aract|erpillar|)#.*
+
+    here the text after delimiter (".*") is treated as a generic mask, i.e. '.' 
+    matches a dot character and '*' matches sequence of characters.
+
+    Note that you don't need to anchor your regular expressions (using '^' 
+    and '$') in file masks - they would be anchored automatically, and if you 
+    need to skip some characters before of after, use ".*" :-)
+
+    Here is another example of using regular expressions in Modem Responses:
+
+    ~#^RING(\x20\d)?$#
+
+    Because of space (or other) character may be used as a separator in Argus 
+    Configuration String Grids, such character should should not occur inside a regular expression. 
+    This is because of separator characters in a string grid (e.g. space) have greater priority than a regular 
+    expression delimiters (e.g. '#').
+
+    To avoid using string grid separator character in a Regular Expression, use hex codes
+    (e.g. \x20 for space character) or corresponding patterns (e.g. \s , that will match any whitespace character). 
+
+    If you plan using '#' character within a regular expression, you may also
+    use it's hex code, but better way would be choosing another delimiter :-)
+
+    ~`^RING(\x20#\d)?$`
+
+    To insert ~ character into a generic mask, double it to avoid using it as a
+    regular expression marker.
+
+[+] An ability to open .BSY-files without DELETE_ON_CLOSE mode. Files will 
+    be deleting using DeleteFile command. This may be useful on some
+    network file system which don't support DELETE_ON_CLOSE mode.
+
+    To turn this option on, add the following registry value:
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+    "SimpleBSY"=dword:00000001
+
+
+3.187 (29-Apr-1999)
+------------------
+
+[-] Fixed bug (of 3.186) in cron processing.
+
+[-] Fixed bug in ZModem refuse (Vladimir Dobrachev).
+
+[+] New atoms:
+      Log EMSI Data 
+      Accept CPS Min
+      Transmit CPS Min
+      Accept Duration Max
+      Transmit Duration Max
+
+[*] Improved file-box processing. %LTMAIL macro now really works.
+
+
+
+3.186 (11-Mar-1999)
+------------------
+
+[+] CRAM-MD5 auth on BinkP.
+
+[+] Combined cron periods. You may specify multiple cron periods in a 
+    single line. User semicolon character for delimiter.
+
+[-] Some fixes with Sent directory in fileboxes.
+
+[*] Argus FTSC product code is now 7FF.
+
+[-] Moving files on Netware drives under Win9x didn't work (Alex Bolibot).
+
+[*] Niagara errors are logged (Alex Bolibot).
+
+[-] Fixed protocol halts on Niagara.
+
+[-] Fixed memory leaks of file-box processing (Sergey Semenyuk).
+
+[-] RING came from a modem during sending a complex answer string 
+    (containing "|" character) did prevent from answering.
+
+[-] Duplicate nodes in Periodical Polls, Dial-up overrides and TCP/IP overrides
+    are reported.
+
+[-] Accept No Incoming atom didn't restore serial port after termination of
+    period.
+
+[-] Fixed improper string processing that could cause AV in rare cases.
+
+[-] Fixed multiple "...not sent, reson..." strings logging.
+
+
+
+3.184 (18-Jan-1999)
+------------------
+
+[!] Russian interface.
+
+[-] Fixed error SYS0002, occurred on BinkP-sessions with 
+    FREQs (Alexey V Bugrov).
+
+[-] Extra CONNECT string was logged (dmitry troopin).
+
+[-] Freq total size was calculating wrong. (Alex Berez).
+
+[-] Fixed character quoting on file request editing (Sergei Shuma).
+
+[-] Logging of file mask matching during activity of atoms 
+    Accept/Transmit Files Required/Forbidden (Igor Bychkov).
+
+[-] On activity of atom Modem Disable Re-init, changing modem init string 
+    from another atom didn't automatically re-initialised the 
+    modem (Vladimir Bakhvaloff).
+
+[-] Fixed trap caused by pressing Edit button on empty TCP/IP Daemon node 
+    overrides grid (Paul Kalyakin).
+
+[-] Fixed time-out of reaction on EMSI (Alexey V Bugrov).
+
+[-] Auxiliary Password File string wasn't saved on empty string 
+    grid (Dima Vilisov).
+
+
+3.183 (12-Jan-1999)
+------------------
+
+[+] Addrd Start-up Wizzard.
+
+[*] Node inspector edits file-boxes, polls and post-processors.
+
+[-] Removed ZMH addition to nodes that always had Txy flag (Anatoly Serjakov).
+
+[*] Improved status update on nodelist compilation (Sergey Korowkin).
+
+[-] Log window showed last line empty (dmitry troopin).
+
+[+] Atom Transmit Speed Min (Vadim Kazakov).
+
+[-] Remove Broken Links in Outbound SmartMenu didn't work in 3.181-3.182 
+    (Egons Bush).
+
+[*] Updated help file.
+
+
+3.182 (5-Jan-1999)
+------------------
+
+[!] Node Inspector (Ctrl+I).
+
+[-] It was possible to import string grid of Connected Node 
+    Information (Sergey Korowkin).
+
+[*] The procedure of moving received files from Temporary Inbound to 
+    Secure/Insecure Inbound was changed to unary rename for reliability 
+    reason. You should keep Temporary Inbound and Secure/Insecure inbound 
+    on the same drive.
+
+[+] Config/Start-up Log WZ pending/incomplete.
+
+[+] Auxiliary config files (Igor Balashov).
+
+    These files are used to add additional passwords/overrides besides of
+    listed in grids. 
+
+    The format of auxiliary file for passwords is the following, one password 
+    per line:
+    
+    AddressList|Password
+
+    Example:
+
+    2:469/38|SUPER
+    2:469/77 2:469/84|PUPER
+
+    The format of auxiliary file for override is the following, one override
+    per line:
+
+
+    Address|Override
+
+    2:469/38|373-2-246-530,CM,ZYX 373-7-222-222,CM,HST
+
+    Auxiliary files are loading into memory on Argus Start-up and by detection 
+    of PASSWORD.OK, IPOVR.OK and DUPOVR.OK file flags in Argus Home Directory.
+
+    PASSWORD.LST hardcoded file name of 3.161 is obsolette.
+   
+
+3.181 (30-Dec-1998)
+-------------------
+
+[!] Config/File boxes. 
+    Options|Root directory input line of this diallog allows to define a 
+    root for all filebox directories listed in Nodes|Path. The rules of adding
+    Root directory to filebox directory are the same as for Home Directory of 
+    Config|Paths.
+
+    Value of string of a Node column may be a valid FTN address or 
+    a Pure Address Mask.
+
+    Value of string of a Status column may be one of the following:
+
+    C - Crash
+    D - Direct
+    N - Normal
+    H - Hold
+    * - Any Status
+
+    Value of string of a Path column may contain macros.
+
+    %ZONE     FTN zone in decimal (1-4 decimal digits)
+    %NET      FTN network in decimal (1-5 decimal digits)	
+    %NODE     FTN node in decimal (1-5 decimal digits)
+    %POINT    FTN point in decimal (1-5 decimal digits)
+    %HZONE    FTN zone in hex (3 hex digits)
+    %HNET     FTN net in hex (4 hex digits)
+    %HNODE    FTN node in hex (4 hex digits)
+    %HPOINT   FTN point in hex (4 hex digits)
+    %XZONE    FTN zone in radix-32 (2 radix-32 digits)
+    %XNET     FTN net in radix-32 (3 radix-32 digits)
+    %XNODE    FTN node in radix-32 (3 radix-32 digits)
+    %XPOINT   FTN point in radix-32 (2 radix-32 digits)
+    %STATUS   Status (C=Crash, D=Direct, N=Normal, H=Hold)
+    %TSTATUS  Same as %STATUS, but empty value represents Normal status.
+   
+
+    Value of string of a Path column may contain additional path (separated
+    by pipe character) to where files sent from this filebox will be moved, 
+    e.g. c:\ab\out|c:\ab\sent
+
+    Sent path may contain additional macros, representing current local date.
+
+    %YEAR     Year in decimal (4 digits).
+    %MONTHN   Month in decimal (2 digits), 1 = January, 2 = February, etc.
+    %MONTHA   Month in abbreviation (3 letters), Jan = January, etc.
+    %MONTHS   Month in short abbreviation (2 letters), Jn = January, etc.
+    %DAY      Day of month in decimal (2 digits).
+    %DOWN     Day of week in decimal (1 digit), 0 = Sunday, 2 = Monday, etc.
+    %DOWA     Day of week in abbreviation (3 letters), Sun = Sunday, etc.
+    %DOWS     Day of week in short abbreviation (3 letters), Su = Sunday, etc.  
+    %HOUR     Hour in decimal (2 digits).
+    %MINUTE   Minute in decimal (2 digits).
+    %SECOND   Second in decimal (2 digits).
+
+    Files in fileboxes are displaying in Outbound Manager Tab, but no operation
+    is permitted on them via Outbound SmartMenu(tm). 
+
+    Outbound SmartMenu(tm) only applies to files attached via Binkley Outbound.
+
+
+[-] Fixed a bug of 3.178-3.179 that cause 100% CPU load after modifying 
+    events (Alexey V Bugrov).
+
+[*] This version consumes almost twice less memory than 3.163-3.179.
+
+[*] All strings (like CallerId), came from modem after answer before connect 
+    are logged.
+
+[+] Incoming fileboxes (Config/Externals/PostProcessors), also allow all
+    listed above macros except of %STATUS and %TSTATUS.
+
+[+] "^" prefix in incoming filebox means that the newly received files
+    should overwrite existing instead of queuing in INTMP.
+
+    Example: Config/Externals/Postprocessors:
+
+    Mask List   String to execute
+
+    2:469/38    &^d:\fl\from38
+
+[+] "Explain" button in restrictions configuration.
+
+[+] Icons in menu.
+
+
+3.179 (28-Nov-1998)
+-------------------
+
+[-] Fixed a bug in event duration calculation.
+
+[-] Fixed a bug that "allowed" to send a modem command to closed port 
+    (Alex Petin).
+
+[-] Argus 3.178 didn't run under Windows 95/98.
+
+
+3.178 (24-Nov-1998)
+-------------------
+
+[!] Added possibility to send strings to modem interactively. Use Line/Send
+    Modem Commands menu item or press F9. This works when the modem is idle.
+
+[*] When launching a second copy of Argus, it activates the first one instead
+    of displaying a message box.
+
+[-] Fixed behaviour of Rings=0 atom (Alexey V Bugrov).
+
+[+] Prefix '!' for launching external applications in normal window mode.
+
+[-] Passwords strings of File Requests Configuration dialogue were not hidden
+    by asterisk character (Sergey S Bogukovsky).
+    
+[*] Broken Link's are no more unlinking but their status is changing to 
+    Normal (for Crash/Direct attachments).
+
+[-] Fixed a bug caused trap "[MainVCL] Access violation at address 004F7F4C. 
+    Read of address 00000010". Address values might vary slightly depending 
+    on version (Egons Bush).
+
+[-] Connect string was not logged before "Connection too slow - 
+    disconnecting" (Serge Dobronravov).
+
+[+] It is possible to use custom values for access_log, agent_log and 
+    binary_log files names to avoid troubles on 8.3 file 
+    systems (Barry Blackford).
+
+    To change them, create a registry key
+    
+    HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini
+
+    Names of String Values:
+
+    access_log
+    agent_log
+    binary_log
+    
+[-] Some bugs could cause traps that were displayed as a modal dialog box.
+    Argus didn't restart on them (Egons Bush).
+
+[-] ALPHA versions of Argus (3.163-3.175) might ignore .BSY-flags 
+    (Dmitry Sofronoff).
+
+
+3.175 ALPHA (30-Oct-1998)
+-------------------------
+
+[-] Fixed troubles with compiling large nodelist files.
+
+[-] Fixed some overflow errors.
+
+[*] Argus sends a dummy packet if there is nothing to send on ZModem session. 
+    Use Accept/Transmit Dummy-Z Disabled atoms and NODUMMYZ override flag.
+
+
+3.174 ALPHA (17-Oct-1998)
+-------------------------
+
+[-] Fixed %Z handshake switch handling (Sean Rima).
+
+[-] Fixed "Can't find required relocations" under Win95.
+
+
+3.173 ALPHA (9-Oct-1998)
+-------------------------
+
+[-] When answering manually with released port, the modem didn't initialize
+    (Alex Petin).
+
+[-] Refuse/Skip didn't work in 3.163-3.172.
+
+[-] Fixed output of log message "Receiving file was rejected by local 
+    operator / Failed to receive '...', deleting '...'
+
+
+3.172 ALPHA (23-Sep-1998)
+-------------------------
+
+[-] Fixed trap caused by manual anwer with released port (Alex Petin). 
+
+
+
+3.171 ALPHA (21-Sep-1998)
+-------------------------
+
+[-] Fixed outbound tree repaint procedure bug, that was preset since v2.54.
+
+[-] Fixed stand-off minutes bug, that was preset since v2.706. The value of 
+    Stand-off minutes was actually ignored and was hard-coded 
+    to 20 minutes +-50% (Fermin Sanchez).
+
+[-] Fixed some Range Check Errors of 3.165 ALPHA.
+
+
+3.165 ALPHA (7-Sep-1998)
+-------------------------
+
+[-] Fixed some Range Check Errors of 3.164 ALPHA.
+
+
+3.164 ALPHA (2-Sep-1998)
+-------------------------
+
+[-] Fixed some bugs of 3.163 ALPHA.
+
+[-] Fixed cron shift index for Days (Dmitry Kondratjev).
+
+
+3.163 ALPHA (30-Aug-1998)
+-------------------------
+
+[-] Fixed protocol halts on Niagara.
+
+[+] Long file names now allows spaces on BinkP and with file requests.
+
+[-] Fixed badwazoo updates on WM_QUERYENDSESSION.
+
+
+3.162 (22-Aug-1998)
+-------------------
+
+[+] Argus can use Internet Explorer 4.0+ notification that the taskbar has 
+    been re-created. When Argus receives this notification, it assumes
+    that its tray icon has been removed and adds it again (Andrew Lovetski).
+
+[-] Fixed a Hydra Bug with HCHR_PKTEND, found in HydraComm & BinkleyTerm 
+    (Igor Vanin).
+
+[-] Badwazoo.lst didn't get updated (Eugene Likhin).
+
+[-] Badwazoo file format didn't allow space characters.
+
+[-] Fixed Flow Control captions (Dmitry Kondratjev).
+
+[-] Fixed a trap that might ocur when all outgoing files were inaccessible 
+    during a session. (Sergey Spiridonov)
+
+[-] Some security fixes with Long File Name handling.
+
+[-] Percent Sign ("%") wildcard of File Request Configuration/Aliases didn't
+    actually work in 3.161.
+
+
+
+3.161 (9-Aug-1998)
+-------------------
+
+[+] File Request Configuration/Aliases allows WildCards ("*","?","%").
+    WildCards allow prefix ">" to make the only latest (by modification date)
+    file from the list of files matching the WildCard to be transferred by 
+    request (Oleg Vasenyoff).
+
+    Alias NODEDIFF gives the lastes node-diff:
+
+    Alias      Path
+
+    NODEDIFF   >R:\AF\NODELIST\NODEDIFF.Z%%
+
+
+[+] PASSWORD.LST in Argus Home Directory adds additional passwords besides of
+    listed in Config/Passwords grig. The format of PASSWORD.LST is the 
+    following, one password per line:
+    
+    AddressList|Password
+
+    Example:
+
+    2:469/38|SUPER
+    2:469/77 2:469/84|PUPER
+
+    PASSWORD.LST is loading into memory on Argus Start-up and by detection of
+    PASSWORD.OK	file-flag.
+
+[-] Some minor changes in ZModem for ifcico compatibility.
+
+[-] TCP/IP-lines didn't toss Pending BadWaZOO.
+
+[-] Fixed a small Memory Leak, which ocured after changing Cron values.
+
+[-] Fixed a bug Cron handling, that coul cause accidental launching of
+    all Periodically-Launching Application and Periodical Polls.
+  
+[-] Fixed a bug, that could cause in rare cases traps while handling events
+    linked in TCP/IP Daemon.
+
+[+] Atoms: Password
+           Door (Sean Rima)
+
+
+3.159 (29-Jun-1998)
+-------------------
+
+[-] Finally (I hope) fixed EMSI handshake bug of 3.157-3.158.
+
+[-] Some minor changes in ZModem for ifcico compatibility.
+
+
+3.158 (22-Jun-1998)
+-------------------
+
+[-] Fixed EMSI handshake bug of 3.157 (Sean Rima).
+
+
+3.157 (16-Jun-1998)
+-------------------
+
+[+] YooHoo (FTS-0006).
+
+[-] Minor changes of ZModem. 
+
+[-] Fixed .REQ delaying.
+
+[+] New node override flags: NOEMSI, NOYOOHOO.
+
+[-] Fixed socket shutdown (Fyodor Ustinov).
+
+[+] New atoms:
+       Accept EMSI Disabled 
+       Transmit EMSI Disabled
+       Accept YooHoo Disabled 
+       Transmit YooHoo Disabled
+
+
+3.156 (4-Jun-1998)
+-------------------
+
+[+] P2K support.
+
+
+
+3.155 (18-May-1998)
+-------------------
+
+[-] Fixed "Accept Nodes Required" atom.
+
+[-] Argus can start minimized if specified in shortcut.
+
+[-] Tray pop-up was modal.
+
+[-] Fixed trap on empty fax page receptoin (Fyodor Ustinov).
+
+[-] Accept No Incoming in conjunction with external poll caused traps (Ilya 
+    Kuleshov).
+
+[-] Ctrl-PgUp didn't actually work in 3.153-3.154 (Stephen Avdeyev).
+
+[-] RING signal while modem initialisation when atom Rings=0 was active, 
+    could put the line in dummy mode (Stephen Avdeyev).
+
+
+3.154 (28-Apr-1998)
+-------------------
+
+[!] Atom: Accept No Incoming
+           During the activity of this atom, serial port is used for outgoing
+	   calls only. In the remaining time the port can be used by other
+  	   applications. 
+
+[*] Major changes of ZModem. 
+
+
+3.153 (27-Apr-1998)
+-------------------
+
+[!] Possibility to close and open lines automatically by using file-flags,
+    located in home directory; "close.linename" & "open.linename" for
+    modem lines and close.ip & open.ip for TCP/IP daemon. E.g. if the line 
+    calls "Line4", the flags should be named "close.Line4" and "open.Line4".
+
+[+] Atoms: Accept Niagara Disabled
+	   Accept Hydra Disabled
+           Accept ZModem Disabled
+	   Transmit Niagara Disabled
+	   Transmit Hydra Disabled
+           Transmit ZModem Disabled
+           Accept FTS-0001 Disabled
+
+[+] Node flags:
+      NONIAGARA - disables Niagara(tm) session with the node.
+      NOHYD     - disables Hydra session with the node.	
+      NODZA	- disables DirZap (Zmodem/8K/Direct) session with the node. 
+      NOZAP	- disables ZedZap (Zmodem/8K) session with the node. 
+      NOZMO	- disables ZedZip (Zmodem/1K) session with the node. 
+      NOZM      - disables any of Zmodem session with the node 
+                  (NODZA,NOZAP,NOZMO).
+
+[*] Some fixes with Zmodem protocol.
+
+[-] Fixed a bug of 3.152 with externals' prefix handling.
+
+
+
+3.152 (23-Apr-1998)
+-------------------
+
+[*] Hidden/Detached/Priority prefixes are now also applying to SRIF and
+    Doors external application (Igor Balashov).
+
+[*] Fixed ZModem session with FrontDoor and Terminate (Lelio della Pietra).
+
+[-] Fixed line-a-sleeps.
+
+[-] Fixed attemts to make an outgoing call while getting rings.
+
+[+] Updated help files. Help is also available online at 
+    http://www.ritlabs.com/argus/hlp/
+
+[-] An empty IFD was appended to the end of each created TIFF (Feda).
+
+[-] Nodelist compliation status window, caused by nodelist.ok flag,
+    could remain after the completion of compilation process and prevent
+    polling.
+
+
+
+3.151 (30-Mar-1998)
+-------------------
+
+[-] Fixed TCP/IP daemon start-up.
+
+[*] Polls dialogs has been joined.
+
+[*] Config/Passwords items are checking on duplicates.
+
+[+] IntelliMouse support.
+
+[*] Logger window is now operatable by arrow keys. It's now also possible to 
+    control start-up lines without a mouse.
+
+
+3.149 (7-Mar-1998)
+------------------
+
+[-] Some Zmodem-related fixes.
+
+
+
+3.148 (2-Mar-1998)
+------------------
+
+[*] Double-click on an item of Polls tab invokes "Poll Information" window.
+
+[*] Communication resources are opening as "\\.\COM" (Jury Fradkin).
+
+[-] Fixed Zmodem (john gladkih).
+
+[+] Tool / Create a Flag [Ctrl+F8].
+
+[-] Fixed EMSI/BinkP handshaking (Juriy Goloveshkin).
+
+[!] External application are now capable of running seamlessly (thanks to 
+    Diman Pavlov, 2:469/56.20 for pointing that out; mail him your 
+    beer, one gallon per application).
+
+    Prefixes:
+
+     '?'  - Run in hidden mode.
+     '??' - Run in detached mode (for consoled Win32-apps. only).
+
+
+
+
+3.144 (9-Feb-1998)
+------------------
+
+[-] Fixed a bug of 1.14-1.141 with cron ranges (Lelio della Pietra).
+
+[-] Fixed a bug with EMSI-to-BinkP fallback (Lelio della Pietra).
+
+[-] Some fixes on proper DCD drop detection.
+
+[-] Fixed a long-lasted problem of ZModem batch switching. Now works fine
+    with ifcico (Andrey Khristov).
+
+[-] Fixed "WriteFile Error 998" trap when closing modem line (Dmitry Tarasov).
+
+[+] Cron values like 2/4 (same as 2-24/4 in old format) are now vaild
+    (Vladimir Bakhvaloff). 
+
+
+3.141 (7-Jan-1998)
+------------------
+
+[-] Non-TCP/IP version were linked incorrectly.
+
+[*] Removed threads.txt 
+
+
+3.14 (7-Jan-1998)
+-------------------
+
+*** This is mostly a bug-fixing release, but some of very useful things
+    were introduced though. Please, read the items below carefully.
+
+[!] Fax reception in TIFF-format files instead of raw T.4 (Fyodor Ustinov,
+    Jury Fradkin).
+
+[+] Automatic fax bit order recognition.
+
+[+] It is possible to launch an external application (or set a file-flag)
+    to handle a received TIFF fax document (Fyodor Ustinov).
+
+    Prefixes are the same as in Externals/Post-processors: 
+
+     '<' - Run with Idle priority
+     '+' - Run with High priority (dangerous)
+     '*' - Run with Real-time priority (very dangerous)
+     '?' - Run in detached mode (applicable for consoled Win32-apps. only)
+
+     '>' - Do not launch application but create a file-flag instead.
+
+    Use macros to obtain a file name of received TIFF fax document:
+
+    %PATHNAME%  fully-qualified file name, e.g. d:\fl\infax\03Jan003.tif
+    %PATH%      path to the file, e.g. d:\fl\infax\
+    %NAME%      file name (without path and extension, e.g. 03Jan003
+    %EXT%       file extension, e.g. .tif 
+
+    Combination %PATH%%NAME%%EXT% is identical to %PATHNAME%
+
+
+[*] Upgraded registration key. Visit
+    https://www.cflash.com/ritlabs/argus_key_update.html
+    to upgrade your existing Argus 2.xx key freely.
+
+[+] Supports of connections via SOCKS4 proxy server 
+    (Config/General/Use SOCKS proxy server).
+
+[+] Atoms: Accept FReq Count Public
+           Accept FReq Count Pwd-Prot
+           Accept FReq Duration Public
+           Accept FReq Duration Pwd-Prot
+           Accept FReq Size Public
+           Accept FReq Size Pwd-Prot
+           Accept Nodes Only Pwd-Prot
+
+           Transmit Files Forbidden 
+           Transmit Files Required  
+         Note: These two atoms do not affect on File Requests (.REQ) and 
+              Crash-Flavoured attaches (.CLO/.CUT)
+
+[+] "Permanent" checkbox in event configuration, used to define
+    full-time-active events.
+
+[+] Cron step values can be used in conjunction with ranges. Following a range
+    with "/<number>" specifies skips of the number's value through the
+    range. For example, "0-23/2" can be used in the hours field to specify
+    command execution every other hour (the alternative of previous
+    standard is "0,2,4,6,8,10,12,14,16,18,20,22"). Steps are also
+    permitted after an asterisk, so if you want to say "every two hours",
+    just use "*/2" (MaX Brashenko).
+
+[*] DES/ECB changed to DES/CBC in encrypted session and encrypted config.
+    DES/CBC is a bit better then DES/ECB, and can be used where medium
+    level data security is needed.
+
+[*] Incoming file requests are delaying when there already are pending
+    requests, attached to .HRQ.
+
+[+] You can also use <Delete> key in Outbound/Polls lists (Igor Garmiza).
+
+[*] Manual poll counters are displayed properly (Vladimir Dobrachev).
+
+[-] When remote proposes a password on non-password-sessions, the Password
+    keyword is not writing to SRIF file. Also SystemStatus is now setting
+    accordingly (Dmitry Kondratjev).
+
+[*] Some fixes dedicated to correct modem initialisation. Also, port reloading
+    may occur.
+
+[*] Input buffer is now flushed before sending "|" control character in order
+    to purge possible input characters and initialise modem properly (Sean
+    Rima).
+
+[-] Trailing and leading spaces in Nodelist/'Phones could cause troubles
+    (Damien Sam).
+
+[-] Message "Session with 1:153/950 when dialled 1:153/750 - disconnecting"
+    didn't displayed on BinkP (Damien Sam).
+
+[-] Fixed a memory leak, made in 3.134 (Fyodor Ustinov).
+
+[*] Incoming traffic filtering, based on remote's address take place on
+    password-protected sessions only (Oleg Vasenyoff).
+
+[*] On Argus first-time setup, home directory by default is assigned to
+    the same directory from which argus.exe was started, instead of \ARGUS
+    (Oleg Vasenyoff).
+
+[+] Possibility to delete all rows of a string grid at once, using pop-up menu
+    or Ctrl+Shift+Y or Ctrl+Shift+Delete (Damien Sam).
+
+[*] BinkP time-outs over Dial-up connection is 60 seconds. Was 360 like over
+    TCP/IP.
+
+[-] Mailer line number (%n handshake switch) is now 1-based (was zero-based),
+    according to documentation (Sean Rima).
+
+[-] It was unable to use handshake switches in path name, e.g.
+    "c:\pb\node%n\proboard.exe" caused "The directory name is invalid"
+    error (Sean Rima).
+
+[-] External applications no more inherit Argus' handles, including serial
+    ports and sockets handles.
+
+[*] Argus process priority changed back to Normal from High.
+
+
+3.134 (3-Dec-1997)
+-------------------
+
+[+] T-Mail / TheBrake! compatible refuse command reception on
+    ZModem (Jury Fradkin).
+
+[-] BinkleyTerm-compatible refuse command transmittion on 
+    ZModem (Antonio Ianiri).
+
+[-] Fixed problems with ifcico connectivity, I hope.
+
+[-] GetFileInformationByHandle() Win32 API function is no more 
+    used (Dimitri Tarassenko).
+
+[-] Empty value of Password field of Config/Passwords dialogue
+    is now being checked (Serj Li).
+
+[-] Cosmetic fixes (Vladimir Bakhvaloff).
+
+[-] Fixed improper DCE rate detection on some modems (Sean Rima).
+
+
+3.132 (25-Nov-1997)
+-------------------
+
+[*] Four-digit date format.
+
+[-] Fixed a start-up trap caused by config.bin missing.
+
+[-] Fixed a bug with password-protected primary address calculation.
+
+
+
+3.131 (19-Nov-1997)
+-------------------
+
+[!] Internal fax receiver.
+    Intro
+      Each mailer line now has a "Fax Inbound" fields. Received fax pages are
+      placed there in T.4 Data format (defined in CCITT blue book volume VII
+      T.4). Each modem has a "Fax" tab that defines whether internal or
+      external Fax receiver is to be used.
+    Modes
+      Internal Fax receiver supports both fax services Class 2 and Class 2.0
+      Please refer to your modem's manual to determine the fax class
+      supported by your modem. Class 1 is not supported by internal fax
+      receiver.
+    Answer strings
+      Answer strings are generally the same as for external fax receiver.
+        For class 2 fax modems:
+      ~AT&F|AT+FCLASS=2|AT+FLID="ID"|AT+FAA=1;a!
+        For class 2.0 fax modems:
+      ~AT&F|AT+FCLASS=2.0|AT+FLI="ID"|AT+FNR=1,1,1,1|at+FAA=1;a!
+    DTE rate problem
+      The most of Class 2 fax modems switch DTE rate to 19.2 Kbps on
+      detection of the first Phase B preamble, but some modems leave DTE rate
+      unchanged. DTE rates of the mailer and the fax modem must be synchronised.
+      This is gained by proper setting of "Switch DTE to 19.2 Kbps" option
+      of "Fax" tab of "Modem configuration" dialogue box. Reception of debris
+      after +FCON or +FCO means improper DTE switch mode setting.
+
+[*] Items of "Dial-up Configuration", "Events Configurations" and atoms
+    within "Edit Event" dialogue boxes can be edited by double-clicking on
+    them. It makes the configuration process much easier :-)
+
+[!] Argus supports DNS distributed nodelists.
+    Intro.
+      IP addresses of FTN nodes can be from DNS by rendering their FTN
+      addresses to host domain name and resolving this name. The rendering
+      is performing by the following scheme:
+      [p<Point>.]f<Node>.n<Net>.z<Zone>.<RootDomain>
+      The default root domain for Fidonet-reserved FTN-zones (1,2,3,4,5,6) is
+      fidonet.net. E.g., the IP address of node 1:2/3.4, according to this
+      scheme, is to be the same as of host p4.f2.n3.z1.fidonet.net.
+    Configuring
+      Root domains for each address mask are configured in DNS tab of
+      TCP/IP Daemon Configuration dialogue.
+    Fidonet.net root domain
+      Here is a FAQ on fidonet.net domain, dated 12-Nov-1997. The most recent
+      list is available at http://www.doe.carleton.ca/~nsoveiko/fido/fido-over-ip.FAQ.english.html#fidonet.net
+       Q? What is fidonet.net?
+       A: fidonet.net is an Internet domain registered to facilitate
+          development and deployment of fido-over-internet technology of all
+          kinds and flavours.
+       Q? How fidonet.net sub-domain and host names are assigned?
+       A: Sub-domain and host names are formed in the same way as for the
+          fidonet.org domain. For example, if your 4D Fidonet address is
+          A:BBB/CCC[.DDD], then your domain address would be
+          [pDDD.]fCCC.nBBB.zA.fidonet.net. Such unique address mapping allows
+          one to obtain a node's IP address knowing only it's FTN address.
+          Binkd is supporting such address mapping directly starting from
+          version 0.9.2.
+       Q? What is the difference between fidonet.net and fidonet.org than?
+       A: Fidonet.org domain was registered with the purpose of exchanging
+          mail between Internet RFC822-style and Fidonet mail systems. In
+          other words, hosts in the fidonet.org domains are Fidonet-Internet
+          gateways that are supposed to accept mail by both SMTP and FTS-1
+          (or, better EMSI) protocols. There is no such restriction on hosts
+          in fidonet.net domains. Technology developed and tested
+          in fidonet.net domain in the future might migrate to the fidonet.org
+          domain subject to approval of the latter's administration.
+       Q? What do I do to get a fidonet.net host name?
+       A: Your system should have binkp capability. This protocol is currently
+          supported by binkd and Argus mailers. You should contact a person
+          who is responsible for DNS in your Fidonet network. You can use
+          nslookup to figure out if your network already has a DNS server. If
+          there is none, please contact Fyodor Ustinov, 2:5020/79,
+          ufm@prospect.com.ru to arrange a DNS record for you.
+       Q? I am using Vmodem. Why should I install something else in order to
+          be listed in fidonet.net?
+       A: Common sense is that Fidonet systems should be able to exchange mail
+          directly. In order to make this possible, they should support some
+          protocol which will be the least common denominator for a given
+          transport. FTS-1 is such a protocol for conventional dial-up
+          transport. Vmodem-based technologies do not make a good candidate
+          for the least common denominator protocol because for many platforms
+          these technologies are not free they merely adapt dial-up technology
+          for TCP/IP transport retaining many drawbacks of the former and
+          without taking full advantage of the latter. On the contrary, binkp
+          is an open specification protocol designed to operate over reliable
+          connections with unpredictable delays (such as TCP connections) has
+          a portable implementation that is distributed in sources under terms
+          of GNU public license. So, it seems to be a natural choice for the
+          least common denominator protocol.
+
+[+] NT-version has a thread-monitoring facility via threads statistics of
+    threads.txt file, located in default log directory.
+
+[*] Improved performance of Niagara session over the high-speed lines with
+    large delay.
+
+[*] Primary address of a password-protected session is now considered not a
+    first address of AKA list but the first password-protected address.
+    There can be several addresses protected with one password though.
+    Primary address is used to link requested files to, also during SRIF
+    requests, and to be mentioned in binary_log. Address filtering mechanism
+    of Post-processors is also based on primary address.
+
+[+] It's now possible to dispatch incoming mail to several inbound
+    directories according to file mask and remote's primary address.
+    You can also specify a list of addresses and/or file masks in a single
+    fields. The items of a list are combined with logical OR operation.
+    Launching external application after a sessions with defined links
+    is also possible.
+     '&' character, preceding the string of "String to execute" field
+     of Config/Externals/Post-processors is used to define that the files
+     with conditions matched in "Mask list" field must be placed in the
+     inbound directory defined (after the '&' character).
+
+     This is an example of moving files, received from 59's points, to
+     INPNT directory.
+
+     Mask list         String to execute
+
+     2:469/59.*        &INPNT
+
+[-] Fixed some minor bugs with launching external applications.
+
+[-] Some fixes with EMSI handshaking.
+
+[-] Nodelist compilation window, invoked by nodelist.ok file flag had not
+    been closed automatically.
+
+[-] Fixed "Lamps Fader" thread's behaviour. This fix can reduce the thread's
+    CPU consumption by 100 times and more (for WinNT - see threads.txt).
+
+[-] Some fixes related to the Year 2000 Problem.
+
+
+3.122 (21-Oct-1997)
+-------------------
+
+[!] Argus receives mail and files on incoming FTS-0001 session. FSC-0039 and
+    FSC-0045 packet types are also supporting to extract remote information.
+    There are some restrictions:
+    - Outgoing FTS-0001 calls are not supported.
+    - Argus receives only and does not send out files during FTS-0001 session.
+    - The password length is limited by FTS-0001 to 8 characters. Links with
+      more than 8 characters in a password would be unable to initiate a
+      password-protected FTS-0001 session.
+    - Skip File and Reject File operations are disabled (as well as
+      refuse/delay).
+    - No file regets.
+    - Some FTS-0001 mailers do not provide valid file time.
+
+[*] "Carrier is still high" message is now checking no more than three times,
+    than the line goes to Error state.
+
+[*] DCD signal is now virtual. CONNECT message is enough.
+
+[*] Some fixes around +FCO.
+
+[-] Fixed a bug with "Dialling" & "Not enough rings to answer"
+    (Nicolas Rodionov).
+
+[*] Zone root entry is now not necessary for nodelist browsing.
+
+[-] Fixed some grammatical mistakes (Nicolas Rodionov).
+
+[-] Some fixes with WinSocket initialisation/finalisation.
+
+[-] Some minor bug-fixes.
+
+
+3.118 (9-Oct-1997)
+------------------
+
+[-] ?lo-files, rendered to pkt by Outbound Manager, were not deleted after
+    the transmission (Pavel Levshin).
+
+[-] Outbound SmartMenu(tm)'s Kill item changed to Finalize. It kills the only
+    "kill-sent" files and truncates "truncate-sent".
+
+[*] EMSI sequences TCP/PCT replaced to TZP/PZT.
+
+[-] New Item of SmartMenu(tm) - Open (also called by pressing Enter or by
+    click mouse twice). Opens a file with an external viewing application,
+    associated with the file type in the registry (Vladimir Dobrachev).
+
+
+3.114 (3-Oct-1997)
+------------------
+
+[*] Mirror & Close Window items moved to System Menu. Window menu has
+    been removed.
+
+[*] File Requests, Externals, Events, Periodical Polls and Poll Options
+    items moved to Config menu. Advanced many has been removed.
+
+[-] Events on TCP/Daemon. Pervious version ignored events linked to TCP/IP
+    Daemon.
+
+[*] Row selection in list boxes. It is now possible to select any point of
+    row to activate the cursor.
+
+[+] Duplicate Row item in String Grid's pop-up menu.
+
+[-] It was unable to Export/Import a String Grid containing '|' character.
+
+[*] Extended restrictions. Items within a row are combined with logical AND
+    operation, rows within a grid are combined with logical OR operation.
+
+[!] Config/External Polls. External polls allow to execute an external
+    application instead of polling nodes, specified in Address list field of
+    the dialogue. Application string format is the same as in Config/Externals/
+    Doors or Config/Dial-up/Modems/External Fax Receiver, ie all Handshake
+    Switches are applied and new introduced (as well as environment variables):
+      %w ARGUS_NODE     External poll's node address, eg "2:469/38"
+      %x ARGUS_STATION  Station name from nodelist, if applies
+      %v ARGUS_LOCATION Site location from nodelist, if applies
+      %X ARGUS_SYSOP    Sysop's name from nodelist, if applies
+      %y ARGUS_PHONE    Phone number or IP address from nodelist or overrides
+      %Y ARGUS_FLAGS    Node flags from nodelist or overrides
+      %W ARGUS_SPEED    Node speed from nodelist, if applies
+    Options' format is:
+     OkRange BusyRange NoCRange FailRange TimeoutMinutes TimeoutExitCode
+    It is possible to use enumerations and intervals in Ranges, (like as in
+    cron). eg "1,3,9-15". They also can be skipped by "." (point) character.
+    If none of values matches, the poll is considered to be completed OK.
+    Eg, options field "0 1 2,5-7 3,4 10 8" means that an external poll is OK
+    when the application returns exit code 0, busy on exit code=1, no connect
+    on 2,5,6,7 and fail on 3,4. "10" means than the application would be
+    terminated after 10 minutes of its execution, if it would not exit by
+    itself. If the application was terminated by time-out, its exit code is
+    set to TimeoutExitCode, ie 8 in the example above. The default value of
+    TimeoutExitCode (if missed) is 1. If TimeoutMinutes value missed,
+    the application would only exit by itself (if it would).
+
+[+] BinkP over Dial-up. This version introduces Niagara(tm) algorithm as
+    a Transport Layer for using Dima Maloff's BinkP protocol over dial-up
+    connection. The major benefits of Niagara are advanced selective-reject
+    error connection and echo-protection.
+
+[!] Encrypted BinkP-session. This version introduces an optional encryption
+    layer between Transport Layer (TCP or Niagara) and Protocol Layer (BinkP).
+    Note that encryption sessions require CPU overhead. This version contains
+    cryptographic software (DES ECB encryption routines) written by Eric Young
+    (eay@mincom.oz.au). This version also contains RSA Data Security, Inc. MD5
+    Message-Digest Algorithm.
+
+[+] Config/Encrypted Links. This dialogue allows to specify the nodes that
+    are allowed to connect using encrypted session only. You must also
+    specify the password for the link, which is after the input rendered
+    to DES session key and stored to config.bin. We recommend to use Master
+    Password as one of solutions to prevent encrypted links' keys from being
+    stolen with config.bin. If you would forget the link's password, there
+    would be no way to retreive it.
+
+[+] Master Password. It is purposed to encrypt "config.bin" file using DES
+    and MD5 algorithms to prevent your Argus configuration data (especially
+    encrypted links' keys) from being stolen. Once set, Master Password would
+    be asked each time Argus starts up, and before changing encrypted links'
+    keys. If you would forget your Master password, there would be no
+    easy practical way to retrieve the configuration data. Please use it
+    very carefully. We also recommend to back up the original config.bin
+    to a safe place.
+
+[-] Fixed File Refuse (destructive skip) on ZModem. There still is a problem
+    with File Skip (non-destructive skip) because of ZFERR command
+    mishandling by some mailers.
+
+[+] Tool/Attach files. It is also possible to attach multiple files at once
+    by using Ctrl and Shift keys in File Dialogue box. Argus provides all
+    registered file types as filters of the dialogue.
+
+[+] Files can also be attached by pulling them from Windows Explorer and
+    dropping to outbound manager area.
+
+[*] Outbound flags (empty ?lo-files) are used to define .req's status and
+    as a signals to initiate a crash/direct outbound poll.
+
+[!] Outbound SmartMenu(tm) is a special pop-up menu, called by clicking right
+    mouse button or Space key on outbound node, smartly provides all possible
+    operations with that node.
+     * Attach to current node - invokes file attachment procedure, similar to
+       Tool/Attach files main menu item.
+     * Poll to current node - invokes node polling procedure, similar to
+       Poll/Create main menu item.
+     * Edit file request to current node - invokes file requesting procedure,
+       similar to Tool/Edit File Request main menu item.
+     * Browse Nodelist at current node - invokes nodelist browsing procedure,
+       similar to Tool/Browse nodelist
+    The following operations are performed on "current items":
+         - Currently selected outbound file (current item of current node)
+         - All of same file name of current node, ie filename.*, when
+           filename.ext is currently selected outbound file.
+         - All of same file extension of current node, ie *.ext, when
+           filename.ext is currently selected outbound file.
+         - All of same attach status of current node.
+         - All Entries of Current Node.
+         - Entire outbound, ie all items within Argus outbound.
+     * Readdress - allows current items to be re-addressed to another node.
+       Attachment status remains unchanged.
+     * Kill - kills current items. Dangerous! :-)
+     * Change flavour to Crash/Direct/Normal/Hold - changes the attachment
+       status of current items.
+     * Unlink - unlinks (de-attaches) current items without killing them.
+     * Remove broken links - unlinks (de-attaches) files, which are not
+       available within current items. Be careful - links can be temporarily
+       broken due to lost connection to network outbound or other temporary
+       accessing errors.
+
+[+] Argus now sends appropriate messages before disconnecting socket if the
+    limit of simultaneous incoming TCP/IP connection has exceeded.
+    M_BSY/"Too many servers are running" on BinkP and "BUSY"+CR on ifcico /
+    Telnet.
+
+[+] Overrides Editor for dial-up and TCP/IP nodes, with one target per line
+    and human-readable online time (local), ie "11:00-23:00" instead of
+    "U,TLXL". Note, that UTC FSC-0062 Txy flags are also converted to local
+    time after editing the node overrides in Overrides Editor.
+
+[*] WZ Pending/Incomplete message is not writing to log if not necessary.
+
+[*] The program code was significantly restructured and re-optimised. Some
+    old minor bugs fixed, some fresh added :-)
+
+
+
+2.712 (14-Sep-1997)
+-------------------
+
+[-] Fixed TCP/IP Daemon Graphs (Fyodor Ustinov).
+
+[-] Fixed minimisation to tray (Fyodor Ustinov).
+
+[-] Fixed a bug in TxyL calculation (Pavel Levshin).
+
+[-] Fixed (finally, I hope) binary_log's oversuming (Nicolas Rodionov).
+
+[-] Fixed bug in skipping future versions' config.bin items.
+
+
+2.710 (5-Sep-1997)
+------------------
+
+[-] Fixed dummy re-dial attempt after poll and immediate attach lost on
+    huge outbounds (Fyodor Ustinov).
+
+[*] RING modem response is now writing to log file.
+
+[-] Fixed Receive Progress Indicator on BinkP.
+
+[-] Fixed some minor hangs on BinkP connection.
+
+[-] Updated Spanish & Dutch interfaces.
+
+[-] Fixed binary_log's oversuming (Nicolas Rodionov).
+
+
+2.708 (18-Aug-1997)
+-------------------
+
+[*] Argus failed to connect with D'Bridge on empty outgoing session
+    (Austin C. Phelps, Michael Karpov).
+
+[-] "CONNECT DCD" assumed speed=0 and caused "Floating point division by zero"
+    (Michael Karpov, Vladimir Polozhencev).
+
+
+2.706 (16-Aug-1997)
+-------------------
+
+[*] Zone Mail Hour is now not adding to Txy.
+
+[*] File requests to points are now transmitting as 'NNNNFFFF.REQ' instead of
+    'PPPPPPPP.REQ', for FrontDoor compatibility (Ilja Teterin).
+
+[-] Fixed trap (2.65-2.704) caused by line closing (Fyodor Ustinov).
+
+[-] Fixed trap in Outbound Browser caused by invalid point attachment to
+    its hub segment (Vladimir Dobrachev).
+
+[-] Argus did not initiated poll until modem re-init.
+
+[*] EMSI handshake and protocol negotiation is now a bit faster.
+
+[*] Maximal values of Retry Seconds and Stand-off minutes are enlarged to
+    14400 (2 days) and 2880 (4 hours) (Egons Bush).
+
+
+2.704 (03-Aug-1997)
+-------------------
+
+[+] Spanish interface (Jose-Luis Velasco).
+
+[-] Some bugs in Russian interface (Yurii Vorobiov).
+
+[*] Leading and trailing spaces in password field are automatically
+    deleting in Node Passwords dialogue box to avoid troubles.
+
+[-] Fixed bug caused Integer Overflow Trap while processing outbound files
+    dated outside the range of 1970 - 2037 AD (Fyodor Ustinov).
+
+[-] Transfer Progress Indicator counters did not cleared (Vladimir Dobrachev).
+
+
+2.703 (24-Jul-1997)
+------------------
+
+[!] TCP/IP version for Windows 95. Not requires WinSock2, but preferable.
+
+[+] Advanced/Poll Options.
+
+[+] Modem Disable Reinit Atom.
+
+[+] Dutch interface.
+
+[-] Fixed bug with exit.now.
+
+[-] Config/Dial-up/Station/AKA input is did not validated.
+
+[-] Fixed bug with "Error Initialising Modem" (Marc Kuhnert).
+
+
+2.701 (16-Jul-1997)
+-------------------
+
+[+] '?' character before command/file name in
+    "Advanced/Externals/Cron/String to Execute", or
+    "Advanced/Externals/Post-processors/String to Execute" instructs
+    to execute the process in DETACHED_MODE (without using console window) .
+    This flag can be used only for launching Win32 console applications.
+    An attempt to execute DETACHED Win3.1 or DOS application causes the error.
+    Processes can be launched with the following priority levels:
+     '<' - Low (IDLE_PRIORITY_CLASS)
+     '+' - High (HIGH_PRIORITY_CLASS)
+     '*' - Real-time (REALTIME_PRIORITY_CLASS).
+    Processes are executing with normal priority (NORMAL_PRIORITY_CLASS)
+    by default.
+
+[-] Passwords checking in v2.70 was incorrect (Oleg Vasenyoff).
+
+[-] Attached file without extension caused trap (Sean Rima).
+
+[-] Processing request of alias which was not found caused trap.
+
+
+
+2.70 (14-Jul-1997)
+------------------
+
+[*] EMSI_INQ sequence is transmitted by originating side before EMSI_DAT
+    every time unless EMSI_NAK received (for ifcifo / Argus compatibility
+    working via Cisco Routers).
+
+[-] When switching interface language back to English, the Header Control
+    Sections were displayed on previous language (Ivan Berger).
+
+[-] Periodical Polls window was displayed in English regardless of
+    currently selected interface language (Dennis Sorokin).
+
+[+] cronapps.log - log file of periodically launching application
+    (Sergio Aleksandrov).
+
+[-] The "Point,0," line was interpreted in a wrong way while compiling
+    the pointlist (Dmitri Panev).
+
+[+] FrontDoor passwords import (Thanks to Alexander Habbe for data structures).
+
+[+] MainDoor passwords import (Thanks to ldellapi@tin.it for data structures)
+
+[-] Manual polls (versions 2.68-2.69) did not ignored the working time of a
+    node (Ivan Berger).
+
+[-] T?A flags were interpreted in a wrong way (Dmitry Toporkov).
+
+[-] TxyL flags were interpreted in a wrong way (Gleb Shirenkov).
+
+[*] Password are no longer shown in passwords window while viewing (they are
+    replaced with asterisks).
+
+[-] Wrong CPS calculation on Zmodem ReSyncs (Dmitri Panev).
+
+[+] Minimisation into System Tray (James Roberts-Thomson).
+
+[-] The only first 255 characters of AKA list were displayed in information
+    grid and log file (Marc Kuhnert).
+
+[-] Password-protected AKAs were not checked on outcoming binkp
+    connection (Sergey Shenderuk).
+
+[-] After successful outgoing session completion the second dummy
+    outbound call could be done because of outbound
+    caching (Vladimir Dobrachev).
+
+[*] Workaround of Digiboard PC/8e Windows driver's bug with
+    CommTimeouts API routine (Gerhard Lustig).
+
+[-] Nodelist compilation could stop 'Waiting for dial'
+    timer (Stephen Avdeyev).
+
+
+2.69 (30-Jun-1997)
+------------------
+
+[+] Up to COM32 (Egons Bush).
+
+[*] No confirmation on exit.
+
+[*] Extended Skip/Refuse.
+
+[-] Fixed a bug, caused "Already processing" sometimes.
+
+[-] Russian interface fixes (Gleb Shirenkov, Peter Gannushkin).
+
+
+2.68 (28-Jun-1997)
+------------------
+
+[+] Flag TxyL (same as Txy, but works on local time instead of UTC).
+
+[+] Import of node online time information during T-Mail configuration
+    import. Complex constructions are also supported, eg.:
+    04:00-04:30,08:00-08:30,12:00-12:30,16:00-16:30,20:00-22:00
+
+[-] Fixed bug occurred when handling request on just installed Argus.
+
+[-] Was unable to disable  file requests.
+
+[-] Version for NT with TCP/IP support did not started on machine, on
+    which were no Windows/Network/Protocols/TCPIP configured.
+
+[-] If the first listed file of ?lo couldn't be found, not more transmission
+    was done.
+
+[-] Fixed kernel32.dll trap occurred when trying to execute External Fax
+    Receiver when its command line was empty.
+
+
+2.67 (23-Jun-1997)
+------------------
+
+[-] The '?' filter character in PostProcessors did not work (Marc Kuhnert).
+
+[-] 'Outbound' and 'Polls' tabs were confused.
+
+[-] Bottom part of Outbound page wasn't redrawn (Peter Gannushkin).
+
+
+2.66 (22-Jun-1997)
+------------------
+
+[+] T-Mail Configuration Import.
+
+[*] Override flags do not replace flags from nodelist, but added instead.
+    Use '!' character before a nodelist flag to ignore it.
+    Special flag !ALL is used to ignore all nodelist flags (Fydor Ustinov).
+
+[-] Interface language was not memorised (Vladimir Petrov).
+
+[-] Fixed bug of 2.63-2.65 causing trap due a modem or a station template
+    creation in Dial-up configuration dialogue.
+
+[-] Fixed some Outbound Viewer's bugs which caused periodical restarts.
+
+
+
+2.65 Gamma (18-Jun-1997)
+------------------------
+
+[-] Fixed bug of 2.65 Alpha, caused stack overflow on external application
+    launching (Sean Rima).
+
+[-] Fixed Outbound Viewer's bug caused crash when pressing 'On Sent' Tab.
+
+
+
+2.65 Alpha (18-Jun-1997)
+------------------------
+
+[*] Format of binary nodelist file was changed - nodelist.bin instead of
+    nodelist.t2.
+
+[*] Nodelist compilation works faster. Previous versions was seriously
+    slowing down the system during compilation process.
+
+[*] Nodelist browser works faster, especially on 486 machines with 8MB of
+    RAM (Peter Gannushkin).
+
+[*] Outbound Viewer moved to the page of mailer's main window.
+
+[*] Optimised poll list updating (Fyodor Ustinov).
+
+[*] Information box is displayed after creating the first event.
+
+[*] HotTrack in lists.
+
+[*] Regions and hubs are now separated in Nodelist browser.
+
+[+] Both pointlist formats supported - with "Point", prefix and without
+    (Alexander Habbe).
+
+[+] Reload on Traps!
+
+[-] There was an exception on file request editing of just-installed
+    Argus (Dmitry Tarasov).
+
+[-] Fixed SRIF fields OurAKA and TRANX (Sean Rima).
+
+[-] The nodes of one network were listed in separate text nodelists,
+    did not joined in one network - the only first segment was used.
+    Now nodes with same numbers replace each other in order of text
+    nodelist sequence.
+
+[-] Pop-up menu of polls list did not work in versions 2.63-2.64 (Max Feduloff).
+
+[-] Just after the nodelist compilation starts the window showed
+    "Compiling net 469".
+
+[-] Fixed some grammar mistakes (Gleb Shirenkov).
+
+[-] It was a trap occurring while exiting Argus but TCP/IP line created.
+
+[-] '>' character in the first position of string "Advanced/Externals/Cron/
+    String to Execute", or "Advanced/Externals/Post-processors/String to
+    Execute" informs to create a zero-length file named same as a string
+    followed by '>' character (Fyodor Ustinov).
+
+[-] Event deletion did not updated the buttons state and could cause a trap.

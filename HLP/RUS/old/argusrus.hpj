@@ -1,0 +1,21 @@
+; This file is maintained by HCW. Do not modify this file directly.
+
+[OPTIONS]
+LCID=0x419 0x0 0x0 ; Russian
+REPORT=Yes
+CHARSET=204
+CONTENTS=IDH_READMEFIRST
+TITLE=Аргус
+CNT=.\ArgusRus.cnt
+COPYRIGHT=Copyright © 1997-98 RIT Research Labs
+BMROOT=..\..\BMP
+HLP=.\ArgusRus.hlp
+
+[FILES]
+.\argusrus.rtf
+
+[MAP]
+#include ..\..\ARGUS.h
+
+[WINDOWS]
+main="",,60676,(r15138815),(r12632256)

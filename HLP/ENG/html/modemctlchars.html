@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Modem Control Characters</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Modem control characters">
+	<PARAM NAME="Keyword" VALUE="`">
+	<PARAM NAME="Keyword" VALUE="~">
+	<PARAM NAME="Keyword" VALUE="^">
+	<PARAM NAME="Keyword" VALUE="v">
+	<PARAM NAME="Keyword" VALUE="|">
+	<PARAM NAME="Keyword" VALUE="!">
+	<PARAM NAME="Keyword" VALUE="\">
+</OBJECT>
+
+<H1><A NAME="idh_modemctlchars"></A>Modem control characters</H1>
+
+<P>This is the table of interpretation of control characters allowed in Commands string grid of <A HREF="cfgmodem.html">Modem Configuration</A> dialogue:</P>
+
+<TABLE cols=3 width=601>
+
+<TR VALIGN="top">
+<TD width=11%>Character</TD>
+<TD width=11%>Hex code</TD>
+<TD width=78%>Action</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>`</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>60h</CODE></PRE>
+</TD>
+<TD width=78%>0.1 sec delay</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>~</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>7Eh</CODE></PRE>
+</TD>
+<TD width=78%>0.5 sec delay</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>^</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>5Eh</CODE></PRE>
+</TD>
+<TD width=78%>raise DTR signal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>v</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>76h</CODE></PRE>
+</TD>
+<TD width=78%>lower DTR signal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>|</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>7Ch</CODE></PRE>
+</TD>
+<TD width=78%>send CR (0Dh) symbol and wait for OK response with 3 sec time-out</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>!</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>21h</CODE></PRE>
+</TD>
+<TD width=78%>send CR without waiting</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>\</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>5Ch</CODE></PRE>
+</TD>
+<TD width=78%>send the next character as is (without treating it as a control character).
+<P>E.g.: <CODE>\~</CODE>  -  sends tilde character</P>
+</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Subpatterns</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_reasubpatt"></A>Subpatterns</H1>
+
+<P>Subpatterns are delimited by parentheses (round brackets), which can be nested.</P>
+
+<P>Marking part of a pattern as a subpattern does two things:</P>
+
+<P>1. It localizes a set of alternatives. For example, the pattern</P>
+
+<P>cat(aract|erpillar|)</P>
+
+<P>matches one of the words "cat", "cataract", or "caterpillar". Without the parentheses, it would match "cataract", "erpillar" or the empty string. </P>
+
+<P>2. It sets up the subpattern as a capturing subpattern (as defined above). Opening parentheses are counted from left to right (starting from 1) to obtain the numbers of the capturing subpatterns.</P>
+
+<P>For example, if the string "the red king" is matched against the pattern</P>
+
+<P>the ((red|white) (king|queen))</P>
+
+<P>the captured substrings are "red king", "red", and "king", and are numbered 1, 2, and 3.</P>
+
+<P>The fact that plain parentheses fulfil two functions is not always helpful. There are often times when a grouping subpattern is required without a capturing requirement. If an opening parenthesis is followed by "?:", the subpattern does not do any capturing, and is not counted when computing the number of any subsequent capturing subpatterns. For example, if the string "the white queen" is matched against the pattern</P>
+
+<P>the ((?:red|white) (king|queen))</P>
+
+<P>the captured substrings are "white queen" and "queen", and are numbered 1 and 2. The maximum number of captured substrings is 99, and the maximum number of all subpatterns, both capturing and non-capturing, is 200.</P>
+
+<P>As a convenient shorthand, if any option settings are required at the start of a non-capturing subpattern, the option letters may appear between the "?" and the ":". Thus the two patterns</P>
+
+<P>(?i:saturday|sunday)</P>
+
+<P>(?:(?i)saturday|sunday)</P>
+
+<P>match exactly the same set of strings. Because alternative branches are tried from left to right, and options are not reset until the end of the subpattern is reached, an option setting in one branch does affect subsequent branches, so the above patterns match "SUNDAY" as well as "Saturday".</P>
+
+</BODY>
+</HTML>

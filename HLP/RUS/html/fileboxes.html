@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_fileboxes"></A>Файл-боксы</H1>
+
+<P><A HREF="bso.html">Буфер отправки системы Binkley</A> - не единственный способ определения файлов, подлежащих отправке. Аргус способен сканировать определенные каталоги, найденные файлы в которых будут считаться подлежащими отправке. Такие каталоги называются <I>файл-боксами</I>. Каждому такому каталогу (файл-боксу) соответствует узел, на который должны быть оправлены файлы из него, и статус отправки. Эти соответствия (между каталогом и узлом/статусом) назначаются в диалоговом окне Config/File-boxes (Ctrl+B).</P>
+
+<P>Строка ввода Options/Root directory позволяет определить корневой каталог для всех файл-боксов, пути к которым определены в сетке Nodes. Правило добавления пути корневого каталога те же, что и принятое при указании путей в сетке <A HREF="sd.html">Special Directories</A> диалогового окна <A HREF="pn.html">Config/Paths</A>.</P>
+
+<P>Значением строки колонки Node может быть FTN-адрес или упрощенная маска адресов; а также <A HREF="regexp.html">регулярное выражение</A>.</P>
+
+<P>Значением строки колонки Status может быть:</P>
+
+<TABLE cols=2 width=546>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>C</CODE></PRE>
+</TD>
+<TD width=94%>файл-бокс со статусом Crash</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>D</CODE></PRE>
+</TD>
+<TD width=94%>файл-бокс со статусом Direct</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>N</CODE></PRE>
+</TD>
+<TD width=94%>файл-бокс со статусом Normal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD width=94%>файл-бокс со статусом Hold</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=94%>любой из вышеперечисленных статусов</TD>
+</TR>
+</TABLE><BR>
+
+<P>Значение строки колонки Path может содержать макросы:</P>
+
+<TABLE cols=2 width=575>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%ZONE</CODE></PRE>
+</TD>
+<TD width=84%>зона, десятичная (1-4 десятичные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%NET</CODE></PRE>
+</TD>
+<TD width=84%>сеть, десятичная (1-5 десятичных цифр)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%NODE</CODE></PRE>
+</TD>
+<TD width=84%>узел, десятичный (1-5 десятичных цифр)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%POINT</CODE></PRE>
+</TD>
+<TD width=84%>пойнт, десятичный (1-5 десятичных цифр)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%HZONE</CODE></PRE>
+</TD>
+<TD width=84%>зона, шестнадцатеричная (3 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%HNET</CODE></PRE>
+</TD>
+<TD width=84%>сеть, шестнадцатеричная (4 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%HNODE</CODE></PRE>
+</TD>
+<TD width=84%>узел, шестнадцатеричный (4 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%HPOINT</CODE></PRE>
+</TD>
+<TD width=84%>пойнт, шестнадцатеричный (4 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%XZONE</CODE></PRE>
+</TD>
+<TD width=84%>зона, 32-чная (2 цифры в radix-32)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%XNET</CODE></PRE>
+</TD>
+<TD width=84%>сеть, 32-чная (3 цифры в radix-32)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%XNODE</CODE></PRE>
+</TD>
+<TD width=84%>узел, 32-чный (3 цифры в radix-32)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%XPOINT</CODE></PRE>
+</TD>
+<TD width=84%>пойнт, 32-чнай (2 цифры в radix-32)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%STATUS</CODE></PRE>
+</TD>
+<TD width=84%>статус файл-бокса (C=Crash, D=Direct, N=Normal, H=Hold)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%TSTATUS</CODE></PRE>
+</TD>
+<TD width=84%>то же, что и %STATUS, но пустое значение обозначает Normal.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%STMAIL</CODE></PRE>
+</TD>
+<TD width=84%><CODE>то же, что и комбинация %XZONE%XNET%XNODE.%XPOINT%TSTATUS</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>%LTMAIL</CODE></PRE>
+</TD>
+<TD width=84%><CODE>то же, что и комбинация</CODE> <CODE>%ZONE.%NET.%NODE.%POINT?%TSTATUS</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>As you see, macros are used to bound a path to particular nodes if value of string of a Node column contains a mask or <A HREF="regexp.html">Regular Expression</A>. To be able to bind multiple directories to a node, value of string of Path column may also contain *, ?, % wildcards or <A HREF="regexp.html">Regular Expressions</A>.</P>
+
+<P>Значение поля колонки Path может задать путь к каталогу, в который будут перемещены файлы, отправленные из данного файл-бокса. Такой каталог называется <I>каталогом отправленных файлов</I>. Путь к каталогу отправленных файлов отделяется от пути к файл-боксу символом "<CODE>|</CODE>" и может содержать дополнительные макросы (помимо вышеописанных), представляющие текущую дату и время.</P>
+
+<TABLE cols=2 width=348>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%YEAR</CODE></PRE>
+</TD>
+<TD width=66%>Год (4 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MONTHN</CODE></PRE>
+</TD>
+<TD width=66%>Месяц (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MONTHA</CODE></PRE>
+</TD>
+<TD width=66%>Месяц (3 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MONTHS</CODE></PRE>
+</TD>
+<TD width=66%>Месяц (2 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DAY</CODE></PRE>
+</TD>
+<TD width=66%>День месяца (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DOWN</CODE></PRE>
+</TD>
+<TD width=66%>День недели (1 цифра)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DOWA</CODE></PRE>
+</TD>
+<TD width=66%>День недели (3 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DOWS</CODE></PRE>
+</TD>
+<TD width=66%>День недели (2 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%HOUR</CODE></PRE>
+</TD>
+<TD width=66%>Час (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MINUTE</CODE></PRE>
+</TD>
+<TD width=66%>Минута (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%SECOND</CODE></PRE>
+</TD>
+<TD width=66%>Секунда (2 цифры)</TD>
+</TR>
+</TABLE><BR>
+
+<P>Для надежности работы, переданные файлы перемещаются из файл-бокса в каталог отправленных файлов путем операции "переименовать", а не "скопировать и удалить", поэтому оба каталога должны находиться на одном томе или физическом диске. Если, после передачи файла из файл-бокса в каталоге отправленных файлов уже находится файл с таким же именем, находящийся файл будет перезаписан.</P>
+
+<P>Если каталог отправленных файлов не определен (значение поля колонки Path содержит только путь к файл-боксу, символ-разделитеть "<CODE>|</CODE>" отсутствует), то отправленные файлы будут удаляться.</P>
+
+<P>Файлы, находящиеся в файл-боксах отображаются в дереве Outbound Manager, но <A HREF="smartmenu.html">SmartMenu</A> не будет производить операции с ними. SmartMenu производит операции только в файлами, привязанными к оправке через <A HREF="bso.html">Буфер отправки системы Binkley</A>.</P>
+
+<P>Пример сетки File Boxes configuration:</P>
+
+<TABLE cols=3 width=291>
+
+<TR VALIGN="top">
+<TD width=31%>Node</TD>
+<TD width=26%>Status</TD>
+<TD width=43%>Path</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%>
+<PRE><CODE>2:469/38</CODE></PRE>
+</TD>
+<TD width=26%>
+<PRE><CODE>N</CODE></PRE>
+</TD>
+<TD width=43%>
+<PRE><CODE>out38|sent38</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Root directory: <CODE>c:\fl</CODE></P>
+
+<P>В этом случае, файлы, скопированные в каталог <CODE>c:\fl\out38</CODE> будут считаться подлежащими отправке на узел 2:469/38 с приоритетом Normal (типы приоритетов описаны в главе <A HREF="bso.html">Буфер отправки системы Binkley</A>. То есть при входящем или исходящем сеансе связи с узлом 2:469/38 файлы из каталога <CODE>c:\fl\out38 </CODE>будут ему передаваться. Переданные файлы будут перемещены в каталог <CODE>c:\fl\sent38</CODE>.</P>
+
+<P>Пример с использованием макроса:</P>
+
+<TABLE cols=3 width=395>
+
+<TR VALIGN="top">
+<TD width=20%>Node</TD>
+<TD width=17%>Status</TD>
+<TD width=63%>Path</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>2:469/*.0</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>N</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>out%NODE|sent%NODE</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>В этом случае, файл-боксом для 2:469/38 будет<CODE> out38</CODE>, как и в предыдущем примере, но при помощи макроса определены также файл-боксы для всех узлов сети 2:469. Файл-боксом для 2:469/39 будет <CODE>out39</CODE>, для 2:469/40 будет <CODE>out40</CODE>, и так далее.</P>
+
+<P>Чтобы определить T-Mail-совместимое дерево файл-боксов в <CODE>c:\t-mail\fboxes</CODE>, используйте следующий пример:</P>
+
+<TABLE cols=3 width=395>
+
+<TR VALIGN="top">
+<TD width=20%>Node</TD>
+<TD width=17%>Status</TD>
+<TD width=63%>Path</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>*:*/*.*</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>c:\t-mail\fboxes\%STMAIL</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,1013 @@
+<HTML>
+<!-- Sitemap 1.0 -->
+<OBJECT type="text/site properties">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="*">
+		<param name="See Also" value="*">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Keyword" value="*/*">
+			<param name="Local" value="html/addrmasks.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Address Input Window">
+		<param name="Name" value="Address input window">
+		<param name="Local" value="html/addrinput.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Address list">
+		<param name="Name" value="Настройка EMSI-данных">
+		<param name="Local" value="html/cfgemsi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Alias">
+		<param name="Name" value="File Request Editor">
+		<param name="Local" value="html/freqedit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Aliases">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Allow Masks">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Answer">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Argus">
+		<param name="Name" value="Что такое Аргус?">
+		<param name="Local" value="html/intro.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Assertions">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Automatic Poll">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Back References">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Backslash">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="BinkP протокол">
+		<param name="Name" value="TCP/IP Daemon">
+		<param name="Local" value="html/introdaemon.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Busy">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_BREAK">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_DNS">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_FRAME">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_IOE">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_MODE">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_OOP">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_OVERRUN">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_PTO">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_RXOVER">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_RXPARITY">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CE_TXFULL">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Circumflex and Dollar">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="close.line">
+		<param name="Name" value="File-Flags">
+		<param name="Local" value="html/fileflags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="COM Port Configuration">
+		<param name="Name" value="Настройка коммуникационных портов">
+		<param name="Local" value="html/cfgserial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Comments">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Compile Nodelist">
+		<param name="Name" value="Меню Tool">
+		<param name="Local" value="html/mnutool.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Conditional Subpatterns">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CTS">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="CTS/RTS flow control">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Default Zone">
+		<param name="Name" value="Каталоги">
+		<param name="Local" value="html/pn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Dial Prefix">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Dial restrictions">
+		<param name="Name" value="Схемы ограничений прозвонок">
+		<param name="Local" value="html/cfgrest.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Dial Suffix">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Differences From Perl">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Disable all requests">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="DSR">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="DTR">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="dupovr.ok">
+		<param name="Name" value="File-Flags">
+		<param name="Local" value="html/fileflags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="EMSI">
+		<param name="Name" value="Настройка EMSI-данных">
+		<param name="Local" value="html/cfgemsi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Exit">
+		<param name="Name" value="Меню System">
+		<param name="Local" value="html/mnusystem.html">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="exit.now">
+		<param name="Name" value="File-Flags">
+		<param name="Local" value="html/fileflags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Exler">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Fail">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="File Request Configuration">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="File Request Editor">
+		<param name="Name" value="File Request Editor">
+		<param name="Local" value="html/freqedit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Files">
+		<param name="Name" value="Конфигурация списка FTS-0005">
+		<param name="Local" value="html/cfgnodelist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Flags">
+		<param name="Name" value="Настройка EMSI-данных">
+		<param name="Local" value="html/cfgemsi.html">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Flags list">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Flow control">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Forbidden">
+		<param name="Name" value="Схемы ограничений прозвонок">
+		<param name="Local" value="html/cfgrest.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="FREQ">
+		<param name="Name" value="Меню System">
+		<param name="Local" value="html/mnusystem.html">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Full Stop (Period">
+		<param name="See Also" value="Full Stop (Period">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Keyword" value="Dot)">
+			<param name="Local" value="html/regexpadvanced.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="General">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="General Commands">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Grids">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Сетки ввода строк">
+		<param name="Local" value="html/guigrid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Hangup">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Hardware flow control">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Home Directory">
+		<param name="Name" value="Каталоги">
+		<param name="Local" value="html/pn.html">
+		<param name="Name" value="Home Directory">
+		<param name="Local" value="html/hd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Init">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Init/Prefix/Suffix">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Insecure inbound">
+		<param name="Name" value="Специальные каталоги">
+		<param name="Local" value="html/sd.html">
+		<param name="Name" value="Insecure inbound">
+		<param name="Local" value="html/sdii.html">
+		<param name="Name" value="Конфигурация паролей">
+		<param name="Local" value="html/cfgpasswords.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Internal Option Setting">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="ipovr.ok">
+		<param name="Name" value="File-Flags">
+		<param name="Local" value="html/fileflags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Limitiations">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Location">
+		<param name="Name" value="Настройка EMSI-данных">
+		<param name="Local" value="html/cfgemsi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Log">
+		<param name="Name" value="Специальные каталоги">
+		<param name="Local" value="html/sd.html">
+		<param name="Name" value="Log">
+		<param name="Local" value="html/sdl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Log display field">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Окно хронологии">
+		<param name="Local" value="html/guilog.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Manual Poll">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Meta-Characters">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Modem activity monitor">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Modem configuration">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Modem control characters">
+		<param name="Name" value="Управляющие символы модема">
+		<param name="Local" value="html/modemctlchars.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Modem flow control">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="No. c">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Node">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Node Inspector">
+		<param name="Name" value="Node Inspector">
+		<param name="Local" value="html/nodeinsp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Node overrides">
+		<param name="Name" value="Таблица переопределений узлов">
+		<param name="Local" value="html/cfgnodes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Nodelist">
+		<param name="Name" value="Меню Tool">
+		<param name="Local" value="html/mnutool.html">
+		<param name="Name" value="Конфигурация списка FTS-0005">
+		<param name="Local" value="html/cfgnodelist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Nodelist Browser">
+		<param name="Name" value="Address input window">
+		<param name="Local" value="html/addrinput.html">
+		<param name="Name" value="Nodelist Browser">
+		<param name="Local" value="html/nodebrowse.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="nodelist.ok">
+		<param name="Name" value="File-Flags">
+		<param name="Local" value="html/fileflags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="ODBC Logging">
+		<param name="Name" value="ODBC Logging">
+		<param name="Local" value="html/odbclog.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Once-Only Subpatterns">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="open.line">
+		<param name="Name" value="File-Flags">
+		<param name="Local" value="html/fileflags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Outbound">
+		<param name="Name" value="Специальные каталоги">
+		<param name="Local" value="html/sd.html">
+		<param name="Name" value="Outbound">
+		<param name="Local" value="html/sdo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Override Line Editor">
+		<param name="Name" value="Override Line Editor">
+		<param name="Local" value="html/ovrlined.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Overrides">
+		<param name="Name" value="Таблица переопределений узлов">
+		<param name="Local" value="html/cfgnodes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Owner">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Parity Check">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="password">
+		<param name="Name" value="Конфигурация паролей">
+		<param name="Local" value="html/cfgpasswords.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="password.ok">
+		<param name="Name" value="File-Flags">
+		<param name="Local" value="html/fileflags.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="PathNames">
+		<param name="Name" value="Каталоги">
+		<param name="Local" value="html/pn.html">
+		<param name="Name" value="Конфигурация списка FTS-0005">
+		<param name="Local" value="html/cfgnodelist.html">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Performance">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Phone">
+		<param name="Name" value="Настройка EMSI-данных">
+		<param name="Local" value="html/cfgemsi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Phones">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		<param name="Name" value="Конфигурация списка FTS-0005">
+		<param name="Local" value="html/cfgnodelist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Pie gauge">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Индикатор прогресса приема/передачи">
+		<param name="Local" value="html/guipie.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Poll Manager">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		<param name="Name" value="Меню Poll">
+		<param name="Local" value="html/mnupoll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Poll Type">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Port Configuration">
+		<param name="Name" value="Настройка коммуникационных портов">
+		<param name="Local" value="html/cfgserial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Raw">
+		<param name="Name" value="TCP/IP Daemon">
+		<param name="Local" value="html/introdaemon.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Real-time search">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Recursive paths">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Regular Expressions">
+		<param name="Name" value="Where to use Regular Expressions">
+		<param name="Local" value="html/regexp.html">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Repetition">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Required">
+		<param name="Name" value="Схемы ограничений прозвонок">
+		<param name="Local" value="html/cfgrest.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Responses">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="RTS">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Secure inbound">
+		<param name="Name" value="Специальные каталоги">
+		<param name="Local" value="html/sd.html">
+		<param name="Name" value="Secure inbound">
+		<param name="Local" value="html/sdsi.html">
+		<param name="Name" value="Конфигурация паролей">
+		<param name="Local" value="html/cfgpasswords.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Send Modem Commands">
+		<param name="Name" value="Send Modem Commands">
+		<param name="Local" value="html/sendmdmcmd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Signal lamps">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Индикатор сигналов модема">
+		<param name="Local" value="html/guilamps.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Software flow control">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Special Directodies">
+		<param name="Name" value="Каталоги">
+		<param name="Local" value="html/pn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Special Directories">
+		<param name="Name" value="Home Directory">
+		<param name="Local" value="html/hd.html">
+		<param name="Name" value="Специальные каталоги">
+		<param name="Local" value="html/sd.html">
+		<param name="Name" value="Secure inbound">
+		<param name="Local" value="html/sdsi.html">
+		<param name="Name" value="Insecure inbound">
+		<param name="Local" value="html/sdii.html">
+		<param name="Name" value="Temporary inbound">
+		<param name="Local" value="html/sdti.html">
+		<param name="Name" value="Outbound">
+		<param name="Local" value="html/sdo.html">
+		<param name="Name" value="Log">
+		<param name="Local" value="html/sdl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Square Brackets">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Startup">
+		<param name="Name" value="Конфигурация параметров запуска">
+		<param name="Local" value="html/cfgstartup.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="State">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Station Name">
+		<param name="Name" value="Настройка EMSI-данных">
+		<param name="Local" value="html/cfgemsi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Stop bits">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="String grids">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Сетки ввода строк">
+		<param name="Local" value="html/guigrid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Subpatterns">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Sysop name">
+		<param name="Name" value="Настройка EMSI-данных">
+		<param name="Local" value="html/cfgemsi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="TCP/IP Daemon">
+		<param name="Name" value="Расширенная поддержка TCP/IP">
+		<param name="Local" value="html/introtcp.html">
+		<param name="Name" value="Меню System">
+		<param name="Local" value="html/mnusystem.html">
+		<param name="Name" value="TCP/IP Daemon">
+		<param name="Local" value="html/introdaemon.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Telnet">
+		<param name="Name" value="TCP/IP Daemon">
+		<param name="Local" value="html/introdaemon.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Temporary inbound">
+		<param name="Name" value="Специальные каталоги">
+		<param name="Local" value="html/sd.html">
+		<param name="Name" value="Temporary inbound">
+		<param name="Local" value="html/sdti.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Time-out Panel">
+		<param name="Name" value="Timeout Panel">
+		<param name="Local" value="html/timeout.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Type">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Vertical Bar">
+		<param name="Name" value="Regular Expressions Syntax (Advanced)">
+		<param name="Local" value="html/regexpadvanced.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="XOff">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="XOn">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="XOn/XOff flow control">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Аргус">
+		<param name="Name" value="Что такое Аргус?">
+		<param name="Local" value="html/intro.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Асинхронная коммуникация">
+		<param name="Name" value="Принципы асинхронной передачи">
+		<param name="Local" value="html/async.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Биты данных">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Биты контроля четности">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Выход">
+		<param name="Name" value="Меню System">
+		<param name="Local" value="html/mnusystem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Главное меню">
+		<param name="Name" value="Главное меню">
+		<param name="Local" value="html/mnu.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Если Вы хотите нам помочь">
+		<param name="Name" value="Защита конфигурационных данных">
+		<param name="Local" value="html/mastpwd.html">
+		<param name="Name" value="Внимание!">
+		<param name="Local" value="html/readmefirst.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Индикатор прогресса приема/передачи">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Индикатор прогресса приема/передачи">
+		<param name="Local" value="html/guipie.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Индикаторы активности модема">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Индикатор сигналов модема">
+		<param name="Local" value="html/guilamps.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Каталоги">
+		<param name="Name" value="Каталоги">
+		<param name="Local" value="html/pn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Компиляция нодлиста">
+		<param name="Name" value="Меню Tool">
+		<param name="Local" value="html/mnutool.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Контроль потока данных">
+		<param name="Name" value="Контроль потока данных">
+		<param name="Local" value="html/asyncflow.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Конфигурация модемов">
+		<param name="Name" value="Конфигурация модемов">
+		<param name="Local" value="html/cfgmodem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Конфигурация нодлиста">
+		<param name="Name" value="Меню Config">
+		<param name="Local" value="html/mnuconfig.html">
+		<param name="Name" value="Основные пункты конфигурации">
+		<param name="Local" value="html/cfgbases.html">
+		<param name="Name" value="Конфигурация списка FTS-0005">
+		<param name="Local" value="html/cfgnodelist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Конфигурация паролей">
+		<param name="Name" value="Меню Config">
+		<param name="Local" value="html/mnuconfig.html">
+		<param name="Name" value="Основные пункты конфигурации">
+		<param name="Local" value="html/cfgbases.html">
+		<param name="Name" value="Конфигурация паролей">
+		<param name="Local" value="html/cfgpasswords.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Конфигурация списка узлов FTS-0005">
+		<param name="Name" value="Меню Tool">
+		<param name="Local" value="html/mnutool.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Конфигурация файловых запросов">
+		<param name="Name" value="Меню Config">
+		<param name="Local" value="html/mnuconfig.html">
+		<param name="Name" value="Основные пункты конфигурации">
+		<param name="Local" value="html/cfgbases.html">
+		<param name="Name" value="Конфигурация файловых запросов">
+		<param name="Local" value="html/cfgfilerequests.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Конфигурируем Аргус">
+		<param name="Name" value="Меню Config">
+		<param name="Local" value="html/mnuconfig.html">
+		<param name="Name" value="Конфигурируем Аргус">
+		<param name="Local" value="html/7.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Маски адресов">
+		<param name="Name" value="Маски адресов">
+		<param name="Local" value="html/addrmasks.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Менеджер прозвонок">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		<param name="Name" value="Меню Poll">
+		<param name="Local" value="html/mnupoll.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Многолинейность">
+		<param name="Name" value="Многолинейность">
+		<param name="Local" value="html/intromulti.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Настройка коммуникационных портов">
+		<param name="Name" value="Настройка коммуникационных портов">
+		<param name="Local" value="html/cfgserial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Окно линии почтовой системы">
+		<param name="Name" value="Меню System">
+		<param name="Local" value="html/mnusystem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Окно хронологии">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Окно хронологии">
+		<param name="Local" value="html/guilog.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Основной каталог">
+		<param name="Name" value="Home Directory">
+		<param name="Local" value="html/hd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Основы асинхронных коммуникаций">
+		<param name="Name" value="Принципы асинхронной передачи">
+		<param name="Local" value="html/async.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Ошибки передачи">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Панель прозвонок">
+		<param name="Name" value="Менеджер прозвонок">
+		<param name="Local" value="html/pollmgr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Параметры запуска">
+		<param name="Name" value="Основные пункты конфигурации">
+		<param name="Local" value="html/cfgbases.html">
+		<param name="Name" value="Конфигурация параметров запуска">
+		<param name="Local" value="html/cfgstartup.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Параметры линии">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Пароль">
+		<param name="Name" value="Конфигурация паролей">
+		<param name="Local" value="html/cfgpasswords.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Переопределение узлов">
+		<param name="Name" value="Таблица переопределений узлов">
+		<param name="Local" value="html/cfgnodes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Разрыв">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Расширенные элементы графического интерфейса">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Сontrol characters">
+		<param name="Name" value="Управляющие символы модема">
+		<param name="Local" value="html/modemctlchars.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Сбой кадра">
+		<param name="Name" value="Ошибки передачи">
+		<param name="Local" value="html/asyncerr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Сетка ввода строк">
+		<param name="Name" value="Расширенные элементы графического интерфейса">
+		<param name="Local" value="html/gui.html">
+		<param name="Name" value="Сетки ввода строк">
+		<param name="Local" value="html/guigrid.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Скорость передачи">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Специальные каталоги">
+		<param name="Name" value="Home Directory">
+		<param name="Local" value="html/hd.html">
+		<param name="Name" value="Специальные каталоги">
+		<param name="Local" value="html/sd.html">
+		<param name="Name" value="Secure inbound">
+		<param name="Local" value="html/sdsi.html">
+		<param name="Name" value="Insecure inbound">
+		<param name="Local" value="html/sdii.html">
+		<param name="Name" value="Temporary inbound">
+		<param name="Local" value="html/sdti.html">
+		<param name="Name" value="Outbound">
+		<param name="Local" value="html/sdo.html">
+		<param name="Name" value="Log">
+		<param name="Local" value="html/sdl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Стоповые биты">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Схемы ограничений прозвонок">
+		<param name="Name" value="Схемы ограничений прозвонок">
+		<param name="Local" value="html/cfgrest.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Таблица переопределений узлов">
+		<param name="Name" value="Таблица переопределений узлов">
+		<param name="Local" value="html/cfgnodes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Управляющие символы модема">
+		<param name="Name" value="Управляющие символы модема">
+		<param name="Local" value="html/modemctlchars.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Установка битовых параметров линий">
+		<param name="Name" value="Установка битовых параметров линий">
+		<param name="Local" value="html/cfglinebits.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Четность">
+		<param name="Name" value="Параметры линии">
+		<param name="Local" value="html/asyncline.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Keyword" value="Шифрованный сеанс связи BinkP">
+		<param name="Name" value="Шифрованный сеанс связи BinkP">
+		<param name="Local" value="html/binkpenc.html">
+		</OBJECT>
+</UL></HTML>

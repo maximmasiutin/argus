@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_cfgstartup"></A>Конфигурация параметров запуска</H1>
+
+<P>В диалоговом окне Startup Configuration настраиваются параметры, которые учитываются Аргусом только при запуске.</P>
+
+<P>Вызов данного окна осуществляется через меню <A HREF="mnuconfig.html">Config</A> /  Startup.</P>
+
+<h2>Настройка автоматического открытия линий почтовой системы</h2>
+
+<P>По умолчанию, система настроена так, что при запуске ни одна линия не открыта, но при желании Вы  можете настроить ее так, чтобы при запуске автоматически открывались те или иные линии. При этом все линии должны быть заранее сконфигурированы.</P>
+
+<P>В списке Dialup Lines / Auto-open перечисляются модемные линии почтовой системы, которые будут автоматически открыты при запуске программы. Оставшиеся линии (которые можно будет открыть вручную, через <A HREF="mnusystem.html">System</A> / Open Dialup Line) перечисляются в списке Dialup Lines / Manual-open.</P>
+
+<P>Если Вы выделите одну или несколько линий из списка Manual-open, то после нажатия кнопки <B>&gt;</B> эти линии попадут в список Auto-open, и впредь будут открываться автоматически при старте системы. Если Вы желаете снова вручную открывать какую либо линию, то выделите ее имя в списке Auto-open, и нажмите кнопку <B>&lt;</B>.</P>
+
+<h2>Настройка автоматического запуска TCP/IP Daemon</h2>
+
+<P>Опция Auto-Run TCP/IP Daemon служит для автоматического запуска <A HREF="introdaemon.html">TCP/IP Daemon</A>.</P>
+
+<h2>Fast logging</h2>
+
+<P>При использовании стандартных установок, система Аргус держит файлы хронологии закрытыми, открывая их лишь в случае необходимости добавления новых данных. Это дает возможность переносить или стирать эти файлы без перезапуска Аргуса. При использовании опции <B>Fast logging</B>, Аргус может держать файлы хронологии открытыми, что позволяет сэкономить системное время и ресурсы за счет избавления от необходимости переоткрывать эти файлы при каждой операции записи. При этом для удаления / переноса файлов хронологии необходим перезапуск Аргуса.</P>
+
+<P>Please note that improper use of <B>Fast logging</B> in OFF mode may be dangerous. If Argus fails to open a log file for writing, it will never try to open it again while running. So do not open log files in a mode that will prevent Argus from writing. Better way would be to rename the file to a  temporary name, analyse it, and then, possibly, move somewhere to archive directory.</P>
+
+<P>См. также <A HREF="logs.html">Расширенная хронология</A>.</P>
+
+<H2>Log WZ pending/incomplete</H2>
+
+<P>This options turns on/off logging number of files in <A HREF="sdti.html">temporary inbound</A>. There may be two reasons when incoming files are stored in temporary inbound after a session terminates. First reason is when Argus was unable to move received files from temporary inbound (e.g. due to file with same name already exists in destination directory). Such files in temporary inbound are called pending files. Second reason is when a session was aborted during a file transfer was in progress, so the file wasn't completely received. Such files are called incomplete files. </P>
+
+<H2>ODBC logging</H2>
+
+<P>This option turns on ODBC logging, as described in <A HREF="odbclog.html">ODBC logging chapter</A>.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,429 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Introducing Argus">
+		<param name="Local" value="html\intro.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="True Multitasking Using Win32 API">
+			<param name="Local" value="html/intronative.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Multi-line Mailing System">
+			<param name="Local" value="html/intromulti.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Extended TCP/IP Support">
+			<param name="Local" value="html/introtcp.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="FTN Standards Supported">
+			<param name="Local" value="html/oftn.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Working Time Nodelist Flag (FSC-0062)">
+			<param name="Local" value="html/oftnonline.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Calling a Node Only Within its Working Time">
+			<param name="Local" value="html/cfgrefol.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Binkley-Style Outbound">
+			<param name="Local" value="html/bso.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="The Argus Environment">
+		<param name="Local" value="html\env.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Extened Graphical User Interface Elements">
+			<param name="Local" value="html\gui.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="String Grids">
+				<param name="Local" value="html/guigrid.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Log Window">
+				<param name="Local" value="html/guilog.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Modem Activity Indicators">
+				<param name="Local" value="html/guiterm.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Transfer Progress Indicator">
+				<param name="Local" value="html/guipie.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Connection Information Panel">
+				<param name="Local" value="html/guistatinfo.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Outbound SmartMenu(tm)">
+				<param name="Local" value="html/smartmenu.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Poll Manager">
+			<param name="Local" value="html\pollmgr.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Poll Manager">
+				<param name="Local" value="html/pollmgr.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Mailer Window">
+			<param name="Local" value="html\mlrd.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Mailer Window">
+				<param name="Local" value="html/mlrd.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Timeout Panel">
+				<param name="Local" value="html/timeout.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Main Menu">
+			<param name="Local" value="html\mnu.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="System Submenu">
+				<param name="Local" value="html/mnusystem.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Line Submenu">
+				<param name="Local" value="html/mnuline.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Poll Submenu">
+				<param name="Local" value="html/mnupoll.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Tool Sumbenu">
+				<param name="Local" value="html/mnutool.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Config Submenu">
+				<param name="Local" value="html/mnuconfig.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Help Submenu">
+				<param name="Local" value="html/mnuhelp.html">
+				</OBJECT>
+		</UL>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Argus Configuration">
+		<param name="Local" value="html\cfgmain.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Node Inspector">
+			<param name="Local" value="html\nodeinsp.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Node Inspector">
+				<param name="Local" value="html/nodeinsp.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Pathnames Configuration">
+			<param name="Local" value="html\pn.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Special Directories">
+				<param name="Local" value="html/sd.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File Request Configuration">
+				<param name="Local" value="html/cfgfilerequests.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File-Boxes">
+				<param name="Local" value="html/fileboxes.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File-Flags">
+				<param name="Local" value="html/fileflags.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="The Mail System-Specific Configuration Dialogues">
+			<param name="Local" value="html\cfgbases.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Nodelist Configuration">
+				<param name="Local" value="html/cfgnodelist.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Password Configuration">
+				<param name="Local" value="html/cfgpasswords.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Startup Configuration">
+				<param name="Local" value="html/cfgstartup.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Extended Logging">
+				<param name="Local" value="html/logs.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ODBC Logging">
+				<param name="Local" value="html/odbclog.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Configuration of Dial-up Connections">
+			<param name="Local" value="html\cfgdialup.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Main Dial-up Configuration Panel">
+				<param name="Local" value="html/cfgdialupwin.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Mailer Line Configuration">
+				<param name="Local" value="html/cfgmlrline.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="EMSI Data Configuration">
+				<param name="Local" value="html/cfgemsi.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Communication Ports Configuration">
+				<param name="Local" value="html/cfgserial.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Line Bits Setup">
+				<param name="Local" value="html/cfglinebits.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Modem Configuration">
+				<param name="Local" value="html/cfgmodem.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Modem Control Characters">
+				<param name="Local" value="html/modemctlchars.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Fax Reception">
+				<param name="Local" value="html/fax.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Dialling Restriction Schemes">
+				<param name="Local" value="html/cfgrest.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Node Overrides Table">
+				<param name="Local" value="html/cfgnodes.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="TCP/IP Configuration">
+			<param name="Local" value="html\cfgip.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="TCP/IP Daemon">
+				<param name="Local" value="html/introdaemon.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="TCP/IP Daemon Configuration">
+				<param name="Local" value="html/cfgipdaemon.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Special TCP/IP Nodelist Flags">
+				<param name="Local" value="html/cfgipflg.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Polls">
+			<param name="Local" value="html\cfgppolls.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Polls">
+				<param name="Local" value="html/cfgppolls.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Cron Format">
+			<param name="Local" value="html\cron.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Cron Format">
+				<param name="Local" value="html/cron.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Regular Expressions">
+			<param name="Local" value="html\regexp.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Where to Use Regular Expressions">
+				<param name="Local" value="html/regexp.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Regular Expressions in Details">
+				<param name="Local" value="html\regexpadvanced.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Meta-Characters">
+					<param name="Local" value="html/reameta.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Backslash">
+					<param name="Local" value="html/reabackslash.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Circumflex and Dollar">
+					<param name="Local" value="html/reacircdollar.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Full Stop (Period, Dot)">
+					<param name="Local" value="html/reafullstop.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Square Brackets">
+					<param name="Local" value="html/reasqbrack.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Vertical Bar">
+					<param name="Local" value="html/reavertbar.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Internal Option Setting">
+					<param name="Local" value="html/reaintopt.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Subpatterns">
+					<param name="Local" value="html/reasubpatt.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Repetition">
+					<param name="Local" value="html/rearepet.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Back References">
+					<param name="Local" value="html/regexpadvbackref.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Assertions">
+					<param name="Local" value="html/reaassert.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Once-Only Subpatterns">
+					<param name="Local" value="html/reaoosubp.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Conditional Subpatterns">
+					<param name="Local" value="html/reacondsubp.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Comments">
+					<param name="Local" value="html/reacomments.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Performance">
+					<param name="Local" value="html/reaperform.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Limitiations">
+					<param name="Local" value="html/realimit.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Differences From Perl">
+					<param name="Local" value="html/readiffperl.html">
+					</OBJECT>
+			</UL>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Events">
+			<param name="Local" value="html\cfgevents.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Events">
+				<param name="Local" value="html/cfgevents.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Atoms">
+				<param name="Local" value="html/atoms.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="External Applications">
+			<param name="Local" value="html\cfgexternal.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="PostProcessors">
+				<param name="Local" value="html/cfgextpp.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Doors">
+				<param name="Local" value="html/cfgextsvc.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Reriodically-Launching Applications">
+				<param name="Local" value="html/cfgextcron.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Security Issues">
+			<param name="Local" value="html\mastpwd.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Protecting Argus Configuration">
+				<param name="Local" value="html/mastpwd.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Encrypted BinkP session">
+				<param name="Local" value="html/binkpenc.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CRAM-MD5">
+				<param name="Local" value="html/crammd5.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Importing Configuration Data">
+			<param name="Local" value="html\importpwd.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Import Password">
+				<param name="Local" value="html/importpwd.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Import Nodes">
+				<param name="Local" value="html/importnodes.html">
+				</OBJECT>
+		</UL>
+	</UL>
+</UL>
+</BODY></HTML>

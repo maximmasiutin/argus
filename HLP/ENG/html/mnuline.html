@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Line Submenu</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Reset">
+	<PARAM NAME="Keyword" VALUE="Answer call">
+	<PARAM NAME="Keyword" VALUE="Flush Time-out">
+	<PARAM NAME="Keyword" VALUE="Add to Time-out">
+	<PARAM NAME="Keyword" VALUE="Skip File">
+	<PARAM NAME="Keyword" VALUE="Reject File">
+	<PARAM NAME="Keyword" VALUE="Close">
+</OBJECT>
+
+<H1><A NAME="idh_mnuline"></A>Line Submenu</H1>
+
+<P>Commands of this submenu work with the line currently visible on the screen - use Tab Control to get a line displayed.</P>
+
+<TABLE cols=2 width=642>
+
+<TR VALIGN="top">
+<TD width=21%><B>Reset</B></TD>
+<TD width=79%>Cancels active session (if any) and if the line uses Dial-up transport, re-initialising the modem attached, otherwise closes TCP/IP line.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><B>Answer call</B></TD>
+<TD width=79%>Forces Argus to answer to incoming call. Useful with auto-answering disabled or on leased lines.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><B>Flush Time-out</B></TD>
+<TD width=79%>Zeroes the current operation time-out, i.e. if line is waiting for connection or dial, the command cancels it.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><B>Add to Time-out</B></TD>
+<TD width=79%>Adds 30 seconds to the current operation time-out.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><B>Skip File</B></TD>
+<TD width=79%>Skips the file being currently received and leaves it for transfer during next session. This command may be misinterpreted by some mailers, so please be careful with it.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><B>Reject File</B></TD>
+<TD width=79%>Skips currently incoming file and tells remote do not sent it any further. Some mailers may not accept this command.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><B>Close</B></TD>
+<TD width=79%>Shuts down the line currently visible. close<CODE>.linename</CODE> <A HREF="fileflags.html">file-flag</A> also performs this action.</TD>
+</TR>
+</TABLE><BR>
+
+<P>See also: <A HREF="mlrd.html">Mailer Window</A>.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Fax reception</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Fax">
+	<PARAM NAME="Keyword" VALUE="+FCLASS">
+	<PARAM NAME="Keyword" VALUE="+FCO">
+	<PARAM NAME="Keyword" VALUE="External fax receiver">
+	<PARAM NAME="Keyword" VALUE="%PATHNAME%">
+	<PARAM NAME="Keyword" VALUE="%PATH%">
+	<PARAM NAME="Keyword" VALUE="%NAME%">
+	<PARAM NAME="Keyword" VALUE="%EXT%">
+	<PARAM NAME="Keyword" VALUE="Internal fax receiver">
+	<PARAM NAME="Keyword" VALUE="TIFF">
+	<PARAM NAME="Keyword" VALUE="DTE">
+	<PARAM NAME="Keyword" VALUE="Class 2">
+	<PARAM NAME="Keyword" VALUE="USR">
+	<PARAM NAME="Keyword" VALUE="ZYXEL">
+</OBJECT>
+
+<H1><A NAME="idh_fax"></A>Fax Reception</H1>
+
+<P>Argus has ability of Fax reception using external receiver programs or internal routines. Each modem has a "Fax" tab that defines whether internal or external Fax receiver is to be used. Answer like <CODE>+FCON</CODE>, <CODE>CONNECT FAX</CODE>, or <CODE>+FCO</CODE> from modem signals the established facsimile connection,</P>
+
+<P>Most of modern fax-modems have Class 2 because it is easy to use and implement software support, that is why your fax-modem must be set to use Class 2 to make it possible to receive faxes using Argus as a front-end . To do this, use <CODE>+FCLASS=2</CODE> (or <CODE>+FCLASS=2.0</CODE> for USR modems) in modem init string to initiate Fax Class 2 operation. All other fax classes are not supported in the current version of Argus. Please refer to your modem's manual to determine the fax class supported by your modem. Note that Class 1 is not supported when using with either internal or external fax receiver.</P>
+
+<H2>External fax receiver software</H2>
+
+<P>When external software is used, and Argus launches an external fax receiver, as mentioned in External Fax Receiver string of <A HREF="cfgmodem.html">Modem configuration dialogue</A>. It is possible to use handshake switches as described in <A HREF="cfgextsvc.html">Doors</A> chapter.</P>
+
+<P>This is an example of Config/Dial-up/Modems setting for ZyXEL E+ modem for receiving faxes using <I>BGFAX  B.J. Guillot</I>:</P>
+
+<TABLE cols=2 width=575>
+
+<TR VALIGN="top">
+<TD width=25%>External Fax receiver</TD>
+<TD width=75%>
+<PRE><CODE>c:\bgfax\bgfax32.exe /fzyx c:\bgfax h%h z /dte:%b</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>Commands / Init</TD>
+<TD width=75%>
+<PRE><CODE>ATZ|AT+FCLASS=6|</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>Commands / Answer</TD>
+<TD width=75%>
+<PRE><CODE>AT+FAA=1;A!</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<H2>Internal fax receiver software</H2>
+
+<P>Each mailer line now has a "Fax Inbound" fields. Received fax pages are placed there in TIFF (Tagged Image Format File). Internal Fax receiver supports both fax services Class 2 and Class 2.0. </P>
+
+<P>Answer strings are generally the same as for external receiver.</P>
+
+<P>For class 2 fax modems:</P>
+
+<PRE><CODE>~AT&amp;F|AT+FCLASS=2|AT+FLID="ID"|AT+FAA=1;a!</CODE></PRE>
+
+<P>For class 2.0 fax modems:</P>
+
+<PRE><CODE>~AT&amp;F|AT+FCLASS=2.0|AT+FLI="ID"|AT+FNR=1,1,1,1|at+FAA=1;a!</CODE></PRE>
+
+<P>It is possible to launch an external application (or set a file-flag) to handle a received TIFF fax document. Prefixes are the same as in Externals/<A HREF="cfgextpp.html">Post-processors</A>. Use macros to obtain a file name of received TIFF fax document:</P>
+
+<TABLE cols=2 width=518>
+
+<TR VALIGN="top">
+<TD width=23%>
+<PRE><CODE>%PATHNAME%</CODE></PRE>
+</TD>
+<TD width=77%>fully-qualified file name, e.g. <CODE>d:\fl\infax\03Jan003.tif</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=23%>
+<PRE><CODE>%PATH%</CODE></PRE>
+</TD>
+<TD width=77%>path to the file, e.g. <CODE>d:\fl\infax\</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=23%>
+<PRE><CODE>%NAME%</CODE></PRE>
+</TD>
+<TD width=77%>file name (without path and extension, e.g. <CODE>03Jan003</CODE>)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=23%>
+<PRE><CODE>%EXT%</CODE></PRE>
+</TD>
+<TD width=77%>file extension, e.g. <CODE>.tif</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Combination <CODE>%PATH%%NAME%%EXT%</CODE> is identical to <CODE>%PATHNAME%</CODE></P>
+
+<H2>DTE rate problem</H2>
+
+<P>The most of Class 2 fax modems switch DTE rate to 19.2 Kbps on detection of the first Phase B preamble, but some modems leave DTE rate unchanged. DTE rates of the mailer and the fax modem must be synchronised. This is gained by proper setting of "Switch DTE to 19.2 Kbps" option of "Fax" tab of "Modem configuration" dialogue box. Reception of debris after <CODE>+FCON</CODE> or <CODE>+FCO</CODE> means improper DTE switch mode setting.</P>
+
+</BODY>
+</HTML>

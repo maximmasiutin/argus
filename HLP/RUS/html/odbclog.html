@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_odbclog"></A>ODBC Logging</H1>
+
+<P>To turn ODBC Logging on, create in "ODBC Data Source Administrator" a data source named "ArgusLog". In the database, create a table named LogStrings with the following mandatory columns: three text columns called "Logger", "RecTag", and "RecMsg" and a timestamp column "RecTime". You may also add additional 'row number' fields, but make sure they are automatically updated, Argus would never write there. Argus doesn't currently log other information to ODBC. To add log records, Argus executes the following SQL statement: </P>
+
+<PRE><CODE>INSERT INTO LogStrings (Logger, RecTag, RecTime, RecMsg) VALUES (?, ?, ?, ?)</CODE></PRE>
+
+<P>You may issue the following SQL statement to create LogStrings table under Microsoft Access:</P>
+
+<PRE><CODE>create table LogStrings (
+   RecId counter NOT NULL CONSTRAINT RecIdIndex PRIMARY KEY,
+   Logger char(20) NOT NULL,
+   RecTag char(1) NOT NULL,
+   RecTime date NOT NULL,
+   RecMsg char(250) NOT NULL);</CODE></PRE>
+
+<P>Then go to Config/Start-up, turn ODBC logging on and restart Argus. ODBC errors are logged to "odbcerr.log" file in Argus logs directory.</P>
+
+</BODY>
+</HTML>

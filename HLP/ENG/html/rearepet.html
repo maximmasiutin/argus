@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Repetition</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_rearepet"></A>Repetition</H1>
+
+<P>Repetition is specified by quantifiers, which can follow any of the following items:</P>
+
+<P>a single character, possibly escaped</P>
+
+<P>the . metacharacter</P>
+
+<P>a character class</P>
+
+<P>a back reference (see next section)</P>
+
+<P>a parenthesized subpattern (unless it is an assertion - see below)</P>
+
+<P>The general repetition quantifier specifies a minimum and maximum number of permitted matches, by giving the two numbers in curly brackets (braces), separated by a comma. The numbers must be less than 65536, and the first must be less than or equal to the second. For example:</P>
+
+<P>z{2,4}</P>
+
+<P>matches "zz", "zzz", or "zzzz". A closing brace on its own is not a special character. If the second number is omitted, but the comma is present, there is no upper limit; if the second number and the comma are both omitted, the quantifier specifies an exact number of required matches. Thus</P>
+
+<P>[aeiou]{3,}</P>
+
+<P>matches at least 3 successive vowels, but may match many more, while</P>
+
+<P>\d{8}</P>
+
+<P>matches exactly 8 digits. An opening curly bracket that appears in a position where a quantifier is not allowed, or one that does not match the syntax of a quantifier, is taken as a literal character. For example, {,6} is not a quantifier, but a literal string of four characters.</P>
+
+<P>The quantifier {0} is permitted, causing the expression to behave as if the previous item and the quantifier were not present.</P>
+
+<P>For convenience (and historical compatibility) the three most common quantifiers have single-character abbreviations:</P>
+
+<TABLE cols=2 width=172>
+
+<TR VALIGN="top">
+<TD width=17%>*</TD>
+<TD width=83%>is equivalent to {0,}</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>+</TD>
+<TD width=83%>is equivalent to {1,}</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>?</TD>
+<TD width=83%>is equivalent to {0,1}</TD>
+</TR>
+</TABLE><BR>
+
+<P>It is possible to construct infinite loops by following a subpattern that can match no characters with a quantifier that has no upper limit, for example:</P>
+
+<P>(a?)*</P>
+
+<P>Earlier versions of Perl and PCRE used to give an error at compile time for such patterns. However, because there are cases where this can be useful, such patterns are now accepted, but if any repetition of the subpattern does in fact match no characters, the loop is forcibly broken.</P>
+
+<P>By default, the quantifiers are "greedy", that is, they match as much as possible (up to the maximum number of permitted times), without causing the rest of the pattern to fail. The classic example of where this gives problems is in trying to match comments in C programs. These appear between the sequences /* and */ and within the sequence, individual * and / characters may appear. An attempt to match C comments by applying the pattern</P>
+
+<P>/\*.*\*/</P>
+
+<P>to the string</P>
+
+<P>/* first command */  not comment  /* second comment */</P>
+
+<P>fails, because it matches the entire string due to the greediness of the .* item.</P>
+
+<P>However, if a quantifier is followed by a question mark, then it ceases to be greedy, and instead matches the minimum number of times possible, so the pattern</P>
+
+<P>/\*.*?\*/</P>
+
+<P>does the right thing with the C comments. The meaning of the various quantifiers is not otherwise changed, just the preferred number of matches. Do not confuse this use of question mark with its use as a quantifier in its own right. Because it has two uses, it can sometimes appear doubled, as in</P>
+
+<P>\d??\d</P>
+
+<P>which matches one digit by preference, but can match two if that is the only way the rest of the pattern matches.</P>
+
+<P>If the PCRE_UNGREEDY option is set (an option which is not available in Perl) then the quantifiers are not greedy by default, but individual ones can be made greedy by following them with a question mark. In other words, it inverts the default behaviour.</P>
+
+<P>When a parenthesized subpattern is quantified with a minimum repeat count that is greater than 1 or with a limited maximum, more store is required for the compiled pattern, in proportion to the size of the minimum or maximum.</P>
+
+<P>If a pattern starts with .* or .{0,} and the PCRE_DOTALL option (equivalent to Perl's /s) is set, thus allowing the . to match newlines, then the pattern is implicitly anchored, because whatever follows will be tried against every character position in the subject string, so there is no point in retrying the overall match at any position after the first. PCRE treats such a pattern as though it were preceded by \A. In cases where it is known that the subject string contains no newlines, it is worth setting PCRE_DOTALL when the pattern begins with .* in order to obtain this optimization, or alternatively using ^ to indicate anchoring explicitly.</P>
+
+<P>When a capturing subpattern is repeated, the value captured is the substring that matched the final iteration. For example, after</P>
+
+<P>(tweedle[dume]{3}\s*)+</P>
+
+<P>has matched "tweedledum tweedledee" the value of the captured substring is "tweedledee". However, if there are nested capturing subpatterns, the corresponding captured values may have been set in previous iterations. For example, after</P>
+
+<P>/(a|(b))+/</P>
+
+<P>matches "aba" the value of the second captured substring is "b".</P>
+
+</BODY>
+</HTML>

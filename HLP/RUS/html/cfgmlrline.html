@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_cfgmlrline"></A>Конфигурация линий почтовой системы</H1>
+
+<P>В этом окне происходит привязка компонентов групп и привязка <A HREF="cfgevents.html">событий</A> к линии почтовой системы. Окно состоит из двух страничек - General и Events.</P>
+
+<h2>General</h2>
+
+<P>Привязать можно как к определенному элементу, так и к Default — “элементу по умолчанию” (в этом случае тогда при переназначении этого элемента в группе, линия автоматически привяжется к новому элементу).</P>
+
+<TABLE cols=2 width=637>
+
+<TR VALIGN="top">
+<TD width=17%><U>Line name</U></TD>
+<TD width=83%>Название линии. Высвечивается в ярлычке окна почтовой системы при активизированной линии.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%><U>Station template</U></TD>
+<TD width=83%><A HREF="cfgemsi.html">EMSI-данные</A>, используемые линией.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%><U>Port</U></TD>
+<TD width=83%><A HREF="cfgserial.html">COM-port</A>, используемый линией.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%><U>Modem</U></TD>
+<TD width=83%><A HREF="cfgmodem.html">Модем</A>, используемый линией.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%><U>Restrictions</U></TD>
+<TD width=83%><A HREF="cfgrest.html">Ограничения</A>, используемые линией.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%><U>Log file name</U></TD>
+<TD width=83%>Имя файла хронологического журнала. Если полный путь не указан, файл располагается в каталоге <A HREF="sdl.html">Log</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%><U>Fax inbound</U></TD>
+<TD width=83%>Каталог, в который будут помещены <A HREF="fax.html">принятые факсимильные документы</A> в формате TIFF (Tagged Image Format File).</TD>
+</TR>
+</TABLE><BR>
+
+<P>См. также <A HREF="logs.html">Расширенная хронология</A>.</P>
+
+<h2>Events</h2>
+
+<P>В списке Available находятся <A HREF="cfgevents.html">события</A>, не привязанные к данной линии. Привязать их можно нажатием кнопки <B><CODE>&gt;</CODE></B> , это перенесет событие в список Linked и привяжет к линии.</P>
+
+</BODY>
+</HTML>

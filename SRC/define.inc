@@ -1,0 +1,13 @@
+{ Argus Definitions }
+
+
+{.$DEFINE GRAB}
+
+{$DEFINE WS}
+{$DEFINE BINKP}
+
+{$DEFINE LNG_RUSSIAN}
+{$DEFINE LNG_GERMAN}
+{$DEFINE LNG_DANISH}
+
+{$J-}

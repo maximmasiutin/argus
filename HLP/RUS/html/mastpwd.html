@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_mastpwd"></A>Защита конфигурационных данных</H1>
+
+<P>Для защиты конфигурационных данных системы Аргус предусмотрена возможность шифрования файла config.bin. В качестве алгоритма шифрования применяется DES/CBC с 56-битным ключом. Ключ формируется на основе вводимого пароля с помощью алгоритма MD5 (RSA Data Security, Inc. MD5 Message-Digest Algorithm). </P>
+
+<P>Защита активизируется установкой Master Password (<A HREF="mnuconfig.html">Config /</A> Master Password/Set Up...). Master Password запрашивается при каждом запуске системы Аргус для расшифрования содержимого config.bin. Если Master Password, введенный при запуске системы Аргус, не будет соответствовать изначально установленному, данные конфигурации не смогут быть правильно расшифрованными. В этом случае остается возможным либо повторный ввод Master Password, либо выход из системы Аргус. </P>
+
+<P>Использование Master Password полезно для предотвращения изучения конфигурации системы Аргус при попадания файла config.bin в руки злоумышленников. Master Password помогает избежать систем-двойников, которые могут возникнуть в случае незаметного похищения файла config.bin. Кроме того, Master Password позволяет избежать несанкционированных запусков системы Аргус.</P>
+
+<P>Знание Master Password позволяет его снять (<A HREF="mnuconfig.html">Config /</A> Master Password/Remove...) или изменить (<A HREF="mnuconfig.html">Config /</A> Master Password/Change...). Перед снятием или изменением Master Password система Аргус требует ввести его еще раз. В этом случае возможным является либо правильный ввод Master Password, либо выход из системы Аргус.</P>
+
+<P>Master Password нигде не хранится и формируется на основе вводимого Master Password, поэтому настоятельно рекомендуется все же не забывать Master Password, либо, перед установкой Master Password, сохранить оригинальный config.bin в надежном месте.</P>
+
+</BODY>
+</HTML>

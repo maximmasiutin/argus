@@ -1,0 +1,5 @@
+PLUS                    BITMAP  DISCARDABLE     "..\IMG\plus.bmp"
+MINUS                   BITMAP  DISCARDABLE     "..\IMG\minus.bmp"
+OPEN                    BITMAP  DISCARDABLE     "..\IMG\open.bmp"
+CLOSED                  BITMAP  DISCARDABLE     "..\IMG\closed.bmp"
+LEAF                    BITMAP  DISCARDABLE     "..\IMG\leaf.bmp"

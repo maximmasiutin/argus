@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Atoms</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Atoms">
+</OBJECT>
+
+<H1><A NAME="idh_atoms"></A>Atoms</H1>
+
+<P>Atom is an item of event that changes one mailer line option.</P>
+
+<P>Thus, event that changes modem init string and required condition of dialling restriction, must contain two atoms: <I>Modem Command Init Atom</I> and <I>Restrictions Required Atom</I>.</P>
+
+<P>This is a list of atoms, currently supported by Argus:</P>
+
+<TABLE cols=2 width=754>
+
+<TR VALIGN="top">
+<TD width=31%><B>Modem Command Init</B></TD>
+<TD width=69%><U>Modem Init String</U>.
+<P>Can be used, for example, for disabling modem speaker in appropriate time, or for setting some protocol initialisation strings according a schedule. This atom applies only to dial-up lines, not to TCP/IP daemon.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Modem Command Answer</B></TD>
+<TD width=69%><U>Modem Answer String</U>.
+<P>Most commonly used to set-up an appropriate protocol for incoming connections according a schedule. This atom applies only to dial-up lines, not to TCP/IP daemon.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Modem Command Prefix</B></TD>
+<TD width=69%><U>Modem Dial Prefix String</U>.
+<P>Most commonly used to set-up an appropriate protocol for outgoing connections according a schedule, or when working via office 'phone system. This atom applies only to dial-up lines, not to TCP/IP daemon.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Modem Command Suffix</B></TD>
+<TD width=69%><U>Modem Dial Prefix String</U>. This atom applies only to dial-up lines, not to TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Modem Command Hang-up</B></TD>
+<TD width=69%><U>Modem Hang-up Command String</U>.
+<P>This usually applied in conjunction with Modem Command Init Atom. This atom applies only to dial-up lines, not to TCP/IP daemon.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Modem Disable Reinit</B></TD>
+<TD width=69%><U>Do not re-initialise a modem automatically</U>. By default (if this atom is not applied), a modem is re-initialising after two minutes of inactivity. This atom applies only to dial-up lines, not to TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Restriction Required</B>
+<P><B>Restriction Forbidden</B></P>
+</TD>
+<TD width=69%><U>Required/forbidden restriction strings</U>.
+<P>Can be used, when working with telephone companies, which vary cost of outgoing calls according to time of day. This atom can also be used with stations that work according to a specified schedule.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Replace Station</B></TD>
+<TD width=69%><U>Change all station settings to a new template from Config /Dial-up / Modems</U>.
+<P>Used on nodes that works depending on schedule. This atom applies only to dial-up lines, not to TCP/IP daemon.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Replace Modem</B></TD>
+<TD width=69%><U>Change all modem settings to a new template from Config /Dial-up / Station</U>.
+<P>Used that modem works with different settings to a specified schedule. Note, that when using this atom, communication port still lefts unchanged. This atom applies only to dial-up lines, not to TCP/IP daemon.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Replace Restriction</B></TD>
+<TD width=69%><U>Replace restriction scheme to another one from Config / Dial-up / Restrictions</U>.
+<P>Can be used instead of two atoms: Restriction Required and Restriction Forbidden. This atom applies only to dial-up lines, not to TCP/IP daemon.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Files Required</B>
+<P><B>Accept Files Forbidden</B></P>
+</TD>
+<TD width=69%><U>Files required / forbidden for receiving</U>.
+<P>Can be used in ZMH to prevent receiving other files but FTS-0001 or P2K mail packets. (see chapter <A HREF="cfgrefol.html">Calling a Node only within its Working Time</A> for ZMH definitions.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Nodes Required</B>
+<P><B>Accept Nodes Forbidden</B></P>
+</TD>
+<TD width=69%><U>Nodes, required/ forbidden to establish incoming connection with</U>.
+<P>Can be used on hubs with time-shared access.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Nodes Only Pwd-Prot</B></TD>
+<TD width=69%><U>Allows only password-protected incoming sessions</U>. Non-password-protected incoming connections would be dropped. This atom doesn›t affect outgoing connections.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Link Required</B>
+<P><B>Accept Link Forbidden</B></P>
+</TD>
+<TD width=69%><U>Link codes, required / forbidden for incoming connection</U>.
+<P>Link codes are enumerated through spaces. E.g. HST ARQ.</P>
+
+<P>Can be used for bouncing connections without error correction protocols.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Speed Min</B></TD>
+<TD width=69%><U>Minimal allowed speed of incoming connections</U>. This atom applies only to dial-up lines, not to TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Transmit Speed Min</B></TD>
+<TD width=69%><U>Minimal allowed speed of outgoing connections</U>. This atom applies only to dial-up lines, not to TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept FReq Disable</B></TD>
+<TD width=69%><U>Refuses processing of incoming file requests</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept FReq Duration Pwd-Prot</B>
+<P><B>Accept FReq Duration Public</B></P>
+</TD>
+<TD width=69%><U>Limits session duration for file request</U>. While serving a file request, Argus attaches files until the period of time needed to transfer these files do not exceed the number of minutes specified in the atom. Connection speed is used to calculate the time needed to transfer files. This atom limits the maximal number of requested files per session, by approximate session duration, but do not affect session duration, if, for example, transfer speed felt down during a session.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept FReq Size Pwd-Prot</B>
+<P><B>Accept FReq Size Public</B></P>
+</TD>
+<TD width=69%><U>Limits the total size of files for file request</U>. While serving a file request, Argus attaches files until the total size of attached files do not exceed the size specified in the atom.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept FReq Count Pwd-Prot</B>
+<P><B>Accept FReq Count Public</B></P>
+</TD>
+<TD width=69%><U>Limits the number of files for file request</U>. While serving a file request, Argus attaches files until the number of attached files do not exceed the value specified in the atom.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Rings</B></TD>
+<TD width=69%><U>Number of rings to answer</U>.
+<P>(0 = disable automatic answers)</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Transmit Files Forbidden</B>
+<P><B>Transmit Files Required</B></P>
+</TD>
+<TD width=69%><U>Controls outgoing files.</U> Similar to Accept Files Required/Forbidden. Note that these two atoms do not affect on File Requests (.REQ) and Crash-Flavoured attaches (.CLO/.CUT)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Niagara Disabled</B>
+<P><B>Transmit Niagara Disabled</B></P>
+</TD>
+<TD width=69%><U>Prevents from establishing Niagara</U>. Niagara protocol establishes the layer that provides <A HREF="binkp.html">BinkP</A> (with <A HREF="crammd5.html">CRAM-MD5</A>) and <A HREF="binkpenc.html">Encrypted BinkP</A> over a dial-up connection. This atom applies only to dial-up lines, not to TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Hydra Disabled</B>
+<P><B>Transmit Hydra Disabled</B></P>
+</TD>
+<TD width=69%><U>Prevents from establishing Hydra</U>. Hydra is a bi-directional file transfer protocol, defined in FSC-0072. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept ZModem Disabled</B>
+<P><B>Transmit ZModem Disabled</B></P>
+</TD>
+<TD width=69%><U>Prevents from establishing ZModem</U>. ZModem is a file transfer protocol.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept FTS-0001 Disabled</B></TD>
+<TD width=69%><U>Prevents from establishing FTS-0001</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept No Incoming</B></TD>
+<TD width=69%><U>Use serial port for outgoing call only</U>. During the activity of this atom, serial port is used for outgoing calls only. In the remaining time other applications rather than Argus can use the port. This atom applies only to dial-up lines, not to TCP/IP daemon.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept YooHoo Disabled</B>
+<P><B>Transmit YooHoo Disabled</B></P>
+</TD>
+<TD width=69%><U>Prevents from establishing YooHoo handshake</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept EMSI Disabled</B>
+<P><B>Transmit EMSI Disabled</B></P>
+</TD>
+<TD width=69%><U>Prevents from establishing EMSI handshake</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Door</B></TD>
+<TD width=69%><U>Additional door</U>. Adds specified door enter string and executable to the active list of doors (<A HREF="cfgextsvc.html">Config/External/Doors</A>).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Password</B></TD>
+<TD width=69%><U>Additional password</U>. Adds specified node password to the active list of passwords (<A HREF="cfgpasswords.html">Config/Passwords</A>).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Dummy-Z Disabled</B>
+<P><B>Transmit Dummy-Z Disabled</B></P>
+</TD>
+<TD width=69%><U>Do not send a dummy packet on ZModem</U>. By default (if this atom is not applied), Argus sends a dummy packet if there is nothing to send on ZModem session.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Input WatchDog Reset</B></TD>
+<TD width=69%>Resets the line.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Input WatchDog ExtApp</B></TD>
+<TD width=69%>Executes specified External Application.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Nodes Only Listed</B></TD>
+<TD width=69%>Accept calls Only from addresses Listed in nodelist or Argus passwords or overrides.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Input Log Format</B></TD>
+<TD width=69%>Scans data came from modem, and if it matches <A HREF="regexp.html">Regular Expression</A>, formats the data and logs.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Response Log Format</B></TD>
+<TD width=69%>Works the same way as Input Log Format atom except it does only scan data came from modem after Answer or Info commands.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept BPS Efficiency Min</B></TD>
+<TD width=69%>Percent of minimal BPS efficiency on incoming connections. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Transmit BPS Efficiency Min</B></TD>
+<TD width=69%>Percent of minimal BPS efficiency on outgoing connections.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Log EMSI Data</B></TD>
+<TD width=69%>Turns logging EMSI of data on.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept CPS Min</B></TD>
+<TD width=69%>Minimal CPS on incoming connections.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Transmit CPS Min</B></TD>
+<TD width=69%>Minimal CPS on outgoing connections.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Accept Duration Max</B></TD>
+<TD width=69%>Maximal duration of incoming session in minutes.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%><B>Transmit Duration Max</B></TD>
+<TD width=69%>Maximal duration of outgoing session in minutes.</TD>
+</TR>
+</TABLE><BR>
+
+<H2>Example on Response Log Format Atom</H2>
+
+<P>This example is for ZyXEL U1496 E+ modem (taken from Bink/+ Config File by Vsevolod Fedotov)</P>
+
+<P>Modem|General/Commands|Info:</P>
+
+<P>ATI2|</P>
+
+<P>Response Log Format Atom, <A HREF="regexp.html">Regular Expression</A>:</P>
+
+<PRE><CODE>    ZyXEL U-MODEM LINK STATUS REPORT\s*
+    Chars Sent *(\w+) *Chars Received *(\w+)\s*
+    Octets Sent *(\w+) *Octets Received *(\w+)\s*
+    Blocks Sent *(\w+) *Blocks Received *(\w+)\s*
+    Blocks Resent *(\w+) *Max Outstanding *(\w+)\s*
+    Max Block Size *(\w+) *Retrains Requested *(\w+)\s*
+    Link Duration *(\w+) *Retrains Granted *(\w+)\s*
+    T401 Timeouts *(\w+) *T402 Timeouts *(\w+)\s*
+    FCS Errors *(\w+) *Round Trip Delay *(\w+)\s*
+    Xmitter Underrun *(\w+) *Receiver overrun *(\w+)\s*
+    Last Speed/Protocol *(.+)\b\s*
+    Disconnect Reason *(.+)\b\s*</CODE></PRE>
+
+<P>Response Log Format Atom, Format Specifier:</P>
+
+<PRE><CODE>    Was $19 during $11 min, RTT=$16 T
+    Tx/Rx: $1/$2 chrs, $3/$4 octs, $5+$7/$6 blks
+    Retrains $10/$12, Timeouts $13/$14, FCS Errors $15, Overruns $17/$18
+    Disconnect reason: $20</CODE></PRE>
+
+<P>See also:</P>
+
+<P><A HREF="cfgevents.html">Events</A></P>
+
+<P><A HREF="pollmgr.html">Poll manager</A></P>
+
+<P><A HREF="cfgmain.html">Configuring Argus</A></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Special Directories</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Special Directories">
+	<PARAM NAME="Keyword" VALUE="Inbound">
+	<PARAM NAME="Keyword" VALUE="Secure Inbound">
+	<PARAM NAME="Keyword" VALUE="Insecure Inbound">
+	<PARAM NAME="Keyword" VALUE="Temporary Inbound">
+	<PARAM NAME="Keyword" VALUE="Outbound">
+	<PARAM NAME="Keyword" VALUE="Home Directory">
+</OBJECT>
+
+<H1><A NAME="idh_sd"></A>Special Directories</H1>
+
+<P>Mailing system directories: <A HREF="sdsi.html">Secure inbound</A>, <A HREF="sdii.html">Insecure inbound</A>, <A HREF="sdti.html">Temporary inbound</A>, <A HREF="sdo.html">Outbound</A> and <A HREF="sdl.html">Log</A> are discussed here.</P>
+
+<P>Usually all Mailing system directories are placed within the <A HREF="hd.html">Home Directory</A>. If this is the case the user may omit full path names (like <CODE>C:\FIDO\ARGUS\LOG</CODE>) by defining the path to a directory in relation to the Home Directory. If one has, for instance a Home Directory named <CODE>C:\FIDO\ARGUS</CODE> and wants to store Log files in the <CODE>C:\FIDO\ARGUS\LOG</CODE> directory, you only need to enter <CODE>LOG</CODE> in the appropriate place on the Special Directories configuration grid. If a path name begins with the backslash symbol ('<CODE>\</CODE>') the directory will be placed on the same drive as the Home Directory. If a drive name is specified in a path, there is no relation between that path and the Home Directory (the path name is absolute, in other words).</P>
+
+<P>The following is an example of how the Special Directories path names are translated. The Home Directory is defined as <CODE>C:\FIDO\ARGUS</CODE>.</P>
+
+<TABLE cols=2 width=298>
+
+<TR VALIGN="top">
+<TD width=36%>Record</TD>
+<TD width=64%>Translated to</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>LOG</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>C:\FIDO\ARGUS\LOG</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>IN\SEC</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>C:\FIDO\ARGUS\IN\SEC</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>\IN\PROT</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>C:\IN\PROT</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>R:\FL\OUT</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>R:\FL\OUT</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

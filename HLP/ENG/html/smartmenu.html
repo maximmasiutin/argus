@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Outbound SmartMenu</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Outbound SmartMenu">
+	<PARAM NAME="Keyword" VALUE="SmartMenu">
+	<PARAM NAME="Keyword" VALUE="Attach to current node">
+	<PARAM NAME="Keyword" VALUE="Poll to current node">
+	<PARAM NAME="Keyword" VALUE="Edit file request to current node">
+	<PARAM NAME="Keyword" VALUE="Browse Nodelist at current node">
+	<PARAM NAME="Keyword" VALUE="Create flag for current node">
+	<PARAM NAME="Keyword" VALUE="Outbound SmartMenu">
+	<PARAM NAME="Keyword" VALUE="Entire outbound">
+	<PARAM NAME="Keyword" VALUE="Readdress">
+	<PARAM NAME="Keyword" VALUE="Finalize">
+	<PARAM NAME="Keyword" VALUE="Change flavour">
+	<PARAM NAME="Keyword" VALUE="Unlink">
+	<PARAM NAME="Keyword" VALUE="Remove broken links">
+	<PARAM NAME="Keyword" VALUE="Crash">
+	<PARAM NAME="Keyword" VALUE="Direct">
+	<PARAM NAME="Keyword" VALUE="Normal">
+	<PARAM NAME="Keyword" VALUE="Hold">
+</OBJECT>
+
+<H1><A NAME="idh_smartmenu"></A>Outbound SmartMenu</H1>
+
+<P>Outbound SmartMenu is a special pop-up menu, called by clicking right mouse button or Space key on outbound node, smartly provides all possible operations with that node.</P>
+
+<UL>
+<LI><U>Attach to current node</U> - invokes file attachment procedure, similar to Tool/Attach files (F8).</LI>
+
+<LI><U>Poll to current node</U> - invokes node polling procedure, similar to Poll/Create (F5).</LI>
+
+<LI><U>Edit file request to current node</U> - invokes file requesting procedure, similar to Tool/Edit File Request (F7).</LI>
+
+<LI><U>Browse Nodelist at current node</U> - invokes <A HREF="nodebrowse.html">nodelist browsing</A> procedure, similar to Tool/Browse Nodelist at (Ctrl+F6)</LI>
+
+<LI><U>Create flag for current node</U> - may be used for invoking outbound-polls, similar to Tool/Create Flag (Ctrl+F8)</LI>
+</UL>
+
+<P>Outbound SmartMenu makes possible to operate current items as one. “Current items” are all items of one of the following group:</P>
+
+<UL>
+<LI><U>Currently selected outbound file</U>, i.e. current item of current node</LI>
+
+<LI><U>All of same file name</U> of current node, i.e. <CODE>filename.*</CODE>, when <CODE>filename.ext</CODE> is currently selected outbound file.</LI>
+
+<LI><U>All of same file extension</U> of current node, i.e. <CODE>*.ext</CODE>, when <CODE>filename.ext</CODE> is currently selected outbound file.</LI>
+
+<LI><U>All of same attach status</U> of current node.</LI>
+
+<LI><U>All Entries </U>of current node.</LI>
+
+<LI><U>Entire outbound</U>, i.e. all items within Argus Outbound.</LI>
+</UL>
+
+<P>The following operations are performed on "current items":</P>
+<UL>
+<LI><U>Readdress</U> - allows current items to be re-addressed to another node. Attachment status remains unchanged.</LI>
+
+<LI><U>Finalize</U> - makes files as they were sent. It kills the only "kill-sent" files and truncates "truncate-sent". Other files are leaving unchanged, just de-attached.</LI>
+
+<LI><U>Change flavour to</U> Crash/Direct/Normal/Hold - changes the attachment status of current items.</LI>
+
+<LI><U>Unlink</U> - unlinks (de-attaches) current items without killing them.</LI>
+
+<LI><U>Remove broken links</U> - unlinks (de-attaches) files, which are not available within current items. Be careful - links can be temporarily broken due to lost connection to network outbound or other temporary accessing errors.</LI>
+</UL>
+</BODY>
+</HTML>

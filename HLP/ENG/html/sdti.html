@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Temporary Inbound</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Special Directories">
+	<PARAM NAME="Keyword" VALUE="Temporary Inbound">
+</OBJECT>
+
+<P><A NAME="idh_sdti"></A><U>Temporary inbound</U> is the directory where files are momentarily stored whilst they are being received. Once files are completely received they are moved into the <A HREF="sdsi.html">Secure Inbound</A>, <A HREF="sdii.html">Insecure Inbound</A> or <A HREF="cfgextpp.html">Incoming File-Boxes</A> directories, or into a file-box.</P>
+
+<P>If there is a file with the same name in either the Secure or Insecure Inbound directory, the file to be moved will be kept in the Temporary Inbound until the duplicate named file is deleted or moved from the destination directory. The file can be deleted or moved, for example, by an external program like mail tosser or file-echo processor.</P>
+
+<P>If a file is not completely received due an unexpected termination of the session, the received part of the file will be stored in the Temporary Inbound directory during three days, until the file can be completed. In the next file transfer session the file transfer will resume from where it left off and not from the beginning of the file. Parts smaller than 16K are not stored in temporary inbound. Also, files with PKT extension are not stored here.</P>
+
+<P>For reliable operation, the files from temporary inbound are moved, not copied, thus make sure that all inbound directories (temporary, secure, insecure, file-box) are on the same physical drive or volume in order Win32 API MoveFile() function would not fail with error "The system cannot move the file to a different disk drive".</P>
+
+<P>See also: <A HREF="sd.html">Special Directories</A>.</P>
+
+</BODY>
+</HTML>

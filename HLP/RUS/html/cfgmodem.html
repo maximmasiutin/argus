@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_cfgmodem"></A>Конфигурация модемов</H1>
+
+<h2>External Fax Receiver</h2>
+
+<P>Изменять значение этого поля необходимо только тогда, когда Вы намерены использовать данный модем, кроме передачи файлов, еще и для <A HREF="fax.html">приема факсов</A>. </P>
+
+<h2>General Commands</h2>
+
+<P>В <U>сетке</U> ввода строк содержатся управляющие строки (последовательности/команды) модема. В строках, посылаемых модему, можно указывать управляющие спецсимволы, которые описаны в отдельной главе <A HREF="modemctlchars.html">Modem control characters</A>.</P>
+
+<TABLE cols=3 width=615>
+
+<TR VALIGN="top">
+<TD width=14%>Init</TD>
+<TD width=20%>
+<PRE><CODE>ATZ|</CODE></PRE>
+</TD>
+<TD width=66%>Строка инициализации модема. Посылается при запуске линии, по окончании сеанса связи, каждые две минуты вне сеансов (для проверки модема), и, перед набором номера.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Answer</TD>
+<TD width=20%>
+<PRE><CODE>ATA!</CODE></PRE>
+</TD>
+<TD width=66%>Строка, посылаемая модему по обнаружению сигнала RING. После посылки этой строки происходит переход линии в режим ожидания соединения.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Dial prefix</TD>
+<TD width=20%>
+<PRE><CODE>ATDP</CODE></PRE>
+</TD>
+<TD width=66%>Префикс команды набора номера. Полная команда набора номера состоит из префикса, собственно номера и суффикса,</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Dial suffix</TD>
+<TD width=20%>
+<PRE><CODE>!</CODE></PRE>
+</TD>
+<TD width=66%>Суффикс команды набора номера. Суффикс в большинстве случаев состоит из единственного символа ! (спецсимвол CR без ожидания)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Hangup</TD>
+<TD width=20%>
+<PRE><CODE>!`v~~^`!!`</CODE></PRE>
+</TD>
+<TD width=66%>Команда физического отсоединения. Большинство модемов производят отсоединение по опусканию сигнала DTR. Данная строка посылает CR, ожидает 0.1 сек, опускает DTR, ожидает 1.0 сек, подымает DTR, ожидает 0.1 сек, дважды посылает CR, и снова ожидает 0.1 сек.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Info</TD>
+<TD width=20%><I>none</I></TD>
+<TD width=66%>Info command is sent to the modem after a session termination, before sending Init string. The result of this command is logged. You may use Response Log Format atom to format data came from a modem. By default, Info command is not defined, so no info command at all is sent.</TD>
+</TR>
+</TABLE><BR>
+
+<P>См. также <A HREF="asyncflow.html">Контроль потока данных</A></P>
+
+<h2>Responses</h2>
+
+<P><A HREF="guigrid.html">Сетка</A> ввода стандартных строк ответов модема. В каждом поле можно перечислить через пробел несколько вариантов ответа для данного типа. Сам же символ пробела в строке ответа заменяется на символ подчеркивания. You may not use wildcards but may use <A HREF="regexp.html">Regular Expressions</A> here.</P>
+
+<h2>Flags</h2>
+
+<P>Перед прозвонкой на узел с определенными флагами (которые указаны в <A HREF="oftnnodelist.html">списке узлов</A> или непосредственно в настройках узлов в Аргусе), можно инициализировать модем для использования других протоколов соединения, то есть использовать иные Init string / Dial Prefix / Dial Suffix,  нежели описаны в General Commands.</P>
+
+<P>В поле первой колонки (Flag list) перечисляются флаги, во второй (Init/Prefix/Suffix) - замещенные Init string / Dial Prefix / Dial Suffix.</P>
+
+<P>Флаги в поле Flag List можно перечислять, используя логические операции <I>ИЛИ / И</I>. "Пробел" означает <I>ИЛИ</I>, "запятая" - <I>И</I>. Приоритет <I>И</I> выше.</P>
+
+<P>Пример перечисления флагов с использованием логических операций.</P>
+
+<TABLE cols=2 width=430>
+
+<TR VALIGN="top">
+<TD width=42%>Поле колонки flags list</TD>
+<TD width=58%>Трактовка</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>PEP</CODE></PRE>
+</TD>
+<TD width=58%><CODE>PEP</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>HST H16</CODE></PRE>
+</TD>
+<TD width=58%><CODE>HST</CODE> или <CODE>H16</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>V32B,V42B</CODE></PRE>
+</TD>
+<TD width=58%><CODE>V32B</CODE> вместе с <CODE>V42B</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>ZYX,V34 32T</CODE></PRE>
+</TD>
+<TD width=58%>или <CODE>ZYX</CODE> вместе с <CODE>V34</CODE>, или <CODE>V32T</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>В поле второй колонки (Init/Prefix/Suffix) таблицы Flags перечисляются через дробь: Init String, Dial Prefix и Dial Suffix. Одиночная точка на месте Dial Prefix и Dial Suffix интерпретируется как соответствующее значение из General Commands.</P>
+
+<P>Пример формирования строк инициализации модема и набора номера, на основе значений сеток General Commands и Flags List:</P>
+
+<TABLE cols=2 width=615>
+
+<TR VALIGN="top">
+<TD width=19%>Номер телефона</TD>
+<TD width=81%><CODE>323323</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Значения General Commands</P>
+
+<TABLE cols=2 width=309>
+
+<TR VALIGN="top">
+<TD width=38%>Init</TD>
+<TD width=62%>
+<PRE><CODE>ATZ|</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=38%>    Dial Prefix</TD>
+<TD width=62%>
+<PRE><CODE>ATDP</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=38%>Dial Suffix</TD>
+<TD width=62%>
+<PRE><CODE>!</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<TABLE cols=4 width=657>
+
+<TR VALIGN="top">
+<TD width=20%>Значение поля колонки Flags List</TD>
+<TD width=13%>Строка инициализации перед прозвонкой</TD>
+<TD width=22%>Строка набора номера</TD>
+<TD width=45%>Комментарий</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATB1|/ATM0DP/!</CODE></PRE>
+</TD>
+<TD width=13%>
+<PRE><CODE>ATB1|</CODE></PRE>
+</TD>
+<TD width=22%>
+<PRE><CODE>ATDP323323!</CODE></PRE>
+</TD>
+<TD width=45%>Init string - <CODE>ATB1|</CODE>
+<P>Prefix - <CODE>ATM0DP</CODE></P>
+
+<P>Suffix - <CODE>!</CODE></P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATM0|/ATDT</CODE></PRE>
+</TD>
+<TD width=13%>
+<PRE><CODE>ATM0|</CODE></PRE>
+</TD>
+<TD width=22%>
+<PRE><CODE>ATDT323323!</CODE></PRE>
+</TD>
+<TD width=45%>Init string - <CODE>ATM0|</CODE>
+<P>Prefix - <CODE>ATDT</CODE></P>
+
+<P>Suffix - <CODE>!</CODE></P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATH1|</CODE></PRE>
+</TD>
+<TD width=13%>
+<PRE><CODE>ATH1|</CODE></PRE>
+</TD>
+<TD width=22%>
+<PRE><CODE>ATDP323323!</CODE></PRE>
+</TD>
+<TD width=45%>Префикс и суффикс опущены - берем их из General Commands</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>/ATX7DP/@!</CODE></PRE>
+</TD>
+<TD width=13%>&nbsp;</TD>
+<TD width=22%>
+<PRE><CODE>ATX7DP323323@!</CODE></PRE>
+</TD>
+<TD width=45%>Одиночная точка на месте строки инициализации - строка инициализации пуста</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATB0|/./@!</CODE></PRE>
+</TD>
+<TD width=13%>
+<PRE><CODE>ATB0|</CODE></PRE>
+</TD>
+<TD width=22%>
+<PRE><CODE>ATDP323323@!</CODE></PRE>
+</TD>
+<TD width=45%>Одиночная точка на месте Dial Prefix - берем его из General Commands</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,492 @@
+<HTML>
+<!--Sitemap 1.0-->
+<OBJECT type="text/site properties">
+</OBJECT>
+<UL>
+	<LI><OBJECT type="text/sitemap">
+		<param name="Name" value="Что такое Аргус?">
+		</OBJECT>
+	<UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Что такое Аргус?">
+			<param name="Local" value="html/intro.html">
+			</OBJECT>
+			<A HREF="html/intro.html">Что такое Аргус?</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Поддержка многозадачной работы Win32">
+			<param name="Local" value="html/intronative.html">
+			</OBJECT>
+			<A HREF="html/intronative.html">Поддержка многозадачной работы Win32</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Многолинейность">
+			<param name="Local" value="html/intromulti.html">
+			</OBJECT>
+			<A HREF="html/intromulti.html">Многолинейность</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Расширенная поддержка TCP/IP">
+			<param name="Local" value="html/introtcp.html">
+			</OBJECT>
+			<A HREF="html/introtcp.html">Расширенная поддержка TCP/IP</A><BR>
+	</UL>
+	<LI><OBJECT type="text/sitemap">
+		<param name="Name" value="Основы FTN-технологии">
+		</OBJECT>
+	<UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Основы FTN-технологии">
+			<param name="Local" value="html/ftn.html">
+			</OBJECT>
+			<A HREF="html/ftn.html">Основы FTN-технологии</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Поддерживаемые FTN-стандарты">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Поддерживаемые FTN-стандарты">
+				<param name="Local" value="html/oftn.html">
+				</OBJECT>
+				<A HREF="html/oftn.html">Поддерживаемые FTN-стандарты</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Список узлов FTS-0005">
+				<param name="Local" value="html/oftnnodelist.html">
+				</OBJECT>
+				<A HREF="html/oftnnodelist.html">Список узлов FTS-0005</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Протокол соединения EMSI (FSC-0056)">
+				<param name="Local" value="html/oftnemsi.html">
+				</OBJECT>
+				<A HREF="html/oftnemsi.html">Протокол соединения EMSI (FSC-0056)</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="WaZOO-сессия и файловые запросы (FTS-0006)">
+				<param name="Local" value="html/oftnwazoo.html">
+				</OBJECT>
+				<A HREF="html/oftnwazoo.html">WaZOO-сессия и файловые запросы (FTS-0006)</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Протокол Гидра (FSC-0072)">
+				<param name="Local" value="html/oftnhydra.html">
+				</OBJECT>
+				<A HREF="html/oftnhydra.html">Протокол Гидра (FSC-0072)</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Флаг, указывающий время работы узла (FSC-0062)">
+				<param name="Local" value="html/oftnonline.html">
+				</OBJECT>
+				<A HREF="html/oftnonline.html">Флаг, указывающий время работы узла (FSC-0062)</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Поддерживаемые общие стандарты">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Поддерживаемые общие стандарты">
+				<param name="Local" value="html/csi.html">
+				</OBJECT>
+				<A HREF="html/csi.html">Поддерживаемые общие стандарты</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Буфер отправки системы Binkley">
+				</OBJECT>
+			<UL>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Буфер отправки системы Binkley">
+					<param name="Local" value="html/bso.html">
+					</OBJECT>
+					<A HREF="html/bso.html">Буфер отправки системы Binkley</A><BR>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Outbound SmartMenu">
+					<param name="Local" value="html/smartmenu.html">
+					</OBJECT>
+					<A HREF="html/smartmenu.html">Outbound SmartMenu</A><BR>
+			</UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Протокол BinkP">
+				</OBJECT>
+			<UL>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Протокол BinkP">
+					<param name="Local" value="html/binkp.html">
+					</OBJECT>
+					<A HREF="html/binkp.html">Протокол BinkP</A><BR>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Шифрованный сеанс BinkP">
+					<param name="Local" value="html/binkpenc.html">
+					</OBJECT>
+					<A HREF="html/binkpenc.html">Шифрованный сеанс BinkP</A><BR>
+			</UL>
+		</UL>
+	</UL>
+	<LI><OBJECT type="text/sitemap">
+		<param name="Name" value="Принципы асинхронной передачи">
+		</OBJECT>
+	<UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Принципы асинхронной передачи">
+			<param name="Local" value="html/async.html">
+			</OBJECT>
+			<A HREF="html/async.html">Принципы асинхронной передачи</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Параметры линии">
+			<param name="Local" value="html/asyncline.html">
+			</OBJECT>
+			<A HREF="html/asyncline.html">Параметры линии</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Ошибки передачи">
+			<param name="Local" value="html/asyncerr.html">
+			</OBJECT>
+			<A HREF="html/asyncerr.html">Ошибки передачи</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Контроль потока данных">
+			<param name="Local" value="html/asyncflow.html">
+			</OBJECT>
+			<A HREF="html/asyncflow.html">Контроль потока данных</A><BR>
+	</UL>
+	<LI><OBJECT type="text/sitemap">
+		<param name="Name" value="Среда Аргуса">
+		</OBJECT>
+	<UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Среда Аргуса">
+			<param name="Local" value="html/env.html">
+			</OBJECT>
+			<A HREF="html/env.html">Среда Аргуса</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Расширенные графические элементы">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Расширенные графические элементы">
+				<param name="Local" value="html/gui.html">
+				</OBJECT>
+				<A HREF="html/gui.html">Расширенные графические элементы</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Сетки ввода строк">
+				<param name="Local" value="html/guigrid.html">
+				</OBJECT>
+				<A HREF="html/guigrid.html">Сетки ввода строк</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Окно хронологии">
+				<param name="Local" value="html/guilog.html">
+				</OBJECT>
+				<A HREF="html/guilog.html">Окно хронологии</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Индикаторы активности модема">
+				<param name="Local" value="html/guiterm.html">
+				</OBJECT>
+				<A HREF="html/guiterm.html">Индикаторы активности модема</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Индикатор прогресса приема/передачи">
+				<param name="Local" value="html/guipie.html">
+				</OBJECT>
+				<A HREF="html/guipie.html">Индикатор прогресса приема/передачи</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Индикатор сигналов модема">
+				<param name="Local" value="html/guilamps.html">
+				</OBJECT>
+				<A HREF="html/guilamps.html">Индикатор сигналов модема</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Информационная панель присоединенного узла">
+				<param name="Local" value="html/guistatinfo.html">
+				</OBJECT>
+				<A HREF="html/guistatinfo.html">Информационная панель присоединенного узла</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Outbound SmartMenu">
+				<param name="Local" value="html/smartmenu.html">
+				</OBJECT>
+				<A HREF="html/smartmenu.html">Outbound SmartMenu</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Менеджер прозвонок">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Менеджер прозвонок">
+				<param name="Local" value="html/pollmgr.html">
+				</OBJECT>
+				<A HREF="html/pollmgr.html">Менеджер прозвонок</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Окно линии почтовой системы">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Окно линии почтовой системы">
+				<param name="Local" value="html/mlrd.html">
+				</OBJECT>
+				<A HREF="html/mlrd.html">Окно линии почтовой системы</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Главное меню">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Главное меню">
+				<param name="Local" value="html/mnu.html">
+				</OBJECT>
+				<A HREF="html/mnu.html">Главное меню</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Меню System">
+				<param name="Local" value="html/mnusystem.html">
+				</OBJECT>
+				<A HREF="html/mnusystem.html">Меню System</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Меню Line">
+				<param name="Local" value="html/mnuline.html">
+				</OBJECT>
+				<A HREF="html/mnuline.html">Меню Line</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Меню Poll">
+				<param name="Local" value="html/mnupoll.html">
+				</OBJECT>
+				<A HREF="html/mnupoll.html">Меню Poll</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Меню Tool">
+				<param name="Local" value="html/mnutool.html">
+				</OBJECT>
+				<A HREF="html/mnutool.html">Меню Tool</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Меню Config">
+				<param name="Local" value="html/mnuconfig.html">
+				</OBJECT>
+				<A HREF="html/mnuconfig.html">Меню Config</A><BR>
+		</UL>
+	</UL>
+	<LI><OBJECT type="text/sitemap">
+		<param name="Name" value="Конфигурируем Аргус">
+		</OBJECT>
+	<UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Конфигурируем Аргус">
+			<param name="Local" value="html/7.html">
+			</OBJECT>
+			<A HREF="html/7.html">Конфигурируем Аргус</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Защита конфигурационных данных">
+			<param name="Local" value="html/mastpwd.html">
+			</OBJECT>
+			<A HREF="html/mastpwd.html">Защита конфигурационных данных</A><BR>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Каталоги">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Каталоги">
+				<param name="Local" value="html/pn.html">
+				</OBJECT>
+				<A HREF="html/pn.html">Каталоги</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Основной каталог">
+				<param name="Local" value="html/hd.html">
+				</OBJECT>
+				<A HREF="html/hd.html">Основной каталог</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Специальные каталоги">
+				<param name="Local" value="html/sd.html">
+				</OBJECT>
+				<A HREF="html/sd.html">Специальные каталоги</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Файл-боксы">
+				<param name="Local" value="html/fileboxes.html">
+				</OBJECT>
+				<A HREF="html/fileboxes.html">Файл-боксы</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Основные пункты конфигурации">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Основные пункты конфигурации">
+				<param name="Local" value="html/cfgbases.html">
+				</OBJECT>
+				<A HREF="html/cfgbases.html">Основные пункты конфигурации</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Конфигурация списка узлов">
+				<param name="Local" value="html/cfgnodelist.html">
+				</OBJECT>
+				<A HREF="html/cfgnodelist.html">Конфигурация списка узлов</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Конфигурация паролей">
+				<param name="Local" value="html/cfgpasswords.html">
+				</OBJECT>
+				<A HREF="html/cfgpasswords.html">Конфигурация паролей</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Конфигурация параметров запуска">
+				<param name="Local" value="html/cfgstartup.html">
+				</OBJECT>
+				<A HREF="html/cfgstartup.html">Конфигурация параметров запуска</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Конфигурация модемных соединений">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Конфигурация модемных соединений">
+				<param name="Local" value="html/cfgdialup.html">
+				</OBJECT>
+				<A HREF="html/cfgdialup.html">Конфигурация модемных соединений</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Основная панель">
+				<param name="Local" value="html/cfgdialupwin.html">
+				</OBJECT>
+				<A HREF="html/cfgdialupwin.html">Основная панель</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Конфигурация линий почтовой системы">
+				<param name="Local" value="html/cfgmlrline.html">
+				</OBJECT>
+				<A HREF="html/cfgmlrline.html">Конфигурация линий почтовой системы</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Настройка EMSI-данных">
+				<param name="Local" value="html/cfgemsi.html">
+				</OBJECT>
+				<A HREF="html/cfgemsi.html">Настройка EMSI-данных</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Настройка коммуникационных портов">
+				<param name="Local" value="html/cfgserial.html">
+				</OBJECT>
+				<A HREF="html/cfgserial.html">Настройка коммуникационных портов</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Установка битовых параметров линий">
+				<param name="Local" value="html/cfglinebits.html">
+				</OBJECT>
+				<A HREF="html/cfglinebits.html">Установка битовых параметров линий</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Конфигурация модемов">
+				<param name="Local" value="html/cfgmodem.html">
+				</OBJECT>
+				<A HREF="html/cfgmodem.html">Конфигурация модемов</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Управляющие символы модема">
+				<param name="Local" value="html/modemctlchars.html">
+				</OBJECT>
+				<A HREF="html/modemctlchars.html">Управляющие символы модема</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Прием факсов">
+				<param name="Local" value="html/fax.html">
+				</OBJECT>
+				<A HREF="html/fax.html">Прием факсов</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Схемы ограничения прозвонок">
+				<param name="Local" value="html/cfgrest.html">
+				</OBJECT>
+				<A HREF="html/cfgrest.html">Схемы ограничения прозвонок</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Таблица переопределений модемных узлов">
+				<param name="Local" value="html/cfgnodes.html">
+				</OBJECT>
+				<A HREF="html/cfgnodes.html">Таблица переопределений модемных узлов</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Конфигурация TCP/IP">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Конфигурация TCP/IP">
+				<param name="Local" value="html/cfgip.html">
+				</OBJECT>
+				<A HREF="html/cfgip.html">Конфигурация TCP/IP</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="TCP/IP Daemon">
+				<param name="Local" value="html/introdaemon.html">
+				</OBJECT>
+				<A HREF="html/introdaemon.html">TCP/IP Daemon</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Диалог кофигурации TCP/IP Daemon">
+				<param name="Local" value="html/cfgipdaemon.html">
+				</OBJECT>
+				<A HREF="html/cfgipdaemon.html">Диалог кофигурации TCP/IP Daemon</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Специальные флаги TCP/IP">
+				<param name="Local" value="html/cfgipflg.html">
+				</OBJECT>
+				<A HREF="html/cfgipflg.html">Специальные флаги TCP/IP</A><BR>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Расширенная конфигурация">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Файловые запросы">
+				<param name="Local" value="html/cfgfilerequests.html">
+				</OBJECT>
+				<A HREF="html/cfgfilerequests.html">Файловые запросы</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Параметры прозвонок">
+				<param name="Local" value="html/cfgppolls.html">
+				</OBJECT>
+				<A HREF="html/cfgppolls.html">Параметры прозвонок</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="События">
+				</OBJECT>
+			<UL>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="События">
+					<param name="Local" value="html/cfgevents.html">
+					</OBJECT>
+					<A HREF="html/cfgevents.html">События</A><BR>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Список атомов">
+					<param name="Local" value="html/atoms.html">
+					</OBJECT>
+					<A HREF="html/atoms.html">Список атомов</A><BR>
+			</UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Внешние приложения">
+				</OBJECT>
+			<UL>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Внешние приложения">
+					<param name="Local" value="html/cfgexternal.html">
+					</OBJECT>
+					<A HREF="html/cfgexternal.html">Внешние приложения</A><BR>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Обработчики">
+					<param name="Local" value="html/cfgextpp.html">
+					</OBJECT>
+					<A HREF="html/cfgextpp.html">Обработчики</A><BR>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Сервисы">
+					<param name="Local" value="html/cfgextsvc.html">
+					</OBJECT>
+					<A HREF="html/cfgextsvc.html">Сервисы</A><BR>
+				<LI><OBJECT type="text/sitemap">
+					<param name="Name" value="Периодически запускаемые приложения">
+					<param name="Local" value="html/cfgextcron.html">
+					</OBJECT>
+					<A HREF="html/cfgextcron.html">Периодически запускаемые приложения</A><BR>
+			</UL>
+		</UL>
+		<LI><OBJECT type="text/sitemap">
+			<param name="Name" value="Справочник по конфигурации Аргуса">
+			</OBJECT>
+		<UL>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Справочник по конфигурации Аргуса">
+				<param name="Local" value="html/cfgref.html">
+				</OBJECT>
+				<A HREF="html/cfgref.html">Справочник по конфигурации Аргуса</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Прозвонка на узел только в его рабочее время">
+				<param name="Local" value="html/cfgrefol.html">
+				</OBJECT>
+				<A HREF="html/cfgrefol.html">Прозвонка на узел только в его рабочее время</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Объединения адресов в группы">
+				<param name="Local" value="html/addrmasks.html">
+				</OBJECT>
+				<A HREF="html/addrmasks.html">Объединения адресов в группы</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Формат Cron">
+				<param name="Local" value="html/cron.html">
+				</OBJECT>
+				<A HREF="html/cron.html">Формат Cron</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Прием факсов">
+				<param name="Local" value="html/fax.html">
+				</OBJECT>
+				<A HREF="html/fax.html">Прием факсов</A><BR>
+			<LI><OBJECT type="text/sitemap">
+				<param name="Name" value="Расширенная хронологи">
+				<param name="Local" value="html/logs.html">
+				</OBJECT>
+				<A HREF="html/logs.html">Расширенная хронологи</A><BR>
+		</UL>
+	</UL>
+</UL>
+</HTML>

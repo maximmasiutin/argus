@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_regexp"></A>Where to Use Regular Expressions</H1>
+
+<P>Regular Expressions may be used in file masks, address masks, <A HREF="cfgmodem.html">Modem Responses</A> and <A HREF="fileboxes.html">File-Boxes configuration</A>, i.e. anywhere where generic masks are allowed (though Modem Responses do not allow generic masks)</P>
+
+<P>Argus uses Perl-Compatible Regular Expressions library (c) 1997-1999 University of Cambridge. This library was written by Philip Hazel &lt;ph10@cam.ac.uk&gt;, University Computing Service, New Museums Site, Cambridge CB2 3QG, England, Phone: +44 1223 334714. </P>
+
+<P>Information about Perl-Compatible Regular Expressions (PCRE) syntax is given in a <A HREF="regexpadvanced.html">separate chapter</A>, written by Philip Hazel.</P>
+
+<H2>Syntax</H2>
+
+<P>To insert a Regular Expression, use '~' character as a marker. Next character (following '~' marker) will be used as a delimiter to define the end of a Regular Expression. Any text found between delimiting characters will be treated as a Regular Expression.</P>
+
+<P>The syntax is:</P>
+
+<P>before~#regularexpression#after</P>
+
+<P>where "before" and "after" is optional text that will be compared as a generic mask (a character matches itself, '?' matches any character, '*' matches a sequence of characters).</P>
+
+<P>"regularexpression" is a text of a Regular Expression.</P>
+
+<P>'#' - delimiter character.</P>
+
+<H2>Examples</H2>
+
+<P>The following string (found where a file mask should be)</P>
+
+<P>~#cat(aract|erpillar|)\..*#</P>
+
+<P>will match a file named "cat", "cataract", or "caterpillar", with any extension.</P>
+
+<P>the above example is equivalent to </P>
+
+<P>~#cat(aract|erpillar|)#.*</P>
+
+<P>because the text after delimiter (".*") is treated as a generic mask, i.e. '.'  matches a dot character and '*' matches any sequence of characters.</P>
+
+<P>Here is another example of using regular expressions in Modem Responses:</P>
+
+<P>~#^RING(\x20\d)?$#</P>
+
+<P>This will match word "RING", optionally following a digit after space character.</P>
+
+<H2>List Separators and Regular Expression Delimiters</H2>
+
+<P>Because of space (or other) character may be used as a separator in Argus Configuration String Grids, such character should not occur in non-escaped form inside a regular expression. This is because of separator characters in a string grid (e.g. space) have greater priority than a regular expression delimiters (e.g. '#').</P>
+
+<P>To avoid using string grid separator character in a Regular Expression, use hex codes (e.g. \x20 for space character) or corresponding patterns (e.g. \s , that will match any whitespace character). </P>
+
+<P>If you plan using '#' character within a regular expression, you may also use it's hex code, but better way would be choosing another delimiter.</P>
+
+<P>~`^RING(\x20#\d)?$`</P>
+
+<P>To insert ~ character into a generic mask, double it to avoid using it as a regular expression marker.</P>
+
+<H2>Anchoring in File Masks</H2>
+
+<P>Note that you don't need to anchor your regular expressions (using '^' and '$') in file masks - they would be anchored automatically. If you need to skip some characters before of after, use ".*")</P>
+
+<H2>PCRE Default Options</H2>
+
+<P>The settings of PCRE_CASELESS, PCRE_MULTILINE, PCRE_DOTALL, and PCRE_EXTENDED options (described in <A HREF="regexpadvanced.html">separate chapter</A>) can be changed from within the pattern by a sequence of Perl option letters enclosed between "(?" and ")", although the following default options are used:</P>
+
+<P>When matching file names and path names - PCRE_CASELESS.</P>
+
+<P>When matching modem responses - PCRE_MULTILINE, because the regular expression is matching against the entire multi-line input data stream coming from a modem.</P>
+
+<P>In all other cases none of PCRE options are set by default.</P>
+
+</BODY>
+</HTML>

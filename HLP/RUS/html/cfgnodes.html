@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_cfgnodes"></A>Таблица переопределений модемных узлов</H1>
+
+<P><A HREF="guigrid.html">Сетка</A> ввода строк, в которой можно переопределить для узла один или более номеров телефона, переопределить флаги и время работы вместо, указанных в <A HREF="oftnnodelist.html">списке узлов</A>. Номер телефона можно указывать косвенно (через список узлов).</P>
+
+<P>Рассмотрим случай, когда узел не находится в список узлов, а Вы указали номер его телефона без флагов. Поскольку время работы этого узла не указано (отсутствуют, флаги, в том числе описывающие время его работы), подразумевается, что такой узел может принимать звонки только в ZMH (а пойнт вообще никогда). Поэтому </P>
+
+<P>появление пакета с приоритетом Crash или Direct в <A HREF="bso.html">буфере отправки</A> будет служить Аргусу сигналом звонить узлу только в его ZMH. Пойнту, в этом случае, Аргус звонить вообще не будет. Прозвонка может не происходить также и из-за того, что флаги узла прописаны не до конца, и/или могут не соответствовать <A HREF="cfgrest.html">Dial Restrictions</A>.</P>
+
+<P>Вы можете работать с Аргусом без списка узлов, указав здесь номера телефонов узлов, на которые Вы обычно звоните.</P>
+
+<P>Формат переопределения узла:</P>
+
+<P>номер,флаги</P>
+
+<P>Номер в переопределении можно указывать как прямо, например <CODE>+31-133-456-1850,CM</CODE> так и косвенно (номер будет извлечен из текущего списка узлов) например <CODE>5:133/555,CM</CODE></P>
+
+<P>Одно переопределение может содержать несколько узлов, перечисленных через пробел.</P>
+
+<TABLE cols=3 width=615>
+
+<TR VALIGN="top">
+<TD width=16%>Значение поля колонки Node</TD>
+<TD width=41%>Значение поля колонки Override</TD>
+<TD width=43%>Комментарий</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/561</CODE></PRE>
+</TD>
+<TD width=41%>
+<PRE><CODE>+31-133-456-1850</CODE></PRE>
+</TD>
+<TD width=43%>Сменился номер</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/562</CODE></PRE>
+</TD>
+<TD width=41%>
+<PRE><CODE>55:133/562,U,TEX</CODE></PRE>
+</TD>
+<TD width=43%>Сменилось время работы узла</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>5:133/555</CODE></PRE>
+</TD>
+<TD width=41%>
+<PRE><CODE>5:133/555,U,TAB,TDE</CODE></PRE>
+</TD>
+<TD width=43%>Узел работает с 00:00 до 01:00 и с 03:00 до 04:00 по UTC</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/563</CODE></PRE>
+</TD>
+<TD width=41%>
+<PRE><CODE>55:133/563,CM,V34</CODE></PRE>
+</TD>
+<TD width=43%>Появился новый (V.34) модем</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>3:34/3443</CODE></PRE>
+</TD>
+<TD width=41%>
+<PRE><CODE>333-031,CM 333-032,CM 333-033,CM</CODE></PRE>
+</TD>
+<TD width=43%>Круглосуточный трехлинейный узел</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>3:383/513</CODE></PRE>
+</TD>
+<TD width=41%>
+<PRE><CODE>3:383/513 3:383/550 3:383/560</CODE></PRE>
+</TD>
+<TD width=43%>Три адреса у одного многолинейного узла</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>3:383/514</CODE></PRE>
+</TD>
+<TD width=41%>
+<PRE><CODE>3:383/513,HST,CM 3:383/550,V34,U,TACL</CODE></PRE>
+</TD>
+<TD width=43%>Первая линия работает круглосуточно, а вторая - с 00:00 до 02:00 по местному времени.</TD>
+</TR>
+</TABLE><BR>
+
+<H2>Файл дополнительных переопределений</H2>
+
+<P>В строке ввода Auxiliary Nodes File можно указать путь к файлу дополнительных переопределений модемных узлов, которые будут использоваться помимо указанных в сетке. Формат файла следующий (переопределение одного узла на строку):</P>
+
+<P></P>
+
+<PRE><CODE>Адрес | Переопределения</CODE></PRE>
+
+<P>Пример:</P>
+
+<PRE><CODE>2:469/38 | 373-2-246-530,CM,ZYX 373-7-222-222,CM,HST
+3:383/514 | 3:383/513,HST,CM 3:383/550,V34,U,TACL</CODE></PRE>
+
+<P>Файл дополнительных переопределений загружается в память при запуске Аргуса, а также при обнаружении <A HREF="fileflags.html">флага</A><CODE> DUPOVR.OK</CODE> в <A HREF="hd.html">Home Directory</A>. Результаты загрузки файла отражаются в хронологии прозвонок.</P>
+
+<H2>Специальные флаги выбора протокола</H2>
+
+<P>Для запрещения использования отдельных протоколов на исходящих сессиях с определенными узлами, в переопределениях этих узлов используются следующие флаги:</P>
+
+<TABLE cols=2 width=642>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOHYD</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает протокол </U><A HREF="oftnhydra.html">Гидра</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOZM</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает протокол </U><A HREF="oftnwazoo.html">ZModem</A>. Этот флаг является комбинацией флагов NODZA, NOZAP, NOZMO. См. также атом <A HREF="atoms.html">Transmit ZModem Disabled atom</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NODZA</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает протокол DirZap</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOZAP</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает протокол ZedZap</U>. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOZMO</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает протокол ZedZip</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NONIAGARA</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает протокол Niagara</U>. Этот протокол используется для установки сеанса связи <A HREF="binkp.html">BinkP</A> (в.т.ч <A HREF="binkpenc.html">щифрованный BinkP</A>) на модемных соединениях. См. также атом <A HREF="atoms.html">Transmit Niagara Disabled</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOEMSI</CODE></PRE>
+</TD>
+<TD width=85%>Запрещает протокол <A HREF="oftnemsi.html">EMSI</A>. См. также атом <A HREF="atoms.html">Transmit EMSI Disabled</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOYOOHOO</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает протокол YooHoo handshake</U>. См. также атом <A HREF="atoms.html">Transmit YooHoo Disabled</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NODUMMYZ</CODE></PRE>
+</TD>
+<TD width=85%><U>Запрещает передачу пустого пакета при отсутствии исходящих файлов на ZModem.</U> См. также атом <A HREF="atoms.html">Transmit Dummy-Z Disabled</A>.</TD>
+</TR>
+</TABLE><BR>
+
+<P>Пример использования специальных флагов:</P>
+
+<TABLE cols=3 width=667>
+
+<TR VALIGN="top">
+<TD width=16%>Node</TD>
+<TD width=47%>Override</TD>
+<TD width=37%>Комментарий</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/561</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>55:133/561,NOHYD</CODE></PRE>
+</TD>
+<TD width=37%>Не устанавливать протокол Гидра на исходящей сесии с узлом <CODE>55:133/561</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/562</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>55:133/562,NOZM</CODE></PRE>
+</TD>
+<TD width=37%>Не устанавливать протокол Zmodem на исходящей сесии с узлом <CODE>55:133/562</CODE></TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

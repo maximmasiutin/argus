@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Polls</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Polls">
+	<PARAM NAME="Keyword" VALUE="Periodical Polls">
+	<PARAM NAME="Keyword" VALUE="Options">
+	<PARAM NAME="Keyword" VALUE="External">
+</OBJECT>
+
+<H1><A NAME="idh_cfgppolls"></A>Polls</H1>
+
+<P>Polls are configuring by dialogue box Config/Polls. The box contains three tabs.</P>
+
+<H2>Periodical</H2>
+
+<P>Argus has an ability to create polls automatically, using <A HREF="cron.html">Cron</A>-periods. Polls created with cron are identical to polls, created by <A HREF="bso.html">Outbound</A>, and are disposed after a successful outgoing session with poll destination node.</P>
+
+<P>If a periodical polls appeared when a poll to specified destination node already exists, all counters (Busy / No Carrier / No Answer) of this poll are zeroed.</P>
+
+<P>See also <A HREF="pollmgr.html">Poll Manager</A>.</P>
+
+<H2>Options</H2>
+
+<P>The values of <U>Busy</U>, <U>No c.</U> and <U>Fail</U> fields are used as maximal values of poll counters, when reached, the poll is set to Stand-off (Idle) mode.</P>
+
+<P><U>Retry Seconds</U> field sets the number of seconds to wait before making next poll. The actual time length of Retry and Stand-off intervals is a random value within 0.5*n .. 1.5*n, or saying in other words, +-50%. For example, when Retry Seconds value is set to 100, the polls would be repeated with a random interval from 50 to 150 seconds. The tolerance interval of 50% is used to make polling more efficient - from the probability point of view.</P>
+
+<P>Transmit hold on outgoing allows <A HREF="bso.html">hold</A>-flavoured bundles to be transmitted to remote during an outgoing connection. </P>
+
+<P>The resume is that maximal values of poll counters are configuring here. When the value is reached, the poll falls asleep on “Stand-Off minutes”, else the poll would be redialled again after at least “Retry seconds”. Transmit Hold on outgoing defines whether hold-attaches would be transferred on outgoing sessions or not.</P>
+
+<H2>External</H2>
+
+<P>External polls allow executing an external application instead of polling nodes, specified in Address list (you may use <A HREF="addrmasks.html">address masks</A> and <A HREF="regexp.html">Regular Expressions</A> here) field of the dialogue. Application string format is the same as in <A HREF="cfgextsvc.html">Config/Externals/Doors</A> or Config/Dial-up/Modems/External Fax Receiver, i.e. all Handshake Switches are applied and new introduced (as well as environment variables):</P>
+
+<TABLE cols=3 width=538>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>%w</CODE></PRE>
+</TD>
+<TD width=30%>
+<PRE><CODE>ARGUS_NODE</CODE></PRE>
+</TD>
+<TD width=60%>External poll's node address, eg "2:469/38"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>%x</CODE></PRE>
+</TD>
+<TD width=30%>
+<PRE><CODE>ARGUS_STATION</CODE></PRE>
+</TD>
+<TD width=60%>Station name from nodelist, if applies</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>%v</CODE></PRE>
+</TD>
+<TD width=30%>
+<PRE><CODE>ARGUS_LOCATION</CODE></PRE>
+</TD>
+<TD width=60%>Site location from nodelist, if applies</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>%X</CODE></PRE>
+</TD>
+<TD width=30%>
+<PRE><CODE>ARGUS_SYSOP</CODE></PRE>
+</TD>
+<TD width=60%>Sysop's name from nodelist, if applies</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>%y</CODE></PRE>
+</TD>
+<TD width=30%>
+<PRE><CODE>ARGUS_PHONE</CODE></PRE>
+</TD>
+<TD width=60%>Phone number or IP address from nodelist or overrides</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>%Y</CODE></PRE>
+</TD>
+<TD width=30%>
+<PRE><CODE>ARGUS_FLAGS</CODE></PRE>
+</TD>
+<TD width=60%>Node flags from nodelist or overrides</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>%W</CODE></PRE>
+</TD>
+<TD width=30%>
+<PRE><CODE>ARGUS_SPEED</CODE></PRE>
+</TD>
+<TD width=60%>Node speed from nodelist, if applies</TD>
+</TR>
+</TABLE><BR>
+
+<P>Options' format is:</P>
+
+<PRE><CODE>OkRange BusyRange NoCRange FailRange TimeoutMinutes TimeoutExitCode</CODE></PRE>
+
+<P>It is possible to use enumerations and intervals in Ranges, (like as in cron). eg "1,3,9-15". They also can be skipped by "." (point) character. If none of values matches, the poll is considered to be completed OK. E.g., options field "<CODE>0 1 2,5-7 3,4 10 8</CODE>" means that an external poll is OK when the application returns exit code 0, busy on exit code=1, no connect on 2,5,6,7 and fail on 3,4. "10" means than the application would be terminated after 10 minutes of its execution, if it would not exit by itself. If the application was terminated by time-out, its exit code is set to <CODE>TimeoutExitCode</CODE>, i.e. 8 in the example above. The default value of <CODE>TimeoutExitCode</CODE> (if missed) is 1. If <CODE>TimeoutMinutes</CODE> value missed, the application would only exit by itself (if it would).</P>
+
+</BODY>
+</HTML>

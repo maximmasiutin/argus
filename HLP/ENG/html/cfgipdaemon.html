@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>TCP/IP Daemon configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Daemon">
+	<PARAM NAME="Keyword" VALUE="Config">
+	<PARAM NAME="Keyword" VALUE="SOCKS">
+	<PARAM NAME="Keyword" VALUE="Proxy">
+	<PARAM NAME="Keyword" VALUE="Firewall">
+	<PARAM NAME="Keyword" VALUE="DNS">
+	<PARAM NAME="Keyword" VALUE="General">
+	<PARAM NAME="Keyword" VALUE="Station">
+	<PARAM NAME="Keyword" VALUE="Restrictions">
+	<PARAM NAME="Keyword" VALUE="Nodes">
+	<PARAM NAME="Keyword" VALUE="DNS">
+	<PARAM NAME="Keyword" VALUE="fidonet.net domain">
+</OBJECT>
+
+<H1><A NAME="idh_cfgipdaemon"></A>TCP/IP Daemon Configuration</H1>
+
+<P><A HREF="introdaemon.html">TCP/IP Daemon</A> configuration dialogue is invoked with <A HREF="mnuconfig.html">Config</A> / TCP/IP Daemon menu command.</P>
+
+<P><B>General</B></P>
+
+<P>TCP/IP connection parameters are configured here.</P>
+
+<P>The Incoming Ports <A HREF="guigrid.html">string grid</A> allows you to set-up TCP/IP ports which should be checked by TCP/IP Daemon to receive incoming connections. Each of three currently available protocols could be set for a number of TCP/IP ports - use space characters to divide port numbers in the string grid entry. If there are no ports set for a protocol, the protocol is not used by Argus for receiving incoming connections.</P>
+
+<P>Argus can also use SOCKSv4 proxy server. </P>
+
+<P><B>Station</B></P>
+
+<P>This is the information about the system which will be transferred in the handshake packet. This information is almost the same as <A HREF="cfgemsi.html">EMSI data</A>, but if you are planning to connect with systems which are using <I>BinkD by Dima Maloff</I>, you should configure addresses in the Address List as 5-D FTN addresses (5-D FTN address is the 4-D FTN address plus '@' character and network name after it; e.g.: 2:469/38.77@fidonet.org) - if an address is not transferred in 5-D format, BinkD may refuse the connection.</P>
+
+<P><B>Restrictions</B></P>
+
+<P>These are the restrictions for outgoing connections. The principles of these restrictions are similar to those of <A HREF="cfgrest.html">Dialling Restrictions schemes</A> </P>
+
+<P><U>Required</U> - conditions necessary for a poll to be valid. All the conditions stated must be satisfied to make a poll valid. If there are no conditions stated, a poll is valid.</P>
+
+<P><U>Forbidden</U> - conditions making a poll invalid. If at least one of the conditions stated is satisfied the poll is invalid. If there are no conditions stated, a poll is valid.</P>
+
+<P>Two condition types are implemented in the current version of Argus: <A HREF="addrmasks.html">address mask</A> (possibly with <A HREF="regexp.html">Regular Expressions</A>) and Nodelist flags. </P>
+
+<P><B>Nodes</B></P>
+
+<P>This <A HREF="guigrid.html">string grid</A> has the same purpose as <A HREF="cfgnodes.html">Node overrides table</A> , the only difference is that instead of telephone numbers IP addresses are used (it is possible to use symbolic addresses as well as digital ones) and it is possible to define IP port numbers which are available on a particular node.</P>
+
+<P>Symbolic IP address should be enclosed in quotation marks, e.g.: <CODE>193.219.215.11</CODE> or <CODE>"fido.ritlabs.com"</CODE>. If a non-standard IP port is used, its number should be put after the IP address followed by underline, e.g.: <CODE>193.219.215.11_60177</CODE> or <CODE>"fido.ritlabs.com"_60177</CODE>.</P>
+
+<P><A HREF="cfgipflg.html">Flags</A> specific for a particular node could be obtained from an IP Nodelist (the basic difference between conventional and IP nodelists is the use of IP addresses instead of 'phone numbers) or defined directly in the overrides.  </P>
+
+<P>You may specify an auxiliary nodes file, which defines additional overrides besides of listed in the string grid. The format of the file follows, one override per line:</P>
+
+<PRE><CODE>Address | Override</CODE></PRE>
+
+<P>Example:</P>
+
+<PRE><CODE>2:469/38 | "fido.ritlabs.com",CM,BND
+3:383/514 | "fido.host.com",CM,IFC "fido.host.com",CM,TELNET</CODE></PRE>
+
+<P>Auxiliary TCP/IP node overrides file is loading into memory on Argus Start-up and by detection of <CODE>IPOVR.OK</CODE> <A HREF="fileflags.html">file-flag</A> in Argus <A HREF="hd.html">Home Directory</A>. Results of parsing of the file are logged in polls log.</P>
+
+<H2>DNS</H2>
+
+<P>Argus also supports DNS distributed nodelists.</P>
+
+<P>IP addresses of FTN nodes can be from DNS by rendering their FTN addresses to host domain name and resolving this name. The rendering is performing by the following scheme:</P>
+
+<PRE><CODE>[p&lt;Point&gt;.]f&lt;Node&gt;.n&lt;Net&gt;.z&lt;Zone&gt;.&lt;RootDomain&gt;</CODE></PRE>
+
+<P>The default root domain for Fidonet-reserved FTN-zones (1,2,3,4,5,6) is fidonet.net. E.g., the IP address of node 1:2/3.4, according to this scheme, is to be the same as of host p4.f2.n3.z1.fidonet.net.</P>
+
+<P>Root domains for each address mask are configured in DNS tab of TCP/IP Daemon Configuration dialogue. Address mask may also contain <A HREF="regexp.html">Regular Expressions</A>.</P>
+
+<P>Here are parts of a FAQ on fidonet.net domain. The most recent list is available at:</P>
+
+<P><CODE>http://www.doe.carleton.ca/~nsoveiko/fido/fido-over-ip.FAQ.english.html#fidonet.net</CODE></P>
+
+<TABLE cols=2 width=642>
+
+<TR VALIGN="top">
+<TD width=6%>Q?</TD>
+<TD width=94%>What is <CODE>fidonet.net</CODE>?</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>A:</TD>
+<TD width=94%>fidonet.net is an Internet domain registered to facilitatedevelopment and deployment of fido-over-internet technology of all kinds and flavours.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>Q?</TD>
+<TD width=94%>How fidonet.net sub-domain and host names are assigned?</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>A:</TD>
+<TD width=94%>Sub-domain and host names are formed in the same way as for the <CODE>fidonet.org</CODE> domain. For example, if your 4D Fidonet address is <CODE>A:BBB/CCC[.DDD]</CODE>, then your domain address would be  <CODE>[pDDD.]fCCC.nBBB.zA.fidonet.net</CODE>. Such unique address mapping allows one to obtain a node's IP address knowing only it's FTN address.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>Q?</TD>
+<TD width=94%>What is the difference between <CODE>fidonet.net</CODE> and <CODE>fidonet.org</CODE> than?</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>A:</TD>
+<TD width=94%>Fidonet.org domain was registered with the purpose of exchanging mail between Internet RFC822-style and Fidonet mail systems. In other words, hosts in the fidonet.org domains are Fidonet-Internet gateways that are supposed to accept mail by both SMTP and FTS-0001  (or, better EMSI) protocols. There is no such restriction on hosts in fidonet.net domains (see below). Technology developed and tested in fidonet.net domain in the future might migrate to the fidonet.org domain subject to approval of the latter's administration.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>Q?</TD>
+<TD width=94%>What do I do to get a fidonet.net host name?</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>A:</TD>
+<TD width=94%>Your system should have binkp capability. This protocol is currently supported by binkd and Argus mailers. You should contact a person who is responsible for DNS in your Fidonet network. You can use nslookup to figure out if your network already has a DNS server. If there is none, please contact Fyodor Ustinov, 2:5020/79, ufm@prospect.com.ru to arrange a DNS record for you.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>Q?</TD>
+<TD width=94%>I am using Vmodem. Why should I install something else in order to be listed in fidonet.net?</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%> A:</TD>
+<TD width=94%>Common sense is that Fidonet systems should be able to exchange mail directly. In order to make this possible, they should support some protocol which will be the least common denominator for a given transport. FTS-0001 is such a protocol for conventional dial-up transport. Vmodem-based technologies do not make a good candidate for the least common denominator protocol because for many platforms these technologies are not free they merely adapt dial-up technology for TCP/IP transport retaining many drawbacks of the former and without taking full advantage of the latter. On the contrary, binkp is an open specification protocol designed to operate over reliable connections with unpredictable delays (such as TCP connections) has a portable implementation that is distributed in sources under terms of GNU public license. So, it seems to be a natural choice for the least common denominator protocol.</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

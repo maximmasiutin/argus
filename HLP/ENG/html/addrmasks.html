@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Address masks</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<P><A NAME="idh_addrmasks"></A>The asterisk character (‹<CODE>*</CODE>›) is used to group addresses with a mask.</P>
+
+<P>Example:</P>
+
+<TABLE cols=2 width=615>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>1:*/*.*</CODE></PRE>
+</TD>
+<TD width=83%>All addresses in Zone 1</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2:46*/*.*</CODE></PRE>
+</TD>
+<TD width=83%>All addresses in Region 46 of Zone 2</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2:469/*</CODE></PRE>
+</TD>
+<TD width=83%>Same as <CODE>2:469/*.*</CODE> - all nodes and points in Net 469 of Zone 2</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2:469/*.0</CODE></PRE>
+</TD>
+<TD width=83%>All 3-D nodes in Net 469 of Zone 2 (without points)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2*:50*/10*</CODE></PRE>
+</TD>
+<TD width=83%>All nodes with node numbers starting with 10 (e.g.: 10, 102, 1001 etc.) in all Nets with numbers starting with 50 (e.g.: 500, 5020, 501 etc.) of all Zones with numbers starting with 2 (e.g.: 2, 22, 21, 202 etc.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>*:*/*</CODE></PRE>
+</TD>
+<TD width=83%>All FTN addresses</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

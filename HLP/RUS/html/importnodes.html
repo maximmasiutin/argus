@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_importnodes"></A>Import Nodes</H1>
+
+<P>If you are upgrading to Argus from a mailer listed below or wish to use Argus in conjunction with other mailer, you may easily import node overrides, this information will be inserted into node overrides table for <A HREF="cfgnodes.html">dial-up lines</A> and <A HREF="cfgipdaemon.html">TCP/IP Daemon</A>. Import nodes dialogue box is invoked from <A HREF="cfgdialupwin.html">Config/Dialup</A> / <A HREF="cfgnodes.html">Nodes tab</A> / Import button for Dial-up nodes and from <A HREF="cfgipdaemon.html">Config/TCP/IP Daemon</A> / Nodes tab / Import button for TCP/IP nodes.</P>
+
+<H2>BinkD © Dima Maloff</H2>
+
+<P>You will be prompted for the path to BinkD configuration file. Argus doesn't support nested configuration files of BinkD, so if you keep list of nodes in a separate file, you should point to it. Argus will parse selected file in search of "NODE" keyword. Also, FTN addresses following "NODE" keyword must be in full 4D/5D notation. If your BinkD configuration file has shortened form of addresses (e.g. for nodes from your own zone/net) Argus would not import them. Imported entries will be inserted into Nodes tab of Config/TCP/IP Daemon configuration dialogue, for such noes no other information except TCP/IP address (fully-qualified domain name of dotted-decimal IP address) will be extracted; "CM,BND" flags will be automatically assigned.</P>
+
+<H2>Bink/+ © serge terekhov</H2>
+
+<P>You will be prompted for the path to Bink/+ configuration file. Argus supports nested configuration files of Bink/+, so if you keep list of nodes in a separate file, you shouldn't point to it unless all addresses are in full 4D/5D notation or this file has ADDRESS keyword. Argus will parse selected file in search of "ADDRESS" (default address for expanding shortened addresses), "INCLUDE" (nested configuration file) and "OVERRIDE" keywords. Imported entries may be inserted into Nodes tab of both Dial/Up and TCP/IP configuration dialogues; the decision is made upon flags specified for a node in Bink/+ configuration file.</P>
+
+<H2>T-Mail © Andy Elkin</H2>
+
+<P>You will be prompted for the path to T-Mail configuration file. Argus supports nested configuration files of T-Mail. Note that you should point to T-Mail main configuration file, not to "subst"- or "security-"file. Argus will parse selected file in search of the following keywords: "ADDRESS" (default address for expanding shortened addresses), "INCLUDE" (nested configuration file), "SUBSTLIST" (path to T-Mail file with substitutes; "PHONE", "HIDDEN", "HIDDEN_ADDRESS", "TIME" and "FLAGS" keyword will be in search there; value of "TIME" keyword will be converted to <A HREF="oftnonline.html">Txy</A>). Imported entries may be inserted into Nodes tab of both Dial/Up and TCP/IP configuration dialogues; the decision is made upon flags specified for a node in T-Mail configuration file.</P>
+
+<H2>Xenia © Arjen G. Lentz</H2>
+
+<P>You will be prompted for the path to Xenia configuration file. Argus supports nested configuration files of Xenia. Argus will parse selected file in search of the following keywords "INCLUDE" (nested configuration file) and "PHONE" keyword. Also, FTN address following "PHONE" keyword must be in full 4D/5D notation. If your Xenia configuration file has shortened form of addresses (e.g. for nodes from your own zone/net) Argus would not import them. Xenia configuration file may specify phone numbers / TCP/IP addresses to be bound to a node in a single line or even in multiple lines, Argus will properly import such entries. Imported entries may be inserted into Nodes tab of both Dial/Up and TCP/IP configuration dialogues; the decision is made upon flags specified in Xenia configuration file.</P>
+
+</BODY>
+</HTML>

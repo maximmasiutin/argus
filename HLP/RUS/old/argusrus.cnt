@@ -1,0 +1,103 @@
+:Base ArgusRus
+:Title Аргус
+1 Что такое Аргус?
+2 Что такое Аргус?=IDH_INTRO
+2 Поддержка многозадачной работы Win32=IDH_INTRONATIVE
+2 Многолинейность=IDH_INTROMULTI
+2 Расширенная поддержка TCP/IP=IDH_INTROTCP
+1 Основы FTN-технологии
+2 Основы FTN-технологии=IDH_FTN
+2 Поддерживаемые FTN-стандарты
+3 Поддерживаемые FTN-стандарты=IDH_OFTN
+3 Список узлов FTS-0005=IDH_OFTNNODELIST
+3 Протокол соединения EMSI (FSC-0056)=IDH_OFTNEMSI
+3 WaZOO-сессия и файловые запросы (FTS-0006)=IDH_OFTNWAZOO
+3 Протокол Гидра (FSC-0072)=IDH_OFTNHYDRA
+3 Флаг, указывающий время работы узла (FSC-0062)=IDH_OFTNONLINE
+2 Поддерживаемые общие стандарты
+3 Поддерживаемые общие стандарты=IDH_CSI
+3 Буфер отправки системы Binkley
+4 Буфер отправки системы Binkley=IDH_BSO
+4 Outbound SmartMenu=IDH_SMARTMENU
+3 Протокол BinkP
+4 Протокол BinkP=IDH_BINKP
+4 Шифрованный сеанс BinkP=IDH_BINKPENC
+1 Принципы асинхронной передачи
+2 Принципы асинхронной передачи=IDH_ASYNC
+2 Параметры линии=IDH_ASYNCLINE
+2 Ошибки передачи=IDH_ASYNCERR
+2 Контроль потока данных=IDH_ASYNCFLOW
+1 Среда Аргуса
+2 Среда Аргуса=IDH_ENV
+2 Расширенные графические элементы
+3 Расширенные графические элементы=IDH_GUI
+3 Сетки ввода строк=IDH_GUIGRID
+3 Окно хронологии=IDH_GUILOG
+3 Индикаторы активности модема=IDH_GUITERM
+3 Индикатор прогресса приема/передачи=IDH_GUIPIE
+3 Индикатор сигналов модема=IDH_GUILAMPS
+3 Информационная панель присоединенного узла=IDH_GUISTATINFO
+3 Outbound SmartMenu=IDH_SMARTMENU
+2 Менеджер прозвонок
+3 Менеджер прозвонок=IDH_POLLMGR
+2 Окно линии почтовой системы
+3 Окно линии почтовой системы=IDH_MLRD
+2 Главное меню
+3 Главное меню=IDH_MNU
+3 Меню System=IDH_MNUSYSTEM
+3 Меню Line=IDH_MNULINE
+3 Меню Poll=IDH_MNUPOLL
+3 Меню Tool=IDH_MNUTOOL
+3 Меню Config=IDH_MNUCONFIG
+3 Меню Window=IDH_MNUWINDOW
+3 Меню Help=IHD_MNUHELP
+1 Конфигурируем Аргус
+2 Конфигурируем Аргус=IDH_7
+2 Защита конфигурационных данных=IDH_MASTPWD
+2 Каталоги
+3 Каталоги=IDH_PN
+3 Основной каталог=IDH_HD
+3 Специальные каталоги=IDH_SD
+3 Файл-боксы=IDH_FILEBOXES
+2 Основные пункты конфигурации
+3 Основные пункты конфигурации=IDH_CFGBASES
+3 Конфигурация списка узлов=IDH_CFGNODELIST
+3 Конфигурация паролей=IDH_CFGPASSWORDS
+3 Конфигурация параметров запуска=IDH_CFGSTARTUP
+3 Расширенная хронология=IDH_LOG
+2 Конфигурация модемных соединений
+3 Конфигурация модемных соединений=IDH_CFGDIALUP
+3 Основная панель=IDH_CFGDIALUPWIN
+3 Конфигурация линий почтовой системы=IDH_CFGMLRLINE
+3 Настройка EMSI-данных=IDH_CFGEMSI
+3 Настройка коммуникационных портов=IDH_CFGSERIAL
+3 Установка битовых параметров линий=IDH_CFGLINEBITS
+3 Конфигурация модемов=IDH_CFGMODEM
+3 Управляющие символы модема=IDH_MODEMCTLCHARS
+3 Прием факсов=IDH_FAX
+3 Схемы ограничения прозвонок=IDH_CFGREST
+3 Таблица переопределений модемных узлов=IDH_CFGNODES
+2 Конфигурация TCP/IP
+3 Конфигурация TCP/IP=IDH_CFGIP
+3 TCP/IP Daemon=IDH_INTRODAEMON
+3 Диалог кофигурации TCP/IP Daemon=IDH_CFGIPDAEMON
+3 Специальные флаги TCP/IP=IDH_CFGIPFLG
+2 Расширенная конфигурация
+3 Расширенная конфигурация=IDH_CFGEXT
+3 Файловые запросы=IDH_CFGFILEREQUESTS
+3 Параметры прозвонок=IDH_CFGPPOLLS
+3 События
+4 События=IDH_CFGEVENTS
+4 Список атомов=IDH_ATOMS
+3 Внешние приложения
+4 Внешние приложения=IDH_CFGEXTERNAL
+4 Обработчики=IDH_CFGEXTPP
+4 Сервисы=IDH_CFGEXTSVC
+4 Периодически запускаемые приложения=IDH_CFGEXTCRON
+2 Справочник по конфигурации Аргуса
+3 Справочник по конфигурации Аргуса=IDH_CFGREF
+3 Прозвонка на узел только в его рабочее время=IDH_CFGREFOL
+3 Объединения адресов в группы=IDH_ADDRMASKS
+3 Формат Cron=IDH_CRON
+3 Прием факсов=IDH_FAX
+3 Расширенная хронологи=IDH_LOGS

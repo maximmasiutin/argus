@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>File Request Editor</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="File Request Editor">
+	<PARAM NAME="Keyword" VALUE="Alias">
+</OBJECT>
+
+<H1><A NAME="idh_freqedit"></A>File Request Editor</H1>
+
+<P>File Request Editor is a window invoked from Tool / Edit File Request. This window has a <A HREF="guigrid.html">string grid</A> with two columns "File" and "Password". </P>
+
+<P>Values of "File" column are file names or aliases (also called <I>magic names</I>). When specifying an alias, you need not to know the real name of requested file. For example, FidoNet Nodelist is requestable from most FidoNet nodes as <CODE>NODELIST</CODE> while the real name of the Nodelist file is changing every week. Another example is the file list of a system, which is often requested using the Alias <CODE>FILES</CODE>. You may also specify a file mask, if remote mailer (a mailer on a node from which you request files) allows that. If remote mailer is Argus, aliases, file names and file masks (optionally) are allowed. Argus neither transmits nor handles full-path-name file requests. Note that if the value of "File" column has space a character, Argus will transmit to remote mailer space characters replaced to "\20" sequences. </P>
+
+<P>Values of "Password" column are passwords for specified files, not <A HREF="cfgpasswords.html">session passwords</A>.</P>
+
+</BODY>
+</HTML>

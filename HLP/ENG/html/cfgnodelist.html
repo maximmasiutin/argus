@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Nodelist Configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="PathNames">
+	<PARAM NAME="Keyword" VALUE="Files">
+	<PARAM NAME="Keyword" VALUE="Phones">
+	<PARAM NAME="Keyword" VALUE="Nodelist">
+	<PARAM NAME="Keyword" VALUE="FTS-0005">
+	<PARAM NAME="Keyword" VALUE="FTN">
+	<PARAM NAME="Keyword" VALUE="nodelist.ok">
+</OBJECT>
+
+<H1><A NAME="idh_cfgnodelist"></A>Nodelist Configuration</H1>
+
+<P>The Nodelist is a list of nodes working within an FTN network. The Nodelist is an official document within the network (see FTS-0005 document for more details). Argus can work with one or more defined nodelists as well as without any Nodelist at all.</P>
+
+<P>The Nodelist is configured using Nodelist Configuration dialogue available in <A HREF="mnuconfig.html">Config</A> submenu.</P>
+
+<P><B>Files</B></P>
+
+<P><U>Files</U> is a <A HREF="guigrid.html">string grid</A> for specifying file names of Nodelists and Pointlists used by Argus. </P>
+
+<P>It is possible to use Wildcards and <A HREF="regexp.html">Regular Expressions</A> in file names.</P>
+
+<TABLE cols=2 width=336>
+
+<TR VALIGN="top">
+<TD width=15%><CODE>*</CODE></TD>
+<TD width=85%>any combination of one or more symbols</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%><CODE>?</CODE></TD>
+<TD width=85%>any symbol</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%><CODE>%</CODE></TD>
+<TD width=85%>any decimal digit ('<CODE>0</CODE>'-'<CODE>9</CODE>')</TD>
+</TR>
+</TABLE><BR>
+
+<P>Note that unlike other cases, Wildcards and Regular Expressions here are used not to select multiple files matching given Wildcard or Regular Expression but select only one file, newest from all matching.</P>
+
+<P>The number of Nodelist files defined is not limited, neither is their overall size.</P>
+
+<P>Argus will allow you to work without a Nodelist. In this case the 'phone numbers (IP-addresses) of nodes you're usually calling should be configured in the appropriate dialogue boxes.</P>
+
+<P>The following is an example of a Files string grid with a standard FidoNet Nodelist and the Pointlist of net <CODE>2:5020</CODE>:</P>
+
+<P><IMG SRC="../images/ndlfls.png" ALT="" BORDER=0></P>
+
+<P><B>'Phones</B></P>
+
+<P>'Phones is the <A HREF="guigrid.html">string grid</A> of telephone numbers prefix conversion. If a 'phone number begins with a prefix specified in the 'Phone Prefix column, the prefix will be replaced with the contents of the “Replace With” part of the appropriate grid row. If there is no prefix specified in a grid row, all numbers except those converted with the grid rows above will be dialled with the prefix from the “Replace With” part of such a row.</P>
+
+<P>This is an example of 'Phones string grid:</P>
+
+<P><IMG SRC="../images/ndlphn.png" ALT="" BORDER=0></P>
+
+<P>According to this table, prefix <CODE>7-095-</CODE> will be replaced with an empty string (so 'phone numbers with this prefix will be treated as local), prefix <CODE>373-2-</CODE> will be replaced with <CODE>8w0422</CODE>, all other numbers will be dialled with <CODE>8w10-</CODE> prefix. Thus, the 'phone number <CODE>373-2-146151</CODE> will be dialled as <CODE>8w0422146151</CODE>, number <CODE>7-095-654321</CODE> - as <CODE>7654321</CODE>, and the ''phone number <CODE>46-46-738100</CODE> will be dialled as <CODE>8w1046-46-738100</CODE>.</P>
+
+<P>Argus also checks <CODE>nodelist.ok</CODE> <A HREF="fileflags.html">file-flag</A> in its <A HREF="hd.html">Home Directory</A> and recompiles the Nodelist automatically.</P>
+
+</BODY>
+</HTML>

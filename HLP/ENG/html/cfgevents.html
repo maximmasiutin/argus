@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Events</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Events">
+</OBJECT>
+
+<H1><A NAME="idh_cfgevents"></A>Events</H1>
+
+<P>Event is designed to change some parameters (such as modem init strings, minimal allowed connect speed and so on) of the mailer line it is linked to. </P>
+
+<P>Event has a <A HREF="cron.html">cron</A>-period, length of activity and atom list.</P>
+
+<P>Opposite to periodically-launching applications and periodical polls, which are also using cron periods, event has no global influence on mailer - it changes some parameters of only lines it is linked to.</P>
+
+<P><A HREF="atoms.html">Atom</A> - is an item that changes one mailer line option.</P>
+
+<P>Thus, event that changes modem init string and required condition of dialling restriction, must contain two atoms: <I>Modem Command Init Atom</I> and <I>Restrictions Required Atom</I>.</P>
+
+<P><B>Event changes parameters of only those lines, to which it is linked!</B></P>
+
+<P>To link an event to a line use Events page of <A HREF="cfgmlrline.html">Mailer Line Configuration</A> dialogue of Config / Dial-up menu. </P>
+
+<P>See also:</P>
+
+<P><A HREF="cron.html">Cron</A>,</P>
+
+<P><A HREF="atoms.html">Atoms reference</A></P>
+
+</BODY>
+</HTML>

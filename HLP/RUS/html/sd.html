@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_sd"></A>Специальные каталоги</H1>
+
+<P>В этой главе описываются служебные каталоги почтовой системы: <A HREF="sdsi.html">Secure inbound</A>, <A HREF="sdii.html">Insecure inbound</A>, <A HREF="sdti.html">Temporary inbound</A>, <A HREF="sdo.html">Outbound</A> и <A HREF="sdl.html">Log</A>. </P>
+
+<P>Обычно все, или большинство этих каталогов, расположены в <A HREF="hd.html">Home Directory</A>. В этом случае, пути к ним можно указывать не полностью (<CODE>C:\FIDO\ARGUS\LOG</CODE>), а относительно Home Directory (<CODE>LOG</CODE>). То есть, если в строке пути служебного каталога не указан диск, то путь к нему считается относительным и строится из Home Directory. Если строка пути начинается с косой черты, то путь строится из корневого каталога того же диска, на котором расположен Home Directory.</P>
+
+<P>Если в строке пути к служебному каталогу диск указан, то такой путь считается абсолютным и не зависит от Home Directory.</P>
+
+<P>Пример  трансляций записей таблицы Special Directories в строки пути. Пути строятся с учетом Home Directory C:\FIDO\ARGUS.</P>
+
+<TABLE cols=2 width=298>
+
+<TR VALIGN="top">
+<TD width=36%>Запись</TD>
+<TD width=64%>Транслируется в</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>LOG</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>C:\FIDO\ARGUS\LOG</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>IN\SEC</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>C:\FIDO\ARGUS\IN\SEC</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>\IN\PROT</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>C:\IN\PROT</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>
+<PRE><CODE>R:\FL\OUT</CODE></PRE>
+</TD>
+<TD width=64%>
+<PRE><CODE>R:\FL\OUT</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>См. также <A HREF="logs.html">Расширенная хронология</A>.</P>
+
+</BODY>
+</HTML>

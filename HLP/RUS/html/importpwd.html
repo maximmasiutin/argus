@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_importpwd"></A>Import Passwords</H1>
+
+<P>If you are upgrading to Argus from a mailer listed below or wish to use Argus in conjunction with other mailer, you may easily import <A HREF="cfgpasswords.html">password configuration</A>. Import passwords dialogue box is invoked from <A HREF="cfgpasswords.html">Config/Passwords</A>, Import button. You may import <A HREF="importnodes.html">override configuration</A> as well.</P>
+
+<H2>BinkD © Dima Maloff</H2>
+
+<P>You will be prompted for the path to BinkD configuration file. Argus doesn't support nested configuration files of BinkD, so if you keep BinkD passwords in a separate file, you should point to it. Argus will parse selected file in search of "NODE" keyword. Also, FTN addresses following "NODE" keyword must be in full 4D/5D notation. If your BinkD configuration file has shortened form of addresses (e.g. for nodes from your own zone/net) Argus would not import them. Argus supports only one pair Address/Password per line when importing BinkP configuration file.</P>
+
+<H2>Bink/+ © serge terekhov</H2>
+
+<P>You will be prompted for the path to Bink/+ configuration file. Argus supports nested configuration files of Bink/+, so if you keep Bink/+ passwords in a separate file, you shouldn't point to it unless all addresses are in full 4D/5D notation or this file has ADDRESS keyword. Argus will parse selected file in search of "ADDRESS" (default address for expanding shortened addresses), " INCLUDE" (nested configuration file) and "OVERRIDE" keywords.</P>
+
+<H2>T-Mail © Andy Elkin</H2>
+
+<P>You will be prompted for the path to T-Mail configuration file. Argus supports nested configuration files of T-Mail. Note that you should point to T-Mail main configuration file, not to "subst"- or "security-"file. Argus will parse selected file in search of the following keywords: "ADDRESS" (default address for expanding shortened addresses), "INCLUDE" (nested configuration file), "SUBSTLIST" (path to T-Mail file with substitutes; "PASSWORD" keyword will be in search there) and "SECURITY" (path to T-Mail file with passwords).</P>
+
+<H2>Xenia © Arjen G. Lentz</H2>
+
+<P>You will be prompted for the path to Xenia configuration file. Argus supports nested configuration files of Xenia. Argus will parse selected file in search of the following keywords "INCLUDE" (nested configuration file) and "PASSWORD" (password record) keyword. Also, FTN addresses following "PASSWORD" keyword must be in full 4D/5D notation. If your Xenia configuration file has shortened form of addresses (e.g. for nodes from your own zone/net) Argus would not import them. Xenia configuration file may specify several addresses to be bound to a password in a single line, Argus will properly import such entries.</P>
+
+<H2>FrontDoor 2.12 © Joaquim Homrighausen</H2>
+
+<P>You will be prompted for the path to FrontDoor passwords file (password.fd). FrontDoor configuration file is a binary file. Import of other data rather than passwords from FrontDoor is not supported. Other versions of FrontDoor rather then 2.12 are also not supported, unless they have 100%-compatible password file format. You may try at your own risk.</P>
+
+<H2>MainDoor 1.10 © Francisco Sedano Crippa</H2>
+
+<P>You will be prompted for the path to MainDoor passwords file (password.fd). MainDoor configuration file is a binary file. Import of other data rather than passwords from MainDoor is not supported. Other versions of MainDoor rather then 1.10 are also not supported, unless they have 100%-compatible password file format. You may try at your own risk.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+=== ADD LANGUAGE TO EXECUTABLE ===
+
+ 1. Make sure the menu exists and it gives GF loadString...
+
+=== CREATING ARGUS.EXE & ARGUS.RES FOR TRANSLATION ===
+ 
+ 1. Create .exe part
+
+d:\d2\bin\brc32 -feargus.exe dummy.rc  
+
+
+ 2. Create .res part
+
+Open MSVC, load argus.exe as resource, save as argus.res
+
+
+
+================== TRANSLATING =======================
+
+  1. Compile res file
+
+
+brcc32 -v -c1252 ger.rc
+
+  (Codepage 1252 is German codepage, AFAIK)
+
+  2. Link compiled res file to exe file
+
+tlink32 -V4.0 ,argus.exe,,,,ger.res argus.res
+
+
+  3. Run Argus.exe.
+
+  If needed, modify german.rc & ger_frm.rc, and follow step 1
+
+================ CHECKING ==================
+
+ 1. Make sure the menu exists and it changes interface language

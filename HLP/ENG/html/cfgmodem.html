@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Modem Configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Modem Configuration">
+	<PARAM NAME="Keyword" VALUE="Responses">
+	<PARAM NAME="Keyword" VALUE="Flags">
+	<PARAM NAME="Keyword" VALUE="Config">
+	<PARAM NAME="Keyword" VALUE="Responses">
+	<PARAM NAME="Keyword" VALUE="Flags">
+	<PARAM NAME="Keyword" VALUE="Commands">
+	<PARAM NAME="Keyword" VALUE="Strings">
+	<PARAM NAME="Keyword" VALUE="General Commands">
+</OBJECT>
+
+<H1><A NAME="idh_cfgmodem"></A>Modem Configuration</H1>
+
+<P><B>General Commands</B></P>
+
+<P><A HREF="modemctlchars.html">Modem control characters</A> are allowed.</P>
+
+<TABLE cols=3 width=638>
+
+<TR VALIGN="top">
+<TD width=14%>Init.</TD>
+<TD width=16%>
+<PRE><CODE>^ATZ|</CODE></PRE>
+</TD>
+<TD width=70%>Modem initialisation string. This string is sent to modem at line start-up, after a file transfer session finish and each two minutes of line inactivity (modem check). Use <A HREF="atoms.html">Modem Disable Reinit atom</A> to disable periodical modem check. Make sure that most modems accept commands and report RING only when DTR is high, so don't remote <CODE>^</CODE> character that raises DTR.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Answer</TD>
+<TD width=16%>
+<PRE><CODE>ATA!</CODE></PRE>
+</TD>
+<TD width=70%>Answering string - this string is sent to the modem whenever RING response is detected and Argus goes into connection waiting state.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Dial prefix</TD>
+<TD width=16%>
+<PRE><CODE>ATDP</CODE></PRE>
+</TD>
+<TD width=70%>Dialling command prefix. Complete dialling command includes the prefix, the number to dial and the suffix.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Dial suffix</TD>
+<TD width=16%>
+<PRE><CODE>!</CODE></PRE>
+</TD>
+<TD width=70%>Dialling command suffix. Usually it is ! (control character CR without waiting)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Hang-up</TD>
+<TD width=16%>
+<PRE><CODE>!`v~~^`!!`</CODE></PRE>
+</TD>
+<TD width=70%>Physical disconnect command that is sent to a modem only when DCD signal is high. Most of the modern modems could disconnect with lowering DTR signal and holding it down during one second. The string given in this example send CR, waits 0.1 sec, lowers DTR signal, waits 1.0 sec (usually it is enough), raises DTR, waits 0.1 sec, sends CR twice, and waits for 0.1 sec again.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=14%>Info</TD>
+<TD width=16%><I>none</I></TD>
+<TD width=70%>Info command is sent to the modem after a session termination, before sending Init string. The result of this command is logged. You may use Response Log Format atom to format data came from a modem. By default, Info command is not defined, so no info command at all is sent.</TD>
+</TR>
+</TABLE><BR>
+
+<P><B>Responses</B></P>
+
+<P>The standard modem responses are set in this <A HREF="guigrid.html">string grid</A>. All possible responses are divided by a space. Space characters in response string must be replaced with underline characters. You may not use wildcards but may use <A HREF="regexp.html">Regular Expressions</A> here.</P>
+
+<P><B>Flags</B></P>
+
+<P>It is possible to pre-initialise the modem in special manner just before calling a node with particular Nodelist flags (flags could be set in the nodes configuration of Argus). Dial Prefix and Dial Suffix could depend on flags as well.</P>
+
+<P>Each row of Flags string grid is a combination of Flags list and override of Init. string / Dial Prefix / Dial Suffix corresponding to the Flags list. Flags list a logical expression where space character is <I>OR</I> operator and comma character is <I>AND</I> operator (<I>AND</I> has higher priority than <I>OR</I>).</P>
+
+<P>For example:</P>
+
+<TABLE cols=2 width=430>
+
+<TR VALIGN="top">
+<TD width=42%>Flags list column</TD>
+<TD width=58%>Meaning</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>PEP</CODE></PRE>
+</TD>
+<TD width=58%><CODE>PEP</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>HST H16</CODE></PRE>
+</TD>
+<TD width=58%><CODE>HST</CODE> or <CODE>H16</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>V32B,V42B</CODE></PRE>
+</TD>
+<TD width=58%><CODE>V32B</CODE> with <CODE>V42B</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=42%>
+<PRE><CODE>ZYX,V34 32T</CODE></PRE>
+</TD>
+<TD width=58%>either <CODE>ZYX</CODE> with <CODE>V34</CODE> or <CODE>V32T</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Overrides of Init. string / Dial Prefix / Dial Suffix placed in the second column of Flags grid are divided by slash character. If the appropriate value is to be taken from General Commands (no need to override the value in special manner), single full stop character must be used.</P>
+
+<P>The following example illustrates the formation of dialling pre-init string and dialling command and, using values from General Commands and Flags Init/Prefix/Suffix.This also illustrates how different settings of Flags Init/Prefix/Suffix could change formation of dialling command and dialling pre-init string.</P>
+
+<P>This example illustrates different Flags Init/Prefix/Suffix values generating different pre-init string and dialling commands with constant General Commands settings. The number is taken for example <CODE>323323</CODE> .</P>
+
+<P>General Commands settings</P>
+
+<TABLE cols=2 width=309>
+
+<TR VALIGN="top">
+<TD width=38%>Init.</TD>
+<TD width=62%>
+<PRE><CODE>ATZ|</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=38%>Dial Prefix</TD>
+<TD width=62%>
+<PRE><CODE>ATDP</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=38%>Dial Suffix</TD>
+<TD width=62%>
+<PRE><CODE>!</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<TABLE cols=4 width=657>
+
+<TR VALIGN="top">
+<TD width=20%>Flags Init/Prefix/Suffix</TD>
+<TD width=15%>Pre-Init string</TD>
+<TD width=21%>Dialling command</TD>
+<TD width=44%>Comment</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATB1|/ATM0DP/!</CODE></PRE>
+</TD>
+<TD width=15%>
+<PRE><CODE>ATB1|</CODE></PRE>
+</TD>
+<TD width=21%>
+<PRE><CODE>ATDP323323!</CODE></PRE>
+</TD>
+<TD width=44%>Init. string - <CODE>ATB1|</CODE>
+<P>Prefix - <CODE>ATM0DP</CODE></P>
+
+<P>Suffix - <CODE>!</CODE></P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATM0|/ATDT</CODE></PRE>
+</TD>
+<TD width=15%>
+<PRE><CODE>ATM0|</CODE></PRE>
+</TD>
+<TD width=21%>
+<PRE><CODE>ATDT323323!</CODE></PRE>
+</TD>
+<TD width=44%>Init. string - <CODE>ATM0|</CODE>
+<P>Prefix - <CODE>ATDT</CODE></P>
+
+<P>Suffix - <CODE>!</CODE></P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATH1|</CODE></PRE>
+</TD>
+<TD width=15%>
+<PRE><CODE>ATH1|</CODE></PRE>
+</TD>
+<TD width=21%>
+<PRE><CODE>ATDP323323!</CODE></PRE>
+</TD>
+<TD width=44%>Prefix and suffix are taken from General Commands</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>/ATX7DP/@!</CODE></PRE>
+</TD>
+<TD width=15%><I>none</I></TD>
+<TD width=21%>
+<PRE><CODE>ATX7DP323323@!</CODE></PRE>
+</TD>
+<TD width=44%>There is no initialisation string to be sent</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>ATB0|/./@!</CODE></PRE>
+</TD>
+<TD width=15%>
+<PRE><CODE>ATB0|</CODE></PRE>
+</TD>
+<TD width=21%>
+<PRE><CODE>ATDP323323@!</CODE></PRE>
+</TD>
+<TD width=44%>Single full stop in Dial Prefix override - Dial Prefix is taken from General Commands</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

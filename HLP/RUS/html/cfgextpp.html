@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_cfgextpp"></A>Обработчики и сортировка</H1>
+
+<P>В сетке Post-processors диалогового окна Config/Externals настраиваются внешние программы-обработчики и сортировка принятых файлов по каталогам.</P>
+
+<H2>Обработчики</H2>
+
+<P>Обработчики - это внешние приложения, запускаемые системой Аргус по приходу определенных файлов. Обработчик запускается после завершения сеанса связи. Примерами обработчиков являются файлэхопроцессоры, тоссеры, трэкеры, и.т.д. Чтобы настроить Аргус на запуск определенного обработчика для определенной группы фалов, необходимо перечислить (через пробел) список масок этой группы в поле Mask List, а командную строку обработчика - в поле String to Execute.</P>
+
+<P>Специальная маска <CODE>%ARCMAIL%</CODE> идентична списку масок ArcMail (<CODE>*.su? *.mo? *.tu? *.we? *.th? *.fr? *.sa?</CODE>)</P>
+
+<TABLE cols=3 width=905>
+
+<TR VALIGN="top">
+<TD width=25%>Mask list</TD>
+<TD width=25%>String to execute</TD>
+<TD width=50%>Комментарий</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>*.su? *.mo? *.tu? *.we? *.th? *.fr? *.sa?</TD>
+<TD width=25%>c:\fido\lanius\squish.exe in out squash</TD>
+<TD width=50%>Запустить эхопроцессор Squish по приходу почтовых пакетов</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>%ARCMAIL%</TD>
+<TD width=25%>c:\fido\lanius\squish.exe in out squash</TD>
+<TD width=50%>Запустить эхопроцессор Squish по приходу почтовых пакетов</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>*.tic</TD>
+<TD width=25%>c:\fido\fileecho\allfix.exe file -tossbad</TD>
+<TD width=50%>Запустить файлэхопроцессор Allfix по приходу TIC файлов</TD>
+</TR>
+</TABLE><BR>
+
+<P>Символ '?' перед командой/именем файла в строке String to Execute сообщает о том, что процесс должен быть запущен в скрытом режиме, '!' - в нормальном режиме, а ‹??› - в DETACHED_MODE (без использования консоли). В отличии от ‹?›, флаг ‹??› можно использовать только для Win32-консольных приложений. Попытка запуска DETACHED Win3.1 или DOS-приложения вызовет ошибку. По умолчанию процессы запускаются в минимизированном окне.</P>
+
+<P>Процессы могут быть запущены с определенным уровнем приоритета:</P>
+
+<TABLE cols=2 width=637>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&lt;</CODE></PRE>
+</TD>
+<TD width=94%>запустить с низким приоритетом (IDLE_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>+</CODE></PRE>
+</TD>
+<TD width=94%>запустить с высоким приоритетом (HIGH_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=94%>запустить с критическим приоритетом (REALTIME_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&gt;</CODE></PRE>
+</TD>
+<TD width=94%>'&gt;' - вместо запуска приложения установить файл-флаг с именем, следующим за '&gt;'.</TD>
+</TR>
+</TABLE><BR>
+
+<P>По умолчанию процессы запускаются с нормальным приоритетом (NORMAL_PRIORITY_CLASS).</P>
+
+<P>Возможен также запуск внешних приложения по окончании сеанса с определенными узлами - в этом случае вместо имен файлов или файловах масок необходимо перечислить (через пробел) адреса или маски адресов</P>
+
+<TABLE cols=2 width=527>
+
+<TR VALIGN="top">
+<TD width=28%>Mask list</TD>
+<TD width=72%>String to execute</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>
+<PRE><CODE>2:469/38</CODE></PRE>
+</TD>
+<TD width=72%>
+<PRE><CODE>playwav c:\wavs\complete38.wav</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>
+<PRE><CODE>2:*/0</CODE></PRE>
+</TD>
+<TD width=72%>
+<PRE><CODE>playwav c:\wavs\complete_nc.wav</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>
+<PRE><CODE>1:2/3 4:5/6.*</CODE></PRE>
+</TD>
+<TD width=72%>
+<PRE><CODE>someapp.exe /some:parameter</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>См. также <A HREF="#idh_cfgextpp">Конфигурация внешних приложений</A></P>
+
+<H2>Сортировка</H2>
+
+<P>Входящие файлы можно сортировать по каталогам, в зависимости от первичного (основного) адреса удаленной системы, с которой производился сеанс связи, а также в соответствии с файловой маской (диалог Config/Externals/Postprocessors). Такой каталог называется <I>входящим файл-боксом</I>. В одной строке "Mask List" можно указать несколько масок файлов и/или адресов, разделенных пробелами. Символ "амперсант" (&amp;), предшествующий строке в поле "String to execute" указывает на то, что эта строка определяет инбаунд для файлов, которые соответствуют маскам, указанным в поле Mask List.</P>
+
+<P>Иными словами, в поле Mask List можно указывать не только маски файлов, но и маски адресов. В поле "String to execute" можно переопределять входящий каталог для файлов, подходящих под маски поля Mask List. Для переопределения inbound-каталога ему должен предшествовать символ амперсант ('&amp;').</P>
+
+<P>Пример переопределения инбаунда для файлов, принятых от пойнтов узла 2:469/59,</P>
+
+<P>эти файлы будут попадать в каталог INPNT</P>
+
+<TABLE cols=2 width=241>
+
+<TR VALIGN="top">
+<TD width=41%>Mask list</TD>
+<TD width=59%>String to execute</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>
+<PRE><CODE>2:469/59.*</CODE></PRE>
+</TD>
+<TD width=59%>
+<PRE><CODE>&amp;INPNT</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Фильтрация входящих файлов (и запуск внешних приложений) основанная на адресе удаленной стороны, если в строке Mask List указана маска адресов, происходит только при парольных сеансах связи.</P>
+
+<P>Если путь файл-бокса указан не полностью (как в данном примере) то такой файл-бокс будет расположен в Home Directory. Тут действует правило сокращения, принятое при указании путей в сетке <A HREF="sd.html">Special Directories</A> диалогового окна <A HREF="pn.html">Config/Paths</A>.</P>
+
+<P>Если во входящем файл-боксе уже находится файл с таким же именем, как и у вновь принятого файла, этот вновь принятый файл будет храниться в <A HREF="sdti.html">Temporary inbound</A> тех пор, пока старый не будет удален или перенесен вследствие обработки другой программой. В некоторых случаях требуется обеспечить такой способ работы, чтобы вновь принятые файлы перезаписывались поверх уже находящихся, а не хранились в Temporary Inbound. В этом случае, для определения такого файл-бокса, после символа амперсант используется символ "<CODE>^</CODE>", т.е. <CODE>&amp;</CODE>^<CODE>INPNT</CODE>.</P>
+
+<P>Путь файл-бокса может содержать макросы, представляющие адрес уделенной системы.</P>
+
+<TABLE cols=2 width=565>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%ZONE</CODE></PRE>
+</TD>
+<TD width=79%>зона, десятичная (1-4 десятичные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%NET</CODE></PRE>
+</TD>
+<TD width=79%>сеть, десятичная (1-5 десятичных цифр)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%NODE</CODE></PRE>
+</TD>
+<TD width=79%>узел, десятичный (1-5 десятичных цифр)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%POINT</CODE></PRE>
+</TD>
+<TD width=79%>пойнт, десятичный (1-5 десятичных цифр)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%HZONE</CODE></PRE>
+</TD>
+<TD width=79%>зона, шестнадцатеричная (3 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%HNET</CODE></PRE>
+</TD>
+<TD width=79%>сеть, шестнадцатеричная (4 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%HNODE</CODE></PRE>
+</TD>
+<TD width=79%>узел, шестнадцатеричный (4 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%HPOINT</CODE></PRE>
+</TD>
+<TD width=79%>пойнт, шестнадцатеричный (4 шестнадцатеричные цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%XZONE</CODE></PRE>
+</TD>
+<TD width=79%>зона, 32-чная (2 цифры в radix-32)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%XNET</CODE></PRE>
+</TD>
+<TD width=79%>сеть, 32-чная (3 цифры в radix-32)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%XNODE</CODE></PRE>
+</TD>
+<TD width=79%>узел, 32-чный (3 цифры в radix-32)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%>
+<PRE><CODE>%XPOINT</CODE></PRE>
+</TD>
+<TD width=79%>пойнт, 32-чнай (2 цифры в radix-32)</TD>
+</TR>
+</TABLE><BR>
+
+<P>Кроме адреса удаленной системы, макросы могут представлять текущую дату и местное время.</P>
+
+<TABLE cols=2 width=348>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%YEAR</CODE></PRE>
+</TD>
+<TD width=66%>Год (4 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MONTHN</CODE></PRE>
+</TD>
+<TD width=66%>Месяц (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MONTHA</CODE></PRE>
+</TD>
+<TD width=66%>Месяц (3 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MONTHS</CODE></PRE>
+</TD>
+<TD width=66%>Месяц (2 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DAY</CODE></PRE>
+</TD>
+<TD width=66%>День месяца (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DOWN</CODE></PRE>
+</TD>
+<TD width=66%>День недели (1 цифра)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DOWA</CODE></PRE>
+</TD>
+<TD width=66%>День недели (3 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%DOWS</CODE></PRE>
+</TD>
+<TD width=66%>День недели (2 буквы)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%HOUR</CODE></PRE>
+</TD>
+<TD width=66%>Час (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%MINUTE</CODE></PRE>
+</TD>
+<TD width=66%>Минута (2 цифры)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>
+<PRE><CODE>%SECOND</CODE></PRE>
+</TD>
+<TD width=66%>Секунда (2 цифры)</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Encrypted BinkP-Sesstion</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="BinkP">
+	<PARAM NAME="Keyword" VALUE="DES">
+	<PARAM NAME="Keyword" VALUE="Security">
+	<PARAM NAME="Keyword" VALUE="Niagara">
+	<PARAM NAME="Keyword" VALUE="Master Password">
+</OBJECT>
+
+<H1><A NAME="idh_binkpenc"></A>Encrypted BinkP-Sesstion</H1>
+
+<P>Argus Mailer introduces an optional encryption layer between Transport Layer (TCP or Niagara) and Protocol Layer (<A HREF="binkp.html">BinkP</A>). Note that encryption sessions require CPU overhead.</P>
+
+<P>Encrypted sessions are setting up in Config/Encrypted Links. This dialogue allows specifying the nodes that are allowed to connect using encrypted session only. You must also specify the password for the link, which is after the input rendered to DES 56-bit session key and stored to <CODE>config.bin</CODE>. We recommend using <A HREF="mastpwd.html">Master Password</A> as one of solutions to prevent encrypted links' keys from being stolen with <CODE>config.bin</CODE>. If you would forget the link's password, there would be no easy practical way to retrieve it.</P>
+
+</BODY>
+</HTML>

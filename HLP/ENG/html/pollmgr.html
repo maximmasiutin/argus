@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Poll Manager</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Poll Manager">
+	<PARAM NAME="Keyword" VALUE="Manual Poll">
+	<PARAM NAME="Keyword" VALUE="Outb Poll">
+	<PARAM NAME="Keyword" VALUE="Cron">
+	<PARAM NAME="Keyword" VALUE="Node">
+	<PARAM NAME="Keyword" VALUE="Phones">
+	<PARAM NAME="Keyword" VALUE="Owner">
+	<PARAM NAME="Keyword" VALUE="State">
+	<PARAM NAME="Keyword" VALUE="Busy">
+	<PARAM NAME="Keyword" VALUE="No c.">
+	<PARAM NAME="Keyword" VALUE="Fail">
+	<PARAM NAME="Keyword" VALUE="Type">
+</OBJECT>
+
+<H1><A NAME="idh_pollmgr"></A>Poll Manager</H1>
+
+<P>Argus will poll a node with a 2 minute (+-50%) interval between calls. The tolerance interval of 50% is used to make polling more efficient - from the probability point of view. This interval can be adjusted in <A HREF="cfgppolls.html">Poll Options</A> dialogue box. Below is the description of Polls Panel columns.</P>
+
+<UL>
+<LI><B>Node</B> - FTN address of a node being polled
+<LI><B>Phones</B> - A node's 'phone list (numbers are divided with a semicolon)
+<LI><B>Owner</B> - The task currently working with a node - could one of Argus'  dial-up or TCP/IP lines, TCP/IP Daemon or an external application (the last means that node is busy)
+<LI><B>State</B> - The current poll state (dialling / ringing / connect / handshake / EMSI / WaZoo)
+<LI><B>Busy</B> - Counts number of <CODE>BUSY</CODE> responses during a poll.
+<LI><B>No c.</B> - Counts number of <CODE>NO CARRIER</CODE> / <CODE>NO ANSWER</CODE> responses during a poll.
+<LI><B>Fail</B> - Counts number of session failures during a poll. The session may fail due to Carrier loss or session aborts. Note: If one of a poll›s counters is exceeded or a <CODE>VOICE</CODE> response is detected, Argus will delay the poll for 20 minutes (+-50%). This interval can be adjusted in <A HREF="cfgppolls.html">Poll Options</A> dialogue box, Stand-off minutes.
+<LI><B>Type</B> - Polling type:
+<UL>
+<LI><U>Manual</U> - the poll is created with Create Poll command. Manual Poll ignores working time of a node (CM and <A HREF="oftnonline.html"><CODE>Txy</CODE></A> Nodelist flags) and finishes after a successful file transfer session with the corresponding node.It is possible to enter several node addresses in Create Poll input box, divided with a space character. In this case Argus will automatically create a poll for each specified node.</LI>
+<LI><U>Cron</U> - the poll is created according to <A HREF="cfgppolls.html">periodical polls</A> dialogue set-up. The poll is much similar to Outb - poll.</LI>
+<LI><U>Outb</U> - the poll is created by Argus when Crash or Direct packets are detected <A HREF="bso.html">Outbound</A>. Automatic Poll finishes after a successful file transfer session or the corresponding packet is removed from Outbound by an external application.</LI>
+</UL>
+</UL>
+<P>Use Outbound <A HREF="smartmenu.html">SmartMenu</A> for Binkley-style Outbound operation.</P>
+
+</BODY>
+</HTML>

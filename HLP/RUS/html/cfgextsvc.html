@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_cfgextsvc"></A>Сервисы</H1>
+
+<P>Сервисы - это специальные коммуникационные программы, которые запускаются из почтовой системы, когда от удаленной системы вместо пакета инициирования сеанса связи FTN приходит специальная строка.</P>
+
+<P>Пользователь, соединяясь обычной терминальной программой со станцией, оснащенной системой Аргус, может воспользоваться сервисом, введя с клавиатуры специальную последовательность. Самой распространенной последовательностью для входа в BBS-сервисы являются два идущих подряд символа Escape. Так как символ Escape не являются печатными, вместо него в поле Enter используется символ косой черты (back slash). </P>
+
+<P>Поле Door and parameters содержит путь к исполнимому файлу сервиса и специальные параметры.</P>
+
+<P>Символ '?' перед командой/именем файла в строке Door and Paramenters сообщает о том, что процесс должен быть запущен в скрытом режиме, '!' - в нормальном режиме, а ‹??› - в DETACHED_MODE (без использования консоли). В отличие от ‹?›, флаг ‹??› можно использовать только для Win32-консольных приложений. Попытка запуска DETACHED Win3.1 или DOS-приложения вызовет ошибку. По умолчанию процессы запускаются в минимизированном окне.</P>
+
+<P>Процессы могут быть запущены с определенным уровнем приоритета:</P>
+
+<TABLE cols=2 width=637>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&lt;</CODE></PRE>
+</TD>
+<TD width=94%>запустить с низким приоритетом (IDLE_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>+</CODE></PRE>
+</TD>
+<TD width=94%>запустить с высоким приоритетом (HIGH_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=94%>запустить с критическим приоритетом (REALTIME_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&gt;</CODE></PRE>
+</TD>
+<TD width=94%>'&gt;' - вместо запуска приложения установить файл-флаг с именем, следующим за '&gt;'.</TD>
+</TR>
+</TABLE><BR>
+
+<P>По умолчанию процессы запускаются с нормальным приоритетом (NORMAL_PRIORITY_CLASS).</P>
+
+<P>После соединения, в момент ожидания входа пользователя, Аргус может высвечивать заставку-приглашение для пользователей терминальных программ. Заставка устанавливается в <A HREF="cfgemsi.html">окне настройки EMSI-данных</A>.</P>
+
+<H2>Специальные параметры</H2>
+
+<P>Командная строка сервиса может содержать специальные параметры, которые перед запуском сервиса транслируются в соответствующие значения. Каждый параметр начинается с символа <CODE>%</CODE>. Все параметры регистрозависимы, то есть <CODE>%c</CODE> не может быть использован вместо <CODE>%C</CODE>.</P>
+
+<P>Вот как транслируется строка параметров "Door and parameters" в строку запуска, при скорости DTE 57600, DCE 21600, номере линии - 2 и port handle - 64:</P>
+
+<TABLE cols=2 width=565>
+
+<TR VALIGN="top">
+<TD width=31%>Door and parameters</TD>
+<TD width=69%><CODE>d:\max\maxn.exe -s%b -b%B -n%n -p%h</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=31%>Translated execution string</TD>
+<TD width=69%><CODE>d:\max\maxn.exe -s57600 -b21600 -n2 -p64</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Вне зависимости от того, указан какой-либо параметр или нет, система Аргус создает для запускаемого сервиса блок переменных окружения, в котором передаются все значения специальных параметров.</P>
+
+<TABLE cols=5 width=792>
+
+<TR VALIGN="top">
+<TD width=4%>&nbsp;</TD>
+<TD width=17%><U>Environment</U></TD>
+<TD width=18%><U>Description</U></TD>
+<TD width=31%><U>Dialup value</U></TD>
+<TD width=30%><U>TCP/IP value</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%B</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_DCE</CODE></PRE>
+</TD>
+<TD width=18%>Скорость соединения</TD>
+<TD width=31%>DCE (modem to modem)</TD>
+<TD width=30%>Значение берется из “подразумеваемой скорости соединения”</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%b</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_DTE</CODE></PRE>
+</TD>
+<TD width=18%>Скорость порта</TD>
+<TD width=31%>DTE (computer to modem)</TD>
+<TD width=30%>такое же, как и <CODE>%B</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%e</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_CONNECT</CODE></PRE>
+</TD>
+<TD width=18%>Строка CONNECT (пробелы заменены на подчеркивания)</TD>
+<TD width=31%>такая, как вернул модем, например "<CODE>16800/ARQ/HST</CODE>”</TD>
+<TD width=30%>формируется TCP/IP Daemon›ом на основе адреса и порта соединения, например:
+<P>"<CODE>To 194.213.233.33 #24554</CODE>”</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%E</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_CONTROL</CODE></PRE>
+</TD>
+<TD width=18%>Транслированный код коррекции ошибок</TD>
+<TD width=31%>"<CODE>MNP</CODE>", если в строке CONNECT присутствует MNP, ARQ или REL, иначе пустая строка</TD>
+<TD width=30%>Всегда "<CODE>TCP/IP</CODE>"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%L</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_NAME</CODE></PRE>
+</TD>
+<TD width=18%>Имя линии почтовой системы (пробелы заменены на подчеркивания)</TD>
+<TD width=31%>берется из названия линии, указанного в диалоге dialup/lines/line</TD>
+<TD width=30%>"TCP/IP" плюс порядковый номер TCP/IP соединения, например:
+<P>"<CODE>TCP/IP 3</CODE>"</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%n</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_LINE</CODE></PRE>
+</TD>
+<TD width=18%>Номер линии почтовой системы</TD>
+<TD width=31%>Порядковый номер в списке dialup/lines, например "<CODE>1</CODE>" для первой линии</TD>
+<TD width=30%>порядковый номер TCP/IP соединения, например "<CODE>2</CODE>" для линии "<CODE>TCP/IP 2</CODE>"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%h</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_HANDLE</CODE></PRE>
+</TD>
+<TD width=18%>Communication resource handle</TD>
+<TD width=31%>COM port Win32 handle</TD>
+<TD width=30%>WinSock2 overlapped socket handle</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%C</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_NUMBER</CODE></PRE>
+</TD>
+<TD width=18%>Номер порта</TD>
+<TD width=31%>Номер COM-порта, например "<CODE>1</CODE>" для COM1 или "<CODE>4</CODE>" для COM4</TD>
+<TD width=30%>Номер TCP/IP-порт, например: 24554 для <A HREF="binkp.html">BinkP</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=4%>
+<PRE><CODE>%p</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>ARGUS_INDEX</CODE></PRE>
+</TD>
+<TD width=18%>Индекс порта</TD>
+<TD width=31%>Номер порта, считаемый с нуля, например "<CODE>0</CODE>" для COM1 или "<CODE>3</CODE>" для COM4</TD>
+<TD width=30%>такой же, как и <CODE>%C</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Если внешнее приложение является полноценной Win32-программой, оно может унаследовать Win32-handle открытого коммуникационного порта (или соединенного Winsock2 overlapped socked), и использовать этот порт (или socket) для передачи данных.</P>
+
+<h2>Специальный параметр %Z </h2>
+
+<P>Параметр <CODE>%Z</CODE> всегда транслируется в пустую строку - он предназначен для того, чтобы сообщить системе Аргус о необходимости закрыть порт перед запуском внешнего приложения. После завершения работы приложения Аргус снова откроет порт. Параметр <CODE>Z%</CODE> предназначен для приложений Windows 3.1 и DOS, которые не в состоянии оперировать с портом, открытым в режиме Win32. Поэтому Windows 3.1 и DOS-приложения должны открывать и инициализировать порт самостоятельно.</P>
+
+<P>Параметр <CODE>%Z</CODE> следует использовать с большой осторожностью. При закрытии порта, драйвер Windows сбрасывает все контрольные сигналы UART (см. <A HREF="asyncflow.html">Контроль потока данных</A>), в том числе DTR, который в большинстве модемов применяется для инициализации. Поэтому, для передачи COM-порта DOS- и Windows 3.1-приложениям, необходимо настроить модем так, чтобы он не воспринимал изменение сигнала DTR как сброс.</P>
+
+<P>Специальные параметры используются также в строке <B>External Fax Receiver</B> диалога <A HREF="cfgmodem.html">конфигурации модемов</A> для запуска внешних программ по <A HREF="fax.html">приему факсов</A>.</P>
+
+<P>См. также <A HREF="cfgextpp.html">Конфигурация внешних приложений</A>.</P>
+
+<h2>Пример</h2>
+
+<P>Последовательность действий для установки системы Аргус с Proboard BBS под Windows NT (при некоторых изменениях подходят для Windows 95), модем USR Sportster 28800 with Fax (пример предоставил Sean Rima):</P>
+
+<P>1. Добавьте драйвер FOSSIL в \winnt\system32\config.nt, например <CODE>device=c:\dos\bnu.sys /p=01</CODE></P>
+
+<P>2. Argus / Config / Dialup / Modems, выберите Ваш модем и добавьте к строке инициализации <CODE>AT&amp;C1&amp;D0</CODE>.</P>
+
+<P>3. Добавьте к Argus / Advanced / Externals / Doors строку “Enter = <CODE>pp</CODE>” и “Door and Paramenters = <CODE>c:\pb\proboard.exe %Z -b%B -p%C</CODE>”</P>
+
+</BODY>
+</HTML>

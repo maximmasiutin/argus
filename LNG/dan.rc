@@ -1,0 +1,14 @@
+#include "lngc.inc" 
+#include "cconst.inc" 
+#include "fconst.inc" 
+                        
+#include "danish.rc"   
+#include "dan_frm.rc"
+
+
+
+
+
+
+
+

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_fax"></A>Прием факсов</H1>
+
+<P>Аргус имеет возможность, помимо передачи файлов по <A HREF="ftn.html">FTN-технологии</A>, заниматься приемом факсов. Прием может осуществляться как посредством внешних программ-приемщиков, так и внутренними функцияси системы Аргус. Отправка факсов в текущей версии Аргуса не реализована.</P>
+
+<P>В диалоге <A HREF="cfgmlrline.html">Конфигурация линий почтовой системы</A> cущетвует поле "Fax Inbound", определяющее каталог, в который будут помещены принятые факсимильные документы в формате TIFF (Tagged Image Format File). Для получения имени принятого TIFF-файла используются макро-определения:</P>
+
+<TABLE cols=2 width=637>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>%PATHNAME%</CODE></PRE>
+</TD>
+<TD width=82%>полное имя файла (с путем), например <CODE>d:\fl\infax\03Jan003.tif</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>%PATH%</CODE></PRE>
+</TD>
+<TD width=82%>путь к файлу, папример <CODE>d:\fl\infax\</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>%NAME%</CODE></PRE>
+</TD>
+<TD width=82%>имя файла (без расширения), например <CODE>03Jan003</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>%EXT%</CODE></PRE>
+</TD>
+<TD width=82%>расширение файла, например <CODE>.tif</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Комбинация <CODE>%PATH%%NAME%%EXT%</CODE> идентична <CODE>%PATHNAME%</CODE></P>
+
+<P>Если при ответе на входящий звонок от модема поступило сообщение <CODE>+FCON</CODE>, <CODE>CONNECT FAX</CODE>, или <CODE>+FCO</CODE> - это служит сигналом для начала факсимильного приема. После обнаружения этой строки, в зависимости от значения Config / Dial-up / Modems / Fax / Fax Receiver / Internal-External, Аргус передает управление портом либо внутренним функциям приема факсов, либо внешней программе. Командная строка внешней программы задается в поле <B>External Fax Receiver</B> диалога <A HREF="cfgmodem.html">конфигурации модемов</A>. В этой строке можно использовать специальные параметры, согласно главе <A HREF="cfgextsvc.html">Сервисы</A>. Префиксы командной строки внешней программы приема факсов те же, что и для Externals/Post-processors:</P>
+
+<TABLE cols=2 width=637>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&lt;</CODE></PRE>
+</TD>
+<TD width=94%>запустить с низким приоритетом (IDLE_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>+</CODE></PRE>
+</TD>
+<TD width=94%>запустить с высоким приоритетом (HIGH_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=94%>запустить с критическим приоритетом (REALTIME_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>?</CODE></PRE>
+</TD>
+<TD width=94%>запустить в скрытом режиме</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>??</CODE></PRE>
+</TD>
+<TD width=94%>запустить в скрытом бесконнсольном режиме (DETACHED_MODE), только для консольных Win32-приложений.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&gt;</CODE></PRE>
+</TD>
+<TD width=94%>'&gt;' - вместо запуска приложения установить файл-флаг с именем, следующим за '&gt;'.</TD>
+</TR>
+</TABLE><BR>
+
+<P>Для приема факсов с помощью системы Аргус, ваш модем должен быть настроен на работу с Class 2. Это производится добавлением в строку инициализации команды <CODE>+FCLASS=2</CODE> (или <CODE>+FCLASS=2.0</CODE> для модемов USR, или <CODE>+FCLASS=6</CODE> для модемов ZyXEL). Работа с другими классами в текущей версии системы Аргус не предусмотрена.</P>
+
+<P>Пример настроек окна <A HREF="mnuconfig.html">Config</A>/Dialup/Modems для модема ZyXEL E+ для приема факсов с использованием программы <I>BGFAX  B.J. Guillot</I> в качестве внешнего приемщика:</P>
+
+<TABLE cols=2 width=575>
+
+<TR VALIGN="top">
+<TD width=25%>External Fax receiver</TD>
+<TD width=75%>
+<PRE><CODE>c:\bgfax\bgfax32.exe /fzyx c:\bgfax h%h z /dte:%b</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>Commands/Init</TD>
+<TD width=75%>
+<PRE><CODE>ATZ|AT+FCLASS=6|</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>Commands/Answer</TD>
+<TD width=75%>
+<PRE><CODE>AT+FAA=1;A!</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Внутренний приемщик факсов поддерживает наборы команда Class 2 и Class 2.0. </P>
+
+<P>Class 1 внутренним приемщиком также не поддерживается.</P>
+
+<P>Строки ответа для приема факсом внутренним приемщиком схожи с используемыми для внешнего:</P>
+
+<TABLE cols=2 width=686>
+
+<TR VALIGN="top">
+<TD width=24%>Для модемов Class 2</TD>
+<TD width=76%><CODE>~AT&amp;F|AT+FCLASS=2|AT+FLID="ID"|AT+FAA=1;a!</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=24%>Для модемов Class 2.0</TD>
+<TD width=76%><CODE>~AT&amp;F|AT+FCLASS=2.0|AT+FLI="ID"|AT+FNR=1,1,1,1|at+FAA=1;a!</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Некоторые факс-модемы переключают скорость порта на 19.2 Kbps после установления факс-соединения, другие же оставляют скорость порта неизмененной. Скорость порта должна быть синхронизирована между компьютером и модемом. Это достигается установкой соответствующего значения чекбокса "Switch DTE to 19.2 Kbps" странички "Fax" диалога конфигурации модема. Прием "мусора" после строки +FCON (или +FCO) свидетельствует о неправильно установленном значении чекбокса "Switch DTE to 19.2 Kbps".</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Node Overrides Table</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Node Overrides">
+	<PARAM NAME="Keyword" VALUE="Overrides">
+	<PARAM NAME="Keyword" VALUE="ZMH">
+	<PARAM NAME="Keyword" VALUE="Nodelist">
+	<PARAM NAME="Keyword" VALUE="Auxiliary Dial-up Nodes file">
+</OBJECT>
+
+<H1><A NAME="idh_cfgnodes"></A>Node Overrides Table</H1>
+
+<P>Node Overrides Table is a <A HREF="guigrid.html">string grid</A> and it is designed for re-defining (overriding) the Nodelist information (to add or override 'phone numbers, Nodelist flags and working time) for a particular node. If you want to override the 'phone number of a node or add some more numbers (in the event of a node having a multi-line mail system), you can use FTN addresses instead of 'phone numbers - in this case the 'phone numbers are taken from the Nodelist.</P>
+
+<P>There are two opportunities, which the Node Overrides Table gives to the user. Firstly, there is no real need to use the Nodelist and the secondly is that it is possible to define some special flags and use them in overrides in combination with <A HREF="cfgrest.html">Dialling Restrictions Schemes</A>. </P>
+
+<P>If a node is not listed in the Nodelist used by Argus, but there is a Node Overrides Table entry for that node and there are no flags specified, the node is <B>not</B> treated as <CODE>CM</CODE> - all Crash or Direct packets detected in Outbound will <B>not</B> initiate a poll outside ZMH (moreover, point addresses will never be polled), so sending files to such node a can only be done manually. It is recommended you specify working times of a node in overrides using either the <CODE>CM</CODE> or <A HREF="oftnonline.html"><CODE>Txy</CODE></A> Nodelist flags even if that node is listed but it has no working time flags in the Nodelist. See chapter <A HREF="cfgrefol.html">Calling a Node only within its Working Time</A> for ZMH definitions.</P>
+
+<P>Example:</P>
+
+<TABLE cols=3 width=667>
+
+<TR VALIGN="top">
+<TD width=16%>Node</TD>
+<TD width=47%>Override</TD>
+<TD width=37%>Comment</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/561</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>+31-133-456-1850</CODE></PRE>
+</TD>
+<TD width=37%>Phone number has changed</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/562</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>55:133/562,U,TBK</CODE></PRE>
+</TD>
+<TD width=37%>Working time has changed</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>5:133/555</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>5:133/555,U,TAB,TDE</CODE></PRE>
+</TD>
+<TD width=37%>Working time has two intervals</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/563</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>55:133/563,CM,V34</CODE></PRE>
+</TD>
+<TD width=37%>Node has a new (V.34) modem</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>3:34/3443</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>333-031,CM 333-032,CM 333-033,CM</CODE></PRE>
+</TD>
+<TD width=37%>This is a 3-line CM node</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>3:383/513</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>3:383/513 3:383/550 3:383/560</CODE></PRE>
+</TD>
+<TD width=37%>This node has three other AKAs (which should be taken from the Nodelist)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>3:383/514</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>3:383/513,HST,CM 3:383/550,V34,U,TACL</CODE></PRE>
+</TD>
+<TD width=37%>First line of this node is CM and second one has working time from 00:00 to 02:00 local time.</TD>
+</TR>
+</TABLE><BR>
+
+<P>Use <A HREF="ovrlined.html">Override Line Editor</A> for more comfortable editing of node overrides.</P>
+
+<P>Besides of custom flags, Argus handles some special flags:</P>
+
+<TABLE cols=2 width=642>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOHYD</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing Hydra</U>. Hydra is a bi-directional file transfer protocol, defined in FSC-0072. See also <A HREF="atoms.html">Transmit Hydra Disabled atom</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOZM</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing ZModem</U>. ZModem is a file transfer protocol. This flag is a conjunction of flags NODZA, NOZAP, NOZMO. See also <A HREF="atoms.html">Transmit ZModem Disabled atom</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NODZA</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing DirZap</U>. DirZap is a ZModem variation, which uses 8K-block and does not escape control characters.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOZAP</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing ZedZap</U>. ZedZap is a ZModem variation, which uses 8K-block and escapes control characters.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOZMO</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing ZedZip</U>. ZedZip is a ZModem variation, which uses 1K-block and escapes control characters.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NONIAGARA</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing Niagara</U>. Niagara protocol establishes the layer that provides <A HREF="binkp.html">BinkP</A> (with <A HREF="crammd5.html">CRAM-MD5</A>) and <A HREF="binkpenc.html">Encrypted BinkP</A> over a dial-up connection. This atom applies only to dial-up lines, not to TCP/IP daemon. <A HREF="atoms.html">See also Transmit Niagara Disabled atom</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOEMSI</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing EMSI handshake</U>. See also <A HREF="atoms.html">Transmit EMSI Disabled atom</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NOYOOHOO</CODE></PRE>
+</TD>
+<TD width=85%><U>Prevents from establishing YooHoo handshake</U>. See also <A HREF="atoms.html">Transmit YooHoo Disabled atom</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>NODUMMYZ</CODE></PRE>
+</TD>
+<TD width=85%><U>Do not send a dummy packet on ZModem</U>. By default (if this atom is not applied), Argus sends a dummy packet if there is nothing to send on ZModem session. See also <A HREF="atoms.html">Transmit Dummy-Z Disabled atom</A>.</TD>
+</TR>
+</TABLE><BR>
+
+<P>Example of using special flags:</P>
+
+<TABLE cols=3 width=667>
+
+<TR VALIGN="top">
+<TD width=16%>Node</TD>
+<TD width=47%>Override</TD>
+<TD width=37%>Comment</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/561</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>55:133/561,NOHYD</CODE></PRE>
+</TD>
+<TD width=37%>Do not establish Hydra protocol when dialling this node.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>
+<PRE><CODE>55:133/562</CODE></PRE>
+</TD>
+<TD width=47%>
+<PRE><CODE>55:133/562,NOZM</CODE></PRE>
+</TD>
+<TD width=37%>Do not establish ZModem protocol when dialling this node.</TD>
+</TR>
+</TABLE><BR>
+
+<H2>Auxiliary Dial-up Nodes file</H2>
+
+<P>You may specify here a file that defines additional overrides besides of listed in the string grid. The format of the file follows, one override per line:</P>
+
+<PRE><CODE>Address | Override</CODE></PRE>
+
+<P>Example:</P>
+
+<PRE><CODE>2:469/38 | 373-2-246-530,CM,ZYX 373-7-222-222,CM,HST
+3:383/514 | 3:383/513,HST,CM 3:383/550,V34,U,TACL</CODE></PRE>
+
+<P>Auxiliary dial-up node overrides file is loading into memory on Argus Start-up and by detection of <CODE>DUPOVR.OK</CODE> file-flag in Argus <A HREF="hd.html">Home Directory</A>. Results of parsing of the file are logged in polls log.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_cfgfilerequests"></A>Конфигурация файловых запросов</H1>
+
+<h2>General </h2>
+
+<P>Основные установки обслуживания файловых запросов.</P>
+
+<P>Рассмотрим основную <U>сетку</U> ввода строк из диалогового окна конфигурации файловых запросов. В ней перечисляются каталоги, в которых содержатся файлы, предназначенные для пересылки по запросам, пришедшим во время сеанса связи. Для каждого каталога может быть задан пароль. Количество определяемых каталогов не ограничено. Перечисленные в pathnames каталоги, вмесите с подкаталогами и файлами, называются "файловой базой".</P>
+
+<UL>
+	<LI><U>Disable all requests</U> - запретить файловые запросы вообще. В <A HREF="oftnemsi.html">EMSI</A>-пакете об этом будет сообщено удаленной системе флажком NRQ. Если удаленная система проигнорирует этот флажок, и попытается передать REQ-файлы, они будут отвергнуты протоколом.<BR><BR></LI>
+
+	<LI><U>Recursive paths</U> - искать во всех вложенных подкаталогах. Глубина рекурсии не ограничена.<BR><BR></LI>
+
+	<LI><U>Allow Masks</U> - разрешить запросы по маскам. Поддерживаются расширенные маски, удовлетворяющие условиям длинных имен, а также <A HREF="regexp.html">регулярные выражения</A>.<BR><BR></LI>
+
+	<LI><U>Real-time search</U> - искать запрашиваемые файлы в реальном времени, то есть в течении сеанса связи. Рекомендуется для небольших файловых баз с частым периодом обновления файлов. Например, на нашей станции (2:469/38) на поиск по базе, содержащей 8000 файлов в 120 каталогах, уходит 10 секунд сеанса связи. Данная функция в текущей версии используется по умолчанию, и ее отключение не допустимо.</LI>
+</UL>
+
+<P>При отключенной опции почтовая система индексирует базу, и на поиск уходит уже меньше секунды, однако после каждого обновления файлов индексы также подлежат обновлению.</P>
+
+<h2>Aliases</h2>
+
+<P>Часто встречается случай,  когда запрос осуществляется не по имени файла, а по псевдониму.  Например, общеупотребителен псевдоним FILES. При запросе этого "файла" передается файл, содержащий полный список всех файлов системы. У  каждой системы этот файл имеет собственное  уникальное имя, но почти везде можно запросить FILES и получить что-нибудь вроде rz-all.zip в ответ.</P>
+
+<P>В поле Alias <A HREF="guigrid.html">сетки ввода строк</A> Alias прописывается псевдоним файла, в поле Path - путь к файлу, который будет отдаваться по этому псевдониму, а в поле Password - необязательный пароль.</P>
+
+<P>В псевдонимах файловых запросов можно использовать маски (как в поле Alias, так и в поле Path). Предшествующий символ '<CODE>&gt;</CODE>' означает самый свежий файл, попадающий под эту маску. На один псевдоним можно назначить несколько файлов, перечислив их через пробел. </P>
+
+<h2>External Request Processing (SRIF)</h2>
+
+<P>Аргус имеет возможность вызывать внешний обработчик файловых запросов посредством стандарта SRIF (Standard Request Information File), который разработали <I>Gordian Schuermann &amp; Mirko Mucko</I>.</P>
+
+<P>Использование внешнего обработчика разрешается опцией <B>Use SRIF</B>. При этом остальные вышеописанные настройки файловых запросов игнорируются, и вся забота перекладывается на плечи внешнего обработчика. Суть метода SRIF заключается в передаче данных внешнему обработчику через временный файл, который создается почтовой системой при файловом запросе.</P>
+
+<P>Имя исполнимого файла внешнего обработчика задается в поле <B>Standard Request Information File - External Processor</B>. Ключевое слово <CODE>%SRIF%</CODE> в этом поле заменяется на имя временного файла.</P>
+
+<P>Пример поля при использовании AllFix © Harms Software Eng.:</P>
+
+<P><CODE>c:\fido\allfix\allfix Rp -SRIF %SRIF%</CODE></P>
+
+<H2>Service Requests</H2>
+<P>The Service Request concept is is very similar to the SRIF ERP (described above). In both cases, an external application is used to serve file requests. Unlike SRIF, when one application is launched to serve a whole batch of requested file, Service Requests allow to run a particular application for each requested item. Service Requests cannot coexist with SRIF. To user Service Requests turn "Use SRIF" checkbox off. Service Requests are typically used to invoke programs that update databases, or sends specific files only after checking a database for specific information (product updates for example).</P>
+<P>Service Requests are defined in the file request alias list (Aliases string grid) by placing an equal sign ('<CODE>=</CODE>') as a first character in "Path" column . E.g.</P>
+<TABLE>
+<TR><TD>Alias</TD><TD WIDTH=20></TD><TD>Path</TD></TR>
+<TR><TD><CODE>PRODUCTUPDATE</CODE></TD><TD WIDTH=20></TD><TD><CODE>=C:\SR\PRODUPD.EXE ^&lt;symbol&gt;&ltfilemask&gt;</CODE></TD></TR>
+</TABLE>
+<P>where <CODE>C:\SR\PRODUPD.EXE</CODE> is the program to execute, <CODE>^&lt;symbol&gt;</CODE> defines what Argus should do with the files matching <CODE>&lt;filemask&gt;</CODE> after the session has been completed. Wildcards and Regular Expressions in <CODE>&lt;filemask&gt;</CODE> are only allowed in name section, not in path section. E.g. <CODE>c:\games\*.*</CODE> is valid in but <CODE>c:\games\*\readme.txt</CODE> is invalid.</P>
+<P><CODE>^</CODE> character and <CODE>&ltfilemask&gt;</CODE> are mandatory, <CODE>&lt;symbol&gt;</CODE> is optional. If no <CODE>&lt;symbol&gt;</CODE> is specified, the Mailer assumes that all files matching <CODE>&lt;filemask&gt;</CODE> should be removed after the session has been completed regardless of the transmission status of each file.
+<P>Priority modifiers for Low, High and Real-Time classes can be specified same way as for SRIF.
+
+<P>Executable path/file name and parameters may contain special handshake switches (also called macros, same as Handshake Switches for <A HREF="cfgextsvc.html">Doors</A> and <A HREF="cfgppolls.html">External Polls</A>) that are translated into appropriate string values before the application is started. Each command switch starts with the percent symbol followed by a command character. All handshake command line switches are case sensitive, for example <CODE>%c</CODE> may not be used instead of <CODE>%C</CODE>.</P>
+
+<P>For each possible handshake switch an Environment variable is also created, which could be used by launched application. Even if no hadshake switches are specified in executable path/file name and parameters, all Environment variables are created.</P>
+
+<P>The following switches return caller's primary address and nodelist information (if any).</P>
+<TABLE cols=3>
+
+<TR><TD></TD><TD width=120><U>Environment</U></TD><TD><U>Description</U></TD></TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%w</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_NODE</CODE></PRE>
+</TD>
+<TD>Remote primary node address string, eg "2:469/38"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%x</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_STATION</CODE></PRE>
+</TD>
+<TD>Station name from nodelist for remote primary address, if listed</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%v</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_LOCATION</CODE></PRE>
+</TD>
+<TD>Site location from nodelist for remote primary address, if listed</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%X</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_SYSOP</CODE></PRE>
+</TD>
+<TD>Sysop's name from nodelist of remote primary address, if listed</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%y</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_PHONE</CODE></PRE>
+</TD>
+<TD>Phone number or IP address from nodelist of remote primary address, if listed</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%Y</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_FLAGS</CODE></PRE>
+</TD>
+<TD>Node flags from nodelist of remote primary address, if listed</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%W</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_SPEED</CODE></PRE>
+</TD>
+<TD>Node speed from nodelist of remote primary address, if listed</TD>
+</TR>
+</TABLE>
+
+<P>The following switches return line and connection information and vary for dial-up and TCP/IP connection.</P>
+
+<TABLE cols=5>
+
+<TR VALIGN="top">
+<TD width=30>&nbsp;</TD>
+<TD width=120><U>Environment</U></TD>
+<TD><U>Description</U></TD>
+<TD><U>Dial-up value</U></TD>
+<TD><U>TCP/IP value</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%B</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_DCE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Connect speed</TD>
+<TD>DCE (modem to modem)</TD>
+<TD>as assumed in TCP/IP Daemon configuration dialogue box</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%b</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_DTE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Port speed</TD>
+<TD>DTE (computer to modem)</TD>
+<TD>same as <CODE>%B</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%e</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_CONNECT</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Connect string (spaces replaced to underlines)</TD>
+<TD>as returned after modem CONNECT word, e.g.: 
+<P>"<CODE>16800/ARQ/HST</CODE>”</P>
+</TD>
+<TD>as returned after Argus TCP/IP CONNECT word, e.g.:
+<P>"<CODE>To 194.213.233.33 #24554</CODE>”]</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%E</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_CONTROL</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Translated error control code</TD>
+<TD>"<CODE>MNP</CODE>" if any of MNP, ARQ or REL string is present in the connect string.  Otherwise null.</TD>
+<TD>Always "<CODE>TCP/IP</CODE>"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%L</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_NAME</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Mailer line name (spaces replaced to underlines)</TD>
+<TD>as in dial-up/lines/line name</TD>
+<TD>"TCP/IP" plus number of TCP/IP connections, e.g.: "<CODE>TCP/IP 3</CODE>"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%n</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_LINE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Mailer line number</TD>
+<TD>Number of entry in dial-up/lines list, e.g. "<CODE>1</CODE>" for the first line listed.</TD>
+<TD>Number of active TCP/IP connection, e.g. "<CODE>2</CODE>" for "TCP/IP 2" line</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%h</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_HANDLE</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Communication resource handle</TD>
+<TD>COM port Win32 handle</TD>
+<TD>WinSock2 overlapped socket handle</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%C</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_NUMBER</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Port number</TD>
+<TD>COM port number, e.g.: "<CODE>1</CODE>" for COM1 or "<CODE>4</CODE>" for COM4</TD>
+<TD>TCP/IP port number, e.g.: <CODE>24554</CODE> for BinkD</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=30>
+<PRE><CODE>%p</CODE></PRE>
+</TD>
+<TD width=120>
+<PRE><CODE>ARGUS_INDEX</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+<TD>Port index</TD>
+<TD>zero-based COM port number, e.g.: "<CODE>0</CODE>" for COM1 or "<CODE>3</CODE>" for COM4</TD>
+<TD>same as <CODE>%C</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>Special <CODE><B>%Z</B></CODE> switch is also allowed here and works same way as in <A HREF="cfgextsvc.html#ZSWITCH">Doors</A>.
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,21 @@
+; This file is maintained by HCW. Do not modify this file directly.
+
+[OPTIONS]
+HCW=0
+LCID=0xc0a 0x0 0x0 ;Spanish (Modern Sort)
+REPORT=Yes
+CONTENTS=IDH_READMEFIRST
+TITLE=Argus
+CNT=argusspa.cnt
+COPYRIGHT=Copyright © 1997 RIT Research Labs. Traducido por Jose-Luis Velasco.
+BMROOT=..\bmp
+HLP=.\ArgusSpa.hlp
+
+[FILES]
+argusspa.rtf
+
+[MAP]
+#include ..\argus.hh
+
+[WINDOWS]
+main="",,60676,(r15138815),(r12632256)

@@ -1,0 +1,89 @@
+:Base ArgusSpa
+:Title Argus
+1 Introducción a Argus
+2 ¿Qué es Argus?=IDH_INTRO
+2 Multitarea real usando API Win32=IDH_INTRONATIVE
+2 Sistema de Mailer Multi-línea=IDH_INTROMULTI
+2 Soporte amplio de TCP/IP=IDH_INTROTCP
+2 Estándares FTN soportados=IDH_OFTN
+2 Flag "Working Time" en las Listas de Nodos (FSC-0062)=IDH_OFTNONLINE
+2 Llamando a un Nodo cuando está activo (Working Time)=IDH_CFGREFOL
+2 Correo saliente estilo Binkley (Binkley-style Outbound)=IDH_BSO
+1 ¿Qué es nuevo en Argus?
+2 ¿Qué es nuevo en Argus?=IDH_WHATSNEW
+2 Configuración Avanzada=IDH_CFGEXT
+2 Aplicaciones Externas=IDH_CFGEXTERNAL
+2 Llamadas Periódicas=IDH_CFGPPOLLS
+2 Sucesos=IDH_CFGEVENTS
+2 Elementos de Suceso=IDH_ATOMS
+2 Emparejamiento de AKAs (AKA Matching)=IDH_CFGEMSI
+2 Anotaciones amplias (Extended logging)=IDH_LOGS
+2 Saltar / Rechazar Fichero=IDH_MNULINE
+2 Recepción de Fax=IDH_FAX
+2 Formato Horario=IDH_CRON
+2 Opciones de las Llamadas=IDH_CFGPO
+1 El Entorno de Argus
+2 El Entorno de Argus=IDH_ENV
+2 Elementos nuevos del Interfaz gráfico del usuario
+3 Elementos nuevos del Interfaz gráfico del usuario=IDH_GUI
+3 Hileras de Cuadrículas=IDH_GUIGRID
+3 Ventana de anotaciones (Log Window)=IDH_GUILOG
+3 Indicadores de Actividad del Modem=IDH_GUITERM
+3 Indicador de Progreso de la Transferencia=IDH_GUIPIE
+3 Panel de Información de la Conexión=IDH_GUISTATINFO
+2 Administrador de Llamadas
+3 Administrador de Llamadas=IDH_POLLMGR
+2 Ventana del Mailer
+3 Ventana del Mailer=IDH_MLRD
+3 Panel de Cuenta Atrás (Timeout Panel)=IDH_TIMEOUT
+2 Menú Principal
+3 Menú Principal=IDH_MNU
+3 Submenú Sistema=IDH_MNUSYSTEM
+3 Submenú Línea=IDH_MNULINE
+3 Submenú Llamada=IDH_MNUPOLL
+3 Submenú Herramientas=IDH_MNUTOOL
+3 Submenú Configuración=IDH_MNUCONFIG
+3 Submenú Avanzado=IDH_MNUADVANCED
+3 Submenú Ventana=IDH_MNUWINDOW
+3 Submenú Ayuda=IDH_MNUHELP
+1 Configuración de Argus
+2 Configuración de Argus=IDH_7
+2 Ubicación de Archivos
+3 Ubicación de Archivos=IDH_PN
+3 Directorios especiales=IDH_SD
+2 Diálogos de Configuración específicos del Mailer
+3 Diálogos de Configuración específicos del Mailer=IDH_CFGBASES
+3 Configuración de las Listas de Nodos=IDH_CFGNODELIST
+3 Configuración de las Contraseñas=IDH_CFGPASSWORDS
+3 Configuración de Comienzo del programa=IDH_CFGSTARTUP
+3 Anotaciones amplias (Extended logging)=IDH_LOG
+2 Configuración de las conexiones de Marcado Telefónico
+3 Configuración de las conexiones de Marcado Telefónico=IDH_CFGDIALUP
+3 Panel de configuración principal de Marcado Telefónico=IDH_CFGDIALUPWIN
+3 Configuración de la Línea del Mailer=IDH_CFGMLRLINE
+3 Configuración de los datos EMSI=IDH_CFGEMSI
+3 Configuración de los Puertos de Comunicaciones=IDH_CFGSERIAL
+3 Preferencias de conexión=IDH_CFGLINEBITS
+3 Configuración del Modem=IDH_CFGMODEM
+3 Caracteres de Control del Modem=IDH_MODEMCTLCHARS
+3 Recepción de Fax=IDH_FAX
+3 Esquema de restricciones de Marcado=IDH_CFGREST
+3 Tabla de Sustitución de Nodos (Node Overrides)=IDH_CFGNODES
+2 Configuración TCP/IP
+3 Configuración TCP/IP=IDH_CFGIP
+3 Servicio TCP/IP=IDH_INTRODAEMON
+3 Configuración del Servicio TCP/IP=IDH_CFGIPDAEMON
+3 Flags especiales para TCP/IP en las Listas de Nodos=IDH_CFGIPFLG
+2 Configuración Avanzada
+3 Configuración Avanzada=IDH_CFGEXT
+3 Formato Horario=IDH_CRON
+3 Configuración de las Peticiones de Ficheros (File Requests)=IDH_CFGFILEREQUESTS
+3 Llamadas Periódicas=IDH_CFGPPOLLS
+3 Sucesos
+4 Sucesos=IDH_CFGEVENTS
+4 Elementos de Suceso=IDH_ATOMS
+3 Configuración de Aplicaciones Externas
+4 Configuración de Aplicaciones Externas=IDH_CFGEXTERNAL
+4 Post-Procesadores=IDH_CFGEXTPP
+4 Doors=IDH_CFGEXTSVC
+4 Aplicaciones de Ejecución Periódica=IDH_CFGEXTCRON

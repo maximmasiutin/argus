@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_addrmasks"></A>Маски адресов</H1>
+
+<P>Для объединения адресов в группу по маске используется символ ‹<CODE>*</CODE>›</P>
+
+<TABLE cols=2 width=615>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>1:*/*.*</CODE></PRE>
+</TD>
+<TD width=83%>все адреса в первой зоне</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2:46*/*.*</CODE></PRE>
+</TD>
+<TD width=83%>весь 46-й регион второй зоны</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2:469/*</CODE></PRE>
+</TD>
+<TD width=83%>то же, что 2:469/*.* - все узлы и пойнты сети 2:469</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2:469/*.0</CODE></PRE>
+</TD>
+<TD width=83%>все 3-d узлы сети 2:469 (без пойнтов)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>2*:50*/10*</CODE></PRE>
+</TD>
+<TD width=83%>все узлы и пойнты, номер зоны которых начинается с 2 (например, 2, 21, 228), у которых номер сети начинается с 50 (например, 50,5030,501,5020,5079), и номера которых начинаются на 10 (например, 10, 101, 100, 1034). К примеру, этим условиям удовлетворяет адрес 21:501/1034</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=17%>
+<PRE><CODE>*:*/*</CODE></PRE>
+</TD>
+<TD width=83%>все адреса</TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

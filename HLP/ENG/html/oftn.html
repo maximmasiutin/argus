@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FTN Standards Supported</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="FTN">
+	<PARAM NAME="Keyword" VALUE="FTS">
+	<PARAM NAME="Keyword" VALUE="standard">
+	<PARAM NAME="Keyword" VALUE="FTS-0001">
+	<PARAM NAME="Keyword" VALUE="FSC-0039">
+	<PARAM NAME="Keyword" VALUE="FSC-0045">
+	<PARAM NAME="Keyword" VALUE="P2K">
+	<PARAM NAME="Keyword" VALUE="FTS-0006">
+	<PARAM NAME="Keyword" VALUE="Nodelist">
+	<PARAM NAME="Keyword" VALUE="EMSI">
+	<PARAM NAME="Keyword" VALUE="WaZOO">
+	<PARAM NAME="Keyword" VALUE="Z-modem">
+	<PARAM NAME="Keyword" VALUE="Hydra">
+	<PARAM NAME="Keyword" VALUE="FSC-0072">
+	<PARAM NAME="Keyword" VALUE="FSC-0062">
+	<PARAM NAME="Keyword" VALUE="CRAM-MD5">
+</OBJECT>
+
+<H1><A NAME="idh_oftn"></A>FTN Standards Supported</H1>
+
+<P>Argus interacts with remote systems using protocols and technology standards described in this chapter. Because Argus is built on FTN Technology (FidoNet Technology Network), it supports standards and proposals developed by FTN committee, common standards of FTN mail system functions are also supported by Argus.</P>
+
+<P>This is the list of FTN standards and proposals that Argus is compliant to. Descriptions of those standards can be obtained from <CODE>ftp://ftp.fidonet.org</CODE> </P>
+
+<UL>
+<LI>FTS-0001 mail session (limited to incoming-only). FSC-0039, FSC-0045 and P2K packet types are also supporting to extract remote information.</LI>
+
+<LI>YooHoo (FTS-0006) handshake.</LI>
+
+<LI>Nodelist (FTS-0005). Also, <A HREF="cfgipflg.html">extended TCP/IP flags</A> are supported.</LI>
+
+<LI>EMSI Handshake (FSC-0056) - full implementation.</LI>
+
+<LI>WaZOO mail session and file requests (FTS-0006) - full implementation.</LI>
+
+<LI>Z-modem file transfer protocol - full transport implementation with Skip/Refuse.</LI>
+
+<LI>Hydra file transfer protocol (FSC-0072) - full transport implementation except of chat ability.</LI>
+
+<LI><A HREF="oftnonline.html">Working Time Nodelist flag (FSC-0062)</A>.</LI>
+
+<LI><A HREF="bso.html">Binkley-style Outbound</A>.</LI>
+
+<LI><A HREF="binkp.html">BinkP Transfer Protocol</A> - full implementation of v1.0 draft specification, extended to file requests.</LI>
+
+<LI><A HREF="binkpenc.html">Encrypted BinkP session</A>.</LI>
+
+<LI><A HREF="crammd5.html">CRAM-MD5</A>.</LI>
+
+</UL>
+
+<P>The reason to implement FTS-0001 mail session and FTS-0006 handshake is to be Fidonet-Policy compliant. Fidonet is the greatest FTN-based network worldwide. Here is an extract of chapter 2.1.8 Fidonet Policy v4:</P>
+
+<PRE><CODE>Any system which wishes to be a part of FidoNet must be able to receive mail during this time using the protocol defined in the current FidoNet Technical Standards Committee publication (FTS-0001 at this writing). It is permissible to have greater capability (for example, to support additional protocols or extended mail hours), but the minimum requirement is FTS-0001 capability during this one hour of the day.</CODE></PRE>
+
+<P>Note, that there are some limitations in Argus implementation of FTS-0001:</P>
+
+<UL>
+<LI>Outgoing FTS-0001 calls are not supported.</LI>
+
+<LI>Argus receives only and does not send out files during FTS-0001 session.</LI>
+
+<LI>The password length is limited by FTS-0001 to 8 characters. Links with more than 8 characters in a password would be unable to initiate a password-protected FTS-0001 session.</LI>
+
+<LI>Skip File and Reject File operations are disabled (as well as refuse/delay).</LI>
+
+<LI>No file re-gets.</LI>
+
+<LI>Some FTS-0001 mailers do not provide valid file time.</LI>
+
+<LI>FTS-0001 protocol may not be fully Year2000 compliant in some implementations.</LI>
+
+<LI><A HREF="crammd5.html">CRAM-MD5</A> is not suported.</LI>
+</UL>
+
+</BODY>
+</HTML>

@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>File-boxes</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="File-Boxes">
+	<PARAM NAME="Keyword" VALUE="Regular Expressions">
+	<PARAM NAME="Keyword" VALUE="Binkley-Style Outbound">
+	<PARAM NAME="Keyword" VALUE="Outbound">
+	<PARAM NAME="Keyword" VALUE="%ZONE">
+	<PARAM NAME="Keyword" VALUE="%NET">
+	<PARAM NAME="Keyword" VALUE="%NODE">
+	<PARAM NAME="Keyword" VALUE="%POINT">
+	<PARAM NAME="Keyword" VALUE="%HZONE">
+	<PARAM NAME="Keyword" VALUE="%HNET">
+	<PARAM NAME="Keyword" VALUE="%HNODE">
+	<PARAM NAME="Keyword" VALUE="%HPOINT">
+	<PARAM NAME="Keyword" VALUE="%XZONE">
+	<PARAM NAME="Keyword" VALUE="%XNET">
+	<PARAM NAME="Keyword" VALUE="%XNODE">
+	<PARAM NAME="Keyword" VALUE="%XPOINT">
+	<PARAM NAME="Keyword" VALUE="%STATUS">
+	<PARAM NAME="Keyword" VALUE="%TSTATUS">
+	<PARAM NAME="Keyword" VALUE="%STMAIL">
+	<PARAM NAME="Keyword" VALUE="%LTMAIL">
+	<PARAM NAME="Keyword" VALUE="%YEAR">
+	<PARAM NAME="Keyword" VALUE="%MONTHN">
+	<PARAM NAME="Keyword" VALUE="%MONTHA">
+	<PARAM NAME="Keyword" VALUE="%MONTHS">
+	<PARAM NAME="Keyword" VALUE="%DAY">
+	<PARAM NAME="Keyword" VALUE="%DOWN">
+	<PARAM NAME="Keyword" VALUE="%DOWA">
+	<PARAM NAME="Keyword" VALUE="%DOWS">
+	<PARAM NAME="Keyword" VALUE="%HOUR">
+	<PARAM NAME="Keyword" VALUE="%MINUTE">
+	<PARAM NAME="Keyword" VALUE="%SECOND">
+	<PARAM NAME="Keyword" VALUE="Root directory">
+</OBJECT>
+
+<H1><A NAME="idh_fileboxes"></A>File-Boxes</H1>
+
+<P><A HREF="bso.html">Binkley-Style Outbound</A> is not the only place where outgoing files are kept. It is possible to associate a separate directory for storing outgoing files for each node. Argus periodically scans these directories. If a program of the sysop copies files to this directory, the files would be attached to the node using the status corresponding to this directory.  </P>
+
+<P>Use Config/File-Boxes dialogue box (Ctrl+B) to set up file-boxes.</P>
+
+<P>Options/Root directory input line of this diallog allows to define a  root for all file-box directories listed in Nodes/Path string grid. The rules of adding Root directory to file-box directory are the same as for Home Directory of Config/Paths.</P>
+
+<P>Value of string of a Node column may be a valid FTN address or a Pure Address Mask (i.e. such address mask cannot combine both asterisk and digit characters without a separator, e.g. 2:*/*.* is allowed and 2*:*/*.* is not allowed) or <A HREF="regexp.html">Regular Expression</A>. </P>
+
+<P>Value of string of a Status column may be one of the following:</P>
+
+<TABLE cols=2 width=197>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>C</CODE></PRE>
+</TD>
+<TD width=82%>Crash-status file-box</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>D</CODE></PRE>
+</TD>
+<TD width=82%>Direct-status file-box</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>N</CODE></PRE>
+</TD>
+<TD width=82%>Normal-status file-box</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>H</CODE></PRE>
+</TD>
+<TD width=82%>Hold-status file-box</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=82%>Any-status file-box</TD>
+</TR>
+</TABLE><BR>
+
+<P>Value of string of a Path column may contain macros.</P>
+
+<TABLE cols=2 width=584>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%ZONE</CODE></PRE>
+</TD>
+<TD width=85%>FTN zone in decimal (1-4 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%NET</CODE></PRE>
+</TD>
+<TD width=85%>FTN network in decimal (1-5 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%NODE</CODE></PRE>
+</TD>
+<TD width=85%>FTN node in decimal (1-5 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%POINT</CODE></PRE>
+</TD>
+<TD width=85%>FTN point in decimal (1-5 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%HZONE</CODE></PRE>
+</TD>
+<TD width=85%>FTN zone in hex (3 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%HNET</CODE></PRE>
+</TD>
+<TD width=85%>FTN net in hex (4 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%HNODE</CODE></PRE>
+</TD>
+<TD width=85%>FTN node in hex (4 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%HPOINT</CODE></PRE>
+</TD>
+<TD width=85%>FTN point in hex (4 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%XZONE</CODE></PRE>
+</TD>
+<TD width=85%>FTN zone in radix-32 (2 radix-32 digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%XNET</CODE></PRE>
+</TD>
+<TD width=85%>FTN net in radix-32 (3 radix-32 digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%XNODE</CODE></PRE>
+</TD>
+<TD width=85%>FTN node in radix-32 (3 radix-32 digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%XPOINT</CODE></PRE>
+</TD>
+<TD width=85%>FTN point in radix-32 (2 radix-32 digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%STATUS</CODE></PRE>
+</TD>
+<TD width=85%>Status (C=Crash, D=Direct, N=Normal, H=Hold)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%TSTATUS</CODE></PRE>
+</TD>
+<TD width=85%>Same as %STATUS, but empty value represents Normal status.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%STMAIL</CODE></PRE>
+</TD>
+<TD width=85%>Same as combination <CODE>%XZONE%XNET%XNODE.%XPOINT%TSTATUS</CODE></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=15%>
+<PRE><CODE>%LTMAIL</CODE></PRE>
+</TD>
+<TD width=85%>Same as combination <CODE>%ZONE.%NET.%NODE.%POINT?%TSTATUS</CODE></TD>
+</TR>
+</TABLE><BR>
+
+<P>As you see, macros are used to bound a path to particular nodes if value of string of a Node column contains a mask or <A HREF="regexp.html">Regular Expression</A>. To be able to bind multiple directories to a node, value of string of Path column may also contain *, ?, % wildcards or <A HREF="regexp.html">Regular Expressions</A>.</P>
+
+<P>Value of string of a Path column may contain additional path (separated by pipe ("|") character) to where files sent from this file-box will be moved. For reliable operation the files are moved, not copied.</P>
+
+<P>Example: <CODE>c:\ab\out|c:\ab\sent</CODE></P>
+
+<P>This path is called <I>sent path</I>. Make sure that file-box and sent path directories are on the same physical drive or volume in order Win32 API MoveFile() function would not fail with error "The system cannot move the file to a different disk drive".</P>
+
+<P>If not sent path is specified, files would be deleted after successful transfer.</P>
+
+<P>Sent path may contain additional macros, representing current local date.</P>
+
+<TABLE cols=2 width=518>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%YEAR</CODE></PRE>
+</TD>
+<TD width=81%>Year in decimal (4 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MONTHN</CODE></PRE>
+</TD>
+<TD width=81%>Month in decimal (2 digits), 1 = January, 2 = February, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MONTHA</CODE></PRE>
+</TD>
+<TD width=81%>Month in abbreviation (3 letters), Jan = January, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MONTHS</CODE></PRE>
+</TD>
+<TD width=81%>Month in short abbreviation (2 letters), Jn = January, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DAY</CODE></PRE>
+</TD>
+<TD width=81%>Day of month in decimal (2 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DOWN</CODE></PRE>
+</TD>
+<TD width=81%>Day of week in decimal (1 digit), 0 = Sunday, 1 = Monday, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DOWA</CODE></PRE>
+</TD>
+<TD width=81%>Day of week in abbreviation (3 letters), Sun = Sunday, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DOWS</CODE></PRE>
+</TD>
+<TD width=81%>Day of week in short abbreviation (3 letters), Su = Sunday, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%HOUR</CODE></PRE>
+</TD>
+<TD width=81%>Hour in decimal (2 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MINUTE</CODE></PRE>
+</TD>
+<TD width=81%>Minute in decimal (2 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%SECOND</CODE></PRE>
+</TD>
+<TD width=81%>Second in decimal (2 digits).</TD>
+</TR>
+</TABLE><BR>
+
+<P>Files in file-boxes are displaying in Outbound Manager Tab, but no operation is permitted on them via Outbound <A HREF="smartmenu.html">SmartMenu</A>. SmartMenu only applies to files attached via Binkley Outbound.</P>
+
+<P>Example of File Boxes configuration grid:</P>
+
+<TABLE cols=3 width=253>
+
+<TR VALIGN="top">
+<TD width=32%>Node</TD>
+<TD width=26%>Status</TD>
+<TD width=42%>Path</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=32%>
+<PRE><CODE>2:469/38</CODE></PRE>
+</TD>
+<TD width=26%>
+<PRE><CODE>N</CODE></PRE>
+</TD>
+<TD width=42%>
+<PRE><CODE>out38|sent38</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Root directory: <CODE>c:\fl</CODE></P>
+
+<P>In this case, files that are copied to <CODE>c:\fl\out38</CODE> directory will be automatically attached to node 2:469/38 with normal status. This means, according to Normal status, that all the files from the directory will be transmitted to the node on either incoming or outgoing call. After successful transmission, files will be moved to c:\fl\sent38 directory.</P>
+
+<P>Another example, now using a macro:</P>
+
+<TABLE cols=3 width=395>
+
+<TR VALIGN="top">
+<TD width=20%>Node</TD>
+<TD width=17%>Status</TD>
+<TD width=63%>Path</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>2:469/*.0</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>N</CODE></PRE>
+</TD>
+<TD width=63%>
+<PRE><CODE>out%NODE|sent%NODE</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>In this case, file-box for 2:469/38 will be <CODE>out38</CODE>, same as in previous example, but we are also defining file-boxes for all nodes of 2:469. File-box for 2:469/39 will be <CODE>out39</CODE>, for 2:469/40 will be <CODE>out40</CODE>, and so on.</P>
+
+<P>To define T-Mail-compatible file-boxes tree in c:\t-mail\fboxes, use the fillowing:</P>
+
+<TABLE cols=3 width=395>
+
+<TR VALIGN="top">
+<TD width=20%>Node</TD>
+<TD width=17%>Status</TD>
+<TD width=63%>Path</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>*:*/*.*</CODE></PRE>
+</TD>
+<TD width=17%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=63%>c:\t-mail\fboxes<CODE>\%STMAIL</CODE></TD>
+</TR>
+</TABLE><BR>
+
+</BODY>
+</HTML>

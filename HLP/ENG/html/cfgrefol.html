@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Calling a Node Only Within Its Working Time</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="FSC-0062">
+	<PARAM NAME="Keyword" VALUE="CM">
+	<PARAM NAME="Keyword" VALUE="ZMH">
+	<PARAM NAME="Keyword" VALUE="TXY">
+</OBJECT>
+
+<H1><A NAME="idh_cfgrefol"></A>Calling a Node Only Within Its Working Time</H1>
+
+<P>Argus is designed so that it will not automatically dial a particular node in any time outside the node's working time interval specified by <U>FSC-0062 Nodelist flag (</U><A HREF="oftnonline.html"><CODE>Txy</CODE>)</A>. The working time flag could be specified either in the Nodelist or in <A HREF="cfgnodes.html">Node Overrides Table</A>. If <CODE>CM</CODE> is specified for a node, this means that working time of the node is 00:00-24:00. </P>
+
+<P><I>Remarks: </I>If there are no working time flags specified for a node, this node may only be automatically dialled within Zone Mail Hour (ZMH).</P>
+
+<P>Zone Mail Hour Table, sorted by UTC (Universal Time Coordinated), follows:</P>
+
+<P>Zone 5 mail hour (01:00 - 02:00 UTC)</P>
+
+<P>Zone 2 mail hour (02:30 - 03:30 UTC)</P>
+
+<P>Zone 4 mail hour (08:00 - 09:00 UTC)</P>
+
+<P>Zone 1 mail hour (09:00 - 10:00 UTC)</P>
+
+<P>Zone 3 mail hour (18:00 - 19:00 UTC)</P>
+
+<P>Zone 6 mail hour (20:00 - 21:00 UTC)</P>
+
+<P>Other zone mail hours are custom and not internally supported by Argus. Use <A HREF="oftnonline.html"><CODE>Txy</CODE></A> to define custom mail hours.</P>
+
+<P>If a poll is created manually, Argus ignores a node's working time.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>EMSI Data Configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="EMSI">
+	<PARAM NAME="Keyword" VALUE="Station Name">
+	<PARAM NAME="Keyword" VALUE="Address List">
+	<PARAM NAME="Keyword" VALUE="Sysop">
+	<PARAM NAME="Keyword" VALUE="Location">
+	<PARAM NAME="Keyword" VALUE="Phone">
+	<PARAM NAME="Keyword" VALUE="Flags">
+	<PARAM NAME="Keyword" VALUE="AKA">
+	<PARAM NAME="Keyword" VALUE="Banner">
+</OBJECT>
+
+<H1><A NAME="idh_cfgemsi"></A>EMSI Data Configuration</H1>
+
+<P>EMSI Data configuration dialogue box contains three pages: <I>EMSI</I>, <I>Banner</I> and <I>AKA</I>.</P>
+
+<P><B>EMSI</B></P>
+
+<P>The information about the system to be transferred in EMSI-connection. Usually it is the same as in the Nodelist.</P>
+
+<TABLE cols=2 width=525>
+
+<TR VALIGN="top">
+<TD width=27%>Station Name</TD>
+<TD width=73%>The system name</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=27%>Address list</TD>
+<TD width=73%>Address (AKA) list of the system, divided by space</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=27%>Sysop name</TD>
+<TD width=73%>System Operator' name</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=27%>Location</TD>
+<TD width=73%>Geographical location of the system</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=27%>Phone</TD>
+<TD width=73%>The system's data telephone number</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=27%>Flags</TD>
+<TD width=73%>Nodelist flags</TD>
+</TR>
+</TABLE><BR>
+
+<P><B>Banner</B></P>
+
+<P>Banner is the text displayed to user connected to Argus with a generic terminal program (not with FTS-mailer) to obtain some console-based <A HREF="cfgextsvc.html">service</A> by typing an enter sequence. Banner usually contains invitation, system policies, and the list of enter-sequences.</P>
+
+<P><B>AKA</B></P>
+
+<P>Argus is able to transfer to a particular remote system address list that differs from specified in EMSI data table.</P>
+
+<P>Remote addresses field can contain addresses and/or <A HREF="addrmasks.html">address masks</A> (separated by spaces), as well as <A HREF="regexp.html">Regular Expressions</A>. So Argus will present AKA list taken not from EMSI data table but from Local addresses field, whenever it connects with such system.</P>
+
+<P>AKA replacement works on EMSI connection and on <A HREF="binkp.html">BinkP</A> as well.</P>
+
+<P>Note that the primary address of a password-protected session is considered not a first address of AKA list but the first password-protected address. There can be several addresses protected with one password though. Primary address is used to <A HREF="bso.html">link</A> requested files to, also during <A HREF="cfgfilerequests.html">SRIF requests</A>, and to be mentioned in <A HREF="logs.html"><CODE>binary_log</CODE></A>. Address filtering mechanism of <A HREF="cfgextpp.html">Post-processors</A> is also based on primary address.</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Post-processors</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Post-processors">
+	<PARAM NAME="Keyword" VALUE="%ARCMAIL%">
+	<PARAM NAME="Keyword" VALUE="SQUISH">
+	<PARAM NAME="Keyword" VALUE="Detached">
+	<PARAM NAME="Keyword" VALUE="Hidden">
+	<PARAM NAME="Keyword" VALUE="Priority">
+	<PARAM NAME="Keyword" VALUE="Low">
+</OBJECT>
+
+<H1><A NAME="idh_cfgextpp"></A>Post-processors</H1>
+
+<P>Post-processors configuration section used to define <B>external applications</B>, which are starting after the completion of file transfer session and to define <B>incoming file-boxes</B>.</P>
+
+<P><B>External Applications</B></P>
+
+<P>Post-processors are the applications intended to do some job with received files after the session finishes. The examples of post-processors are echo tossers, netmail trackers, file-echo processors etc. To make a Post-processor starting after the session if particular files are received, you should specify the mask filter for those files  (list of file masks or <A HREF="regexp.html">Regular Expressions</A>, divided by space character) in "Mask list" field.</P>
+
+<P><CODE>%ARCMAIL%</CODE> special keyword is equivalent to ArcMail mask list (<CODE>*.su? *.mo? *.tu? *.we? *.th? *.fr? *.sa?</CODE>).</P>
+
+<TABLE cols=3 width=641>
+
+<TR VALIGN="top">
+<TD width=36%>Mask list</TD>
+<TD width=35%>String to execute</TD>
+<TD width=29%>Comment</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>*.su? *.mo? *.tu? *.we? *.th? *.fr? *.sa?</TD>
+<TD width=35%>c:\fido\lanius\squish.exe in out squash</TD>
+<TD width=29%>Execute Squish echo-mail processor after receiving mail bundle</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>%ARCMAIL%</TD>
+<TD width=35%>c:\fido\lanius\squish.exe in out squash</TD>
+<TD width=29%>Execute Squish echo-mail processor after receiving mail bundle</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=36%>*.tic</TD>
+<TD width=35%>c:\fido\fileecho\allfix.exe file -tossbad</TD>
+<TD width=29%>Execute Allfix file-echo processor after receiving TIC file</TD>
+</TR>
+</TABLE><BR>
+
+<P>You may use the following prefix characters to change the visibility mode or priority level of an external application.</P>
+
+<P>Question Mark character (“<CODE>?</CODE>”) before command/file name instructs to execute the process in hidden mode. Exclamation Mark character (“<CODE>!</CODE>”) instructs to execute the process in normal window mode. Detached mode can be used only for launching Win32 console applications. Double Question Mark (“<CODE>??</CODE>”) instructs to execute the process in DETACHED mode (without using console window) . An attempt to execute DETACHED Win3.1 or DOS application causes an error.</P>
+
+<P>Processes can be launched with the following priority levels:</P>
+
+<TABLE cols=2 width=423>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>&lt;</CODE></PRE>
+</TD>
+<TD width=90%>Low (<CODE>IDLE_PRIORITY_CLASS</CODE>)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>+</CODE></PRE>
+</TD>
+<TD width=90%>High (<CODE>HIGH_PRIORITY_CLASS</CODE>)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=10%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=90%>Real-time (<CODE>REALTIME_PRIORITY_CLASS</CODE>)</TD>
+</TR>
+</TABLE><BR>
+
+<P>Processes are executing with normal priority (<CODE>NORMAL_PRIORITY_CLASS</CODE>) in minimised window by default.</P>
+
+<P>It is also possible to run an external application after the session with a particular node or a list of nodes. Just specify the node address or a mask in Mask List field. You can also specify a combination of addresses and file masks in a single field. The items of such a list are combined with logical OR operation.</P>
+
+<H2>Incoming File-Boxes</H2>
+
+<P>Post-processors configuration section is also used to define incoming file-boxes. Argus makes possible to dispatch incoming files to several inbound directories, depending to remote's primary address or file name wildcard. Ampersand ('&amp;') character, preceding the string of "String to execute" field of Config/Externals/Post-processors is used to define that the files with conditions (remote's primary address or file name wildcard) matched in "Mask list" field must be placed in the inbound directory defined after the '&amp;' character rather than putting into Secure/Insecure inbound. </P>
+
+<P>This is an example of moving files, received from points of node 2:469/59, to INPNT directory.</P>
+
+<TABLE cols=2 width=234>
+
+<TR VALIGN="top">
+<TD width=43%>Mask list</TD>
+<TD width=57%>String to execute</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=43%>
+<PRE><CODE>2:469/59.*</CODE></PRE>
+</TD>
+<TD width=57%>
+<PRE><CODE>&amp;INPNT</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>To moving files with overriding a file that is already stored in incoming file-box, use '<CODE>^</CODE>' character after ampersand character, e.g. <CODE>&amp;^INPNT</CODE>.</P>
+
+<P>Value of string of a incoming file-box path name may contain macros, representing primary address of remote system:</P>
+
+<TABLE cols=2 width=509>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%ZONE</CODE></PRE>
+</TD>
+<TD width=80%>zone in decimal (1-4 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%NET</CODE></PRE>
+</TD>
+<TD width=80%>network in decimal (1-5 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%NODE</CODE></PRE>
+</TD>
+<TD width=80%>node in decimal (1-5 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%POINT</CODE></PRE>
+</TD>
+<TD width=80%>point in decimal (1-5 decimal digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%HZONE</CODE></PRE>
+</TD>
+<TD width=80%>zone in hex (3 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%HNET</CODE></PRE>
+</TD>
+<TD width=80%>net in hex (4 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%HNODE</CODE></PRE>
+</TD>
+<TD width=80%>node in hex (4 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%HPOINT</CODE></PRE>
+</TD>
+<TD width=80%>point in hex (4 hex digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%XZONE</CODE></PRE>
+</TD>
+<TD width=80%>zone in radix-32 (2 radix-32 digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%XNET</CODE></PRE>
+</TD>
+<TD width=80%>net in radix-32 (3 radix-32 digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%XNODE</CODE></PRE>
+</TD>
+<TD width=80%>node in radix-32 (3 radix-32 digits)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>
+<PRE><CODE>%XPOINT</CODE></PRE>
+</TD>
+<TD width=80%>point in radix-32 (2 radix-32 digits)</TD>
+</TR>
+</TABLE><BR>
+
+<P>Also, the following macros, representing current local date are allowed for incoming file-box path:</P>
+
+<TABLE cols=2 width=518>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%YEAR</CODE></PRE>
+</TD>
+<TD width=81%>Year in decimal (4 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MONTHN</CODE></PRE>
+</TD>
+<TD width=81%>Month in decimal (2 digits), 1 = January, 2 = February, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MONTHA</CODE></PRE>
+</TD>
+<TD width=81%>Month in abbreviation (3 letters), Jan = January, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MONTHS</CODE></PRE>
+</TD>
+<TD width=81%>Month in short abbreviation (2 letters), Jn = January, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DAY</CODE></PRE>
+</TD>
+<TD width=81%>Day of month in decimal (2 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DOWN</CODE></PRE>
+</TD>
+<TD width=81%>Day of week in decimal (1 digit), 0 = Sunday, 2 = Monday, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DOWA</CODE></PRE>
+</TD>
+<TD width=81%>Day of week in abbreviation (3 letters), Sun = Sunday, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%DOWS</CODE></PRE>
+</TD>
+<TD width=81%>Day of week in short abbreviation (3 letters), Su = Sunday, etc.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%HOUR</CODE></PRE>
+</TD>
+<TD width=81%>Hour in decimal (2 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%MINUTE</CODE></PRE>
+</TD>
+<TD width=81%>Minute in decimal (2 digits).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%>
+<PRE><CODE>%SECOND</CODE></PRE>
+</TD>
+<TD width=81%>Second in decimal (2 digits).</TD>
+</TR>
+</TABLE><BR>
+
+<P>Note that launching external application or sorting incoming files to file-boxes, based on remote address, when address mask is listed, only occur on password-protected session.</P>
+
+</BODY>
+</HTML>

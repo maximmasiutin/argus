@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_cron"></A>Формат Cron</H1>
+
+<P>Формат Cron представляет собой простой, но достаточно мощный и гибкий способ описаний периодических действий.</P>
+
+<P>Формат:</P>
+
+<PRE></PRE>
+
+<TABLE cols=3 width=414>
+
+<TR VALIGN="top">
+<TD width=22%>
+<PRE><CODE>* * * * *</CODE></PRE>
+</TD>
+<TD width=10%>или</TD>
+<TD width=68%>
+<PRE><CODE>Минута Час День Месяц ДеньНедели</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<TABLE cols=2 width=461>
+
+<TR VALIGN="top">
+<TD width=20%>&nbsp;</TD>
+<TD width=80%><B>Диапазон</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>Минута</TD>
+<TD width=80%>
+<PRE><CODE>0-59</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>Час</TD>
+<TD width=80%>
+<PRE><CODE>0-23</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>День</TD>
+<TD width=80%>
+<PRE><CODE>1-31</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>Месяц</TD>
+<TD width=80%>
+<PRE><CODE>1-12</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>ДеньНедели</TD>
+<TD width=80%><CODE>1-7</CODE> (<CODE>1</CODE> = понедельник, <CODE>2</CODE> = вторник, ..., <CODE>7</CODE> = воскресенье)</TD>
+</TR>
+</TABLE><BR>
+
+<P>Можно использовать список значений, разделенных запятыми (например "<CODE>1,3,7</CODE>"), или используя символ “черточка” (например “<CODE>1-5</CODE>”). Вместо значения можно использовать звездочку - это означает полный диапазон.</P>
+
+<P>Действие происходит, только если удовлетворяются все условия.</P>
+
+<P>Примеры:</P>
+
+<TABLE cols=2 width=622>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* * * * *</CODE></PRE>
+</TD>
+<TD width=54%>Каждую минуту</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>59 23 31 12 5</CODE></PRE>
+</TD>
+<TD width=54%>За минуту до конца года, и если последний день года - пятница.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>45 17 7 6 *</CODE></PRE>
+</TD>
+<TD width=54%>Каждый год 7-го июня в 17:45</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0,15,30,45 0,6,12,18 1,15,31 * *</CODE></PRE>
+</TD>
+<TD width=54%>По полным четвертям часа; в полночь, в 6 утра, по 1-м, 15-м и 31-м числам каждого месяца, только по рабочим дням недели</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 12 * * 1-5</CODE></PRE>
+</TD>
+<TD width=54%>В полдень по рабочим дням</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* * * 1,3,5,7,9,11 *</CODE></PRE>
+</TD>
+<TD width=54%>Каждую минуту в январе, марте, мае, июле, сентябре и ноябре</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>1,2,3,5,20-25,30-35,59 23 31 12 *</CODE></PRE>
+</TD>
+<TD width=54%>В последний день года в 23:01, 23:02, 23:03, 23:05, 23:20, 23:21, 23:22, 23:23, 23:24, 23:25, 23:30, 23:31, 23:32, 23:33, 23:34, 23:35, 23:59</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 9 1-7 * 1</CODE></PRE>
+</TD>
+<TD width=54%>Первый понедельник каждого месяца, в 9 утра</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 0 1 * *</CODE></PRE>
+</TD>
+<TD width=54%>В полночь, первого числа, каждый месяц</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* 0-11 * * *</CODE></PRE>
+</TD>
+<TD width=54%>Каждую минуту до полудня</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* * * 1,2,3 *</CODE></PRE>
+</TD>
+<TD width=54%>Каждую минуту в январе, феврале и мае</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 0 * * *</CODE></PRE>
+</TD>
+<TD width=54%>Каждый день в полночь</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 0 * * 3</CODE></PRE>
+</TD>
+<TD width=54%>Каждую среду в полночь</TD>
+</TR>
+</TABLE><BR>
+
+<P>Строки Cron можно сокращать путем опускания крайних правых звездочек:</P>
+
+<TABLE cols=2 width=565>
+
+<TR VALIGN="top">
+<TD width=51%>Полная запись</TD>
+<TD width=49%>Сокращенная запись</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* * * * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>59 23 31 12 5</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>59 23 31 12 5</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>45 17 7 6 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>45 17 7 6</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0,15,30,45 0,6,12,18 1,15,31 * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0,15,30,45 0,6,12,18 1,15,31</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 12 * * 1-5</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 12 * * 1-5</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* * * 1,3,5,7,9,11 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>* * * 1,3,5,7,9,11</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>1,2,3,5,20-25,30-35,59 23 31 12 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>1,2,3,5,20-25,30-35,59 23 31 12</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 9 1-7 * 1</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 9 1-7 * 1</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 0 1 * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 0 1</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* 0-11 * * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>* 0-11</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* * * 1,2,3 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>* * * 1,2,3</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 0 * * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 0</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 0 * * 3</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 0 * * 3</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Существует возможность использовать шаг, указывающийся после интервала через дробь. Например,"0-23/2" может использоваться в поле часов для указания того, что действие должно происходить каждые два часа (альтернатива из старого варианта - "0,2,4,6,8,10,12,14,16,18,20,22"). Шаг может использоваться также после звездочки, для действия, происходящего через каждые четыре минуты, используйте  "*/4"</P>
+
+</BODY>
+</HTML>

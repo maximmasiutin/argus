@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Pathnames Configuration</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Pathnames configuration">
+	<PARAM NAME="Keyword" VALUE="Default Zone">
+	<PARAM NAME="Keyword" VALUE="Zone">
+</OBJECT>
+
+<H1><A NAME="idh_pn"></A>Pathnames Configuration</H1>
+
+<P>To get Argus to work correctly the user should define the paths to particular files and the <A HREF="sdii.html">Inbound</A> /<A HREF="sdo.html"> Outbound</A> directories. This can be done using the <A HREF="mnuconfig.html">Config</A> / Path Names dialogue window.</P>
+
+<P>This Chapter explains the Argus <A HREF="hd.html">Home Directory</A> and <A HREF="sd.html">Special Directories</A>.</P>
+
+<P>The <U>Home Directory</U> is the root directory of the mailing system. If there is no full path defined for a specific directory, it will be placed in the Home directory.</P>
+
+<P><U>Special Directories</U> is a <A HREF="guigrid.html">string grid</A>, paths of <A HREF="sdsi.html">Secure Inbound</A>, <A HREF="sdii.html">Insecure Inbound</A>, <A HREF="sdti.html">Temporary Inbound</A>, <A HREF="sdo.html">Outbound</A> and <A HREF="sdl.html">Log</A> directories are defined there.</P>
+
+<H2><A NAME="idht_cfgpndefzone"></A>Default Zone number configuration</H2>
+
+<P>The default Zone number is used to determine the destination of files placed in the <A HREF="sdo.html">Outbound</A> directory with the name defined in the <A HREF="sd.html">Special Directories</A> string grid. For example, if <CODE>R:\FL\OUT</CODE> is defined in the string grid as the Outbound directory and the Default Zone number is <B>2 </B>(Europe), all outbound files for Zone 2 will be stored in <CODE>R:\FL\OUT\</CODE>, all files for other zones will be stored in directories <CODE>R:\FL\OUT.XXX</CODE>  (<CODE>XXX</CODE> is hexadecimal representation of a zone number).</P>
+
+<P>See also: <A HREF="bso.html">Binkley-style Outbound</A>.</P>
+
+</BODY>
+</HTML>

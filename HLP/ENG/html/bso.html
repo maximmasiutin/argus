@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Binkley-Style Outbound</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Binkley-Style Outbound">
+	<PARAM NAME="Keyword" VALUE="Outbound, Binkley-style">
+	<PARAM NAME="Keyword" VALUE="BSY">
+	<PARAM NAME="Keyword" VALUE="REQ">
+	<PARAM NAME="Keyword" VALUE="HRQ">
+	<PARAM NAME="Keyword" VALUE="CLO">
+	<PARAM NAME="Keyword" VALUE="DLO">
+	<PARAM NAME="Keyword" VALUE="FLO">
+	<PARAM NAME="Keyword" VALUE="HLO">
+	<PARAM NAME="Keyword" VALUE="CUT">
+	<PARAM NAME="Keyword" VALUE="DUT">
+	<PARAM NAME="Keyword" VALUE="OUT">
+	<PARAM NAME="Keyword" VALUE="HUT">
+	<PARAM NAME="Keyword" VALUE="Crash">
+	<PARAM NAME="Keyword" VALUE="Direct">
+	<PARAM NAME="Keyword" VALUE="Normal">
+	<PARAM NAME="Keyword" VALUE="Hold">
+	<PARAM NAME="Keyword" VALUE="flavour">
+	<PARAM NAME="Keyword" VALUE="attach">
+</OBJECT>
+
+<H1><A NAME="idh_bso"></A>Binkley-Style Outbound</H1>
+
+<P>This chapter explains the general principles of the Binkley-style Outbound structure, used by Argus mailing system.</P>
+
+<P>Binkley-style Outbound was introduced in <I>BinkleyTerm mailing system by Bit Bucket Software</I>, soon it became a standard for the outbound section of mailing systems.</P>
+
+<P>Explained briefly, The Binkley-style Outbound is a directory structure containing outgoing packets. The outbound directory for <A HREF="pn.html#idht_cfgpndefzone">Default outbound zone</A> is the directory specified in the Outbound entry field of the <A HREF="pn.html">Directories Configuration dialogue</A>. Outbound directories for other zones are created as directories with the same name as default outbound zone directory, but the name extension of such directory is hexadecimal representation of 12-bit number of the zone. (This is the reason to limit maximal zone number with 4095, which is FFF hex).</P>
+
+<TABLE cols=2 width=506>
+
+<TR VALIGN="top">
+<TD width=25%>
+<PRE><CODE>OUTBOUND</CODE></PRE>
+</TD>
+<TD width=75%>The outbound directory for <A HREF="pn.html#idht_cfgpndefzone">Default outbound zone</A>)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>
+<PRE><CODE>OUTBOUND.001</CODE></PRE>
+</TD>
+<TD width=75%>The outbound directory for Zone number 1 (North America)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%>
+<PRE><CODE>OUTBOUND.03F</CODE></PRE>
+</TD>
+<TD width=75%>The outbound directory for Zone number 63 (3F hex)</TD>
+</TR>
+</TABLE><BR>
+
+<P>All outbound packets are divided into two groups: Mail bundles and Attachment lists. Each group has four (actually three, because Direct is equal either to Crash or to Normal - it is determined in the terms of a particular mailing system) subtypes determining the urgency of a packet: </P>
+
+<TABLE cols=5 width=515>
+
+<TR VALIGN="top">
+<TD width=19%>Subtype</TD>
+<TD width=20%>Initiates a poll</TD>
+<TD width=26%>Packet contents is transferred during outgoing connection</TD>
+<TD width=16%>Mail bundle extension</TD>
+<TD width=19%>Attachment list extension</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%><B>Crash</B></TD>
+<TD width=20%><B>yes</B></TD>
+<TD width=26%><B>yes</B></TD>
+<TD width=16%>
+<PRE><CODE>.CUT</CODE></PRE>
+</TD>
+<TD width=19%>
+<PRE><CODE>.CLO</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%><B>Direct</B></TD>
+<TD width=20%><B>yes</B></TD>
+<TD width=26%><B>yes</B></TD>
+<TD width=16%>
+<PRE><CODE>.DUT</CODE></PRE>
+</TD>
+<TD width=19%>
+<PRE><CODE>.DLO</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%><B>Normal</B></TD>
+<TD width=20%>no</TD>
+<TD width=26%><B>yes</B></TD>
+<TD width=16%>
+<PRE><CODE>.OUT</CODE></PRE>
+</TD>
+<TD width=19%>
+<PRE><CODE>.FLO</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=19%><B>Hold</B></TD>
+<TD width=20%>no</TD>
+<TD width=26%><A HREF="cfgppolls.html">depends on setup</A></TD>
+<TD width=16%>
+<PRE><CODE>.HUT</CODE></PRE>
+</TD>
+<TD width=19%>
+<PRE><CODE>.HLO</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>A Mail bundle is a standard FTS-0001 or P2K message packet, so before sending it, the system changes its name to <CODE>XXXXXXXX.PKT</CODE><B>,</B> where each <CODE>X</CODE> represents a random hexadecimal digit (usually that hexadecimal combination is actually the time of a packet creation in UNIX format, but it is not relevant in modern mailing systems).</P>
+
+<P>The Attachment list is a text file containing text lines, each of these lines contains the full path name of an outbound file. The very first character in a line may also determine the action after the target file is sent: '<CODE>^</CODE>' character placed in the beginning of a line means that the target file must be deleted, '<CODE>#</CODE>' means that the target file shall be truncated after its transfer.</P>
+
+<P>The name of each outbound packet for a node has a format <CODE>NNNNFFFF.EXT</CODE>, where <CODE>NNNN</CODE> is the hexadecimal representation of 16-bit Net number, <CODE>FFFF</CODE> is the hexadecimal representation of 16-bit Node number and EXT is the extension determining the group and subtype of the packet (see the table above). Thus, all outbound packets for node with address <CODE>469/38.0</CODE> will have names <CODE>01D50026.EXT</CODE></P>
+
+<P>Outbound packets for points are stored in sub-directories of an Outbound directory. Those directories have names of format <CODE>NNNNFFFF.PNT</CODE>, <CODE>NNNN</CODE> and <CODE>FFFF</CODE> have the same meanings as for a node's outbound packet, <CODE>.PNT</CODE><B> </B>is<B> </B>the extension symbolising that it is a point outbound. Outbound packets for points are names as <CODE>0000PPPP.EXT</CODE>, <CODE>PPPP</CODE> is the hexadecimal representation of 16-bit Point number and <CODE>EXT</CODE> is the extension determining the group and subtype of the packet (see the table above). Thus, point 25 of node 469/38 (<B>469/38.25</B>) will have outbound packets named <CODE>00000019.EXT</CODE> placed in the sub-directory <CODE>01D50026.PNT\</CODE><B> </B>of an appropriate outbound directory.</P>
+
+<P>There are some additional Binkley-style extensions, supported by Argus:</P>
+
+<TABLE cols=2 width=291>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>.BSY</CODE></PRE>
+</TD>
+<TD width=82%>Indicates that the node is busy</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>.REQ</CODE></PRE>
+</TD>
+<TD width=82%>List of file to request from remote</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=18%>
+<PRE><CODE>.HRQ</CODE></PRE>
+</TD>
+<TD width=82%>List of files, requested by remote</TD>
+</TR>
+</TABLE><BR>
+
+<P>Argus has an ability to open .BSY-files without DELETE_ON_CLOSE mode. Files will be deleting using DeleteFile command. This may be useful on some network file system which don't support DELETE_ON_CLOSE mode. To turn this option on, add the following registry value:</P>
+
+<PRE><CODE>[HKEY_LOCAL_MACHINE\SOFTWARE\RIT\ARGUS\CurrentVersion\IniFile.ini]
+"SimpleBSY"=dword:00000001</CODE></PRE>
+
+<P>Outbound <A HREF="smartmenu.html">SmartMenu</A> is a powerful tool provided for Binkley-style Outbound operation.</P>
+
+</BODY>
+</HTML>

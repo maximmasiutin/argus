@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Special TCP/IP Nodelist flags</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="TCP">
+	<PARAM NAME="Keyword" VALUE="IFC">
+	<PARAM NAME="Keyword" VALUE="TEL">
+	<PARAM NAME="Keyword" VALUE="BND">
+</OBJECT>
+
+<H1><A NAME="idh_cfgipflg"></A>Special TCP/IP Nodelist flags</H1>
+
+<TABLE cols=2 width=637>
+
+<TR VALIGN="top">
+<TD width=20%><CODE>TCP</CODE></TD>
+<TD width=80%>Accordingly to IP Nodelist standard (which is used in regions 46, 50 of zone 2), this flag is required to show that node is able to receive incoming TCP/IP connections. Argus may ignore the absence of this flag - using of IP-address instead of 'phone number is enough.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><CODE>IFC</CODE></TD>
+<TD width=80%><A HREF="row.html">Raw</A> (ifcifo) (the default port number is 60179)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><CODE>TEL</CODE> or <CODE>TELNET</CODE></TD>
+<TD width=80%><A HREF="telnet.html">Telnet</A> (the default port number is 23)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><CODE>BND</CODE> or <CODE>BINKD</CODE></TD>
+<TD width=80%><A HREF="binkp.html">BinkP</A> (the default port number is 24554)</TD>
+</TR>
+</TABLE><BR>
+
+<P>There are also special flags, described in <A HREF="cfgnodes.html">Node Overrides section</A>.</P>
+
+</BODY>
+</HTML>

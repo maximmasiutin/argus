@@ -1,0 +1,108 @@
+:Base ArgusEng
+:Title Argus
+1 Introducing Argus
+2 What is Argus?=IDH_INTRO
+2 True Multitasking Using Win32 API=IDH_INTRONATIVE
+2 Multi-line Mailing System=IDH_INTROMULTI
+2 Extended TCP/IP Support=IDH_INTROTCP
+2 FTN Standards Supported=IDH_OFTN
+2 Working Time Nodelist Flag (FSC-0062)=IDH_OFTNONLINE
+2 Calling a Node Only Within its Working Time=IDH_CFGREFOL
+2 Binkley-Style Outbound=IDH_BSO
+1 The Argus Environment
+2 The Argus Environment=IDH_ENV
+2 Extened Graphical User Interface Elements
+3 Extened Graphical User Interface Elements=IDH_GUI
+3 String Grids=IDH_GUIGRID
+3 Log Window=IDH_GUILOG
+3 Modem Activity Indicators=IDH_GUITERM
+3 Transfer Progress Indicator=IDH_GUIPIE
+3 Connection Information Panel=IDH_GUISTATINFO
+3 Outbound SmartMenu(tm)=IDH_SMARTMENU
+2 Poll Manager
+3 Poll Manager=IDH_POLLMGR
+2 Mailer Window
+3 Mailer Window=IDH_MLRD
+3 Timeout Panel=IDH_TIMEOUT
+2 Main Menu
+3 Main Menu=IDH_MNU
+3 System Submenu=IDH_MNUSYSTEM
+3 Line Submenu=IDH_MNULINE
+3 Poll Submenu=IDH_MNUPOLL
+3 Tool Sumbenu=IDH_MNUTOOL
+3 Config Submenu=IDH_MNUCONFIG
+3 Help Submenu=IDH_MNUHELP
+1 Argus Configuration
+2 Argus Configuration=IDH_7
+2 Node Inspector
+3 Node Inspector=IDH_NODEINSP
+2 Pathnames Configuration
+3 Pathnames Configuration=IDH_PN
+3 Special Directories=IDH_SD
+3 File Request Configuration=IDH_CFGFILEREQUESTS
+3 File-Boxes=IDH_FILEBOXES
+3 File-Flags=IDH_FILEFLAGS
+2 The Mail System-Specific Configuration Dialogues
+3 The Mail System-Specific Configuration Dialogues=IDH_CFGBASES
+3 Nodelist Configuration=IDH_CFGNODELIST
+3 Password Configuration=IDH_CFGPASSWORDS
+3 Startup Configuration=IDH_CFGSTARTUP
+3 Extended Logging=IDH_LOGS
+3 ODBC Logging=IDH_ODBCLOG
+2 Configuration of Dial-up Connections
+3 Configuration of Dial-up Connections=IDH_CFGDIALUP
+3 Main Dial-up Configuration Panel=IDH_CFGDIALUPWIN
+3 Mailer Line Configuration=IDH_CFGMLRLINE
+3 EMSI Data Configuration=IDH_CFGEMSI
+3 Communication Ports Configuration=IDH_CFGSERIAL
+3 Line Bits Setup=IDH_CFGLINEBITS
+3 Modem Configuration=IDH_CFGMODEM
+3 Modem Control Characters=IDH_MODEMCTLCHARS
+3 Fax Reception=IDH_FAX
+3 Dialling Restriction Schemes=IDH_CFGREST
+3 Node Overrides Table=IDH_CFGNODES
+2 TCP/IP Configuration
+3 TCP/IP Configuration=IDH_CFGIP
+3 TCP/IP Daemon=IDH_INTRODAEMON
+3 TCP/IP Daemon Configuration=IDH_CFGIPDAEMON
+3 Special TCP/IP Nodelist Flags=IDH_CFGIPFLG
+2 Polls
+3 Polls=IDH_CFGPPOLLS
+2 Cron Format
+3 Cron Format=IDH_CRON
+2 Regular Expressions
+3 Where to Use Regular Expressions=IDH_REGEXP
+3 Regular Expressions in Details
+4 Regular Expressions in Details=IDH_REGEXPADVANCED
+4 Meta-Characters=IDH_REAMETA
+4 Backslash=IDH_REABACKSLASH
+4 Circumflex and Dollar=IDH_REACIRCDOLLAR
+4 Full Stop (Period, Dot)=IDH_REAFULLSTOP
+4 Square Brackets=IDH_REASQBRACK
+4 Vertical Bar=IDH_REAVERTBAR
+4 Internal Option Setting=IDH_REAINTOPT
+4 Subpatterns=IDH_REASUBPATT
+4 Repetition=IDH_REAREPET
+4 Back References=IDH_REGEXPADVBACKREF
+4 Assertions=IDH_REAASSERT
+4 Once-Only Subpatterns=IDH_REAOOSUBP
+4 Conditional Subpatterns=IDH_REACONDSUBP
+4 Comments=IDH_REACOMMENTS
+4 Performance=IDH_REAPERFORM
+4 Limitiations=IDH_REALIMIT
+4 Differences From Perl=IDH_READIFFPERL
+2 Events
+3 Events=IDH_CFGEVENTS
+3 Atoms=IDH_ATOMS
+2 External Applications
+3 External Applications Configuration=IDH_CFGEXTERNAL
+3 PostProcessors=IDH_CFGEXTPP
+3 Doors=IDH_CFGEXTSVC
+3 Reriodically-Launching Applications=IDH_CFGEXTCRON
+2 Security Issues
+3 Protecting Argus Configuration=IDH_MASTPWD
+3 Encrypted BinkP session=IDH_BINKPENC
+3 CRAM-MD5=IDH_CRAMMD5
+2 Importing Configuration Data
+3 Import Password=IDH_IMPORTPWD
+3 Import Nodes=IDH_IMPORTNODES

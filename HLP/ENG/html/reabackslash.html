@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Backslash</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_reabackslash"></A>Backslash</H1>
+
+<P>The backslash character has several uses. Firstly, if it is followed by a non-alphameric character, it takes away any special meaning that character may have. This use of backslash as an escape character applies both inside and outside character classes.</P>
+
+<P>For example, if you want to match a "*" character, you write "\*" in the pattern. This applies whether or not the following character would otherwise be interpreted as a meta-character, so it is always safe to precede a non-alphameric with "\" to specify that it stands for itself. In particular, if you want to match a backslash, you write "\\".</P>
+
+<P>If a pattern is compiled with the PCRE_EXTENDED option, whitespace in the pattern (other than in a character class) and characters between a "#" outside a character class and the next newline character are ignored. An escaping backslash can be used to include a whitespace or "#" character as part of the pattern.</P>
+
+<P>A second use of backslash provides a way of encoding non-printing characters in patterns in a visible manner. There is no restriction on the appearance of non-printing characters, apart from the binary zero that terminates a pattern, but when a pattern is being prepared by text editing, it is usually easier to use one of the following escape sequences than the binary character it represents:</P>
+
+<TABLE cols=2 width=351>
+
+<TR VALIGN="top">
+<TD width=13%>\a</TD>
+<TD width=87%>alarm, that is, the BEL character (hex 07)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\cx</TD>
+<TD width=87%>"control-x", where x is any character</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\e</TD>
+<TD width=87%>escape (hex 1B)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\f</TD>
+<TD width=87%>formfeed (hex 0C)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\n</TD>
+<TD width=87%>newline (hex 0A)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\r</TD>
+<TD width=87%>carriage return (hex 0D)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\t</TD>
+<TD width=87%>tab (hex 09)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\xhh</TD>
+<TD width=87%>character with hex code hh</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=13%>\ddd</TD>
+<TD width=87%>character with octal code ddd, or backreference</TD>
+</TR>
+</TABLE><BR>
+
+<P>The precise effect of "\cx" is as follows: if "x" is a lower case letter, it is converted to upper case. Then bit 6 of the character (hex 40) is inverted. Thus "\cz" becomes hex 1A, but "\c{" becomes hex 3B, while "\c;" becomes hex 7B.</P>
+
+<P>After "\x", up to two hexadecimal digits are read (letters can be in upper or lower case).</P>
+
+<P>After "\0" up to two further octal digits are read. In both cases, if there are fewer than two digits, just those that are present are used. Thus the sequence "\0\x\07" specifies two binary zeros followed by a BEL character. Make sure you supply two digits after the initial zero if the character that follows is itself an octal digit.</P>
+
+<P>The handling of a backslash followed by a digit other than 0 is complicated. Outside a character class, PCRE reads it and any following digits as a decimal number. If the number is less than 10, or if there have been at least that many previous capturing left parentheses in the expression, the entire sequence is taken as a <B>back reference</B>. A description of how this works is given later, following the discussion of parenthesized subpatterns.</P>
+
+<P>Inside a character class, or if the decimal number is greater than 9 and there have not been that many capturing subpatterns, PCRE re-reads up to three octal digits following the backslash, and generates a single byte from the least significant 8 bits of the value. Any subsequent digits stand for themselves. For example:</P>
+
+<TABLE cols=2 width=607>
+
+<TR VALIGN="top">
+<TD width=9%>\040</TD>
+<TD width=91%>is another way of writing a space</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\40</TD>
+<TD width=91%>is the same, provided there are fewer than 40 previous capturing subpatterns</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\7</TD>
+<TD width=91%>is always a back reference</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\11</TD>
+<TD width=91%>might be a back reference, or another way of writing a tab</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\011</TD>
+<TD width=91%>is always a tab</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\0113</TD>
+<TD width=91%>is a tab followed by the character "3"</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\113</TD>
+<TD width=91%>is the character with octal code 113 (since there can be no more than 99 back references)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\377</TD>
+<TD width=91%>is a byte consisting entirely of 1 bits</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=9%>\81</TD>
+<TD width=91%>is either a back reference, or a binary zero followed by the two characters "8" and "1"</TD>
+</TR>
+</TABLE><BR>
+
+<P>Note that octal values of 100 or greater must not be introduced by a leading zero, because no more than three octal digits are ever read.</P>
+
+<P>All the sequences that define a single byte value can be used both inside and outside character classes. In addition, inside a character class, the sequence "\b" is interpreted as the backspace character (hex 08). Outside a character class it has a different meaning (see below).</P>
+
+<P>The third use of backslash is for specifying generic character types:</P>
+
+<TABLE cols=2 width=343>
+
+<TR VALIGN="top">
+<TD width=11%>\d</TD>
+<TD width=89%>any decimal digit</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>\D</TD>
+<TD width=89%>any character that is not a decimal digit</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>\s</TD>
+<TD width=89%>any whitespace character</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>\S</TD>
+<TD width=89%>any character that is not a whitespace character</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>\w</TD>
+<TD width=89%>any "word" character</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>\W</TD>
+<TD width=89%>any "non-word" character</TD>
+</TR>
+</TABLE><BR>
+
+<P>Each pair of escape sequences partitions the complete set of characters into two disjoint sets. Any given character matches one, and only one, of each pair.</P>
+
+<P>A "word" character is any letter or digit or the underscore character, that is, any character which can be part of a Perl "word". The definition of letters and digits is controlled by PCRE's character tables, and may vary if locale- specific matching is taking place (see "Locale support" above). For example, in the "fr" (French) locale, some character codes greater than 128 are used for accented letters, and these are matched by \w.</P>
+
+<P>These character type sequences can appear both inside and outside character classes. They each match one character of the appropriate type. If the current matching point is at the end of the subject string, all of them fail, since there is no character to match.</P>
+
+<P>The fourth use of backslash is for certain simple assertions. An assertion specifies a condition that has to be met at a particular point in a match, without consuming any characters from the subject string. The use of subpatterns for more complicated assertions is described below. The backslashed assertions are </P>
+
+<TABLE cols=2 width=435>
+
+<TR VALIGN="top">
+<TD width=7%>\b</TD>
+<TD width=93%>word boundary</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=7%>\B</TD>
+<TD width=93%>not a word boundary</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=7%>\A</TD>
+<TD width=93%>start of subject (independent of multiline mode)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=7%>\Z</TD>
+<TD width=93%>end of subject or newline at end (independent of multiline mode)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=7%>\z</TD>
+<TD width=93%>end of subject (independent of multiline mode)</TD>
+</TR>
+</TABLE><BR>
+
+<P>These assertions may not appear in character classes (but note that "\b" has a different meaning, namely the backspace character, inside a character class).</P>
+
+<P>A word boundary is a position in the subject string where the current character and the previous character do not both match \w or \W (i.e. one matches \w and the other matches \W), or the start or end of the string if the first or last character matches \w, respectively.</P>
+
+<P>The \A, \Z, and \z assertions differ from the traditional circumflex and dollar (described below) in that they only ever match at the very start and end of the subject string, whatever options are set. They are not affected by the PCRE_NOTBOL or PCRE_NOTEOL options. The difference between \Z and \z is that \Z matches before a newline that is the last character of the string as well as at the end of the string, whereas \z matches only at the end.</P>
+
+</BODY>
+</HTML>

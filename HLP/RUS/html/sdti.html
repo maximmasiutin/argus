@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<P><A NAME="idh_sdti"></A><U>Temporary inbound</U> - в этом каталоге создаются файлы, находящиеся в стадии приема. После успешного завершения файл переносится в <A HREF="sdsi.html">Secure Inbound</A> или <A HREF="sdii.html">Insecure inbound</A>или в <A HREF="fileboxes.html">файл-бокс</A>.</P>
+
+<P>Если файл с таким именем уже существует в Inbound, то новый будет храниться здесь до тех пор, пока старый не будет удален или перенесен вследствие обработки другой программой. Если сеанс обрывается в момент приема файла, принятая часть будет сохранена здесь, чтобы впоследствии принимать этот файл не с начала, а с сохраненной позиции.</P>
+
+<P>Для надежности работы, переданные файлы перемещаются из Temporary Inbound в Secure/Insecure Inbound или в <A HREF="fileboxes.html">файл-бокс</A> путем операции "переименовать", а не "скопировать и удалить", поэтому оба каталога (исходный и назначения) должны находиться на одном томе или физическом диске.</P>
+
+<P>См. также <A HREF="sd.html">Special Directories</A>.</P>
+
+</BODY>
+</HTML>

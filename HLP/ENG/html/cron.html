@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Cron</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Cron Format">
+	<PARAM NAME="Keyword" VALUE="Format Cron">
+	<PARAM NAME="Keyword" VALUE="Minute">
+	<PARAM NAME="Keyword" VALUE="Hour">
+	<PARAM NAME="Keyword" VALUE="Day">
+	<PARAM NAME="Keyword" VALUE="Month">
+	<PARAM NAME="Keyword" VALUE="DayOfWeek">
+</OBJECT>
+
+<H1><A NAME="idh_cron"></A>Cron Format</H1>
+
+<P>Cron format is a simple but powerful way of describing periods.</P>
+
+<P>Format</P>
+
+<PRE></PRE>
+
+<TABLE cols=3 width=414>
+
+<TR VALIGN="top">
+<TD width=22%>
+<PRE><CODE>* * * * *</CODE></PRE>
+</TD>
+<TD width=10%><B>or</B></TD>
+<TD width=68%>
+<PRE><CODE>Minute Hour Day Month DayOfWeek</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<TABLE cols=2 width=461>
+
+<TR VALIGN="top">
+<TD width=20%>&nbsp;</TD>
+<TD width=80%><B>Range</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>Minute</TD>
+<TD width=80%>
+<PRE><CODE>0-59</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>Hour</TD>
+<TD width=80%>
+<PRE><CODE>0-23</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>Day</TD>
+<TD width=80%>
+<PRE><CODE>1-31</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>Month</TD>
+<TD width=80%>
+<PRE><CODE>1-12</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%>DayOfWeek</TD>
+<TD width=80%><CODE>1-7</CODE> (<CODE>1</CODE> = Monday, <CODE>2</CODE> = Tuesday, ..., <CODE>7</CODE> = Sunday)</TD>
+</TR>
+</TABLE><BR>
+
+<P>You can also use a list of values, separated by commas e.g. "<CODE>1,3,7</CODE>", or using dash character to specify a range “<CODE>1-5</CODE>”. You can also specify an asterisk character - it defines a full range of values.</P>
+
+<P>The item runs only if all criterias are fulfilled.</P>
+
+<P>Examples:</P>
+
+<TABLE cols=2 width=622>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* * * * *</CODE></PRE>
+</TD>
+<TD width=54%>Every minute.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>59 23 31 12 5</CODE></PRE>
+</TD>
+<TD width=54%>One minute before year's end, and only if the last day is a Friday.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>45 17 7 6 *</CODE></PRE>
+</TD>
+<TD width=54%>Every year at 17:45 on June 7th.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0,15,30,45 0,6,12,18 1,15,31 * *</CODE></PRE>
+</TD>
+<TD width=54%>On every full quarter of an hour at midnight, 6 in the morning, noon, 6 in the evening on the 1st, 15th and 31st of   every month on weekdays only.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 12 * * 1-5</CODE></PRE>
+</TD>
+<TD width=54%>At noon on every day, if it is a weekday.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* * * 1,3,5,7,9,11 *</CODE></PRE>
+</TD>
+<TD width=54%>Every minute in January, March, May, July, September and November.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>1,2,3,5,20-25,30-35,59 23 31 12 *</CODE></PRE>
+</TD>
+<TD width=54%>At the last day of the year at 23:01, 23:02, 23:03, 23:05, 23:20, 23:21, 23:22, 23:23, 23:24, 23:25, 23:30, 23:31, 23:32, 23:33, 23:34, 23:35, 23:59.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 9 1-7 * 1</CODE></PRE>
+</TD>
+<TD width=54%>On every first Monday of a month, at 9 o'clock in the morning.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 0 1 * *</CODE></PRE>
+</TD>
+<TD width=54%>At midnight on every month.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* 0-11 * * *</CODE></PRE>
+</TD>
+<TD width=54%>Every minute till midnight.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>* * * 1,2,3 *</CODE></PRE>
+</TD>
+<TD width=54%>Every minute in January, February, March only!</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 0 * * *</CODE></PRE>
+</TD>
+<TD width=54%>Execute every day at midnight.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>
+<PRE><CODE>0 0 * * 3</CODE></PRE>
+</TD>
+<TD width=54%>Every Wednesday at midnight!</TD>
+</TR>
+</TABLE><BR>
+
+<P>Removing rightmost asterisks can shorten Cron string:</P>
+
+<TABLE cols=2 width=565>
+
+<TR VALIGN="top">
+<TD width=51%>Full notation</TD>
+<TD width=49%>Shortened notation</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* * * * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>59 23 31 12 5</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>59 23 31 12 5</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>45 17 7 6 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>45 17 7 6</CODE>
+<PRE></PRE>
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0,15,30,45 0,6,12,18 1,15,31 * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0,15,30,45 0,6,12,18 1,15,31</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 12 * * 1-5</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 12 * * 1-5</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* * * 1,3,5,7,9,11 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>* * * 1,3,5,7,9,11</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>1,2,3,5,20-25,30-35,59 23 31 12 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>1,2,3,5,20-25,30-35,59 23 31 12</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 9 1-7 * 1</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 9 1-7 * 1</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 0 1 * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 0 1</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* 0-11 * * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>* 0-11</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>* * * 1,2,3 *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>* * * 1,2,3</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 0 * * *</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 0</CODE></PRE>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=51%>
+<PRE><CODE>0 0 * * 3</CODE></PRE>
+</TD>
+<TD width=49%>
+<PRE><CODE>0 0 * * 3</CODE></PRE>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>Cron step values can be used in conjunction with ranges. Following a range with "/&lt;number&gt;" specifies skips of the number's value through the range. For example, "0-23/2" can be used in the hours field to specify command execution every other hour (the alternative of previous standard is "0,2,4,6,8,10,12,14,16,18,20,22"). Steps are also permitted after an asterisk, so if you want to say "every two hours", just use "*/2".</P>
+
+</BODY>
+</HTML>

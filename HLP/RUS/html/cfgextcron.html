@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_cfgextcron"></A>Периодически запускаемые приложения</H1>
+
+<P>Аргус имеет возможность периодического запуска внешних приложений и выполнения команд системного интерпретатора (Advanced/Externals/Cron)</P>
+
+<P>Внимание - выполнения команд системного интерпретатора возможно только для версии Аргус под Windows NT. Под Windows 95 возможен только запуск EXE-приложений и BAT-файлов. BAT-файлы под Windows 95 запускаются следующим способом: <CODE>c:\windows\command.com /C myfile.bat</CODE>.</P>
+
+<P>Символ '?' перед командой/именем файла в строке String to Execute сообщает системе Аргус о том, что процесс должен быть запущен в скрытом режиме, а ‹??› - в DETACHED_MODE (без использования консоли). В отличии от ‹?›, флаг ‹??› можно использовать только для Win32-консольных приложений. Попытка запуска DETACHED Win3.1 или DOS-приложения вызовет ошибку.</P>
+
+<P>Процессы могут быть запущены с определенным уровнем приоритета:</P>
+
+<TABLE cols=2 width=637>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&lt;</CODE></PRE>
+</TD>
+<TD width=94%>запустить с низким приоритетом (IDLE_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>+</CODE></PRE>
+</TD>
+<TD width=94%>запустить с высоким приоритетом (HIGH_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>*</CODE></PRE>
+</TD>
+<TD width=94%>запустить с критическим приоритетом (REALTIME_PRIORITY_CLASS)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=6%>
+<PRE><CODE>&gt;</CODE></PRE>
+</TD>
+<TD width=94%>вместо запуска приложения установить файл-флаг с именем, следующим за '&gt;'.</TD>
+</TR>
+</TABLE><BR>
+
+<P>По умолчанию процессы запускаются с нормальным приоритетом (NORMAL_PRIORITY_CLASS).</P>
+
+<P>Cм. также <A HREF="cron.html">описание формата Cron</A>.</P>
+
+</BODY>
+</HTML>

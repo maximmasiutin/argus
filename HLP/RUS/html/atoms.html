@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_atoms"></A>Атомы</H1>
+
+<P>Атом - это частица события, влияющая на один параметр конкретной линии, к которой событие привязано. Событие привязывается к линии и служит для изменения ее параметров.</P>
+
+<P>Так, например, для изменения строки инициализации модема и строки необходимых условий прозвонки, событие, привязанное к линии, должно содержать два атома - атом замены строки инициализации модема и атом замены строки необходимых условий прозвонки.</P>
+
+<P>В текущей версии поддерживаются следующие типы атомов:</P>
+
+<TABLE cols=2 width=754>
+
+<TR VALIGN="top">
+<TD width=28%><B>Modem Command Init</B></TD>
+<TD width=72%><U>Командная строка инициализации модема</U>.
+<P>Обычно используется для запрещения включения динамика  модема в ночное время, либо для установки определенных протоколов по часовому расписанию.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Modem Command Answer</B></TD>
+<TD width=72%><U>Командная строка ответа модема на входящий звонок</U>.
+<P>Обычно используется для установки соединения требуемых протоколов в определенное время.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Modem Command Prefix</B></TD>
+<TD width=72%><U>Префикс командной строки модема набора номера</U>.
+<P>Обычно используется для установки определенных протоколов для исходящих соединений. А также для работы через внутренние мини-АТС в ночном режиме.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Modem Command Suffix</B></TD>
+<TD width=72%><U>Суффикс командной строки модема набора номера</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Modem Command Hangup</B></TD>
+<TD width=72%><U>Командная строка модема для отсоединения</U>.
+<P>Этот атом обычно применяется вместе с атомом Modem Command Init.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Modem Disable Reinit</B></TD>
+<TD width=72%><U>Запретить регулярную инициализацию модема</U>. Этот атом не разрешает инициализировать модем, находящийся в режиме ожидания. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Restriction Required</B>
+<h2>Restriction Forbidden</h2>
+</TD>
+<TD width=72%><U>Строки необходимых/запрещенных условий прозвонок</U>.
+<P>Применяются для учета различной тарификации звонков в зависимости от времени суток, для учета особенности работы узлов (например, не работающих по праздникам).</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Replace Station</B></TD>
+<TD width=72%><U>Замена всех установок станции, конфигурируемых в </U><A HREF="mnuconfig.html">Config</A><U> / Dialup / Station</U>.
+<P>Обычно используется на узлах, выполняющих разные функции в разное время.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Replace Modem</B></TD>
+<TD width=72%><U>Замена всех установок модема, конфигурируемых в </U><A HREF="mnuconfig.html">Config</A><U> /Dialup / Modems</U>.
+<P>Чаще всего применяется, когда модем обслуживает разные протоколы в зависимости от времени суток. При этом порт остается неизменным.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Replace Restriction</B></TD>
+<TD width=72%><U>Замена схемы ограничения прозвонок, конфигурируемой в </U><A HREF="mnuconfig.html">Config</A><U> / Dialup / Restrictions</U>.
+<P>Применяется вместо двух атомов Restriction Required и Restriction Forbidden.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Files Required</B>
+<h2>Accept Files Forbidden</h2>
+</TD>
+<TD width=72%><U>Файлы допустимые к приему / запрещенные для приема</U>.
+<P>Чаще всего используется для запрещения в ZMH приема других файлов, кроме FTSC-0001-пакетов</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Nodes Required</B>
+<h2>Accept Nodes Forbidden</h2>
+</TD>
+<TD width=72%><U>Узлы допустимые к приему / запрещенные для приема</U>.
+<P>Может использоваться на хабах для распределения суточной нагрузки.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Nodes Only Pwd-Prot</B></TD>
+<TD width=72%><U>Прерывать непарольные входящие сеансы</U>. Этот атом не влияет на исходящие сеансы.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Link Required</B>
+<h2>Accept Link Forbidden</h2>
+</TD>
+<TD width=72%><U>Протоколы соединения, допустимые к приему / запрещенные для приема</U>.
+<P>Протоколы перечисляются через пробел.</P>
+
+<P>Например, HST ARQ.</P>
+
+<P>Используется для запрещения соединения без коррекции ошибок в определенное время.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Speed Min</B></TD>
+<TD width=72%><U>Минимально допустимая скорость входящих соединений</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Transmit Speed Min</B></TD>
+<TD width=72%><U>Минимально допустимая скорость исходящих соединений</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FReq Disable</B></TD>
+<TD width=72%><U>Запретить отработку файловых запросов</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FReq Count Public</B></TD>
+<TD width=72%><U>Ограничение запрашиваемых файлов по числу, для непарольных сеансов связи</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FReq Count Pwd-Prot</B></TD>
+<TD width=72%><U>Ограничение запрашиваемых файлов по числу, для парольных сеансов связи</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FReq Duration Public</B></TD>
+<TD width=72%><U>Ограничение запрашиваемых файлов по длительности сеанса связи, для непарольных сеансов связи</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FReq Duration Pwd-Prot</B></TD>
+<TD width=72%><U>Ограничение запрашиваемых файлов по длительности сеанса связи, для парольных сеансов связи</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FReq Size Public</B></TD>
+<TD width=72%><U>Ограничение запрашиваемых файлов по суммарному размеру, для непарольных сеансов связи</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FReq Size Pwd-Prot</B></TD>
+<TD width=72%><U>Ограничение запрашиваемых файлов по суммарному размеру, для парольных сеансов связи</U></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Nodes Only Pwd-Prot</B></TD>
+<TD width=72%><U>Допускать к приему только парольные узлы, для непарольных сеансов связи.</U> Если во время действия этого атома непарольный узел попытается установить сеанс связи, произойдет отсоединение.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Transmit Files Forbidden</B></TD>
+<TD width=72%><U>Файлы, запрещенные для передачи</U>. Этот атом не распространяется на файлы с приоритетом Crash, а также на файлы, присоединенные обработчиком файловых запросов.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Transmit Files Required</B></TD>
+<TD width=72%><U>Файлы допустимые к передаче</U>. Этот атом не распространяется на файлы с приоритетом Crash, а также на файлы, присоединенные обработчиком файловых запросов.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Rings</B></TD>
+<TD width=72%><U>Число звонков перед поднятием трубки для ответа модемом</U>.
+<P>(0=запрет поднятия трубки)</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Niagara Disabled</B>
+<h2>Transmit Niagara Disabled</h2>
+</TD>
+<TD width=72%><U>Предотвращает использование протокола Niagara</U>. Этот протокол используется протоколом <A HREF="binkp.html">BinkP</A> (и <A HREF="binkpenc.html">шифрованным BinkP</A>) на модемных соединениях.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Hydra Disabled</B>
+<h2>Transmit Hydra Disabled</h2>
+</TD>
+<TD width=72%><U>Предотвращает использование протокола </U><A HREF="oftnhydra.html">Hydra</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept ZModem Disabled</B>
+<h2>Transmit ZModem Disabled</h2>
+</TD>
+<TD width=72%><U>Предотвращает использование протокола </U><A HREF="oftnwazoo.html">ZModem</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept FTS-0001 Disabled</B></TD>
+<TD width=72%><U>Предотвращает использование протокола FTS-0001</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept No Incoming</B></TD>
+<TD width=72%><U>Не принимать входящие соединения</U>. Во время активности этого атома, коммуникационный порт используется только для выходных звонков. В остальное время порт является доступным другим приложениям.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept YooHoo Disabled</B>
+<h2>Transmit YooHoo Disabled</h2>
+</TD>
+<TD width=72%><U>Предотвращает использование протокола YooHoo</U>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept EMSI Disabled</B>
+<h2>Transmit EMSI Disabled</h2>
+</TD>
+<TD width=72%><U>Предотвращает использование протокола </U><A HREF="oftnemsi.html">EMSI</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Door</B></TD>
+<TD width=72%><U>Дополнительное приложение-сервис</U>. Добавляет дополнительный сервис, который будет использоваться в дополнении к указанным в <A HREF="cfgextsvc.html">Config/External/Doors</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Password</B></TD>
+<TD width=72%><U>Дополнительный пароль</U>. Добавляет дополнительный пароль, который будет учитываться в дополнении к указанным в <A HREF="cfgpasswords.html">Config/Passwords</A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%><B>Accept Dummy-Z Disabled</B>
+<h2>Transmit Dummy-Z Disabled</h2>
+</TD>
+<TD width=72%><U>Запретить передачу пустого пакета на </U><A HREF="oftnwazoo.html">ZModem</A>. Если этот атом не активен (по умолчанию), в случае отсутствия файлов для передачи, на протоколе ZModem будет передан пустой PKT-файл. Передача такого файла является мерой обеспечения нормального проведения сеанса ZModem.</TD>
+</TR>
+</TABLE><BR>
+
+<P>См. также:
+
+<UL>
+	<LI><A HREF="cfgevents.html">События</A><BR><BR></LI>
+
+	<LI><A HREF="pollmgr.html">Менеджер прозвонок</A><BR><BR></LI>
+
+	<LI><A HREF="7.html">Конфигурируем Аргус</A></LI>
+</UL>
+
+</BODY>
+</HTML>

@@ -1,0 +1,7 @@
+#include "lngc.inc" 
+#include "cconst.inc" 
+#include "fconst.inc" 
+                        
+#include "english.rc"   
+#include "eng_frm.rc"
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1251">
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+</OBJECT>
+
+<H1><A NAME="idh_modemctlchars"></A>Управляющие символы модема</H1>
+
+<P>Интерпретация спецсимволов команд модема, используемых в <U>сетке</U> ввода строк Commands диалогового окна <A HREF="cfgmodem.html">Modem Configuration</A></P>
+
+<TABLE cols=3 width=601>
+
+<TR VALIGN="top">
+<TD width=11%>Символ</TD>
+<TD width=11%>Код</TD>
+<TD width=78%>Действие</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>`</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>60</CODE></PRE>
+</TD>
+<TD width=78%>задержка 0.1 сек</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>~</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>7E</CODE></PRE>
+</TD>
+<TD width=78%>задержка 0.5 сек</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>^</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>5E</CODE></PRE>
+</TD>
+<TD width=78%>поднять DTR</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>v</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>76</CODE></PRE>
+</TD>
+<TD width=78%>опустить DTR</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>|</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>7C</CODE></PRE>
+</TD>
+<TD width=78%>послать CR (<CODE>0D</CODE>) и ждать от модема ответа OK с таймаутом 3 сек</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>!</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>21</CODE></PRE>
+</TD>
+<TD width=78%>послать CR без ожидания</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=11%>
+<PRE><CODE>\</CODE></PRE>
+</TD>
+<TD width=11%>
+<PRE><CODE>5C</CODE></PRE>
+</TD>
+<TD width=78%>послать следующий символ как есть (без интерпретации как специальный).
+<P>Например, <CODE>\~</CODE>  -  послать тильду</P>
+</TD>
+</TR>
+</TABLE><BR>
+
+<P>См. также <A HREF="asyncflow.html">Контроль потока данных</A></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Assertions</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<H1><A NAME="idh_reaassert"></A>Assertions</H1>
+
+<P>An assertion is a test on the characters following or preceding the current matching point that does not actually consume any characters. The simple assertions coded as \b, \B, \A, \Z, \z, ^ and $ are described above. More complicated assertions are coded as subpatterns. There are two kinds: those that look ahead of the current position in the subject string, and those that look behind it.</P>
+
+<P>An assertion subpattern is matched in the normal way, except that it does not cause the current matching position to be changed. Lookahead assertions start with (?= for positive assertions and (?! for negative assertions. For example, </P>
+
+<P>\w+(?=;)</P>
+
+<P>matches a word followed by a semicolon, but does not include the semicolon in the match, and</P>
+
+<P>foo(?!bar)</P>
+
+<P>matches any occurrence of "foo" that is not followed by "bar". Note that the apparently similar pattern</P>
+
+<P>(?!foo)bar</P>
+
+<P>does not find an occurrence of "bar" that is preceded by something other than "foo"; it finds any occurrence of "bar" whatsoever, because the assertion (?!foo) is always true when the next three characters are "bar". A lookbehind assertion is needed to achieve this effect.</P>
+
+<P>Lookbehind assertions start with (?&lt;= for positive assertions and (?&lt;! for negative assertions. For example,</P>
+
+<P>(?&lt;!foo)bar</P>
+
+<P>does find an occurrence of "bar" that is not preceded by "foo". The contents of a lookbehind assertion are restricted such that all the strings it matches must have a fixed length. However, if there are several alternatives, they do not all have to have the same fixed length. Thus</P>
+
+<P>(?&lt;=bullock|donkey)</P>
+
+<P>is permitted, but</P>
+
+<P>(?&lt;!dogs?|cats?)</P>
+
+<P>causes an error at compile time. Branches that match different length strings are permitted only at the top level of a lookbehind assertion. This is an extension compared with Perl 5.005, which requires all branches to match the same length of string. An assertion such as</P>
+
+<P>(?&lt;=ab(c|de))</P>
+
+<P>is not permitted, because its single top-level branch can match two different lengths, but it is acceptable if rewritten to use two top-level branches:</P>
+
+<P>(?&lt;=abc|abde)</P>
+
+<P>The implementation of lookbehind assertions is, for each alternative, to temporarily move the current position back by the fixed width and then try to match. If there are insufficient characters before the current position, the match is deemed to fail. Lookbehinds in conjunction with once-only subpatterns can be particularly useful for matching at the ends of strings; an example is given at the end of the section on once-only subpatterns.</P>
+
+<P>Several assertions (of any sort) may occur in succession. For example,</P>
+
+<P>(?&lt;=\d{3})(?&lt;!999)foo</P>
+
+<P>matches "foo" preceded by three digits that are not "999". Furthermore, assertions can be nested in any combination. For example,</P>
+
+<P>(?&lt;=(?&lt;!foo)bar)baz</P>
+
+<P>matches an occurrence of "baz" that is preceded by "bar" which in turn is not preceded by "foo".</P>
+
+<P>Assertion subpatterns are not capturing subpatterns, and may not be repeated, because it makes no sense to assert the same thing several times. If an assertion contains capturing subpatterns within it, these are always counted for the purposes of numbering the capturing subpatterns in the whole pattern. Substring capturing is carried out for positive assertions, but it does not make sense for negative assertions.</P>
+
+<P>Assertions count towards the maximum of 200 parenthesized subpatterns.</P>
+
+</BODY>
+</HTML>
